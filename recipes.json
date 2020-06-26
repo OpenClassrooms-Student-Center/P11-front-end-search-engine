@@ -356,7 +356,7 @@
         "time": 60,
         "description": "Commencer par cuire les pommes de terre dans l'eau bouillante. Puis epluchez les et coupez les en rondelles. Emincer les oignons puis les faire dorer dans du beurre. Ajouter le jambon fumé coupé en en morceaux ainsi que les pommes de terres. Salez, poivrez à votre gout ( et celui de vos convives ) Laissez cuisiner durant environ 10 minutes puis ajouter le vin blanc. Après 5 minutes, mettre le tout dans un plat à gratin. Coupez le rebelochon, soit en tranches, soit le couper en 2 dans le sens de l'épaisseur et recouvrir les pommes de terre. Cuire au four (environ 220°) durant 25 minutes. C'est prêt !",
         "appliance":["Four"],
-        "ustensiles": ["plat à gratin, couteau, économe"]
+        "ustensiles": ["plat à gratin", "couteau","Économe"]
     },{
         "id": 11,
         "name": "Salade tomate, mozzarella et pommes",
@@ -395,5 +395,34 @@
         "description": "Commencer par couper les feuilles de salade, ajouter les tomates cerises et le fromage découpé en cubes ou en boules avec la cuillère à melon. Découper le jambon de parme en fines lamelles. Ajouter la pomme elle aussi découpée en petit morceaux. Assaisonnez à votre gout. ",
         "appliance": "Saladier",
         "ustensiles": ["Couteau", "Cuillère à melon" ]
+    },{
+        "id": 12,
+        "name": "Compote pomme rhubarbe",
+        "serving": 4,
+        "ingredients":[
+            {
+                "ingredient": "Rhubarbe",
+                "quantity": 160,
+                "unit": "gramme"
+            },
+            {
+                "ingredient": "Pommes",
+                "quantity": 8
+            },
+            {
+                "ingredient": "Sucre vanillé",
+                "quantity": 6,
+                "unit": "sachet"
+            },
+            {
+                "ingredient": "Eau",
+                "quantity" : "0.5",
+                "unit" : "tasse"
+            }
+        ],
+        "time": 40,
+        "description": "Éplucher les fruits et les couper en morceaux, les mettre dans une casserolle en ajoutant l'eau et le sucre vanillé. Laisser cuire 15 minutes en remuant régulièrement.",
+        "appliance": "casserole",
+        "ustensiles": ["Couteau", "économe"]
     }
 ]
