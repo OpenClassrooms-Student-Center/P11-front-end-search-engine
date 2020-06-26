@@ -357,5 +357,43 @@
         "description": "Commencer par cuire les pommes de terre dans l'eau bouillante. Puis epluchez les et coupez les en rondelles. Emincer les oignons puis les faire dorer dans du beurre. Ajouter le jambon fumé coupé en en morceaux ainsi que les pommes de terres. Salez, poivrez à votre gout ( et celui de vos convives ) Laissez cuisiner durant environ 10 minutes puis ajouter le vin blanc. Après 5 minutes, mettre le tout dans un plat à gratin. Coupez le rebelochon, soit en tranches, soit le couper en 2 dans le sens de l'épaisseur et recouvrir les pommes de terre. Cuire au four (environ 220°) durant 25 minutes. C'est prêt !",
         "appliance":["Four"],
         "ustensiles": ["plat à gratin, couteau, économe"]
+    },{
+        "id": 11,
+        "name": "Salade tomate, mozzarella et pommes",
+        "serving": 4,
+        "ingredients":[
+            {
+                "ingredient": "Tomates cerises",
+                "quantity": 250,
+                "unit": "gramme"
+            },
+            {
+                "ingredient": "Mozzarella",
+                "quantity": 150,
+                "unit": "gramme"
+            },
+            {
+                "ingredient": "Jambon de parme",
+                "quantity": 4,
+                "unit": "tranche"
+            }, 
+            {
+                "ingredient": "Pommes",
+                "quantity": 1
+            },
+            {
+                "ingredient": "Salade Verte",
+                "quantity": 1
+            },
+            {
+                "ingredient": "Vinaigrette",
+                "quantity": 5,
+                "unit": "cl"
+            }
+        ],
+        "time": 10,
+        "description": "Commencer par couper les feuilles de salade, ajouter les tomates cerises et le fromage découpé en cubes ou en boules avec la cuillère à melon. Découper le jambon de parme en fines lamelles. Ajouter la pomme elle aussi découpée en petit morceaux. Assaisonnez à votre gout. ",
+        "appliance": "Saladier",
+        "ustensiles": ["Couteau", "Cuillère à melon" ]
     }
 ]
