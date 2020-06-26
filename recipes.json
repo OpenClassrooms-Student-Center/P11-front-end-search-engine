@@ -29,7 +29,7 @@
         ],
         "time": 10,
         "description": "Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée",
-        "appliance": ["Blender"],
+        "appliance": "Blender",
         "ustensiles": ["Cuillère à Soupe", "Verre", "presse citron" ]
     },
     {
@@ -66,7 +66,7 @@
         ],
         "time": 60,
         "description": "Découper le thon en dés, mettre dans un plat et recouvrir de jus de citron vert (mieux vaut prendre un plat large et peu profond). Laisser reposer au réfrigérateur au moins 2 heures. (Si possible faites-le le soir pour le lendemain. Après avoir laissé mariner le poisson, coupez le concombre en fines rondelles sans la peau et les tomates en prenant soin de retirer les pépins. Rayer la carotte. Ajouter les légumes au poissons avec le citron cette fois ci dans un Saladier. Ajouter le lait de coco. Pour ajouter un peu plus de saveur vous pouver ajouter 1 à 2 cuillères à soupe de Crème de coco",
-        "appliance": ["Saladier"],
+        "appliance": "Saladier",
         "ustensiles": ["Presse citron"]
     },{
         "id": 3,
@@ -101,7 +101,7 @@
         ],
         "time": 80,
         "description": "Découper le poulet en morceaux, les faire dorer dans une cocotte avec de l'huile d'olive. Salez et poivrez. Une fois doré, laisser cuire en ajoutant de l'eau. Au bout de 30 minutes, ajouter le coulis de tomate, le lait de coco ainsi que le poivron et l'oignon découpés en morceaux. Laisser cuisiner 30 minutes de plus. Servir avec du riz",
-        "appliance": ["Cocotte"],
+        "appliance": "Cocotte",
         "ustensiles": ["Couteau"]
     },{
         "id": 4,
@@ -138,7 +138,7 @@
         ],
         "time": 50,
         "description": "Faire cuire le riz. Une fois le riz cuit, le laisser refroidir. Couper les oeufs dur en quarts ou en lamelle au choix, coupez le tomates en dés, ajouter au riz les oeufs, les tomates, le thon, le maïs et la vinaigrette. Ajouter au gout de chacun des corniches, olives etc..",
-        "appliance": ["Cuiseur de riz"],
+        "appliance": "Cuiseur de riz",
         "ustensiles": ["Saladier", "Passoire"]
     },
     {
@@ -177,7 +177,7 @@
         ],
         "time": 45,
         "description": "Etaler la pâte feuilleté aux dimensions du moule, étaler la moutarde sur la pâte feuilleté, ajouter le thon. Découper les tomates en rondelles et les poser sur le thon, ajouter un peu de crème fraiche sur toute la tarte et recouvrez de gruyère râpé. Cuire au four 30 minutes",
-        "appliance":["Four"],
+        "appliance":"Four",
         "ustensiles": ["Moule à tarte", "râpe", "Couteau"]
     },
     {
@@ -215,7 +215,7 @@
             }],
             "time": 50,
             "description": "Commencez par mélanger les oeufs le sucre et le sucre vanillé dans un saladier, découper les pommes en tranches, ajouter la crème fraiche aux oeufs. Une fois que tout est pret, étalez la tarte dans le moule. N'oubliez pas de piquer le fond avec une fourchette avant depositionner les pommes sur la tarte. Finallement verser la préparation à base d'oeufs et de crême fraiche. Laisser cuire au four pendant 30 minutes",
-            "appliance": ["Four"],
+            "appliance": "Four",
             "ustensiles": ["Moule à tarte", "saladier", "fourchette"]
     },{
         "id": 7,
@@ -248,7 +248,7 @@
         ],
         "time": 50,
         "description": "Etaler la pate dans les moules à tartelette. Faire cuire la pate 30 minutes. Découper le chocolat en morceau et le faire chauffer, y ajouter la crême liquide, ajouter le beurre et remuer jusqu'à avoir une pâte homogène. Verser la pate sur les tartelettes. Couper les fraises en 2 et les positionner sur ",
-        "appliance":["Four"],
+        "appliance":"Four",
         "ustensiles":["Moule à tartelettes (6)", "casserolle"]
     }, {
         "id": 8,
@@ -288,7 +288,7 @@
         ], 
         "time": 60,
         "description": "Hachez les noix grossièrement. Faire fondre le chocolat avec le beurre. Mélanger les oeuf et le sucre et mélanger au chocolat. Ajouter la farine. Mélanger afin d'avoir quelque chose d'homogène puis incorporer les noix. Verser la préparation dans un moule de préférence rectangulaire. Cuire 2O à 25 minutes à 180°. Sortez du four et attendez quelques minutes pour démouler. Servir avec une boule de glace pour plus de gourmandise.",
-        "appliance": ["Four"],
+        "appliance": "Four",
         "ustensiles": ["Moule à gateaux", "casserolle"]
     },
     {
@@ -320,7 +320,7 @@
         ],
         "time": 15,
         "description":"Peler le concombre le couper 2, retirer les pépins. Couper les olives en morceaux, ainsi que le fromage de chèvre. Ajouter le basilic ainsi que le vinaigre balsamic et l'huile d'olives à votre gout.",
-        "appliance":["saladier"],
+        "appliance":"saladier",
         "ustensiles":["Cuillère en bois", "Couteau"]
     },
     {
@@ -355,7 +355,7 @@
         ],
         "time": 60,
         "description": "Commencer par cuire les pommes de terre dans l'eau bouillante. Puis epluchez les et coupez les en rondelles. Emincer les oignons puis les faire dorer dans du beurre. Ajouter le jambon fumé coupé en en morceaux ainsi que les pommes de terres. Salez, poivrez à votre gout ( et celui de vos convives ) Laissez cuisiner durant environ 10 minutes puis ajouter le vin blanc. Après 5 minutes, mettre le tout dans un plat à gratin. Coupez le rebelochon, soit en tranches, soit le couper en 2 dans le sens de l'épaisseur et recouvrir les pommes de terre. Cuire au four (environ 220°) durant 25 minutes. C'est prêt !",
-        "appliance":["Four"],
+        "appliance":"Four",
         "ustensiles": ["plat à gratin", "couteau","Économe"]
     },{
         "id": 11,
@@ -424,5 +424,121 @@
         "description": "Éplucher les fruits et les couper en morceaux, les mettre dans une casserolle en ajoutant l'eau et le sucre vanillé. Laisser cuire 15 minutes en remuant régulièrement.",
         "appliance": "casserole",
         "ustensiles": ["Couteau", "économe"]
+    },
+    {
+        "id": 13,
+        "name": "Salade mâchée de patates",
+        "serving": 2,
+        "ingredients": [
+            {
+                "ingredient": "mâche",
+                "quantity": 60,
+                "unit": "gramme"
+            },
+            {
+                "ingredient": "pommes de terre",
+                "quantity": 200,
+                "unit": "gramme"
+            },
+            {
+                "ingredient": "Échalote",
+                "quantity": 2
+
+            },
+            {
+                "ingredient": "Vinaigre de cidre",
+                "quantity": 1,
+                "unit":"cuillère à soupe"
+            },
+            {
+                "ingredient": "huile d'olive",
+                "quantity": 2,
+                "unit": "cuillère à soupe"
+            }
+        ],
+        "time":40,
+        "description":"Cuire les pommes de terre environ 30 minutes. Découper les échalottes finement. Durant la cuisson des pommes de terre. Préparez la vinaigrette avec l'huile d'olive et le vinaigre de cidre. Salez poivrez à discrétion. Dans un saladier, mettre le mâche. Ajouter",
+        "appliance": "casserole",
+        "ustensiles":["Couteau","saladier","Cuillère en bois"]
+    },
+    {
+        "id": 14,
+        "name": "Galette Bretonne Saucisse et Fromage à raclette",
+        "serving": 2,
+        "ingredients": [
+            {
+                "ingredient": "Saucisse bretonne ou de toulouse",
+                "quantity": 2
+            },
+            {
+                "ingredient": "Farine de blé noir",
+                "quantity": 130,
+                "unit": "gramme"
+            },
+            {
+                "ingredient": "Oeuf",
+                "quantity": 1
+
+            },
+            {
+                "ingredient": "Fromage à raclette",
+                "quantity": 300,
+                "unit":"grammes"
+            },
+            {
+                "ingredient": "Oignon",
+                "quantity": 1
+            },
+            {
+                "ingredient": "Beurre",
+                "quantity": 75,
+                "unit": "gramme"
+            }
+
+        ],
+        "time": 100,
+        "description":"Mélanger la farine et les oeufs, faire fondre 25 grammes de beurre et ajouter à la pâte. Ajouter du sel. Laisser reposer 1 heure. Faire les galettes et laisser refroidire. Faire chauffer les saucisses avec du beurre et l'oignon. Enrouler les saucisses dans les galettes avec une partie du fromage. Mettre le reste du fromage à raclette par dessus les crêpes. Passer four pendant 20 minutes",
+        "appliance": "Four",
+        "ustensiles":["Poelle à frire","couteau"]
+    },
+    {
+        "id": 15,
+        "name": "Crêpes Chocolat Banane",
+        "serving": 10,
+        "ingredients": [
+            {
+                "ingredient": "Oeuf",
+                "quantity": 3
+            },
+            {
+                "ingredient": "Farine",
+                "quantity": 250,
+                "unit": "gramme"
+            },
+            {
+                "ingredient": "Lait",
+                "quantity": 600,
+                "unit": "ml"
+            },
+            {
+                "ingredient": "Beurre salé",
+                "quantity": 30,
+                "unit":"gramme"
+            },
+            {
+                "ingredient": "Chocolat au lait",
+                "quantity": 100,
+                "unit": "gramme"
+            },
+            {
+                "ingredient": "Banane",
+                "quantity": 4
+            }
+        ],
+        "time": 60,
+        "description":"Mélangez dans un saladier, la farine, les oeuf, et le lait. Battez jusqu'à avoir une masse homogène. Pendant ce temps faites fondre le beurre et ajoutez en une partie à la pâte à crêpes. Faire fondre le chocolat ( avec le reste du beurre salé ). Lorsque vous chauffez les crêpes. Ajouter le chocolat fondu et les bananes coupées en rondelles. Ajoutez une touche de chantilly pour les gourmands",
+        "appliance": "Poële à crêpe",
+        "ustensiles":["Saladier, louche, cuillère en bois"]
     }
+
 ]
