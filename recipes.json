@@ -212,11 +212,12 @@
                 "quantity": 1,
                 "unit": "sachet"
 
-            }],
-            "time": 50,
-            "description": "Commencez par mélanger les oeufs le sucre et le sucre vanillé dans un saladier, découper les pommes en tranches, ajouter la crème fraiche aux oeufs. Une fois que tout est pret, étalez la tarte dans le moule. N'oubliez pas de piquer le fond avec une fourchette avant depositionner les pommes sur la tarte. Finallement verser la préparation à base d'oeufs et de crême fraiche. Laisser cuire au four pendant 30 minutes",
-            "appliance": "Four",
-            "ustensiles": ["Moule à tarte", "saladier", "fourchette"]
+            }
+        ],
+        "time": 50,
+        "description": "Commencez par mélanger les oeufs le sucre et le sucre vanillé dans un saladier, découper les pommes en tranches, ajouter la crème fraiche aux oeufs. Une fois que tout est pret, étalez la tarte dans le moule. N'oubliez pas de piquer le fond avec une fourchette avant depositionner les pommes sur la tarte. Finallement verser la préparation à base d'oeufs et de crême fraiche. Laisser cuire au four pendant 30 minutes",
+        "appliance": "Four",
+        "ustensiles": ["Moule à tarte", "saladier", "fourchette"]
     },{
         "id": 7,
         "name": "Tartelettes au chocolat et aux fraises",
@@ -497,7 +498,7 @@
 
         ],
         "time": 100,
-        "description":"Mélanger la farine et les oeufs, faire fondre 25 grammes de beurre et ajouter à la pâte. Ajouter du sel. Laisser reposer 1 heure. Faire les galettes et laisser refroidire. Faire chauffer les saucisses avec du beurre et l'oignon. Enrouler les saucisses dans les galettes avec une partie du fromage. Mettre le reste du fromage à raclette par dessus les crêpes. Passer four pendant 20 minutes",
+        "description":"Mélanger la farine et les oeufs, faire fondre 25 grammes de beurre et ajouter à la pâte. Ajouter du sel. Laisser reposer 1 heure. Faire les galettes et laisser refroidire. Faire chauffer les saucisses avec du beurre et l'oignon. Enrouler les saucisses dans les crêpes avec une partie du fromage. Mettre le reste du fromage à raclette par dessus les crêpes. Passer four pendant 20 minutes",
         "appliance": "Four",
         "ustensiles":["Poelle à frire","couteau"]
     },
@@ -538,7 +539,513 @@
         "time": 60,
         "description":"Mélangez dans un saladier, la farine, les oeuf, et le lait. Battez jusqu'à avoir une masse homogène. Pendant ce temps faites fondre le beurre et ajoutez en une partie à la pâte à crêpes. Faire fondre le chocolat ( avec le reste du beurre salé ). Lorsque vous chauffez les crêpes. Ajouter le chocolat fondu et les bananes coupées en rondelles. Ajoutez une touche de chantilly pour les gourmands",
         "appliance": "Poële à crêpe",
-        "ustensiles":["Saladier, louche, cuillère en bois"]
+        "ustensiles":["Saladier", "louche", "cuillère en bois"]
+    },
+    {
+        "id": 16,
+        "name": "Gratin de pâtes à la tomate",
+        "serving": 2,
+        "ingredients": [
+            {
+                "ingredient": "Tomates",
+                "quantity": 500,
+                "unit": "gramme"
+            },
+            {
+                "ingredient": "Mozzarella",
+                "quantity": 250,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "Pennes",
+                "quantity": 500,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "Basilic",
+                "quantity": 1,
+                "unit":"tige"
+            },
+            {
+                "ingredient": "huile d'olives",
+                "quantity": 2,
+                "unit": "cuillère à soupe"
+            }
+        ],
+        "time": 45,
+        "description":"Faire cuire les pâtes si vous n'avez pas de pennes des coquillettes peuvent faire l'affaire. Découper les tomates en petits morceaux, soit en tranches soit en dés. Coupez le basilic en petites morceaux et mélangez le aux tomates.  Coupez la mozzarella en tranche. Préchauffez le four à 200°. Alternez entre couches de pattes et couches de tomates, terminez par une couche de pates et recouvrir du fromage. Laisser au four 30 minutes et régalez vous ! Une recette simple qui fera plaisir au petits comme aux grands.",
+        "appliance": "Four",
+        "ustensiles":["plat à gratin", "couteau", "râpe à fromage"]
+    },
+    {
+        "id": 17,
+        "name": "Smoothie à la fraise",
+        "serving": 6,
+        "ingredients": [
+            {
+                "ingredient": "fraises",
+                "quantity": 500,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "Pastèque",
+                "quantity": 0.5
+            },
+            {
+                "ingredient": "jus de citron",
+                "quantity": 1,
+                "unit":"cuillère à soupe"
+            },
+            {
+                "ingredient": "glaçons",
+                "quantity": 8
+            },
+            {
+                "ingredient": "Menthe"
+            }
+        ],
+        "time": 15,
+        "description":"Coupez les fraises en morceaux, découpez la chaire de la pastèque en retirant les pépins. Mettre le tout dans le blender. Ajouter un cuillière à soupe de juste de citron ainsi que les glaçons. Ajoutez quelques fueilles de menthe pour plus de fraicheur. Mixez le tout. Servir et déguster.",
+        "appliance": "Blender",
+        "ustensiles":["Verres", "Couteau", "presse citron"]
+    },
+    {
+        "id": 18,
+        "name": "Smoothie ananas et vanille",
+        "serving": 5,
+        "ingredients": [
+            {
+                "ingredient": "Ananas",
+                "quantity": 1
+            },
+            {
+                "ingredient": "Glace à la vanille",
+                "quantity": 500,
+                "unit": "ml"
+            },
+            {
+                "ingredient": "Lait",
+                "quantity": 50,
+                "unit": "cl"
+            }
+        ],
+        "time": 10,
+        "description":"Séparez 1/5ème d'Ananas ( une belle tranche qui servira pour la décoration des verres ), mettre le reste coupé en cubes au blender, ajouter la glace à la vanille et le lait. Mixez. Servir et décorer avec l'ananas restant. C'est prêt",
+        "appliance": "Blender",
+        "ustensiles":["Verres", "Couteau"]
+    },
+    {
+        "id": 19,
+        "name": "Shake Banane Kiwi",
+        "serving": 4,
+        "ingredients": [
+            {
+                "ingredient": "Kiwi",
+                "quantity": 4
+            },
+            {
+                "ingredient": "citron",
+                "quantity": 1
+            },
+            {
+                "ingredient": "Lait",
+                "quantity": 1,
+                "unit": "litre"
+            },
+            {
+                "ingredient": "sucre glace",
+                "quantity": 30,
+                "unit":"grammes"
+            },
+            {
+                "ingredient": "Banane",
+                "quantity": 1
+            }
+        ],
+        "time": 0,
+        "description":"Coupez les fruits en morceaux, ajouter le jus de citron et le lait ainsi que le sucre glace. Mixez. Ajoutez des glaçons si le lait n'a pas été mis au frais.",
+        "appliance": "Blender",
+        "ustensiles":["Couteau", "Verres", "presse citron"]
+    },
+    {
+        "id": 20,
+        "name": "Pates Carbonara",
+        "serving": 5,
+        "ingredients": [
+            {
+                "ingredient": "Tagliatelles",
+                "quantity": 500,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "Lardons",
+                "quantity": 150,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "Crème fraiche",
+                "quantity": 200,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "Parmesan",
+                "quantity": 100,
+                "unit":"grammes"
+            },
+            {
+                "ingredient": "huile d'olive",
+                "quantity": 1,
+                "unit": "cuillère à soupe"
+            }
+        ],
+        "time": 30,
+        "description":"Faire cuire les pates comme indiqué sur le paquet. Dorer les lardons dans une sauteuse avec l'huile d'olive. Ajouter la crême fraiche et baisser le feu au minimum. Quand les Tagliatelles sont prêtes les mettre dans la sauteuse et bien mélanger le tout en ajoutant le jaune d'oeuf. Servir et ajouter le parmesan râpé.",
+        "appliance": "Sauteuse",
+        "ustensiles":["râpe à fromage", "Cuillère en bois"]
+    },
+    {
+        "id": 21,
+        "name": "Spaghettis à la bolognaise",
+        "serving": 4,
+        "ingredients": [
+            {
+                "ingredient": "Spaghettis",
+                "quantity": 400,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "Oignons",
+                "quantity": 2
+            },
+            {
+                "ingredient": "Coulis de tomate",
+                "quantity": 300,
+                "unit":"grammes"
+            },
+            {
+                "ingredient": "Viande Hachée 1% de matière grasse",
+                "quantity": 400,
+                "unit":"grammes"
+            },
+            {
+                "ingredient": "Vin rouge",
+                "quantity": 20,
+                "unit": "cl"
+            },
+            {
+                "ingredient": "Crème Fraiche",
+                "quantity" : 1,
+                "unit": "Cuillère à soupe"
+            }
+        ],
+        "time": 30,
+        "description":"Cuisiner la viande hachée dans une poelle à frire. Dans une autre faire cuire les oignons découpés en fins dés avec un peu de beurre. Ajouter du vin rouge. Mélanger les oigons avec la viande hachée. Faire cuire les pates le temps indiqué sur le paquet. Ajouter le coulis de tomates à la viande hachée. Une fois que les pates sont cuites, ajouter la crème fraiche à la viande hachée. Serivir.",
+        "appliance": "Casserolle.",
+        "ustensiles":["Cuillère en bois", "louche", "couteau"]
+    },
+    {
+        "id": 22,
+        "name": "Fondant au chocolat",
+        "serving": 4,
+        "ingredients": [
+            {
+                "ingredient": "Beurre",
+                "quantity": 160,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "Chocolat noir",
+                "quantity": 200,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "farine",
+                "quantity": 50,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "Oeufs",
+                "quantity": 4
+            },
+            {
+                "ingredient": "Sucre",
+                "quantity": 150,
+                "unit": "grammes"
+            }
+        ],
+        "time": 30,
+        "description":"Faire fondre le chocolat et le beurre au bain marie. Dans un saladier battre les oeufs avec le sucre jusqu'à obtenir une texture de type mousse. Ajouter la farine ainsi que le mélange de beurre et chocolat fondu. Beurrez le moule à gateaux. Mettre au four préchauffé à 200° puis faites chauffer pendant 15 minutes. C'est prêt. Servir avec une boule de glace ou une crême dessert.",
+        "appliance": "Four",
+        "ustensiles":["Moule à gateaux", "fouet", "casserolle"]
+    },
+    {
+        "id": 23,
+        "name": "Quiche lorraine",
+        "serving": 4,
+        "ingredients": [
+            {
+                "ingredient": "Pâte brisée",
+                "quantity": 200,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "Lardons",
+                "quantity": 200,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "beurre",
+                "quantity": 30,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "Oeufs",
+                "quantity": 3
+            },
+            {
+                "ingredient": "Crème Fraîche",
+                "quantity": 20,
+                "unit": "cl"
+            },
+            {
+                "ingredient": "lait",
+                "quantity": 20,
+                "unit": "cl"
+            }
+        ],
+        "time": 60,
+        "description":"Etaler la pate dans un moule et la piquer.Parsemer de beurre. Faire chauffer les lardon dans une poêle. Battre les oeufs en ajoutant la crème fraîche et le lait. Finalement ajouter les lardons, salez poivrez à votre gout. Verser l'ensemble sur la pâte. Cuire environ 50 minutes.",
+        "appliance": "Four",
+        "ustensiles":["Moule à gateaux", "Rouleau à patisserie", "fouet"]
+    },
+    {
+        "id": 24,
+        "name": "Salade de pâtes",
+        "serving": 4,
+        "ingredients": [
+            {
+                "ingredient": "Thon en miettes",
+                "quantity": 160,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "Mais",
+                "quantity": 60,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "Tomate",
+                "quantity": 1
+            },
+            {
+                "ingredient": "coocombre",
+                "quantity": 0.5
+            },
+            {
+                "ingredient": "Macaronis",
+                "quantity": 300,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "Mayonnaise",
+                "quantity": 2,
+                "unit": "cuillère à soupe"
+            }
+        ],
+        "time": 40,
+        "description":"Découper le concombre et les tomates en dés, les mettre dans un saladier avec le mais et les miettes de thon, ajouter les pates. Ajouter la mayonnaise. Mélanger le tout et servir frais.",
+        "appliance": "Saladier",
+        "ustensiles":["couteau", "cuillère en bois"]
+    },
+    {
+        "id": 25,
+        "name": "Cookies",
+        "serving": 4,
+        "ingredients": [
+            {
+                "ingredient": "Sucre",
+                "quantity": 100,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "Beurre",
+                "quantity": 100,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "Farine",
+                "quantity": 100,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "Chocolat noir en pepites",
+                "quantity": 100,
+                "unit":"grammes"
+            },
+            {
+                "ingredient": "Oeuf",
+                "quantity": 1
+            }
+        ],
+        "time": 30,
+        "description":"Faire fondre le beurre et le mélanger avec le sucre. Finalement ajouter l'oeuf. Ajouter la farine tout en mélangeant peu pa peu pour avoir une masse sans grumaux. Ajouter les pépites de chocolat. Faire, une plaque de cuisson de petites boules pour les cookies. Mettre au four à 180° pour 10 minutes.",
+        "appliance": "Four",
+        "ustensiles":["fouet", "saladier", "plaque de cuisson"]
+    },
+    {
+        "id": 26,
+        "name": "Soupe de tomates",
+        "serving": 2,
+        "ingredients": [
+            {
+                "ingredient": "Tomates",
+                "quantity": 6
+            },
+            {
+                "ingredient": "Pomme de terre",
+                "quantity": 1
+            },
+            {
+                "ingredient": "huile d'olives"
+            },
+            {
+                "ingredient": "Oignon",
+                "quantity": 1
+            },
+            {
+                "ingredient": "Ail",
+                "quantity": 1,
+                "unit": "gousse"
+            }
+        ],
+        "time": 25,
+        "description":"Verser de l'huile dans une cocotte minute couper les légumes et les verser dans l'huile chaude. Laisser cuire et remuer pendant 10 minutes. Passer aux mixer. Servir.",
+        "appliance": "Mixer",
+        "ustensiles":["Cocotte minute", "couteau"]
+    },
+    {
+        "id": 27,
+        "name": "Soupe à l'oseille",
+        "serving": 4,
+        "ingredients": [
+            {
+                "ingredient": "Oseille",
+                "quantity": 2
+            },
+            {
+                "ingredient": "Oeuf",
+                "quantity": 1
+            },
+            {
+                "ingredient": "Crème fraîche",
+                "quantity": 4,
+                "unit": "cuillère à soupe"
+            },
+            {
+                "ingredient": "Vermicelles",
+                "quantity": 1,
+                "unit":"verre"
+            },
+            {
+                "ingredient": "Beurre salé",
+                "quantity": 50,
+                "unit": "grammes"
+            }
+        ],
+        "time": 15,
+        "description":"Faire fondre l'oseille avec du beurre demi sel, ajouter un litre d'eau. Ajouter les vermicelles. Laisser cuire. une foit prêt, sortir du feu et après 5 minutes ajouter le jaune d'oeuf et la crême fraîche",
+        "appliance": "Casserolle",
+        "ustensiles":["couteau","cuillère en bois"]
+    },
+    {
+        "id": 28,
+        "name": "Soupe de poireaux",
+        "serving": 4,
+        "ingredients": [
+            {
+                "ingredient": "Poireaux",
+                "quantity": 3
+            },
+            {
+                "ingredient": "pommes de terre",
+                "quantity": 400,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "oseille",
+                "quantity": 75,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "Beurre",
+                "quantity": 50,
+                "unit":"grammes"
+            },
+            {
+                "ingredient": "Crême fraîche",
+                "quantity": 10,
+                "unit": "cl"
+            }
+        ],
+        "time": 80,
+        "description":"Emincer les blanc de poireaux et les faire chauffer dans 25 grammes de beurre. AJouter les pommes de terres coupées en morceaux. Ajouter l'eau et laisser mijoter pour 45 minutes. Chauffer l'oseille avec le beurre restant puis incorporer le tout. Mixez. Ajoutez la crème. Bon appetit.",
+        "appliance": "Mixer",
+        "ustensiles":["casserolle","couteau"]
+    },
+    {
+        "id": 29,
+        "name": "Houmous Express",
+        "serving": 2,
+        "ingredients": [
+            {
+                "ingredient": "Pois chiches",
+                "quantity": 1,
+                "unit": "boite"
+            },
+            {
+                "ingredient": "Ail",
+                "quantity": 1,
+                "unit": "gousse"
+            },
+            {
+                "ingredient": "citrons",
+                "quantity": 2
+            },
+            {
+                "ingredient": "huile d'olive"
+            },
+            {
+                "ingredient": "Paprika"
+            }
+        ],
+        "time": 30,
+        "description":"Prendre les pois chiches, les mettre dans le mixer avec de l'huile d'olive, ajouter le jus des 2 citrons et du paprika selon le gout.",
+        "appliance": "Mixer",
+        "ustensiles":["Cuillère en bois", "presse citron"]
+    },
+    {
+        "id": 30,
+        "name": "Purée de pos cassés",
+        "serving": 4,
+        "ingredients": [
+            {
+                "ingredient": "Pois Cassé",
+                "quantity": 500,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "Oignon",
+                "quantity": 1
+            },
+            {
+                "ingredient": "Ail",
+                "quantity": 2,
+                "unit": "gousse"
+            }
+        ],
+        "time": 60,
+        "description":"Mettre tous les ingrédients dans une cocotte. ajouter de l'eau pour recouvrir l'ensemble et laisser cuirre à petit feur pour 1 heure. Passer au mixer. Salez, poivrez. C'est prêt",
+        "appliance": "Mixer",
+        "ustensiles":["casserolle", "cuillère en bois"]
     }
-
 ]
