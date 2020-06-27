@@ -1367,7 +1367,7 @@
     {
         "id": 40,
         "name": "Limonade",
-        "serving": 2,
+        "serving": 4,
         "ingredients": [
             {
                 "ingredient": "Eau",
@@ -1393,5 +1393,332 @@
         "description":"Dans un saladier mettre l'eau, le jus des cirtons et le sucre. Bien mélanger. Ajouter le bicarbonate. Servir. Ajouter des glaçon et une feuille de menthe pour la déco.",
         "appliance": "Saladier",
         "ustensiles":["cuillère en bois"]
+    },
+    {
+        "id": 41,
+        "name": "Mousse au chocolat",
+        "serving": 4,
+        "ingredients": [
+            {
+                "ingredient": "Oeufs",
+                "quantity": 3
+            },
+            {
+                "ingredient": "Chocolat noir",
+                "quantity": 100,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "Sucre vanillé",
+                "quantity": 1,
+                "unit": "sachet"
+            }
+        ],
+        "time": 20,
+        "description":"Séparer les blancs d'oeufs. Faire fondre le chocolat au bain marie. Ajouter les jaunes et le sucre au chocolat hors du feu. Battre les blancs en neige. Ajouter les blancs au mélange de chocolat. Mélangez délicatement avec une spatule. Servir dans un plat ou dans des verres. Mettre au frais",
+        "appliance": "casserolle",
+        "ustensiles":["Fouet", "Spatule", "verres"]
+    }, 
+    {
+        "id": 42,
+        "name": "Charlotte au poires",
+        "serving": 3,
+        "ingredients": [
+            {
+                "ingredient": "Chocolat",
+                "quantity": 200,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "Oeufs",
+                "quantity": 3
+            },
+            {
+                "ingredient": "Poires au jus",
+                "quantity": 0.5,
+                "unit" : "boite"
+            },
+            {
+                "ingredient": "Boudoirs",
+                "quantity": 15
+            }
+        ],
+        "time": 60,
+        "description":"Commencez par préparer la mousse au chocolat au moins 2 heures avant. Quand la mousse est prête et a reposée. Alors mouiller les boudoirs dans le jus des poires. Disposer. Alterner : mousse au chocolat, boudoirs et poires. Mettre au frais.",
+        "appliance": "Moule à charlotte",
+        "ustensiles":["Saladier", "couteau", "fouet"]
+    },
+    {
+        "id": 43,
+        "name": "Tarte au citron",
+        "serving": 6,
+        "ingredients": [
+            {
+                "ingredient": "Pâte brisée",
+                "quantity": 200,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "Sucre",
+                "quantity": 150,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "Beurre fondu",
+                "quantity": 100,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "Oeufs",
+                "quantity": 3
+            },
+            {
+                "ingredient": "Citron"
+            }
+        ],
+        "time": 50,
+        "description":"Préchauffez le fours à 200°. Etaler la pate. La mettre dans un moule. Battre les oeufs avec le sucre. Ajouter le jus de citron et le beurre. Verser le tout sur la pate. Au four 30 minutes. Bon appetit ",
+        "appliance": "Four",
+        "ustensiles":["Rouleau à patisserie", "Moule à tarte", "presse citron"]
+    }, 
+    {
+        "id": 44,
+        "name": "Crème déssert au chocolat",
+        "serving": 6,
+        "ingredients": [
+            {
+                "ingredient": "Lait",
+                "quantity": 1,
+                "unit": "litre"
+            },
+            {
+                "ingredient": "Chocolat",
+                "quantity": 200,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "Sucre",
+                "quantity": 100,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "Beurre",
+                "quantity": 50,
+                "unit":"grammes"
+            },
+            {
+                "ingredient": "farine",
+                "quantity": 40,
+                "unit": "grammes"
+            }
+        ],
+        "time": 15,
+        "description":"Mélanger la farine et le beurre fondu en ajoutant le lait peu à peu. Ajouter du sucre après la cuisson. Bien mélanger. Ajouter le chocolat en morceaux et laisser chauffer 8 minutes en mélangeant avec une cuillère en bois. Mettre dans des verres",
+        "appliance": "Casserolle",
+        "ustensiles":["cuillère en bois"]
+    },
+    {
+        "id": 45,
+        "name": "Crème patissière",
+        "serving": 8,
+        "ingredients": [
+            {
+                "ingredient": "lait",
+                "quantity": 50,
+                "unit": "cl"
+            },
+            {
+                "ingredient": "oeufs",
+                "quantity": 2
+            },
+            {
+                "ingredient": "Farine",
+                "quantity": 30,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "Sucre",
+                "quantity": 80,
+                "unit":"grammes"
+            }
+        ],
+        "time": 30,
+        "description":"Faire bouillir le lait ( on peut y ajouter de l'essence de vanille. Battre les oeufs et le sucre, ajouter la farine puis finalement ajouter le lait chaud. Remettre à feu doux pour faire épaissir en remuant pendant 5 à 10 minutes.",
+        "appliance": "Casserolle",
+        "ustensiles":["fouet","saladier"]
+    },
+    {
+        "id": 46,
+        "name": "Far breton",
+        "serving": 6,
+        "ingredients": [
+            {
+                "ingredient": "Farine",
+                "quantity": 250,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "Sucre",
+                "quantity": 150,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "Sucre vanillé",
+                "quantity": 1,
+                "unit": "sachet"
+            },
+            {
+                "ingredient": "Oeufs",
+                "quantity": 4
+            },
+            {
+                "ingredient": "Lait",
+                "quantity": 1,
+                "unit": "litre"
+            },
+            {
+                "ingredient": "pruneaux",
+                "quantity": 100,
+                "unit": "grammes"
+            }
+        ],
+        "time": 60,
+        "description":"Mélanger la farine avec le sucre et les oeufs en ajoutant du sucre vanillé. Ajouter le lait petit à petit. Ajouter un petit vers de rhum. Verser la masse dans un plat beurré y placer les pruneaux et faire cuire à 200° pendant 45 minutes",
+        "appliance": "Four",
+        "ustensiles":["fouet", "moule", "verre"]
+    },
+    {
+        "id": 47,
+        "name": "Mousse au citron",
+        "serving": 6,
+        "ingredients": [
+            {
+                "ingredient": "Jus de citron",
+                "quantity": 100,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "Mascarpone",
+                "quantity": 250,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "Sucre",
+                "quantity": 100,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "Crème Fraîche",
+                "quantity": 20,
+                "unit":"cl"
+            }
+        ],
+        "time": 5,
+        "description":"Mélanger le jus de citron avec le sucre et la mascarpone. Ajouter la crème fraiche. Mélanger le tout et mettre au congélateur pendant 1 heure. Servir",
+        "appliance": "Saladier",
+        "ustensiles":["fouet", "verres", "cuillère en bois"]
+    },
+    {
+        "id": 48,
+        "name": "Pizza",
+        "serving": 4,
+        "ingredients": [
+            {
+                "ingredient": "Pâte à pizza",
+                "quantity": 1
+            },
+            {
+                "ingredient": "Tomates pelées",
+                "quantity": 1,
+                "unit": "boite"
+            },
+            {
+                "ingredient": "lardons",
+                "quantity": 1,
+                "unit": "barquette"
+            },
+            {
+                "ingredient": "Champignons de paris",
+                "quantity": 1,
+                "unit":"boite"
+            },
+            {
+                "ingredient": "Gruyère",
+                "quantity": 200,
+                "unit": "grammes"
+            }
+        ],
+        "time": 40,
+        "description":"Étaler la pate a pizza. Ecraser les tomates pelées, les étaler sur la pâte, ajouter les lardons et les champignons. Ajouter le gruyère eet passer au four à 220° durant 20 minutes",
+        "appliance": "Four",
+        "ustensiles":["Rouleau à patisserie", "râpe à fromage","couteau"]
+    },
+    {
+        "id": 49,
+        "name": "Smoothie tropical",
+        "serving": 4,
+        "ingredients": [
+            {
+                "ingredient": "Bananes",
+                "quantity": 2
+            },
+            {
+                "ingredient": "Kiwis",
+                "quantity": 3
+            },
+            {
+                "ingredient": "Mangue",
+                "quantity": 1
+            },
+            {
+                "ingredient": "Ananas",
+                "quantity": 4,
+                "unit":"tranches"
+            },
+            {
+                "ingredient": "Miel",
+                "quantity": 2,
+                "unit": "Cuillères à soupe"
+            }
+        ],
+        "time": 0,
+        "description":"Découper les fruits. Le passer au blender jusqu'à obtenir une texture liquide. Mettre au frais. Servir",
+        "appliance": "Blender",
+        "ustensiles":["couteau", "verres"]
+    },
+    {
+        "id": 50,
+        "name": "Frangipane",
+        "serving": 2,
+        "ingredients": [
+            {
+                "ingredient": "Pâte feuilletée",
+                "quantity": 400,
+                "unit":"grammes"
+            },
+            {
+                "ingredient": "Oeufs",
+                "quantity": 6
+            },
+            {
+                "ingredient": "Poudre d'amendes",
+                "quantity": 500,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "Beurre",
+                "quantity": 500,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "Sucre glace",
+                "quantity": 500,
+                "unit":"grammes"
+            }
+        ],
+        "time": 60,
+        "description":"Préparer la frangipane : Mélanger le sucre la poudre d'amander, le beurre et les oeufs. Etaler la moitier de la pate feuilleté et mettre dans un moule à tarte. Garnir de frangipane et recouvrir du reste de pate feuilletée. Mettre au four 30 minutes",
+        "appliance": "Four",
+        "ustensiles":["Rouleau à patisserie","fouet"]
     }
 ]
