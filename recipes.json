@@ -137,7 +137,7 @@
             }
         ],
         "time": 50,
-        "description": "Faire cuire le riz. Une fois le riz cuit, le laisser refroidir. Couper les oeufs dur en quarts ou en lamelle au choix, coupez le tomates en dés, ajouter au riz les oeufs, les tomates, le thon, le maïs et la vinaigrette. Ajouter au gout de chacun des corniches, olives etc..",
+        "description": "Faire cuire le riz. Une fois le riz cuit, le laisser refroidir. Couper les oeufs dur en quarts ou en lamelle au choix, coupez le tomates en dés, ajouter au riz les oeufs, les tomates, le poisson, le maïs et la vinaigrette. Ajouter au gout de chacun des corniches, olives etc..",
         "appliance": "Cuiseur de riz",
         "ustensiles": ["Saladier", "Passoire"]
     },
@@ -176,7 +176,7 @@
            }
         ],
         "time": 45,
-        "description": "Etaler la pâte feuilleté aux dimensions du moule, étaler la moutarde sur la pâte feuilleté, ajouter le thon. Découper les tomates en rondelles et les poser sur le thon, ajouter un peu de crème fraiche sur toute la tarte et recouvrez de gruyère râpé. Cuire au four 30 minutes",
+        "description": "Etaler la pâte feuilleté aux dimensions du moule, étaler la moutarde sur la pâte feuilleté, ajouter le thon. Découper les tomates en rondelles et les poser sur le poisson, ajouter un peu de crème fraiche sur toute la tarte et recouvrez de gruyère râpé. Cuire au four 30 minutes",
         "appliance":"Four",
         "ustensiles": ["Moule à tarte", "râpe", "Couteau"]
     },
@@ -853,7 +853,7 @@
             }
         ],
         "time": 40,
-        "description":"Découper le concombre et les tomates en dés, les mettre dans un saladier avec le mais et les miettes de thon, ajouter les pates. Ajouter la mayonnaise. Mélanger le tout et servir frais.",
+        "description":"Découper le concombre et les tomates en dés, les mettre dans un saladier avec le mais et les miettes de poisson, ajouter les pates. Ajouter la mayonnaise. Mélanger le tout et servir frais.",
         "appliance": "Saladier",
         "ustensiles":["couteau", "cuillère en bois"]
     },
@@ -1047,5 +1047,351 @@
         "description":"Mettre tous les ingrédients dans une cocotte. ajouter de l'eau pour recouvrir l'ensemble et laisser cuirre à petit feur pour 1 heure. Passer au mixer. Salez, poivrez. C'est prêt",
         "appliance": "Mixer",
         "ustensiles":["casserolle", "cuillère en bois"]
+    },
+    {
+        "id": 31,
+        "name": "Jardinière de légumes",
+        "serving": 4,
+        "ingredients": [
+            {
+                "ingredient": "Carottes",
+                "quantity": 2
+            },
+            {
+                "ingredient": "Pommes de terre",
+                "quantity": 2
+            },
+            {
+                "ingredient": "Haricots verts",
+                "quantity": 150,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "Petits poids",
+                "quantity": 100,
+                "unit":"grammes"
+            },
+            {
+                "ingredient": "lardons",
+                "quantity": 150,
+                "unit": "grammes"
+            }
+        ],
+        "time": 60,
+        "description":"Découper en cubes les carottes et pommes de terre. Faire revenir dans du beurre. Ajouter les lardons, une fois les lardons dorés, ajouter un grand verre d'eau. Ajouter les petit poids et les haricots verres ( tous deux pré cuits ). Ajouter Sel, poivre, thyms et laurier",
+        "appliance": "Poële",
+        "ustensiles":["Couteau", "économe"]
+    },
+    {
+        "id": 32,
+        "name": "Croque Monsieur à la dinde",
+        "serving": 4,
+        "ingredients": [
+            {
+                "ingredient": "Pain de mie",
+                "quantity": 8,
+                "unit": "tranches"
+            },
+            {
+                "ingredient": "Blancs de dinde",
+                "quantity": 4,
+                "unit": "tranches"
+            },
+            {
+                "ingredient": "Emmental",
+                "quantity": 8,
+                "unit": "tranches"
+            },
+            {
+                "ingredient": "Gruyère",
+                "quantity": 100,
+                "unit":"grammes"
+            },
+            {
+                "ingredient": "Lait",
+                "quantity": 5,
+                "unit": "cl"
+            },
+            {
+                "ingredient": "Noix de muscade",
+                "quantity": 1,
+                "unit": "pincée"
+            }
+        ],
+        "time": 20,
+        "description":"Beurrer les tranches de pain, ajouter entre 2 tranches de pain de mie 1 tranche d'émental, une de blanc de dinde, et une autre d'emmental. Dans un récipient, mélanger le gruyère rappé avec le lait et la noix de muscade. Mettre sur les croque monsieux. Placer au four durnat 10 minutes.",
+        "appliance": "Four",
+        "ustensiles":["râpe à fromage", "Cuillère à Soupe", "couteau"]
+    },
+    {
+        "id": 33,
+        "name": "Sandwich au saumon fumé",
+        "serving": 4,
+        "ingredients": [
+            {
+                "ingredient": "Pain de mie",
+                "quantity": 8,
+                "unit": "tranches"
+            },
+            {
+                "ingredient": "Saumon Fumé",
+                "quantity": 4,
+                "unit": "tranches"
+            },
+            {
+                "ingredient": "Feuilles de laitue",
+                "quantity": 4
+            },
+            {
+                "ingredient": "Fromage blanc",
+                "quantity": 4,
+                "unit":"cuillères à soupe"
+            },
+            {
+                "ingredient": "Jus de citron",
+                "quantity": 1,
+                "unit": "cuillère à soupe"
+            }
+        ],
+        "time": 5,
+        "description":"Mélanger le fromage blanc avec le citron. Ajouter un peu de sel et poivre à votre gout. Sur le pain de mie étaler le mélange. Ajouter une feuille de salade puis le saumon fumé. C'est prêt.",
+        "appliance": "",
+        "ustensiles":["couteau", "Cuillère en bois"]
+    },
+    {
+        "id": 34,
+        "name": "Purée de patate douce",
+        "serving": 4,
+        "ingredients": [
+            {
+                "ingredient": "patate douce",
+                "quantity": 800,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "crème fraîche",
+                "quantity": 20,
+                "unit": "cl"
+            },
+            {
+                "ingredient": "huile d'olive"
+            },
+            {
+                "ingredient": "Orange",
+                "quantity": 1
+            }
+        ],
+        "time": 25,
+        "description":"Eplucher les patates douces et coupez les en morceaux. Les faire cuire durant 20 minute dans une casserolle d'eau bouillante. Passer au mixer en ajoutant la crème et l'huile d'olive à son gout. Salez, poivrez. Pressez l'orange et ajouter le jus à l'ensemble. Servir.",
+        "appliance": "Mixer",
+        "ustensiles":["Couteau", "économe", "Cuillère en bois"]
+    },
+    {
+        "id": 35,
+        "name": "Purée de carottes",
+        "serving": 2,
+        "ingredients": [
+            {
+                "ingredient": "Carottes",
+                "quantity": 6
+            },
+            {
+                "ingredient": "Pomme de terre",
+                "quantity": 1
+            },
+            {
+                "ingredient": "Beurre",
+                "quantity": 20,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "Crème fraîche",
+                "quantity": 2,
+                "unit":"Cuillères à soupe"
+            },
+            {
+                "ingredient": "Cumin",
+                "quantity": 1,
+                "unit": "cuillère à café"
+            },
+            {
+                "ingredient": "Noix de muscade",
+                "quantity": 1,
+                "unit": "pincée"
+            }
+        ],
+        "time": 25,
+        "description":"Éplucher les légumes, les couper en morceaux et les mettre à cuire dans une cocotte minute environ 15 minutes. Mixer en ajoutant le beurre, la crème. Ajouter le cumun et la noix de muscade.",
+        "appliance": "Mixer",
+        "ustensiles":["Cocotte minute", "couteau", "Cuillère en bois"]
+    },
+    {
+        "id": 36,
+        "name": "Lasagne Courgettes et Chèvre",
+        "serving": 2,
+        "ingredients": [
+            {
+                "ingredient": "Courgettes",
+                "quantity": 2
+            },
+            {
+                "ingredient": "Fromage de chèvre",
+                "quantity": 4
+            },
+            {
+                "ingredient": "Lait",
+                "quantity": 25,
+                "unit": "cl"
+            },
+            {
+                "ingredient": "Lasagnes",
+                "quantity": 5,
+                "unit":"feuilles"
+            },
+            {
+                "ingredient": "Gruyère",
+                "quantity": 40,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "Maïzena",
+                "quantity": 1,
+                "unit": "cuillère à soupe"
+            }
+        ],
+        "time": 35,
+        "description":"Raper les courgette et les faire revenir durant 15 minutes. Ajouter les fromages de chèvre frais. Préparer la béchamelle avec le lait et la maizena. Salez poivrez, ajouter de la noix de muscade selon les gouts. Dans un plat, mettre un peu de sauces au fond, puis des lasagnes, puis des courgettes etc... terminer par de la sauces et ajouter le gruiyère. Passer au four à 180° durant 20 à 25 minutes.",
+        "appliance": "Four",
+        "ustensiles":["plat à gratin", "râpe à fromage", "fouet"]
+    },
+    {
+        "id": 37,
+        "name": "Courgettes farcies au boeuf",
+        "serving": 2,
+        "ingredients": [
+            {
+                "ingredient": "Courgettes",
+                "quantity": 2
+            },
+            {
+                "ingredient": "Viande hachée",
+                "quantity": 600,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "huile d'olives",
+                "quantity": 25,
+                "unit": "cl"
+            },
+            {
+                "ingredient": "Oignon",
+                "quantity": 1
+            },
+            {
+                "ingredient": "Coulis de tomates",
+                "quantity": 20,
+                "unit": "cl"
+            },
+            {
+                "ingredient": "Gruyère",
+                "quantity": 50,
+                "unit": "grammes"
+            }
+            
+        ],
+        "time": 60,
+        "description":"Couper les courgettes dans le sens de la longueur. Vider les courgette dans un saladier. Réserver.Faire revenir la chair des courgettes dans 25cl d'huile d'olive. Ajouter l'oignon puis la viande hachée. Mettre la farce dans les courgettes. Ajouter le coulis de tomates. Mettre au four pendant 30 minutes. Avant la fin de la cuisson ajouter le fromage rapé",
+        "appliance": "Four",
+        "ustensiles":["Couteau", "cuillère en bois", "Poelle à frire"]
+    },
+    {
+        "id": 38,
+        "name": "Pain Perdu",
+        "serving": 4,
+        "ingredients": [
+            {
+                "ingredient": "Pain",
+                "quantity": 6,
+                "unit":"tranches"
+            },
+            {
+                "ingredient": "Lait",
+                "quantity": 25,
+                "unit": "cl"
+            },
+            {
+                "ingredient": "Oeufs",
+                "quantity": 3
+            },
+            {
+                "ingredient": "Sucre roux",
+                "quantity": 75,
+                "unit": "grammes"
+            }
+        ],
+        "time": 20,
+        "description":"Fouettez les oeuf, le sucre et le lait. tremper les tranches de pain. Le cuire au four pendant environ 10 minutes à 180°. Servir",
+        "appliance": "Four",
+        "ustensiles":["fouet", "bol","Cuillère à Soupe"]
+    },
+    {
+        "id": 39,
+        "name": "Crumble aux pommes",
+        "serving": 40,
+        "ingredients": [
+            {
+                "ingredient": "Pommes",
+                "quantity": 2
+            },
+            {
+                "ingredient": "Farine",
+                "quantity": 100,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "Beurre",
+                "quantity": 50,
+                "unit": "grammes"
+            },
+            {
+                "ingredient": "Sucre roux",
+                "quantity": 80,
+                "unit":"grammes"
+            }
+        ],
+        "time": 40,
+        "description":"Découper les pommes en dé. Mélanger dans un saladier la farine, le sucre et le beurre. Bien mélanger. Beurrer le moule et ajouter les pommes. Par dessus placez la pate que vous avez obtenu. Cuire 20 minutes au four",
+        "appliance": "Four",
+        "ustensiles":["Saladier", "couteau","fouet"]
+    },
+    {
+        "id": 40,
+        "name": "Limonade",
+        "serving": 2,
+        "ingredients": [
+            {
+                "ingredient": "Eau",
+                "quantity": 1,
+                "unit": "Litre"
+            },
+            {
+                "ingredient": "Citron Vert",
+                "quantity": 3
+            },
+            {
+                "ingredient": "Sucre en poudre",
+                "quantity": 4,
+                "unit":"cuillère à café"
+            },
+            {
+                "ingredient": "bicarbonate",
+                "quantity": 1,
+                "unit": "cuillère à café"
+            }
+        ],
+        "time": 10,
+        "description":"Dans un saladier mettre l'eau, le jus des cirtons et le sucre. Bien mélanger. Ajouter le bicarbonate. Servir. Ajouter des glaçon et une feuille de menthe pour la déco.",
+        "appliance": "Saladier",
+        "ustensiles":["cuillère en bois"]
     }
 ]
