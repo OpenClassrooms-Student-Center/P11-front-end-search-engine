@@ -1,4 +1,4 @@
-[
+const recipes = [
     {
         "id": 1,
         "name" : "Limonade de Coco",
@@ -16,12 +16,12 @@
             {
                 "ingredient" : "Crème de coco",
                 "quantity" : 2,
-                "unit" : "cuillère à soupe"
+                "unit" : "cuillères à soupe"
             },
             {
                 "ingredient" : "Sucre",
                 "quantite" : 30,
-                "unit" : "gramme"
+                "unit" : "grammes"
             },
             {
                 "ingredient": "Glaçons"
@@ -38,9 +38,9 @@
         "serving": 2,
         "ingredients": [
             {
-                "ingredient" : "Thon Rouge ( ou blanc )",
+                "ingredient" : "Thon Rouge (ou blanc)",
                 "quantity" : 200,
-                "unit" : "gramme"
+                "unit" : "grammes"
             },
             {
                 "ingredient" : "Concombre",
@@ -96,7 +96,7 @@
                 "quantity": 1
             },
             {
-                "ingredient": "huile d'olive"
+                "ingredient": "Huile d'olive"
             }
         ],
         "time": 80,
@@ -109,14 +109,14 @@
         "serving": 4,
         "ingredients":[
             {
-                "ingredient": "riz blanc",
+                "ingredient": "Riz blanc",
                 "quantity": 500,
-                "unit": "gramme"
+                "unit": "grammes"
             },
             {
-                "ingredient": "thon en miettes",
+                "ingredient": "Thon en miettes",
                 "quantity": 200,
-                "unit": "gramme"
+                "unit": "grammes"
             },{
                 "ingredient": "Tomate",
                 "quantity": 2
@@ -128,7 +128,7 @@
             {
                 "ingredient": "Maïs",
                 "quantity": 300,
-                "unit": "gramme"
+                "unit": "grammes"
             },
             {
                 "ingredient": "Vinaigrette",
@@ -139,7 +139,7 @@
         "time": 50,
         "description": "Faire cuire le riz. Une fois le riz cuit, le laisser refroidir. Couper les oeufs dur en quarts ou en lamelle au choix, coupez le tomates en dés, ajouter au riz les oeufs, les tomates, le poisson, le maïs et la vinaigrette. Ajouter au gout de chacun des corniches, olives etc..",
         "appliance": "Cuiseur de riz",
-        "ustensiles": ["Saladier", "Passoire"]
+        "ustensiles": ["saladier", "passoire"]
     },
     {
         "id": 5,
@@ -151,9 +151,9 @@
                "quantity": 1 
            },
            {
-               "ingredient": "thon en miettes",
+               "ingredient": "Thon en miettes",
                "quantity": 130,
-               "unit": "gramme"
+               "unit": "grammes"
            },
            {
                 "ingredient": "Tomate",
@@ -162,23 +162,23 @@
            {
                "ingredient": "Crème fraiche",
                "quantity": 2,
-               "unit": "cuillère à soupe"
+               "unit": "cuillères à soupe"
            },
            {
                "ingredient": "gruyère râpé",
                "quantity": 100,
-               "unit": "gramme"
+               "unit": "grammes"
            },
            {
                 "ingredient": "Moutarde de Dijon",
                 "quantity": 1,
-                "unite": "cuillère à soupe"
+                "unite": "cuillères à soupe"
            }
         ],
         "time": 45,
         "description": "Etaler la pâte feuilleté aux dimensions du moule, étaler la moutarde sur la pâte feuilleté, ajouter le thon. Découper les tomates en rondelles et les poser sur le poisson, ajouter un peu de crème fraiche sur toute la tarte et recouvrez de gruyère râpé. Cuire au four 30 minutes",
         "appliance":"Four",
-        "ustensiles": ["Moule à tarte", "râpe", "Couteau"]
+        "ustensiles": ["moule à tarte", "râpe", "couteau"]
     },
     {
         "id": 6,
@@ -190,7 +190,7 @@
                 "quantity": 1
             },
             {
-                "ingredient": "Pommes",
+                "ingredient": "Pomme",
                 "quantity": 3
             },
             {
@@ -198,19 +198,19 @@
                 "quantity": "2"
             },
             {
-                "ingredient":"crème fraiche",
+                "ingredient":"Crème fraiche",
                 "quantity":25,
                 "unit": "cl"
             },
             {
                 "ingredient": "Sucre en Poudre",
                 "quantity": 100,
-                "unit":"gramme"
+                "unit":"grammes"
             },
             {
                 "ingredient": "Sucre vanillé",
                 "quantity": 1,
-                "unit": "sachet"
+                "unit": "sachets"
 
             }
         ],
@@ -224,13 +224,13 @@
         "serving": 6,
         "ingredients":[
             {
-                "ingredient": "pâte sablée",
+                "ingredient": "Pâte sablée",
                 "quantity": 1
             }, 
             {
-                "ingredient": "chocolat au lait",
+                "ingredient": "Chocolat au lait",
                 "quantity": 300,
-                "unit": "gramme"
+                "unit": "grammes"
             },
             {
                 "ingredient": "Crème liquide",
@@ -238,38 +238,38 @@
                 "unit": "cl"
             },
             {
-                "ingredient": "beurre",
+                "ingredient": "Beurre",
                 "quantity": "30",
-                "unit": "gramme"
+                "unit": "grammes"
             },
             {
-                "ingredient": "fraises",
+                "ingredient": "Fraises",
                 "quantity": 6
             }
         ],
         "time": 50,
         "description": "Etaler la pate dans les moules à tartelette. Faire cuire la pate 30 minutes. Découper le chocolat en morceau et le faire chauffer, y ajouter la crême liquide, ajouter le beurre et remuer jusqu'à avoir une pâte homogène. Verser la pate sur les tartelettes. Couper les fraises en 2 et les positionner sur ",
         "appliance":"Four",
-        "ustensiles":["Moule à tartelettes (6)", "casserolle"]
+        "ustensiles":["moule à tartelettes (6)", "casserolle"]
     }, {
         "id": 8,
         "name": "Brownie",
         "serving": 10,
         "ingredients":[
            {
-                "ingredient": "noix",
+                "ingredient": "Noix",
                 "quantity": "180",
-                "unit": "gramme"
+                "unit": "grammes"
            },
            {
-               "ingredient": "chocolat noir",
+               "ingredient": "Chocolat noir",
                "quantity": 150,
-               "unit": "gramme"
+               "unit": "grammes"
            },
            {
-               "ingredient": "beurre",
+               "ingredient": "Beurre",
                "quantity": 120,
-               "unit": "gramme"
+               "unit": "grammes"
            },
            {
                 "ingredient": "Oeuf",
@@ -278,19 +278,19 @@
            {
                "ingredient": "Sucre en Poudre",
                "quantity": "110",
-               "unit": "gramme"
+               "unit": "grammes"
            },
            {
                 "ingredient": "farine",
                 "quantity": 90,
-                "unit": "gramme"
+                "unit": "grammes"
            }
 
         ], 
         "time": 60,
         "description": "Hachez les noix grossièrement. Faire fondre le chocolat avec le beurre. Mélanger les oeuf et le sucre et mélanger au chocolat. Ajouter la farine. Mélanger afin d'avoir quelque chose d'homogène puis incorporer les noix. Verser la préparation dans un moule de préférence rectangulaire. Cuire 2O à 25 minutes à 180°. Sortez du four et attendez quelques minutes pour démouler. Servir avec une boule de glace pour plus de gourmandise.",
         "appliance": "Four",
-        "ustensiles": ["Moule à gateaux", "casserolle"]
+        "ustensiles": ["moule à gateaux", "casserolle"]
     },
     {
         "id": 9,
@@ -307,22 +307,22 @@
             {
                 "ingredient": "Fromage de chèvre",
                 "quantity": 150,
-                "unit": "gramme"
+                "unit": "grammes"
             },
             {
                 "ingredient": "Vinaigre Balsamic"
             },
             {
-                "ingredient": "huile d'olive"
+                "ingredient": "Huile d'olive"
             }, 
             {
-                "ingredient": "basilic"    
+                "ingredient": "Basilic"    
             }
         ],
         "time": 15,
         "description":"Peler le concombre le couper 2, retirer les pépins. Couper les olives en morceaux, ainsi que le fromage de chèvre. Ajouter le basilic ainsi que le vinaigre balsamic et l'huile d'olives à votre gout.",
-        "appliance":"saladier",
-        "ustensiles":["Cuillère en bois", "Couteau"]
+        "appliance":"Saladier",
+        "ustensiles":["cuillère en bois", "couteau"]
     },
     {
         "id": 10,
@@ -334,7 +334,7 @@
                 "quantity": "1"
             },
             {
-                "ingredient": "pommes de terre",
+                "ingredient": "Pommes de terre",
                 "quantity": 4.5,
                 "unit": "kg"
             },
@@ -346,7 +346,7 @@
             {
                 "ingredient": "Oignons",
                 "quantity": 300,
-                "unit": "gramme"
+                "unit": "grammes"
             },
             {
                 "ingredient": "Vin blanc sec",
@@ -366,17 +366,17 @@
             {
                 "ingredient": "Tomates cerises",
                 "quantity": 250,
-                "unit": "gramme"
+                "unit": "grammes"
             },
             {
                 "ingredient": "Mozzarella",
                 "quantity": 150,
-                "unit": "gramme"
+                "unit": "grammes"
             },
             {
                 "ingredient": "Jambon de parme",
                 "quantity": 4,
-                "unit": "tranche"
+                "unit": "tranches"
             }, 
             {
                 "ingredient": "Pommes",
@@ -395,7 +395,7 @@
         "time": 10,
         "description": "Commencer par couper les feuilles de salade, ajouter les tomates cerises et le fromage découpé en cubes ou en boules avec la cuillère à melon. Découper le jambon de parme en fines lamelles. Ajouter la pomme elle aussi découpée en petit morceaux. Assaisonnez à votre gout. ",
         "appliance": "Saladier",
-        "ustensiles": ["Couteau", "Cuillère à melon" ]
+        "ustensiles": ["couteau", "cuillère à melon" ]
     },{
         "id": 12,
         "name": "Compote pomme rhubarbe",
