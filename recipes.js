@@ -344,7 +344,7 @@ const recipes = [
                 "unit": "tranches"
             },
             {
-                "ingredient": "Oignons",
+                "ingredient": "Oignon",
                 "quantity": 300,
                 "unit": "grammes"
             },
@@ -714,7 +714,7 @@ const recipes = [
                 "unit": "grammes"
             },
             {
-                "ingredient": "Oignons",
+                "ingredient": "Oignon",
                 "quantity": 2
             },
             {
