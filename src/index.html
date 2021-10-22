@@ -5,81 +5,62 @@
   <title>Les petits plats</title>
   <link rel="stylesheet" href="index.css">
   <link rel="icon" href="public\medias\image\icon_site.png" />
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
   <script src="script.js"></script>
+  <script src="index.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://unpkg.com/@popperjs/core@2.9.1/dist/umd/popper.min.js" charset="utf-8"></script>
   <script type="text/javascript" src="data_recipes.js"></script>
   <script src="https://unpkg.com/feather-icons"></script>
 </head>
 <body>
-    <div class="home__content-position">
-      <div class="home__items-position">
-        <div class="home__logo-position">
-          <img class="home__logo-style" src="../public/medias/image/15973932905401_logo.png" alt="logo_les_petits_plats">
+    <div class="flex flex-col pt-10">
+      <div class="flex-col w-full max-w-6xl m-auto">
+        <div class="flex justify-center">
+          <img class="w-64" src="../public/medias/image/15973932905401_logo.png" alt="logo_les_petits_plats">
         </div>
         
-        <div class="home__input-style">
-          <div class="items__input-position">
-            <input class="items__input-style" type="search" placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette">
+        <div class="flex flex-row bg-gray-300 w-full p-3 mt-10 rounded-md">
+          <div class="flex flex-1 ml-10">
+            <input class="w-5/6 rounded-md border-0 bg-transparent outline-none text-black placeholder-gray-500" type="search" placeholder="Recherchez votre petit plats !...">
           </div>
-          <button class="items__input-button-style">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+          <button class="bg-transparent border-none cursor-pointer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
               <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65">
               </line>
             </svg>
           </button>
         </div>
-        <div class="home__filter-position">
-          <div class="filter-food__filter-items">
-            <div class="filter-food__input-items">
-              <input class="filter-food__input-style" type="text" placeholder="Ingrédients" id="filterFoodInput" onkeyup="filterFunction()">
-              <button class="filter-food__button-style">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="filter-food__input-icon-style feather feather-chevron-down">
-                  <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-              </button>
+        <p id="message_error" class="text-red-500 pt-2">Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson », etc.</p>
+        <div class="flex flex-row w-full">
+          <div class="flex flex-col pr-10">
+            <div class="mt-5">
+              <div class="flex bg-blue-500 pl-2 pr-2 pt-2 pb-2 rounded-md align-center text-white justify-center tag_style" id="myTag">tag ingrédients
+                <button type="button" class="ml-2" onclick="myFunctionCloseTag(event,'myTag')">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-circle">
+                    <circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line>
+                  </svg>
+                </button>
+              </div>
             </div>
-            <div style="display: none;">
-              <a>Test 1</a>
-              <a>Test 2</a>
-              <a>Test 3</a>
-            </div>
-          </div>
-
-          <div class="filter-device__filter-items">
-            <div class="filter-food__input-items">
-              <input class="filter-food__input-style" type="text" placeholder="Ingrédients" id="filterFoodInput" onkeyup="filterFunction()">
-              <button class="filter-food__button-style">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="filter-food__input-icon-style feather feather-chevron-down">
-                  <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-              </button>
-            </div>
-            <div style="display: none;">
-              <a>Test 1</a>
-              <a>Test 2</a>
-              <a>Test 3</a>
-            </div>
-          </div>
-
-          <div class="filter-utensils__filter-items">
-            <div class="filter-food__input-items">
-              <input class="filter-food__input-style" type="text" placeholder="Ingrédients" id="filterFoodInput" onkeyup="filterFunction()">
-              <button class="filter-food__button-style">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="filter-food__input-icon-style feather feather-chevron-down">
-                  <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-              </button>
-            </div>
-            <div style="display: none;">
-              <a>Test 1</a>
-              <a>Test 2</a>
-              <a>Test 3</a>
+            <div class="flex flex-col justify-center mt-5 p-6 bg-blue-500 rounded-md w-full">
+              <div class="flex flex-row mb-2">
+                <input class="bg-transparent border-none outline-none color placeholder-white" type="text" placeholder="Ingrédients" id="filterFoodInput" onkeyup="filterFunction()">
+                <button type="button" onclick="myFunctionDropdown(event,'myDropdown')" class="filter-food__button-style">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="filter-food__input-icon-style feather feather-chevron-down">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </button>
+              </div>
+              <div id="myDropdown" class="hidden flex-col">
+                <label class="mt-1 mb-1">Test 1</label>
+                <label class="mt-1 mb-1">Test 2</label>
+                <label class="mt-1 mb-1">Test 3</label>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      
-      
     </div>
 </body>
 </html>
