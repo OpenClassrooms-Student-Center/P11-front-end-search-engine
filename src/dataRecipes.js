@@ -1722,3 +1722,55 @@ const recipes = [
         "ustensils":["rouleau à patisserie","fouet"]
     }
 ]
+
+//Algorithme
+
+
+
+// Search name of recipes
+
+const recipeName = recipes.map(recipe => recipe.name)
+console.log(recipeName)
+
+//Filter name by input search
+
+const inputSearch = document.getElementById("inputSearch")
+
+function filterNameInputSearch () {
+
+}
+
+
+
+
+// Search ingredient of recipes
+
+const recipeIngredientGroup = recipes.map(recipe => recipe.ingredients)
+console.log(recipeIngredientGroup)
+
+/* const recipeIngedient = recipeIngredientGroup.forEach(ingredient => ingredient)
+console.log(recipeIngedient) */
+
+function recipeIngredient() {
+    for (var i = 0; i < recipeIngredientGroup.length; i++) {
+    }
+}
+console.log(recipeIngredientGroup())
+
+
+
+
+// Search ustensil of recipes
+
+const recipeUstensilsGroup = recipes.map(recipe => recipe.ustensils)
+console.log(recipeUstensilsGroup)
+
+/* const recipeUstensil = recipeUstensilsGroup.forEach(ustensil => ustensil)
+console.log(recipeUstensil) */
+
+/* const recipeUstensil = () => {
+    for (var i = 0; i < recipeUstensilsGroup.length; i++) {
+
+    }
+}
+console.log(recipeUstensil()) */

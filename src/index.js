@@ -1,15 +1,3 @@
-
-/* DOM */
-
-
-
-
-/* Research and development */
-
-
-
-
-
 /* Functions */
 function myFunctionDropdown(event,myDropdown){
     let element = event.target;
