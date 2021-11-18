@@ -3,7 +3,7 @@
 }
 
 .card_recipe {
-    width: 30%;
+    width: 350px;
     height: 350px;
 }
 
@@ -13,4 +13,9 @@
 
 .dropdown-advanced_style {
     width: 600px;
+}
+
+.card__description-style {
+    width: 50%;
+    height: 90px;
 }

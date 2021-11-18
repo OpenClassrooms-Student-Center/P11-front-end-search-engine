@@ -1725,52 +1725,62 @@ const recipes = [
 
 //Algorithme
 
+// function qui build depuis le template les card de recette, 
+const renderRecipe = (recipe) => {
+    const resultsDiv = document.getElementById('results')
+    resultsDiv.innerHTML = ""; // vide le contenue de la div result
+
+    /* const Ingredients = recipe.ingredients.find(ingredient);
+    console.log(Ingredients) */
+
+    recipe.map(recipe => {
+        const template = document.querySelector('#recipeCard');
+        const clone = template.content.cloneNode(true);
+        const recipeName = clone.querySelector('#recipeName');
+        const recipeTime = clone.querySelector('#recipeTime');
+        const recipeIngredients = clone.querySelector('#recipeIngredients');
+        const recipeQuantities = clone.querySelector('#recipeQuantities');
+        const recipeDetail = clone.querySelector('#recipeDetail');
+
+        recipeName.textContent = recipe.name
+        recipeTime.textContent = recipe.time
+        recipeName.textContent = recipe.name
+        recipeDetail.textContent = recipe.description
+        /* recipeIngredients.textContent = recipe.ingredients */
+        /* console.log(recipe.ingredients) */
+        /* recipeQuantities.textContent = recipe.ingredients */
+       /*  console.log(recipe.ingredients.map(quantity)) */
+
+        resultsDiv.appendChild(clone) // ajoute dans la div result la card depuis le template
+    })
+
+}
+
+renderRecipe(recipes) // render initial au chargement de la page
+
+const filterByName = (data, filtre) =>
+    data.filter(recipe => recipe.name.toLowerCase().includes(filtre.toLowerCase()))
+
+const filterByIngredient = (data, filtre) =>
+    data.filter(recipe =>
+        recipe.ingredients.find(ingredient =>
+            ingredient.ingredient.toLowerCase().includes(filtre.toLowerCase()))
+    )
 
 
-// Search name of recipes
+const onSearch = (recipes, search) => {
+    let results = recipes;
+    console.log(search)
+    results  = filterByName(results, search);
+    results  = filterByIngredient(results, search);
 
-const recipeName = recipes.map(recipe => recipe.name)
-console.log(recipeName)
+    return results
+}
 
-//Filter name by input search
-
-const inputSearch = document.getElementById("inputSearch")
 
 function filterNameInputSearch () {
+    const inputSearch = document.getElementById('#inputSearch')
+    const results = onSearch(recipes, inputSearch.value)
 
+    renderRecipe(results) // render result de la research
 }
-
-
-
-
-// Search ingredient of recipes
-
-const recipeIngredientGroup = recipes.map(recipe => recipe.ingredients)
-console.log(recipeIngredientGroup)
-
-/* const recipeIngedient = recipeIngredientGroup.forEach(ingredient => ingredient)
-console.log(recipeIngedient) */
-
-function recipeIngredient() {
-    for (var i = 0; i < recipeIngredientGroup.length; i++) {
-    }
-}
-console.log(recipeIngredientGroup())
-
-
-
-
-// Search ustensil of recipes
-
-const recipeUstensilsGroup = recipes.map(recipe => recipe.ustensils)
-console.log(recipeUstensilsGroup)
-
-/* const recipeUstensil = recipeUstensilsGroup.forEach(ustensil => ustensil)
-console.log(recipeUstensil) */
-
-/* const recipeUstensil = () => {
-    for (var i = 0; i < recipeUstensilsGroup.length; i++) {
-
-    }
-}
-console.log(recipeUstensil()) */

@@ -6,8 +6,6 @@
   <link rel="stylesheet" href="index.css">
   <link rel="icon" href="public\medias\image\icon_site.png" />
   <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-  <script type="text/javascript" src="index.js"></script>
-  <script type="text/javascript" src="dataRecipes.js"></script>
   <script src="https://unpkg.com/feather-icons"></script>
 </head>
 <body>
@@ -15,8 +13,6 @@
       <div class="flex-col w-full max-w-6xl m-auto">
         <div class="flex justify-center">
           <img class="w-64" src="../public/medias/image/15973932905401_logo.png" alt="logo_les_petits_plats">
-        </div>
-        <div id="results">
         </div>
         <div class="flex flex-row bg-gray-300 w-full p-3 mt-10 rounded-md">
           <div class="flex flex-1 ml-10">
@@ -58,32 +54,43 @@
             </div>
           </div>
         </div>
-        <div class="flex flex-wrap justify-between">
-          <div class="flex flex-col bg-gray-400 mt-5 card_recipe rounded-md overflow-hidden justify-end">
-            <div class="flex flex-col bg-gray-300 h-40 z-10 card_recipe-details p-5">
-              <div class="flex flex-row">
-                <label class="flex flex-1" id="recipeName">Nom du plat</label>
-                <label class="flex flex-2 font-bold items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock mr-1">
-                    <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
-                  </svg>
-                  Times min
-                </label>
-              </div>
-              <div class="flex flex-row mt-3">
-                <div class="flex-col mr-5">
-                  <div class="flex flex-row">
-                    <label class="font-bold text-xs">Ingrédients :&nbsp;</label><label class="text-xs"> Quantité</label>
+        <div class="flex flew-row flex-wrap justify-between" id="results">
+        </div>
+        <template id="recipeCard">
+          <div>
+            <div class="flex flex-col bg-gray-400 mt-5 card_recipe rounded-md overflow-hidden justify-end">
+              <div class="flex flex-col bg-gray-300 h-40 z-10 card_recipe-details p-5">
+                <div class="flex flex-row">
+                  <label class="flex flex-1" id="recipeName">Nom du plat</label>
+                  <div class="flex flex-row font-bold items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock mr-1">
+                      <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    <label id="recipeTime" class="flex flex-2 font-bold items-center">
+                      Times min
+                    </label>
+                    &#160;min
                   </div>
+                  
                 </div>
-                <label class="text-xs">
-                  Description
-                </label>
+                <div class="flex flex-row mt-3 w-full justify-between">
+                  <div class="flex-col mr-5">
+                    <div class="flex flex-row">
+                      <label class="font-bold text-xs" id="recipeIngredients">Ingrédients :&nbsp;</label><label class="text-xs" id="recipeQuantities"> Quantité</label>
+                    </div>
+                  </div>
+                  <label id="recipeDetail" class="text-xs overflow-hidden overflow-ellipsis card__description-style">
+                    Description
+                  </label>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </template>
+        
       </div>
     </div>
 </body>
+<script type="text/javascript" src="index.js"></script>
+<script type="text/javascript" src="dataRecipes.js"></script>
 </html>
