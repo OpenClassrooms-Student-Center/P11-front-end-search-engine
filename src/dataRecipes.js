@@ -1726,19 +1726,20 @@ const recipes = [
 //Algorithme
 
 // function qui build depuis le template les card de recette, 
-const renderRecipe = (recipe) => {
+const renderRecipe = (recipes) => {
     const resultsDiv = document.getElementById('results')
     resultsDiv.innerHTML = ""; // vide le contenue de la div result
 
     /* const Ingredients = recipe.ingredients.find(ingredient);
     console.log(Ingredients) */
 
-    recipe.map(recipe => {
+    recipes.map(recipe => {
         const template = document.querySelector('#recipeCard');
         const clone = template.content.cloneNode(true);
         const recipeName = clone.querySelector('#recipeName');
         const recipeTime = clone.querySelector('#recipeTime');
         const recipeIngredients = clone.querySelector('#recipeIngredients');
+        const recipeIngredientsFilter = clone.querySelector('#recipeIngredient');
         const recipeQuantities = clone.querySelector('#recipeQuantities');
         const recipeDetail = clone.querySelector('#recipeDetail');
 
@@ -1758,11 +1759,11 @@ const renderRecipe = (recipe) => {
 
 renderRecipe(recipes) // render initial au chargement de la page
 
-const filterByName = (data, filtre) =>
-    data.filter(recipe => recipe.name.toLowerCase().includes(filtre.toLowerCase()))
+const filterByName = (recipes, filtre) =>
+    recipes.filter(recipe => recipe.name.toLowerCase().includes(filtre.toLowerCase()))
 
-const filterByIngredient = (data, filtre) =>
-    data.filter(recipe =>
+const filterByIngredient = (recipes, filtre) =>
+    recipes.filter(recipe =>
         recipe.ingredients.find(ingredient =>
             ingredient.ingredient.toLowerCase().includes(filtre.toLowerCase()))
     )
