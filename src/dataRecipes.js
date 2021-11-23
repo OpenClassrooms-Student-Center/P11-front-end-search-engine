@@ -1723,6 +1723,8 @@ const recipes = [
     }
 ]
 
+const searchBar = document.getElementById('inputSearch')
+let searchResult = []
 //Algorithme
 
 // function qui build depuis le template les card de recette, 
@@ -1738,50 +1740,75 @@ const renderRecipe = (recipes) => {
         const clone = template.content.cloneNode(true);
         const recipeName = clone.querySelector('#recipeName');
         const recipeTime = clone.querySelector('#recipeTime');
-        const recipeIngredients = clone.querySelector('#recipeIngredients');
-        const recipeIngredientsFilter = clone.querySelector('#recipeIngredient');
-        const recipeQuantities = clone.querySelector('#recipeQuantities');
+        /* const recipeIngredients = clone.querySelector('#recipeIngredients'); */
+        const recipeIngredientsList = clone.querySelector('#recipeIngredientsList');
+        /* const recipeQuantities = clone.querySelector('#recipeQuantities'); */
         const recipeDetail = clone.querySelector('#recipeDetail');
 
         recipeName.textContent = recipe.name
         recipeTime.textContent = recipe.time
         recipeName.textContent = recipe.name
         recipeDetail.textContent = recipe.description
-        /* recipeIngredients.textContent = recipe.ingredients */
-        /* console.log(recipe.ingredients) */
-        /* recipeQuantities.textContent = recipe.ingredients */
-       /*  console.log(recipe.ingredients.map(quantity)) */
+
+        /* recipes.ingredients.forEach((ingredient) => {
+            const newDiv = document.createElementById('ingredientList');
+            newDiv.innerText = `${ingredient.ingredient} X ${ingredient.quantity} ${ingredient.unit}`
+            recipeIngredientsList.appendChild(newDiv);
+        }) */
 
         resultsDiv.appendChild(clone) // ajoute dans la div result la card depuis le template
     })
-
 }
-
 renderRecipe(recipes) // render initial au chargement de la page
 
-const filterByName = (recipes, filtre) =>
+const filterByName = (recipes, filtre) => {
     recipes.filter(recipe => recipe.name.toLowerCase().includes(filtre.toLowerCase()))
+}
 
-const filterByIngredient = (recipes, filtre) =>
+const filterByIngredient = (recipes, filtre) => {
     recipes.filter(recipe =>
         recipe.ingredients.find(ingredient =>
             ingredient.ingredient.toLowerCase().includes(filtre.toLowerCase()))
     )
-
+}
 
 const onSearch = (recipes, search) => {
-    let results = recipes;
-    console.log(search)
-    results  = filterByName(results, search);
-    results  = filterByIngredient(results, search);
+    const resultsByName  = filterByName(recipes, search);
+    const resultsByIngre  = filterByIngredient(recipes, search);
 
-    return results
+    console.log('====INGREDIENTS====')
+    console.log(resultsByIngre)
+
+    console.log('====NAME====')
+    console.log(resultsByName)
+    return resultsByName.concat(resultsByIngre)
 }
 
 
-function filterNameInputSearch () {
-    const inputSearch = document.getElementById('#inputSearch')
-    const results = onSearch(recipes, inputSearch.value)
 
-    renderRecipe(results) // render result de la research
+function searchByName () {
+    if (searchBar.value.length >= 3 ) {
+        console.log('>>>>>>>>>>>> SEARCH', searchBar.value)
+        const results = onSearch(recipes, searchBar.value)
+
+        /**** NEXT *****/
+        // const currentIngredients = getIngredients(results) // ['coco', 'poulet', ...]
+        // renderFilter(currentIngredients)
+
+
+        searchResult = results
+        renderRecipe(results)
+    }
 }
+
+/**** NEXT *****/
+// 3 champs filtre => Ajout d'un filtre => Creation d'un Tag => Trigger de la fonction de filtrage
+    // ideal pour la semaine pro, les filtres marchent, les tags sont crÃ©es
+const filtre = () => {
+    console.log('filtre')
+    console.log(searchResult)
+    /**** NEXT *****/
+   // console.log(TagList) // [{ value: 'coco', type: 'ingredient' }, ...]
+}
+
+searchBar.addEventListener('keyup', searchByName)
