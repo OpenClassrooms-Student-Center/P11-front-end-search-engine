@@ -106,34 +106,33 @@
             </div>
           </div>
         </div>
-        <div class="flex flew-row flex-wrap justify-between" id="results">
+        <div class="flex flew-row flex-wrap justify-around" id="results">
         </div>
         <template id="recipeCard">
-          <div>
-            <div class="flex flex-col bg-gray-400 mt-5 card_recipe rounded-md overflow-hidden justify-end">
-              <div class="flex flex-col bg-gray-300 h-40 z-10 card_recipe-details p-5">
-                <div class="flex flex-row">
-                  <label class="flex flex-1" id="recipeName">Nom du plat</label>
-                  <div class="flex flex-row font-bold items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock mr-1">
-                      <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
-                    </svg>
-                    <label id="recipeTime" class="flex flex-2 font-bold items-center">
-                      Times min
-                    </label>
-                    &#160;min
-                  </div>
+          <div class="flex flex-col bg-gray-400 mt-5 card_recipe rounded-md overflow-hidden justify-end w-50">
+            <div class="flex flex-col bg-gray-300 h-40 z-10 card_recipe-details p-5">
+              <div class="flex flex-row">
+                <label class="flex flex-1" id="recipeName">Nom du plat</label>
+                <div class="flex flex-row font-bold items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock mr-1">
+                    <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+                  </svg>
+                  <label id="recipeTime" class="flex flex-2 font-bold items-center">
+                    Times min
+                  </label>
+                  &#160;min
                 </div>
-                <div class="flex flex-row mt-3 w-full justify-between">
-                  <div class="flex-col mr-5">
-                    <div class="flex flex-row">
-                      <div class="font-bold text-xs" id="recipeIngredientsList"></div>
+              </div>
+              <div class="flex flex-row mt-3 w-full justify-between">
+                <div class="flex-col mr-5">
+                  <div class="flex flex-row overflow-hidden overflow-ellipsis card__ingredients-list-style">
+                    <div class="font-bold text-xs flex flex-col" id="recipeIngredientsList">
                     </div>
                   </div>
-                  <label id="recipeDetail" class="text-xs overflow-hidden overflow-ellipsis card__description-style">
-                    Description
-                  </label>
                 </div>
+                <label id="recipeDetail" class="text-xs overflow-hidden overflow-ellipsis card__description-style">
+                  Description
+                </label>
               </div>
             </div>
           </div>
