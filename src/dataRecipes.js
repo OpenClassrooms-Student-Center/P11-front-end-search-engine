@@ -1723,17 +1723,18 @@ const recipes = [
     }
 ]
 
-const searchBar = document.getElementById('inputSearch')
+/* ======================== START - DOM =====================  */
+const searchBar = document.getElementById('inputSearch');
+const searchBarIngredient = document.getElementById('filterFoodInput');
 let searchResult = []
-//Algorithme
+/* ======================== END - DOM =====================  */
+
+/* ======================== START - Algorithme =====================  */
 
 // function qui build depuis le template les card de recette, 
 const renderRecipe = (recipes) => {
     const resultsDiv = document.getElementById('results')
     resultsDiv.innerHTML = ""; // vide le contenue de la div result
-
-    /* const Ingredients = recipe.ingredients.find(ingredient);
-    console.log(Ingredients) */
 
     recipes.map(recipe => {
         const template = document.querySelector('#recipeCard');
@@ -1744,6 +1745,7 @@ const renderRecipe = (recipes) => {
         const recipeIngredientsList = clone.querySelector('#recipeIngredientsList');
         /* const recipeQuantities = clone.querySelector('#recipeQuantities'); */
         const recipeDetail = clone.querySelector('#recipeDetail');
+        
 
         recipeName.textContent = recipe.name
         recipeTime.textContent = recipe.time
@@ -1752,21 +1754,64 @@ const renderRecipe = (recipes) => {
 
         recipe.ingredients.forEach((ingredient) => {
             const newDiv = document.createElement("div");
-            const quantityUnity = ingredient.unit;
-            const quantityUnityInclude = () => {
-                
-            }
-
-            newDiv.innerText = `${ingredient.ingredient} : ${ingredient.quantity} ${quantityUnityInclude}`;
+            newDiv.innerText = `${ingredient.ingredient}: ${ingredient.quantity} ${ingredient.unit}`;
             recipeIngredientsList.appendChild(newDiv);
         })
-
+        
         resultsDiv.appendChild(clone) // ajoute dans la div result la card depuis le template
+        console.log(recipe.ingredients)
     })
+}
+renderRecipe(recipes) // render initial au chargement de la page
 
+/* ======================== START - Filters =====================  */
+
+const renderFilterIngredients = (recipes) => {
+    const recipeIngredient = document.getElementById('recipeIngredient')
+    recipes.map(recipe => {
+        recipe.ingredients.forEach((ingredient) => {
+            const newDivIngredient = document.createElement("button");
+            newDivIngredient.innerText = `${ingredient.ingredient}`;
+            newDivIngredient.className = `filter__position-label`;
+            recipeIngredient.appendChild(newDivIngredient);
+        })
+    })
+}
+renderFilterIngredients(recipes)
+
+function tagFilterIngredient = (recipes) => {
+    const templateTagIngredient = document.querySelector('#tagIngredient');
+    const cloneIngredient = templateTagIngredient.content.cloneNode(true);
+    
 }
 
-renderRecipe(recipes) // render initial au chargement de la page
+const renderFilterAppareils = (recipes) => {
+    const recipeAppareil = document.getElementById('recipeAppareil')
+    recipes.map(recipe => {
+        const newDivAppareil = document.createElement("button");
+        newDivAppareil.innerText = recipe.appliance;
+        newDivAppareil.className = `filter__position-label`;
+        recipeAppareil.appendChild(newDivAppareil);
+    })
+}
+renderFilterAppareils(recipes)
+
+const renderFilterUstensiles = (recipes) => {
+    const recipeUstensils = document.getElementById('recipeUstensile')
+    recipes.map(recipe => {
+
+        recipe.ustensils.forEach((item,index) => {
+            const newDivUstensils = document.createElement("button");
+            const ustensil = document.createTextNode(item);
+            newDivUstensils.appendChild(ustensil);
+            newDivUstensils.className = `filter__position-label`;
+            recipeUstensils.appendChild(newDivUstensils);
+        })
+    })
+}
+renderFilterUstensiles(recipes)
+
+/* ======================== END - Filters =====================  */
 
 const filterByName = (recipes, filtre) =>
     recipes.filter(recipe => recipe.name.toLowerCase().includes(filtre.toLowerCase()))
@@ -1790,7 +1835,10 @@ const onSearch = (recipes, search) => {
     return resultsByName.concat(resultsByIngre)
 }
 
-
+const onSearchIngredient = (recipes, searchIngredient) => {
+    const resultsByIngredient  = filterByIngredient(recipes, searchIngredient);
+    return resultsByIngredient
+}
 
 function searchByName () {
     if (searchBar.value.length >= 3 ) {
@@ -1806,6 +1854,15 @@ function searchByName () {
     }
 }
 
+function searchIngredient () {
+    if (searchBarIngredient.value.length >= 3 ) {
+        console.log('>>>>>>>>>>>> SEARCH', searchBarIngredient.value)
+        const resultsIngredients = onSearch(recipes, searchBarIngredient.value)
+        searchIngredients = resultsIngredients
+        renderFilterIngredients(resultsIngredients)
+    }
+}
+
 /**** NEXT *****/
 // 3 champs filtre => Ajout d'un filtre => Creation d'un Tag => Trigger de la fonction de filtrage
     // ideal pour la semaine pro, les filtres marchent, les tags sont crÃ©es
@@ -1817,3 +1874,5 @@ const filtre = () => {
 }
 
 searchBar.addEventListener('keyup', searchByName)
+
+/* ======================== END - Algorithme =====================  */

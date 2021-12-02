@@ -24,3 +24,17 @@
     width: 50%;
     height: 90px;
 }
+
+.filter__position-label {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 200px;
+    text-align: start;
+    outline: none;
+    border: none;
+}
+
+.filter__position-label:active {
+    outline: none;
+    border: none;
+}

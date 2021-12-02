@@ -28,28 +28,29 @@
         <p id="message_error" class="text-red-500 pt-2">Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson », etc.</p>
         <div class="flex flex-row w-full">
           <div class="flex flex-col pr-10">
-            <div class="flex flex-wrap mt-5" id="myTagIngredient">
-              <div class="flex bg-blue-500 pl-3 pr-3 pt-2 pb-2 rounded-md align-center text-white justify-center">tag ingrédients
+            <div class="flex flex-wrap mt-5" id="localTagIngredients">
+            </div>
+            <template id="tagIngredient">
+              <div class="flex bg-blue-500 pl-3 pr-3 pt-2 pb-2 rounded-md align-center text-white justify-center" id="myTagIngredient">tag ingrédients
                 <button type="button" class="ml-2" onclick="myFunctionCloseTagIngredient(event,'myTagIngredient')">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-circle">
                     <circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line>
                   </svg>
                 </button>
               </div>
-            </div>
+            </template>
             <div class="flex flex-col justify-center mt-5 p-6 bg-blue-500 rounded-md ">
               <div class="flex flex-row">
-                <input class="flex flex-1 bg-transparent border-none outline-none color placeholder-white input-advanced_style" type="text" placeholder="Ingrédients" id="filterFoodInput" onkeyup="filterFunction()">
+                <input class="flex flex-1 bg-transparent border-none outline-none color placeholder-white input-advanced_style text-white" type="text" placeholder="Ingrédients" id="filterFoodInput" onkeyup="searchIngredient()">
                 <button type="button" onclick="myFunctionDropdownIngredient(event,'myDropdownIngredient')">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="filter-food__input-icon-style feather feather-chevron-down">
                     <polyline points="6 9 12 15 18 9"></polyline>
                   </svg>
                 </button> 
               </div>
-              <div id="myDropdownIngredient" class="hidden flex-row flex-wrap mt-2 dropdown-advanced_style">
-                <label class="mt-1 mb-1" id="recipeIngredient">dsfsdfsdfsdfdsfsdfsdfsdsdfsdfsd</label>
-                <!-- <label class="mt-1 mb-1">Test 2</label>
-                <label class="mt-1 mb-1">Test 3</label> -->
+              <div id="myDropdownIngredient" class="hidden flex-row flex-wrap mt-2 dropdown-advanced_style text-white">
+                <div class="flex flex-row flex-wrap justify-between" id="recipeIngredient">
+                </div>
               </div>
             </div>
           </div>
@@ -65,17 +66,16 @@
             </div>
             <div class="flex flex-col justify-center mt-5 p-6 bg-green-500 rounded-md ">
               <div class="flex flex-row">
-                <input class="flex flex-1 bg-transparent border-none outline-none color placeholder-white input-advanced_style" type="text" placeholder="Appareils" id="filterFoodInput" onkeyup="filterFunction()">
+                <input class="flex flex-1 bg-transparent border-none outline-none color placeholder-white input-advanced_style text-white" type="text" placeholder="Appareils" id="filterFoodInput" onkeyup="filterFunction()">
                 <button type="button" onclick="myFunctionDropdownAppareil(event,'myDropdownAppareil')">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="filter-food__input-icon-style feather feather-chevron-down">
                     <polyline points="6 9 12 15 18 9"></polyline>
                   </svg>
                 </button> 
               </div>
-              <div id="myDropdownAppareil" class="hidden flex-row flex-wrap mt-2 dropdown-advanced_style">
-                <label class="mt-1 mb-1" id="recipeIngredient">fdsfdsfsdfsdfdsfsdfsdfsdfsdfsdfsdfsdfsd</label>
-                <!-- <label class="mt-1 mb-1">Test 2</label>
-                <label class="mt-1 mb-1">Test 3</label> -->
+              <div id="myDropdownAppareil" class="hidden flex-row flex-wrap mt-2 dropdown-advanced_style text-white">
+                <div class="flex flex-row flex-wrap justify-between" id="recipeAppareil">
+                </div>
               </div>
             </div>
           </div>
@@ -91,17 +91,16 @@
             </div>
             <div class="flex flex-col justify-center mt-5 p-6 bg-red-500 rounded-md ">
               <div class="flex flex-row">
-                <input class="flex flex-1 bg-transparent border-none outline-none color placeholder-white input-advanced_style" type="text" placeholder="Ustensiles" id="filterFoodInput" onkeyup="filterFunction()">
+                <input class="flex flex-1 bg-transparent border-none outline-none color placeholder-white input-advanced_style text-white" type="text" placeholder="Ustensiles" id="filterFoodInput" onkeyup="filterFunction()">
                 <button type="button" onclick="myFunctionDropdownUstensile(event,'myDropdownUstensile')">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="filter-food__input-icon-style feather feather-chevron-down">
-                    <polyline points="6 9 12 15 18 9">sdfsdfdsfsdfsdfsdfdsfsdfdsf</polyline>
+                    <polyline points="6 9 12 15 18 9"></polyline>
                   </svg>
                 </button> 
               </div>
-              <div id="myDropdownUstensile" class="hidden flex-row flex-wrap mt-2 dropdown-advanced_style">
-                <label class="mt-1 mb-1" id="recipeIngredient"></label>
-                <!-- <label class="mt-1 mb-1">Test 2</label>
-                <label class="mt-1 mb-1">Test 3</label> -->
+              <div id="myDropdownUstensile" class="hidden flex-row flex-wrap mt-2 dropdown-advanced_style text-white">
+                <div class="flex flex-row flex-wrap justify-between" id="recipeUstensile">
+                </div>
               </div>
             </div>
           </div>
