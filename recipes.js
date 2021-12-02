@@ -96,7 +96,7 @@ const recipes = [
                 "quantity": 1
             },
             {
-                "ingredient": "Huile d'olive"
+                "ingredient": "Huile d'olive",
                 "quantity": 1,
                "unit": "cuillères à soupe"
             }
