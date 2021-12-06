@@ -49,3 +49,13 @@ function myFunctionCloseTagUstensile(event,myTagUstensile){
   }
   document.getElementById(myTagUstensile).classList.toggle("hidden");
 }
+
+//Import js file by spliting
+async function load() {
+  const page = await import("./js/filterInputs", "./js/filterDetails", "./js/renderRecipe");
+  // Render page
+  page.renderRecipes();
+  page.filtersDetails();
+  page.filtersInputs();
+}
+load();
