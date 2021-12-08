@@ -1,4 +1,3 @@
-import recipes from './data.json';
 // function qui build depuis le template les card de recette, 
 const renderRecipe = (recipes) => {
     const resultsDiv = document.getElementById('results')
@@ -28,6 +27,5 @@ const renderRecipe = (recipes) => {
 
         resultsDiv.appendChild(clone) // ajoute dans la div result la card depuis le template
     })
-
     renderRecipe(recipes)
 }

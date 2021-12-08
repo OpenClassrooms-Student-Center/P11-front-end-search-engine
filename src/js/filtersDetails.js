@@ -1,5 +1,3 @@
-
-import recipes from './data.json';
 /* ======================== START - Filters =====================  */
 const renderFilterIngredients = (ingredients) => {
     const recipeIngredient = document.getElementById('recipeIngredient')

@@ -1,5 +1,3 @@
-
-import recipes from './data.json';
 /* ======================== START - DOM =====================  */
 const searchBar = document.getElementById('inputSearch');
 const searchBarIngredient = document.getElementById('filterFoodInput');

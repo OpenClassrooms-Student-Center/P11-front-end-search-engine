@@ -1,8 +1,0 @@
-{
-  "devDependencies": {
-    "autoprefixer": "^10.3.7",
-    "parcel": "^2.0.1",
-    "postcss": "^8.3.10",
-    "tailwindcss": "^2.2.17"
-  }
-}
