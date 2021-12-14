@@ -1,23 +1,37 @@
 import recipesInit from './js/data'
-import renderFilterIngredients from './js/render/filter'
+import renderFilterIngredients from './js/render/filter/filter_details_ingredient'
+import renderFilterAppliances from './js/render/filter/filter_details_appliance'
 import renderRecipe from './js/render/recipe'
 import search from './js/search'
-import './js/filter/index'
+import './js/filter_details_functions/functions'
 
 
 
 let ingredientResults = []
+let applianceResults = []
 
 const render = (recipes) => {
     renderRecipe(recipes)
 
-    ingredientResults = []
+    /* ingredientResults = [] */
     recipes.forEach(recipe => {
         ingredientResults = [...ingredientResults, ...recipe.ingredients]
     })
     ingredientResults = [...new Set(ingredientResults.map(item => item.ingredient))];
 
     renderFilterIngredients(ingredientResults)
+
+    recipes.forEach(recipe => {
+        applianceResults = [...applianceResults, ...recipe.appliance]
+        console.log(recipe.appliance)
+    })
+    applianceResults = [...new Set(applianceResults.map(item => item.appliance))];
+
+    renderFilterAppliances(applianceResults)
+    
+    console.log('===Appliance===');
+    console.log(renderFilterAppliances())
+    console.log(renderFilterAppliances(applianceResults))
 }
 
 const searchBar = document.getElementById('inputSearch');
@@ -36,16 +50,6 @@ function onSearch () {
     }
 
     console.log(ingredientResults)
-}
-
-
-function myFunctionDropdownIngredient(event,myDropdownIngredient){
-    let element = event.target;
-    while(element.nodeName !== "BUTTON"){
-        element = element.parentNode;
-    }
-    document.getElementById(myDropdownIngredient).classList.toggle("hidden");
-    document.getElementById(myDropdownIngredient).classList.toggle("flex");
 }
 
 searchBar.addEventListener('keyup', onSearch)
