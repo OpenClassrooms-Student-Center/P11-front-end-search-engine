@@ -26,19 +26,19 @@
           </button>
         </div>
         <p id="message_error" class="text-red-500 pt-2">Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson », etc.</p>
+        <div class="flex flex-wrap mt-5" id="localTags">
+        </div>
+        <template id="tag">
+          <div class="flex pl-3 pr-3 pt-2 pb-2 bg-blue-600 rounded-md align-center text-white justify-center" id="tagDetails">tag ingrédients
+            <button type="button" class="ml-2" onclick="closeTag()">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-circle">
+                <circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line>
+              </svg>
+            </button>
+          </div>
+        </template>
         <div class="flex flex-row w-full">
           <div class="flex flex-col pr-10">
-            <div class="flex flex-wrap mt-5" id="localTagIngredients">
-            </div>
-            <template id="tagIngredient">
-              <div class="flex bg-blue-500 pl-3 pr-3 pt-2 pb-2 rounded-md align-center text-white justify-center" id="myTagIngredient">tag ingrédients
-                <button type="button" class="ml-2" onclick="myFunctionCloseTagIngredient(event,'myTagIngredient')">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-circle">
-                    <circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line>
-                  </svg>
-                </button>
-              </div>
-            </template>
             <div class="flex flex-col justify-center mt-5 p-6 bg-blue-500 rounded-md ">
               <div class="flex flex-row">
                 <input class="flex flex-1 bg-transparent border-none outline-none color placeholder-white input-advanced_style text-white" type="text" placeholder="Ingrédients" id="filterFoodInput" onkeyup="searchIngredient()">
@@ -55,15 +55,6 @@
             </div>
           </div>
           <div class="flex flex-col pr-10">
-            <div class="flex flex-wrap mt-5" id="myTagAppareil">
-              <div class="flex bg-green-500 pl-3 pr-3 pt-2 pb-2 rounded-md align-center text-white justify-center">tag appareil
-                <button type="button" class="ml-2" onclick="myFunctionCloseTagAppareil(event,'myTagAppareil')">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-circle">
-                    <circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line>
-                  </svg>
-                </button>
-              </div>
-            </div>
             <div class="flex flex-col justify-center mt-5 p-6 bg-green-500 rounded-md ">
               <div class="flex flex-row">
                 <input class="flex flex-1 bg-transparent border-none outline-none color placeholder-white input-advanced_style text-white" type="text" placeholder="Appareils" id="filterFoodInput" onkeyup="filterFunction()">
@@ -80,15 +71,6 @@
             </div>
           </div>
           <div class="flex flex-col pr-10">
-            <div class="flex flex-wrap mt-5" id="myTagUstensile">
-              <div class="flex bg-red-500 pl-3 pr-3 pt-2 pb-2 rounded-md align-center text-white justify-center">tag ustensile
-                <button type="button" class="ml-2" onclick="myFunctionCloseTagUstensile(event,'myTagUstensile')">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-circle">
-                    <circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line>
-                  </svg>
-                </button>
-              </div>
-            </div>
             <div class="flex flex-col justify-center mt-5 p-6 bg-red-500 rounded-md ">
               <div class="flex flex-row">
                 <input class="flex flex-1 bg-transparent border-none outline-none color placeholder-white input-advanced_style text-white" type="text" placeholder="Ustensiles" id="filterFoodInput" onkeyup="filterFunction()">
@@ -141,4 +123,5 @@
 </body>
 <script src="/index.379dd93c.js" defer=""></script>
 <script src="/index.379dd93c.js" defer=""></script>
+<script src="/index.ec29d7fb.js" defer=""></script>
 </html>
