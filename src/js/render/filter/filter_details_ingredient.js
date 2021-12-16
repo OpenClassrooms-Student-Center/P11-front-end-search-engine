@@ -3,11 +3,11 @@ const renderFilterIngredients = (ingredients) => {
     recipeIngredient.innerHTML = ""; // vide le contenue de la div result
 
     function tagDetails() {
-        const templateTagIng = document.querySelector('#tag');
         const resultsTag = document.getElementById('localTags');
+        const templateTagIng = document.querySelector('#tag');
         const detailTagNameIng = document.querySelector('#tagDetails');
         const detailTagIng = document.createTextNode(detailTagNameIng)
-        resultsTag.appendChild(document.importNode(templateTagIng, true));
+        resultsTag.appendChild(templateTagIng);
     }
 
     ingredients.forEach((ingredient) => {
