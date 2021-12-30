@@ -13,19 +13,16 @@ function openDDIng() {
     ddContentIng.classList.toggle("hidden");
     ddContentIng.classList.toggle("flex");
 }
-
 ddIngredients.addEventListener('click', openDDIng)
 
 function openDDApp() {
     ddContentApp.classList.toggle("hidden");
     ddContentApp.classList.toggle("flex");
 }
-
 ddAppliances.addEventListener('click', openDDApp)
 
 function openDDUst() {
     ddContentUst.classList.toggle("hidden");
     ddContentUst.classList.toggle("flex");
 }
-
 ddUstensiles.addEventListener('click', openDDUst)

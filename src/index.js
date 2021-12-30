@@ -14,6 +14,18 @@ const render = (recipes) => {
     renderRecipe(recipes)
 
     /* ingredientResults = [] */
+     /* let allIngredient = []
+     recipes.forEach(recipe => {
+        console.log(recipe)
+        allIngredient = [...allIngredient, ...recipe.ingredients]
+    })
+ 
+    console.log(allIngredient)
+    ingredientResults = [...new Set(allIngredient.map(item => item.ingredient))];
+
+    console.log(ingredientResults)
+    renderFilterIngredients(ingredientResults) */
+
     recipes.forEach(recipe => {
         ingredientResults = [...ingredientResults, ...recipe.ingredients]
     })
@@ -21,7 +33,7 @@ const render = (recipes) => {
 
     renderFilterIngredients(ingredientResults)
 
-    recipes.forEach(recipe => {
+    /* recipes.forEach(recipe => {
         applianceResults = [...applianceResults, ...recipe.appliance]
         console.log(recipe.appliance)
     })
@@ -31,7 +43,7 @@ const render = (recipes) => {
     
     console.log('===Appliance===');
     console.log(renderFilterAppliances())
-    console.log(renderFilterAppliances(applianceResults))
+    console.log(renderFilterAppliances(applianceResults)) */
 }
 
 const searchBar = document.getElementById('inputSearch');

@@ -11,6 +11,7 @@ const renderFilterIngredients = (ingredients) => {
     }
 
     ingredients.forEach((ingredient) => {
+        
         const newDivIngredient = document.createElement("button");
         newDivIngredient.innerText = `${ingredient}`;
         newDivIngredient.className = `filter__position-label`;
