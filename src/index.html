@@ -29,8 +29,9 @@
         <div class="flex flex-wrap mt-5" id="localTags">
         </div>
         <template id="tag">
-          <div class="flex pl-3 pr-3 pt-2 pb-2 bg-blue-600 rounded-md align-center text-white justify-center" id="tagDetails">tag ingrédients
-            <button type="button" class="ml-2" onclick="closeTag()">
+          <div class="flex pl-3 pr-3 pt-2 pb-2 bg-blue-600 rounded-md align-center text-white justify-center" id="tagDetails">
+            <span class="label">Tag ingrédients</span>
+            <button type="button" class="ml-2">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-circle">
                 <circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line>
               </svg>
@@ -41,7 +42,7 @@
           <div class="flex flex-col pr-10">
             <div class="flex flex-col justify-center mt-5 p-6 bg-blue-500 rounded-md ">
               <div class="flex flex-row">
-                <input class="flex flex-1 bg-transparent border-none outline-none color placeholder-white input-advanced_style text-white" type="text" placeholder="Ingrédients" id="filterFoodInput" onkeyup="searchIngredient()">
+                <input class="flex flex-1 bg-transparent border-none outline-none color placeholder-white input-advanced_style text-white" type="text" placeholder="Ingrédients" id="filterFoodInput">
                 <button type="button" id="dd-ingredient">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="filter-food__input-icon-style feather feather-chevron-down">
                     <polyline points="6 9 12 15 18 9"></polyline>
@@ -57,7 +58,7 @@
           <div class="flex flex-col pr-10">
             <div class="flex flex-col justify-center mt-5 p-6 bg-green-500 rounded-md ">
               <div class="flex flex-row">
-                <input class="flex flex-1 bg-transparent border-none outline-none color placeholder-white input-advanced_style text-white" type="text" placeholder="Appareils" id="filterFoodInput" onkeyup="filterFunction()">
+                <input class="flex flex-1 bg-transparent border-none outline-none color placeholder-white input-advanced_style text-white" type="text" placeholder="Appareils" id="filterFoodInput">
                 <button type="button" id="dd-appliance">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="filter-food__input-icon-style feather feather-chevron-down">
                     <polyline points="6 9 12 15 18 9"></polyline>
@@ -73,7 +74,7 @@
           <div class="flex flex-col pr-10">
             <div class="flex flex-col justify-center mt-5 p-6 bg-red-500 rounded-md ">
               <div class="flex flex-row">
-                <input class="flex flex-1 bg-transparent border-none outline-none color placeholder-white input-advanced_style text-white" type="text" placeholder="Ustensiles" id="filterFoodInput" onkeyup="filterFunction()">
+                <input class="flex flex-1 bg-transparent border-none outline-none color placeholder-white input-advanced_style text-white" type="text" placeholder="Ustensiles" id="filterFoodInput">
                 <button type="button" id="dd-ustensile">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="filter-food__input-icon-style feather feather-chevron-down">
                     <polyline points="6 9 12 15 18 9"></polyline>
@@ -122,6 +123,4 @@
     </div>
 </body>
 <script  type="module" src="./index.js"></script>
-<script  type="module" src="./js/filter_details_functions/functions.js"></script>
-<script  type="module" src="./js/tag_details_functions/tag_close_function.js"></script>
 </html>
