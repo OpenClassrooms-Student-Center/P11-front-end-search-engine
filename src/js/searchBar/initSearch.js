@@ -11,7 +11,7 @@ function onSearch () {
         const results = searchAlgo(recipesInit, searchBar.value)
         render(results)
     } else if (searchBar.value.length <= 2) {
-        renderRecipe(recipesInit)
+        render(recipesInit)
     }
 }
 

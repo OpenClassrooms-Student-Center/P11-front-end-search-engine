@@ -1,3 +1,5 @@
+import { tagDetails } from './filterTag'
+
 const recipeUstensile = document.getElementById('recipeUstensile');
 
 const renderUstensils = (ustensils) => {
@@ -7,8 +9,8 @@ const renderUstensils = (ustensils) => {
         newDivUstensil.innerText = `${ustensil}`;
         newDivUstensil.className = `filter__position-label`;
         newDivUstensil.name = "ustensilButton"
-        newDivUstensil.onclick = () => tagDetails(ustensil);
-        recipeIngredient.appendChild(newDivUstensil);
+        newDivUstensil.onclick = () => tagDetails(ustensil, 'ustensil');
+        recipeUstensile.appendChild(newDivUstensil);
     })
     
 }

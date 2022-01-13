@@ -1,3 +1,5 @@
+import { tagDetails } from './filterTag'
+
 const recipeIngredient = document.getElementById('recipeIngredient')
 
 const renderIngredients = (ingredients) => {
@@ -7,7 +9,7 @@ const renderIngredients = (ingredients) => {
         newDivIngredient.innerText = `${ingredient}`;
         newDivIngredient.className = `filter__position-label`;
         newDivIngredient.name = "ingredientButton"
-        newDivIngredient.onclick = () => tagDetails(ingredient);
+        newDivIngredient.onclick = () => tagDetails(ingredient, 'ingredient');
         recipeIngredient.appendChild(newDivIngredient);
     })
 }

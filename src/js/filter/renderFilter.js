@@ -16,12 +16,14 @@ const getAllUniqueUstensil = (recipes) => {
     recipes.forEach(recipe => {
         ustensilResults = [...ustensilResults, ...recipe.ustensils]
     })
-    return [...new Set(ustensilResults.map(item => item.ustensil))];
+
+    return [...new Set(ustensilResults)];
 }
 
 const renderFilter = (recipes) => {
     let ingredients = getAllUniqueIngredient(recipes)
     renderIngredients(ingredients)
+
     let ustensils = getAllUniqueUstensil(recipes)
     renderUstensils(ustensils)
 }
