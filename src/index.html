@@ -29,9 +29,9 @@
         <div class="flex flex-wrap mt-5" id="localTags">
         </div>
         <template id="tag">
-          <div class="flex pl-3 pr-3 pt-2 pb-2 bg-blue-600 rounded-md align-center text-white justify-center" id="tagDetails">
-            <span class="label">Tag ingrédients</span>
-            <button type="button" class="ml-2">
+          <div class="flex pl-3 pr-3 pt-2 pb-2 bg-blue-600 rounded-md align-center text-white justify-center mr-2" id="tagDetails">
+            <span class="label">Tag Details</span>
+            <button type="button" class="ml-2" onclick="closeTag(this)">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-circle">
                 <circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line>
               </svg>
@@ -123,4 +123,5 @@
     </div>
 </body>
 <script  type="module" src="./index.js"></script>
+<script  src="./js/filter/filterTag.js"></script>
 </html>

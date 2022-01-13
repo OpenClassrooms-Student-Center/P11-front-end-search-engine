@@ -11,7 +11,6 @@ const filterByName = (recipes, filtre) => {
     recipes.filter(recipe => recipe.name.toLowerCase().includes(filtre.toLowerCase())
 )}
 
-
 const filterByIngredient = (recipes, filtre) =>{
     recipes.filter(recipe =>
         recipe.ingredients.find(ingredient =>
@@ -19,7 +18,6 @@ const filterByIngredient = (recipes, filtre) =>{
         )
     )
 )}
-
 
 const onSearch = (recipes, search) => {
     const resultsByName  = filterByName(recipes, search);
@@ -30,11 +28,6 @@ const onSearch = (recipes, search) => {
 function searchByName () {
     if (searchBar.value.length >= 3 ) {
         const results = onSearch(recipes, searchBar.value)
-
-        /**** NEXT *****/
-        // const currentIngredients = getIngredients(results) // ['coco', 'poulet', ...]
-        // renderFilter(currentIngredients)
-
         searchResult = results
         render(results)
     } else if (searchBar.value.length <= 2) {
@@ -43,9 +36,7 @@ function searchByName () {
 }
 
 function searchIngredient () {
-
     const search = searchBarIngredient.value;
-
     if (search.length >= 3 ) {
         const ingredientFiltered = ingredientResults.filter(ingredient => ingredient.toLowerCase().includes(search.toLowerCase()))
         renderFilterIngredients(ingredientFiltered)

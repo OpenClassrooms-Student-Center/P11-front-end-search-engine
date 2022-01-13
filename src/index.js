@@ -10,7 +10,6 @@ const render = (recipes) => {
     renderFilter(recipes)
 }
 
-
 initSearch()
 initFilter()
 render(recipesInit)
