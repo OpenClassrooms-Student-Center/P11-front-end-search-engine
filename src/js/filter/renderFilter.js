@@ -1,5 +1,7 @@
 import renderIngredients from './renderIngredients'
+import renderAppliances from './renderAppliances'
 import renderUstensils from './renderUstensils'
+
 
 const getAllUniqueIngredient = (recipes) => {
     let ingredientResults = []
