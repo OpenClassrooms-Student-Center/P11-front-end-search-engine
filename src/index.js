@@ -3,7 +3,6 @@ import renderRecipe from './js/recipe/renderRecipe'
 import initSearch from './js/searchBar/initSearch'
 import initFilter from './js/filter/initFilter'
 import renderFilter from './js/filter/renderFilter'
-const TEST = 'test'
 
 const render = (recipes) => {
     renderRecipe(recipes)

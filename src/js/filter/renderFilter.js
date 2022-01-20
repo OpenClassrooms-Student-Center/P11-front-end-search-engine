@@ -5,7 +5,7 @@ import renderUstensils from './renderUstensils'
 
 const getAllUniqueIngredient = (recipes) => {
     let ingredientResults = []
-    recipes.forEach(recipe => {
+    recipes.forEach((recipe) => {
         ingredientResults = [...ingredientResults, ...recipe.ingredients]
     })
     return [...new Set(ingredientResults.map(item => item.ingredient))];
@@ -13,7 +13,7 @@ const getAllUniqueIngredient = (recipes) => {
 
 const getAllUniqueUstensil = (recipes) => {
     let ustensilResults = []
-    recipes.forEach(recipe => {
+    recipes.forEach((recipe) => {
         ustensilResults = [...ustensilResults, ...recipe.ustensils]
     })
 
@@ -26,6 +26,8 @@ const renderFilter = (recipes) => {
 
     let ustensils = getAllUniqueUstensil(recipes)
     renderUstensils(ustensils)
+
+    renderAppliances(recipes)
 }
 
 export default renderFilter;

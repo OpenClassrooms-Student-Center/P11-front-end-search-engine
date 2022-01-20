@@ -3,11 +3,6 @@ import filter from './filter'
 const resultsTag = document.getElementById('localTags');
 const templateTag = document.querySelector('#tag');
 
-function closeTag (element) {
-    element.parentNode.classList.add('hidden');
-    filter();
-}
-
 export function tagDetails(label, type) {
 
     const tagDetails = templateTag.content.querySelector('#tagDetails');
@@ -28,5 +23,10 @@ export function tagDetails(label, type) {
     const newTag = document.importNode(templateTag.content, true);
     resultsTag.appendChild(newTag);
 
+    filter();
+}
+
+function closeTag (element) {
+    element.parentNode.classList.add('hidden');
     filter();
 }
