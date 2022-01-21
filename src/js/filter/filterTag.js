@@ -1,4 +1,4 @@
-import filter from './filter'
+import { onSearch } from '../searchBar/initSearch'
 
 const resultsTag = document.getElementById('localTags');
 const templateTag = document.querySelector('#tag');
@@ -23,7 +23,7 @@ export function tagDetails(label, type) {
     const newTag = document.importNode(templateTag.content, true);
     resultsTag.appendChild(newTag);
 
-    filter();
+    onSearch();
 }
 
 function closeTag (element) {

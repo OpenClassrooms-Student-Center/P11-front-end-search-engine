@@ -1,16 +1,15 @@
 import { tagDetails } from './filterTag'
 const recipeAppliance = document.getElementById('recipeAppliance')
 
-const renderAppliances = (recipes) => {
+const renderAppliances = (appliances) => {
     recipeAppliance.innerHTML = ""; // vide le contenue de la div result
-    recipes.forEach((recipe) => {
+    appliances.forEach((appliance) => {
         const newDivAppliance = document.createElement("button");
-        newDivAppliance.innerText = recipe.appliance;
+        newDivAppliance.innerText = appliance;
         newDivAppliance.className = `filter__position-label`;
         newDivAppliance.name = "applianceButton"
-        newDivAppliance.onclick = () => tagDetails(recipe.appliance, `appliance`);
+        newDivAppliance.onclick = () => tagDetails(appliance, `appliance`);
         recipeAppliance.appendChild(newDivAppliance);
-        
     })
 }
 

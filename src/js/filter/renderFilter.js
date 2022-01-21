@@ -21,7 +21,11 @@ const getAllUniqueUstensil = (recipes) => {
 }
 
 const getAllUniqueAppliance = (recipes) => {
-    let applianceResults = renderAppliances(recipes)
+    let applianceResults = []
+    recipes.forEach((recipe) => {
+        applianceResults = [...applianceResults, recipe.appliance]
+    })
+
     return [...new Set(applianceResults)];
 }
 
@@ -32,7 +36,8 @@ const renderFilter = (recipes) => {
     let ustensils = getAllUniqueUstensil(recipes)
     renderUstensils(ustensils)
 
-    getAllUniqueAppliance(recipes)
+    let appliances = getAllUniqueAppliance(recipes)
+    renderAppliances(appliances)
 }
 
 export default renderFilter;
