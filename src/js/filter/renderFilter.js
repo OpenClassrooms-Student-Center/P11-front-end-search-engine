@@ -20,6 +20,11 @@ const getAllUniqueUstensil = (recipes) => {
     return [...new Set(ustensilResults)];
 }
 
+const getAllUniqueAppliance = (recipes) => {
+    let applianceResults = renderAppliances(recipes)
+    return [...new Set(applianceResults)];
+}
+
 const renderFilter = (recipes) => {
     let ingredients = getAllUniqueIngredient(recipes)
     renderIngredients(ingredients)
@@ -27,7 +32,7 @@ const renderFilter = (recipes) => {
     let ustensils = getAllUniqueUstensil(recipes)
     renderUstensils(ustensils)
 
-    renderAppliances(recipes)
+    getAllUniqueAppliance(recipes)
 }
 
 export default renderFilter;
