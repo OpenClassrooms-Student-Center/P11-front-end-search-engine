@@ -14,7 +14,7 @@
 85C:\Users\ederc\OneDrive\Documents\OpenClassrooms\Edercorentin_7_23092021\package.json132870124220040497 0
 148C:\Users\ederc\OneDrive\Documents\OpenClassrooms\Edercorentin_7_23092021\node_modules\@babel\preset-modules\src\plugins\transform-edge-function-name132870125703872697 1
 143C:\Users\ederc\OneDrive\Documents\OpenClassrooms\Edercorentin_7_23092021\node_modules\parcel-bundler\node_modules\svgo\plugins\removeViewBox.js132870126023759908 0
-77C:\Users\ederc\OneDrive\Documents\OpenClassrooms\Edercorentin_7_23092021\dist132876181957274186 1
+77C:\Users\ederc\OneDrive\Documents\OpenClassrooms\Edercorentin_7_23092021\dist132876212991271420 1
 109C:\Users\ederc\OneDrive\Documents\OpenClassrooms\Edercorentin_7_23092021\node_modules\alphanum-sort\README.md132870125151859321 0
 135C:\Users\ederc\OneDrive\Documents\OpenClassrooms\Edercorentin_7_23092021\node_modules\static-module\node_modules\object-inspect\LICENSE132870125527036745 0
 111C:\Users\ederc\OneDrive\Documents\OpenClassrooms\Edercorentin_7_23092021\node_modules\postcss-calc\CHANGELOG.md132863985710000000 0
@@ -25,7 +25,7 @@
 104C:\Users\ederc\OneDrive\Documents\OpenClassrooms\Edercorentin_7_23092021\node_modules\convert-source-map132870125303719012 1
 143C:\Users\ederc\OneDrive\Documents\OpenClassrooms\Edercorentin_7_23092021\node_modules\node-libs-browser\node_modules\stream-http\lib\request.js132870125483802159 0
 143C:\Users\ederc\OneDrive\Documents\OpenClassrooms\Edercorentin_7_23092021\node_modules\regenerate-unicode-properties\Script_Extensions\Tangut.js132870126162373437 0
-83C:\Users\ederc\OneDrive\Documents\OpenClassrooms\Edercorentin_7_23092021\.gitignore132870121162159851 0
+83C:\Users\ederc\OneDrive\Documents\OpenClassrooms\Edercorentin_7_23092021\.gitignore132876212689436195 0
 152C:\Users\ederc\OneDrive\Documents\OpenClassrooms\Edercorentin_7_23092021\node_modules\stream-browserify\node_modules\readable-stream\readable-browser.js132870125656416676 0
 145C:\Users\ederc\OneDrive\Documents\OpenClassrooms\Edercorentin_7_23092021\node_modules\lmdb\dependencies\lmdb-data-v1\libraries\liblmdb\.npmignore132870125106529368 0
 97C:\Users\ederc\OneDrive\Documents\OpenClassrooms\Edercorentin_7_23092021\node_modules\cross-spawn132870125409005684 1
@@ -315,7 +315,7 @@
 88C:\Users\ederc\OneDrive\Documents\OpenClassrooms\Edercorentin_7_23092021\src\js\utils.js132874125316322167 0
 100C:\Users\ederc\OneDrive\Documents\OpenClassrooms\Edercorentin_7_23092021\node_modules\browserify-aes132870125581069856 1
 108C:\Users\ederc\OneDrive\Documents\OpenClassrooms\Edercorentin_7_23092021\node_modules\emojis-list\LICENSE.md132864946050000000 0
-103C:\Users\ederc\OneDrive\Documents\OpenClassrooms\Edercorentin_7_23092021\src\js\searchBar\searchAlgo.js132876184579587898 0
+103C:\Users\ederc\OneDrive\Documents\OpenClassrooms\Edercorentin_7_23092021\src\js\searchBar\searchAlgo.js132876212779117904 0
 123C:\Users\ederc\OneDrive\Documents\OpenClassrooms\Edercorentin_7_23092021\node_modules\js-yaml\lib\js-yaml\type\js\regexp.js132870125961031208 0
 145C:\Users\ederc\OneDrive\Documents\OpenClassrooms\Edercorentin_7_23092021\node_modules\parcel-bundler\node_modules\svgo\plugins\removeEmptyText.js132870126009990211 0
 123C:\Users\ederc\OneDrive\Documents\OpenClassrooms\Edercorentin_7_23092021\node_modules\parcel-bundler\src\assets\RawAsset.js132870126137951575 0
@@ -403,7 +403,7 @@
 114C:\Users\ederc\OneDrive\Documents\OpenClassrooms\Edercorentin_7_23092021\node_modules\unicode-trie\test\mocha.opts132870125525780107 0
 147C:\Users\ederc\OneDrive\Documents\OpenClassrooms\Edercorentin_7_23092021\node_modules\parcel-bundler\node_modules\core-js\modules\es6.array.sort.js132870126178506793 0
 104C:\Users\ederc\OneDrive\Documents\OpenClassrooms\Edercorentin_7_23092021\node_modules\lodash\function.js132870126222458104 0
-102C:\Users\ederc\OneDrive\Documents\OpenClassrooms\Edercorentin_7_23092021\src\js\filter\searchFilter.js132876182534402829 0
+102C:\Users\ederc\OneDrive\Documents\OpenClassrooms\Edercorentin_7_23092021\src\js\filter\searchFilter.js132876210067003248 0
 161C:\Users\ederc\OneDrive\Documents\OpenClassrooms\Edercorentin_7_23092021\node_modules\@babel\plugin-bugfix-v8-spread-parameters-in-optional-chaining\lib\index.js132870125185534896 0
 130C:\Users\ederc\OneDrive\Documents\OpenClassrooms\Edercorentin_7_23092021\node_modules\highlight.js\styles\atelier-savanna-dark.css132870125758501784 0
 106C:\Users\ederc\OneDrive\Documents\OpenClassrooms\Edercorentin_7_23092021\src\image\15973932905401_logo.png132870121489418640 0
@@ -5797,7 +5797,7 @@
 143C:\Users\ederc\OneDrive\Documents\OpenClassrooms\Edercorentin_7_23092021\node_modules\http-proxy-middleware\dist\handlers\fix-request-body.d.ts132870125723242298 0
 159C:\Users\ederc\OneDrive\Documents\OpenClassrooms\Edercorentin_7_23092021\node_modules\postcss-modules-extract-imports\node_modules\source-map\lib\quick-sort.js132870125525231562 0
 131C:\Users\ederc\OneDrive\Documents\OpenClassrooms\Edercorentin_7_23092021\node_modules\jsdom\lib\jsdom\living\nodes\SVGTests-impl.js132870126219674775 0
-99C:\Users\ederc\OneDrive\Documents\OpenClassrooms\Edercorentin_7_23092021\dist\index.975ef6c8.js.map132876177501881023 0
+99C:\Users\ederc\OneDrive\Documents\OpenClassrooms\Edercorentin_7_23092021\dist\index.975ef6c8.js.map132876210741815343 0
 105C:\Users\ederc\OneDrive\Documents\OpenClassrooms\Edercorentin_7_23092021\node_modules\tweetnacl\README.md132870125307752077 0
 112C:\Users\ederc\OneDrive\Documents\OpenClassrooms\Edercorentin_7_23092021\node_modules\ajv\lib\dot\properties.jst132870126043915528 0
 134C:\Users\ederc\OneDrive\Documents\OpenClassrooms\Edercorentin_7_23092021\node_modules\parcel-bundler\lib\transforms\babel\transform.js132870126043307164 0

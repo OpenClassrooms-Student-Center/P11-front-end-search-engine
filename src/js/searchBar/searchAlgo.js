@@ -54,10 +54,16 @@ const searchAlgo = () => {
         recipes = filterByMultipleIngredient(recipesInit, activeFilter.ingredient);
     }
 
-    console.log(activeFilter)
+    console.log(
+        "=== Active Filter ===",
+        activeFilter
+    )
 
 
-    console.log(recipes)
+    console.log(
+        "=== Recipes ===",
+        recipes
+    )
 
     return recipes
 
