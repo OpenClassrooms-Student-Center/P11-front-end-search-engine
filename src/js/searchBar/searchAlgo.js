@@ -6,8 +6,6 @@ const searchBar = document.getElementById('inputSearch');
 const filterByName = (recipes, filtre) =>
     recipes.filter(recipe => recipe.name.toLowerCase().includes(filtre.toLowerCase()))
 
-
-
 const filterByIngredient = (recipes, filtre) =>
     recipes.filter(recipe =>
         recipe.ingredients.find(ingredient =>
@@ -15,7 +13,6 @@ const filterByIngredient = (recipes, filtre) =>
             )
         )
     )
-
 
 const filterByMultipleIngredient = (recipes, filtreIngredients) => {
     return recipes.filter(recipe => {

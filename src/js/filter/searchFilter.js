@@ -1,6 +1,8 @@
 /* ======================== START - DOM =====================  */
 const searchBar = document.getElementById('inputSearch');
 const searchBarIngredient = document.getElementById('filterFoodInput');
+const searchBarAppliance = document.getElementById('filterApplianceInput');
+const searchBarUstensil = document.getElementById('filterUstensilInput');
 let searchResult = []
 let ingredientResults = []
 /* ======================== END - DOM =====================  */

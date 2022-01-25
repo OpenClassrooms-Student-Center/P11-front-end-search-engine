@@ -5,3 +5,7 @@
 
 # production
 /dist
+
+/.cache
+
+/.parcel-cache
