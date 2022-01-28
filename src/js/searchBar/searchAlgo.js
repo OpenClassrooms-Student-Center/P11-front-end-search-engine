@@ -22,23 +22,21 @@ const filterByMultipleIngredient = (recipes, filtreIngredients) => {
 }
 
 const filterByAppliance = (recipes, filtre) =>
-    recipes.filter(recipe =>
-        recipe.appliance.find(appliance =>
-            appliance.toLowerCase().includes(filtre.toLowerCase()
-            )
-        )
-    )
+recipes.filter(recipe =>
+    recipe.appliance.toLowerCase().includes(filtre.toLowerCase())
+)
 
 const filterByMultipleAppliance = (recipes, filtreAppliances) => {
     return recipes.filter(recipe => {
-        const applianceRecipe = recipe.appliance.map(appliance)
+        const applianceRecipe = recipe.appliance.map(appliance=> appliance.appliance)
         return filtreAppliances.every(elem => applianceRecipe.includes(elem))
     })
 }
+
 const filterByUstensil= (recipes, filtre) =>
     recipes.filter(recipe =>
         recipe.ustensils.find(ustensil =>
-            ustensil.ustensil.toLowerCase().includes(filtre.toLowerCase()
+            ustensil.toLowerCase().includes(filtre.toLowerCase()
             )
         )
     )
@@ -57,14 +55,14 @@ const searchAlgo = () => {
         ustensil: [],
         appliance: [],
     }
-    if (searchValue.length >= 3 ) {
-        const tags = document.querySelectorAll('.tag');
+    const tags = document.querySelectorAll('.tag');
         tags.forEach(tag => {
             const type = tag.getAttribute('data-type')
             const label = tag.getAttribute('data-label')
             activeFilter[type].push(label)
         })
-
+    
+    if (searchValue.length >= 3 ) {
 
             /* TODO
 
@@ -76,19 +74,19 @@ const searchAlgo = () => {
    
         const resultsByName  = filterByName(recipesInit, searchValue);
         const resultsByIngre  = filterByIngredient(recipesInit, searchValue);
-        /* const resultsByAppliance  = filterByAppliance(recipesInit, searchValue); */
-        /* const resultsByUstensil  = filterByUstensil(recipesInit, searchValue); */
-        let recipes =  getUniqueListBy(resultsByName.concat(resultsByIngre), 'id')
+        const resultsByAppliance  = filterByAppliance(recipesInit, searchValue);
+        const resultsByUstensil  = filterByUstensil(recipesInit, searchValue);
+        let recipes =  getUniqueListBy(resultsByName.concat(resultsByIngre, resultsByAppliance, resultsByUstensil), 'id')
 
         if (activeFilter.ingredient.length > 0) {
             recipes = filterByMultipleIngredient(recipesInit, activeFilter.ingredient);
         }
-       /*  if (activeFilter.appliance.length > 0) {
+        if (activeFilter.appliance.length > 0) {
             recipes = filterByMultipleAppliance(recipesInit, activeFilter.appliance);
-        } */
-        /* if (activeFilter.ustensil.length > 0) {
+        }
+        if (activeFilter.ustensil.length > 0) {
             recipes = filterByMultipleUstensil(recipesInit, activeFilter.ustensil);
-        } */
+        }
 
         console.log(
             "=== Active Filter ===",
