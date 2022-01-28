@@ -31,11 +31,10 @@ const filterByAppliance = (recipes, filtre) =>
 
 const filterByMultipleAppliance = (recipes, filtreAppliances) => {
     return recipes.filter(recipe => {
-        const applianceRecipe = recipe.appliance.map(appliance => appliance)
+        const applianceRecipe = recipe.appliance.map(appliance)
         return filtreAppliances.every(elem => applianceRecipe.includes(elem))
     })
 }
-
 const filterByUstensil= (recipes, filtre) =>
     recipes.filter(recipe =>
         recipe.ustensils.find(ustensil =>
@@ -77,19 +76,19 @@ const searchAlgo = () => {
    
         const resultsByName  = filterByName(recipesInit, searchValue);
         const resultsByIngre  = filterByIngredient(recipesInit, searchValue);
-        const resultsByAppliance  = filterByAppliance(recipesInit, searchValue);
-        const resultsByUstensil  = filterByUstensil(recipesInit, searchValue);
-        let recipes =  getUniqueListBy(resultsByName.concat(resultsByIngre, resultsByAppliance, resultsByUstensil), 'id')
+        /* const resultsByAppliance  = filterByAppliance(recipesInit, searchValue); */
+        /* const resultsByUstensil  = filterByUstensil(recipesInit, searchValue); */
+        let recipes =  getUniqueListBy(resultsByName.concat(resultsByIngre), 'id')
 
         if (activeFilter.ingredient.length > 0) {
             recipes = filterByMultipleIngredient(recipesInit, activeFilter.ingredient);
         }
-        if (activeFilter.appliance.length > 0) {
+       /*  if (activeFilter.appliance.length > 0) {
             recipes = filterByMultipleAppliance(recipesInit, activeFilter.appliance);
-        }
-        if (activeFilter.ustensil.length > 0) {
+        } */
+        /* if (activeFilter.ustensil.length > 0) {
             recipes = filterByMultipleUstensil(recipesInit, activeFilter.ustensil);
-        }
+        } */
 
         console.log(
             "=== Active Filter ===",
