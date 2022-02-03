@@ -1,6 +1,6 @@
 import recipesInit from './js/data'
 import renderRecipe from './js/recipe/renderRecipe'
-import initSearch from './js/searchBar/initSearch'
+import initSearchBar from './js/searchComponents/initSearchBar'
 import initFilter from './js/filter/initFilter'
 import renderFilter from './js/filter/renderFilter'
 
@@ -9,7 +9,7 @@ const render = (recipes) => {
     renderFilter(recipes)
 }
 
-initSearch()
+initSearchBar()
 initFilter()
 render(recipesInit)
 

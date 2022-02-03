@@ -1,4 +1,4 @@
-import { onSearch } from '../searchBar/initSearch'
+import { onSearch } from '../searchComponents/initSearchBar'
 
 const resultsTag = document.getElementById('localTags');
 const templateTag = document.querySelector('#tag');
