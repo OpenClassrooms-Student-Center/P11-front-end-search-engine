@@ -1,18 +1,23 @@
-import recipesInit from "../data";
-import searchTarAlgo from "./searchAlgo";
+/* import recipesInit from "../data";
+import searchTagAlgo from "./searchBarAlgo";
 import render from "../../index";
 
+const localTags = document.getElementById('localTag');
+const searchTag = localTags.querySelectorAll("span.label");
 
-const searchBar = document.getElementById('inputSearch');
+console.log (
+    "=== Search Tag ===",
+    searchTag
+)
 
 export function onSearchTag () {
-    const results = searchTarAlgo(recipesInit, searchTar.value)
+    const results = searchTagAlgo(recipesInit, searchTag.value)
     render(results)
 
 }
 
 const initSearchTag = () => {
-    searchBar.addEventListener('keyup', onSearchTag)
+    localTags.addEventListener('keyup', onSearchTag)
 }
 
-export default initSearchTag;
+export default initSearchTag; */

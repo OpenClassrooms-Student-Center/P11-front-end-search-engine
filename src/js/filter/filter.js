@@ -4,7 +4,7 @@ const filter = () => {
     console.log(test)
     const activeFilter = []
     const tags = document.querySelectorAll('.tag');
-    const cards = document.querySelectorAll('.card_recipe');
+    /* const cards = document.querySelectorAll('.card_recipe'); */
 
     /*
     TODO

@@ -1,5 +1,5 @@
 import recipesInit from "../data";
-import searchBarAlgo from "./searchAlgo";
+import searchBarAlgo from "./searchBarAlgo";
 import render from "../../index";
 
 
