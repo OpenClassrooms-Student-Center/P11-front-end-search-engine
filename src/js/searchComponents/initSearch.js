@@ -1,12 +1,12 @@
 import recipesInit from "../data";
-import searchBarAlgo from "./searchAlgo";
+import searchAlgo from "./searchAlgo";
 import render from "../../index";
 
 
 const searchBar = document.getElementById('inputSearch');
 
 export function onSearch () {
-    const results = searchBarAlgo(recipesInit, searchBar.value)
+    const results = searchAlgo(recipesInit, searchBar.value)
     render(results)
 
 }

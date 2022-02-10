@@ -1,4 +1,4 @@
-import { onSearchTag } from '../searchComponents/initSearchTag'
+import { onSearch } from '../searchComponents/initSearch'
 
 const resultsTag = document.getElementById('localTags');
 const templateTag = document.querySelector('#tag');
@@ -23,6 +23,6 @@ export function tagDetails(label, type) {
     const newTag = document.importNode(templateTag.content, true);
     resultsTag.appendChild(newTag);
 
-    onSearchTag();
+    onSearch();
     
 }
