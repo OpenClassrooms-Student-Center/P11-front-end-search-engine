@@ -10,9 +10,8 @@ const render = (recipes) => {
     renderFilter(recipes)
 }
 
-initSearchBar()
+initSearch()
 initFilter()
-/* initTag() */
 render(recipesInit)
 
 export default render;
