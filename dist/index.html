@@ -3,23 +3,23 @@
 <head>
   <meta charset="utf-8">
   <title>Les petits plats</title>
-  <link rel="stylesheet" href="/index.61d3354a.css">
-  <link rel="icon" href="/icon_site.2df11a0b.png">
+  <link rel="stylesheet" href="/src.9ad09f98.css">
+  <link rel="icon" href="/icon_site.8d19188f.png">
   <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-  <script src="https://unpkg.com/feather-icons" defer=""></script>
-</head>
+  <script type="module" src="https://unpkg.com/feather-icons"></script>
+<script src="/src.9ad09f98.js"></script></head>
 <body>
     <div class="flex flex-col pt-10">
       <div class="flex-col w-full max-w-6xl m-auto">
         <div class="flex justify-center">
-          <img class="w-64" src="/15973932905401_logo.475bf34a.png" alt="logo_les_petits_plats">
+          <img class="w-64" src="/15973932905401_logo.0c0c3381.png" alt="logo_les_petits_plats">
         </div>
         <div class="flex flex-row bg-gray-300 w-full p-3 mt-10 rounded-md">
           <div class="flex flex-1 ml-10">
             <input id="inputSearch" class="w-5/6 rounded-md border-0 bg-transparent outline-none text-black placeholder-gray-500" type="search" placeholder="Recherchez votre petit plats !...">
           </div>
           <button class="bg-transparent border-none cursor-pointer">
-            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+            <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
               <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65">
               </line>
             </svg>
@@ -31,8 +31,8 @@
         <template id="tag">
           <div id="tagDetails">
             <span class="label">Tag Details</span>
-            <button type="button" class="ml-2" onclick="closeTag(this)" id="hiddenTagBtn">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-circle">
+            <button type="button" class="ml-2" id="hiddenTagBtn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x-circle">
                 <circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line>
               </svg>
             </button>
@@ -44,7 +44,7 @@
               <div class="flex flex-row">
                 <input class="flex flex-1 bg-transparent border-none outline-none color placeholder-white input-advanced_style text-white" type="text" placeholder="Ingrédients" id="filterFoodInput">
                 <button type="button" id="dd-ingredient">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="filter-food__input-icon-style feather feather-chevron-down">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="filter-food__input-icon-style feather feather-chevron-down">
                     <polyline points="6 9 12 15 18 9"></polyline>
                   </svg>
                 </button> 
@@ -60,7 +60,7 @@
               <div class="flex flex-row">
                 <input class="flex flex-1 bg-transparent border-none outline-none color placeholder-white input-advanced_style text-white" type="text" placeholder="Appareils" id="filterApplianceInput">
                 <button type="button" id="dd-appliance">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="filter-food__input-icon-style feather feather-chevron-down">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="filter-food__input-icon-style feather feather-chevron-down">
                     <polyline points="6 9 12 15 18 9"></polyline>
                   </svg>
                 </button> 
@@ -76,7 +76,7 @@
               <div class="flex flex-row">
                 <input class="flex flex-1 bg-transparent border-none outline-none color placeholder-white input-advanced_style text-white" type="text" placeholder="Ustensiles" id="filterUstensilInput">
                 <button type="button" id="dd-ustensile">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="filter-food__input-icon-style feather feather-chevron-down">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="filter-food__input-icon-style feather feather-chevron-down">
                     <polyline points="6 9 12 15 18 9"></polyline>
                   </svg>
                 </button> 
@@ -96,7 +96,7 @@
               <div class="flex flex-row">
                 <label class="flex flex-1" id="recipeName">Nom du plat</label>
                 <div class="flex flex-row font-bold items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock mr-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock mr-1">
                     <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
                   </svg>
                   <label id="recipeTime" class="flex flex-2 font-bold items-center">
@@ -122,6 +122,6 @@
       </div>
     </div>
 </body>
-<script src="/index.975ef6c8.js" defer=""></script>
-<script src="./js/filter/filterTag.js" defer=""></script>
+<script type="module" src="/src.e31bb0bc.js"></script>
+<script type="module" src="/filterTag.a0a40863.js"></script>
 </html>
