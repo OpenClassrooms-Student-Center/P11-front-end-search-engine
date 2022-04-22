@@ -1,0 +1,23 @@
+/* style generale */
+body {
+    padding: 2rem;
+    max-width: 1400px;
+    min-width: 370px;
+    font-family: sans-serif;
+}
+
+/*  */
+
+
+/* pageRecipes */
+#logoCenter{
+    text-align: center;
+    margin: auto;
+    display: flex;
+    width: 200px;
+}
+
+#ingredients::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #ced4da;
+    font-size: 0.8em;
+}
