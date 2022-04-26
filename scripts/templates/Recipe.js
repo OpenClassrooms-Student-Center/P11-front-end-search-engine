@@ -19,12 +19,12 @@ export class Recipe {
     this.ingredients.forEach((ingr) => {
       if (ingr.quantity) {
         if (ingr.unit && ingr.quantity) {
-          ingredientHtml += `<div><span class="ingredient" data-id="${ingr.ingredient}">${ingr.ingredient}<span> : ${ingr.quantity} ${ingr.unit}</div>`;
+          ingredientHtml += `<div><span class="ingredient ingr_bold" data-id="${ingr.ingredient}">${ingr.ingredient}<span class="quantite"> : ${ingr.quantity} ${ingr.unit}</div>`;
         } else {
-          ingredientHtml += `<div><span class="ingredient" data-id="${ingr.ingredient}">${ingr.ingredient}<span> : ${ingr.quantity}</div>`;
+          ingredientHtml += `<div><span class="ingredient ingr_bold" data-id="${ingr.ingredient}">${ingr.ingredient}<span class="quantite"> : ${ingr.quantity}</div>`;
         }
       } else {
-        ingredientHtml += `<div><span class="ingredient" data-id="${ingr.ingredient}">${ingr.ingredient}<span></div>`;
+        ingredientHtml += `<div><span class="ingredient ingr_bold" data-id="${ingr.ingredient}">${ingr.ingredient}<span class="quantite"></div>`;
       }
     });
 
@@ -32,10 +32,11 @@ export class Recipe {
     const article = document.createElement("article");
     const contentCard = `
          <article class="article" id=${this.id} tabindex="0">
+           <div class="article_img"></div>
            <div class="article-all">
               <div class="title">
                    <div class="title-txt">${this.name}</div>
-                  <div class="title-time"><i class="far fa-clock"></i> ${this.time}</div>
+                  <div class="title-time"><i class="far fa-clock"></i> ${this.time}<span>min</span></div>
               </div>
                <div class="details">
                   <div class="details-ing">${ingredientHtml}</div>

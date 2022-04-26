@@ -1,32 +1,33 @@
 .container {
     max-width: 1440px;
     margin: auto;
-  }
-  #absolute {
+}
+
+#absolute {
     position: relative;
     z-index: 1;
     top: 10%;
-  }
-  
-  .search ::-webkit-scrollbar,
-  #absolute ::-webkit-scrollbar {
+}
+
+.search ::-webkit-scrollbar,
+#absolute ::-webkit-scrollbar {
     display: none;
-  }
-  
-  #logoCenter {
+}
+
+#logoCenter {
     display: block;
     margin: auto;
     text-align: center;
     margin-top: 2rem;
     width: 200px;
-  }
-  
-  /*recherche principale*/
-  .search {
+}
+
+/*recherche principale*/
+.search {
     width: 100%;
-  }
-  
-  .search-all {
+}
+
+.search-all {
     width: 91%;
     height: 65px;
     font-size: 18px;
@@ -38,33 +39,37 @@
     padding-left: 2rem;
     padding-right: 4rem;
     margin: 0 0 0 7%;
-  }
-  
-  .search-every {
+}
+
+.search-every {
     position: relative;
     width: 91%;
-  }
-  .search-every input:focus {
+}
+
+.search-every input:focus {
     opacity: 100%;
     outline: none;
-  }
-  .search-every input::placeholder {
+}
+
+.search-every input::placeholder {
     opacity: 25%;
-  }
-  .fa-search {
+}
+
+.fa-search {
     position: absolute;
     right: 3rem;
     top: 1.5rem;
     font-size: 1.5rem;
     cursor: pointer;
-  }
-  #search-all-list,
-  #search-all-selected {
+}
+
+#search-all-list,
+#search-all-selected {
     margin-left: 7%;
-  }
-  
-  /*drop down */
-  #drop {
+}
+
+/*drop down */
+#drop {
     width: 550px;
     display: flex;
     flex-direction: row;
@@ -72,9 +77,9 @@
     margin: 1% 7% 0 6.2%;
     position: absolute;
     z-index: 3;
-  }
-  
-  .drop-menu_closed input {
+}
+
+.drop-menu_closed input {
     width: 107px;
     height: 22px;
     border: none;
@@ -83,30 +88,33 @@
     font-size: 18px;
     font-weight: 500;
     margin: 20px 0 0 10px;
-  }
-  
-  .drop-menu_closed input::placeholder {
+}
+
+.drop-menu_closed input::placeholder {
     color: white;
     font-size: 18px;
-  }
-  .drop-menu_closed input:focus {
+}
+
+.drop-menu_closed input:focus {
     outline: none;
     color: white;
     font-size: 18px;
-  }
-  
-  .fa-chevron-down {
+}
+
+.fa-chevron-down {
     font-size: 1rem;
     position: relative;
     top: 20px;
     right: 15px;
-  }
-  .fa-chevron-up {
+}
+
+.fa-chevron-up {
     font-size: 1rem;
-  
+
     color: white;
-  }
-  .drop-menu_closed {
+}
+
+.drop-menu_closed {
     width: 170px;
     height: 65px;
     color: white;
@@ -114,162 +122,187 @@
     display: flex;
     justify-content: space-between;
     border-radius: 5px;
-  }
-  #drop-ingredients_closed,
-  #drop-ingredients_closed input,
-  #drop-ingredients_open {
+}
+
+#drop-ingredients_closed,
+#drop-ingredients_closed input,
+#drop-ingredients_open {
     background-color: #3282f7;
-  }
-  #drop-appareil_closed,
-  #drop-appareil_closed input,
-  #drop-appareil_open {
+}
+
+#drop-appareil_closed,
+#drop-appareil_closed input,
+#drop-appareil_open {
     background-color: #68d9a4;
-  }
-  #drop-ustensiles_closed,
-  #drop-ustensiles_closed input,
-  #drop-ustensiles_open {
+}
+
+#drop-ustensiles_closed,
+#drop-ustensiles_closed input,
+#drop-ustensiles_open {
     background-color: #ed6454;
-  }
-  #drop-ingredients_open,
-  #drop-appareil_open,
-  #drop-ustensiles_open {
+}
+
+#drop-ingredients_open,
+#drop-appareil_open,
+#drop-ustensiles_open {
     padding-left: 1rem;
     overflow: scroll;
-  }
-  .drop-ingredients {
+}
+
+.drop-ingredients {
     margin-right: 0.5rem;
-  }
-  .drop-appareil {
+}
+
+.drop-appareil {
     margin-right: 0.5rem;
     margin-left: 0.5rem;
-  }
-  .drop-ustensiles {
+}
+
+.drop-ustensiles {
     margin-left: 0.5rem;
-  }
-  .drop-menu_open {
+}
+
+.drop-menu_open {
     width: 667px;
     min-height: 16px;
     max-height: 397px;
     display: flex;
     flex-wrap: wrap;
     overflow: hidden;
-  }
-  .ingredient-tag,
-  .appareil-tag,
-  .ustensile-tag {
+}
+
+.ingredient-tag,
+.appareil-tag,
+.ustensile-tag {
     width: 210px;
-  }
-  
-  #drop-ing_open,
-  #drop-app_open,
-  #drop-ust_open {
+}
+
+#drop-ing_open,
+#drop-app_open,
+#drop-ust_open {
     display: none;
-  }
-  #drop-ing_open {
+}
+
+#drop-ing_open {
     border-bottom: solid 1rem #3282f7;
-  
+
     border-radius: 5px;
-  }
-  #drop-app_open {
+}
+
+#drop-app_open {
     border-bottom: solid 1rem #68d9a4;
     border-radius: 5px;
-  }
-  #drop-ust_open {
+}
+
+#drop-ust_open {
     border-bottom: solid 1rem #ed6454;
     border-radius: 5px;
-  }
-  .search-drop_all {
+}
+
+.search-drop_all {
     width: 667px;
-  }
-  .search-drop {
+}
+
+.search-drop {
     width: 630px;
-  }
-  .search-ing_all,
-  .search-ing_all input {
+}
+
+.search-ing_all,
+.search-ing_all input {
     height: 22px;
     background-color: #3282f7;
     border: none;
     padding: 0.5rem 0.2rem;
     color: white;
-  }
-  .search-app_all,
-  .search-app_all input {
+}
+
+.search-app_all,
+.search-app_all input {
     height: 22px;
     background-color: #68d9a4;
     border: none;
     padding: 0.5rem 0.2rem;
     color: white;
-  }
-  .search-ust_all,
-  .search-ust_all input {
+}
+
+.search-ust_all,
+.search-ust_all input {
     height: 22px;
     background-color: #ed6454;
     border: none;
     padding: 0.5rem 0.2rem;
     color: white;
-  }
-  .search-ing_all input:focus,
-  .search-app_all input:focus,
-  .search-ust_all input:focus {
+}
+
+.search-ing_all input:focus,
+.search-app_all input:focus,
+.search-ust_all input:focus {
     outline: none;
     font-family: "lato", sans-serif;
     color: white;
     font-size: 18px;
     font-weight: 700;
-  }
-  .search-ing_all input::placeholder,
-  .search-app_all input::placeholder,
-  .search-ust_all input::placeholder {
+}
+
+.search-ing_all input::placeholder,
+.search-app_all input::placeholder,
+.search-ust_all input::placeholder {
     color: white;
-  }
-  #drop {
+}
+
+#drop {
     position: relative;
     margin-left: 7%;
     margin-top: 0;
-  }
-  
-  .drop-all_open {
+}
+
+.drop-all_open {
     z-index: 99;
     position: relative;
     bottom: 4.4rem;
-  }
-  .ingredient-tag,
-  .appareil-tag,
-  .ustensile-tag {
+}
+
+.ingredient-tag,
+.appareil-tag,
+.ustensile-tag {
     text-decoration: none;
     font-family: "lato", sans-serif;
     font-size: 18px;
     font-weight: 700;
     color: white;
-  }
-  .select {
+}
+
+.select {
     font-style: italic;
     color: rgba(255, 255, 255, 0.747);
     pointer-events: none;
-  }
-  
-  /*tags sélectionés */
-  .tags {
+}
+
+/*tags sélectionés */
+.tags {
     margin: 1rem 1rem 1rem 7%;
     display: flex;
-  }
-  .tags i {
+}
+
+.tags i {
     font-size: 20px;
     font-weight: 400;
     vertical-align: middle;
     line-height: 37px;
-  }
-  .tagsIngr,
-  .tagsAppl,
-  .tagsUst {
+}
+
+.tagsIngr,
+.tagsAppl,
+.tagsUst {
     display: flex;
     flex-wrap: wrap;
-  }
-  .tagIngr,
-  .tagAppl,
-  .tagUst {
+}
+
+.tagIngr,
+.tagAppl,
+.tagUst {
     display: flex;
-  
+
     justify-content: space-around;
     color: white;
     font-family: "lato", sans-serif;
@@ -283,19 +316,22 @@
     border-radius: 5px;
     margin-right: 1rem;
     margin-bottom: 1rem;
-  }
-  .tagIngr {
+}
+
+.tagIngr {
     background-color: #3282f7;
-  }
-  .tagAppl {
+}
+
+.tagAppl {
     background-color: #68d9a4;
-  }
-  .tagUst {
+}
+
+.tagUst {
     background-color: #ed6454;
-  }
-  
-  /*message recherche vide*/
-  #filtered-empty {
+}
+
+/*message recherche vide*/
+#filtered-empty {
     display: none;
     color: #bab6b6;
     font-style: italic;
@@ -307,18 +343,19 @@
     background-color: #d04f4f16;
     border-radius: 2rem;
     border: ridge 1rem rgba(208, 79, 79, 0.6);
-  }
-  #error-img {
+}
+
+#error-img {
     width: 25%;
-  }
-  
-  /*fiches recettes*/
-.recipe_section{
+}
+
+/*fiches recettes*/
+.recipe_section {
     display: flex;
     flex-wrap: wrap;
 }
 
-  main {
+main {
     max-width: 1440px;
     margin-top: 4%;
     margin-left: 7%;
@@ -328,140 +365,176 @@
     position: absolute;
     z-index: 2;
     top: 0;
-  }
-  article {
+}
+
+article {
     max-width: 22rem;
     margin: 2rem 1rem 0rem 0;
-  }
-  main img {
+}
+
+.article_img {
+    height: 178px;
+    background-color: #c7bebe;
+    border-radius: 5px 5px 0 0;
+}
+
+main img {
     width: 100%;
     height: 100%;
     border-radius: 5px 5px 0 0;
     object-fit: cover;
-  }
-  .photo {
+}
+
+.photo {
     height: 178px;
     background-color: #c7bebe;
     border-radius: 5px 5px 0 0;
-  }
-  .article-all {
+}
+
+.article-all {
     display: flex;
     flex-direction: column;
     height: 186px;
     background-color: #e7e7e7;
     border-radius: 0 0 5px 5px;
-  }
-  .article:hover,
-  .article:focus {
+}
+
+.article:hover,
+.article:focus {
     transform: scale(1.02);
     transition: 200ms;
-    border: solid 5px rgba(208, 79, 79, 0.8);
+    border: solid 2.5px rgba(136, 133, 133, 0.8);
     border-radius: 10px;
-  }
-  .title,
-  .details {
+}
+
+.title,
+.details {
     display: flex;
     justify-content: space-between;
     padding: 0.5rem 1rem;
-  }
-  .details-ing {
-    padding-right: 1px;
+}
+
+.details-ing {
+    margin-right: 1em;
     display: flex;
     flex-direction: column;
     font-family: "lato", sans-serif;
     font-size: 12px;
-    width: 171px;
-    height: 113px;
+    width: 188px;
+    height: 108px;
     overflow: scroll;
-  }
-  .details-txt {
+}
+
+.ingr_bold{
+font-weight: bold;
+}
+
+.quantite{
+    font-weight: normal;
+}
+
+.details-txt {
     width: 171px;
-    height: 113px;
+    height: 107px;
     font-family: "roboto", sans-serif;
     font-size: 12px;
-    font-weight: 700;
-  
     overflow: hidden;
-    text-overflow :    ellipsis;
-  }
-  .title {
+    text-overflow: ellipsis;
+}
+
+.title {
     font-family: "lato", sans-serif;
     font-size: 18px;
     font-weight: 700;
-  }
-  .title-txt {
+}
+
+.title-txt {
     font-family: "lato", sans-serif;
-    font-size: 18px;
-    font-weight: 400;
-  }
-  .title-time {
-    width: 70px;
+    font-size: 13px;
+    font-weight: bold;
+    width: 16rem;
+}
+
+.title-time {
+    width: 103px;
     text-align: right;
-  }
-  
-  /*RESPONSIVE*/
-  @media screen and (max-width: 892px) {
+}
+
+/*RESPONSIVE*/
+@media screen and (max-width: 892px) {
     .fa-search {
-      right: 2rem;
+        right: 2rem;
     }
+
     .tags,
     .tagsIngr,
     .tagsAppl,
     .tagsUst {
-      width: 100%;
-      flex-wrap: wrap;
+        width: 100%;
+        flex-wrap: wrap;
     }
+
     .search-every {
-      width: 94%;
-      margin: 0;
+        width: 94%;
+        margin: 0;
     }
+
     #drop {
-      margin: 0 7%;
-  
-      flex-direction: column;
-      width: 85%;
+        margin: 0 7%;
+
+        flex-direction: column;
+        width: 85%;
     }
+
     .drop {
-      margin-bottom: 2%;
+        margin-bottom: 2%;
     }
+
     .drop-menu_closed,
     .drop-menu_open {
-      width: 100%;
+        width: 100%;
     }
+
     main {
-      margin: 15rem auto auto auto;
+        margin: 15rem auto auto auto;
     }
+
     article {
-      margin: auto;
-      margin-bottom: 2%;
+        margin: auto;
+        margin-bottom: 2%;
     }
-  
+
     .fa-chevron-up {
-      font-size: 1rem;
-  
-      color: white;
-      position: absolute;
-      top: 2%;
-      right: 2%;
+        font-size: 1rem;
+        color: white;
+        position: absolute;
+        top: 2%;
+        right: 2%;
     }
+
     .drop-ingredients {
-      margin-right: 0rem;
+        margin-right: 0rem;
     }
+
     .drop-appareil {
-      margin-right: 0rem;
-      margin-left: 0rem;
+        margin-right: 0rem;
+        margin-left: 0rem;
     }
+
     .drop-ustensiles {
-      margin-left: 0rem;
+        margin-left: 0rem;
     }
+
     #error-img {
-      width: 100%;
+        width: 100%;
     }
+
     .search-every input::placeholder {
-      font-size: 0.5rem;
+        font-size: 0.5rem;
     }
+
     #search-all::placeholder {
-      font-size: 0.7rem;
-      opacity: 0.4;
+        font-size: 0.7rem;
+        opacity: 0.4;
     }
-  }
+}
