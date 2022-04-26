@@ -6,9 +6,11 @@ export class Api {
   async getData() {
     return fetch(this.url)
       .then(function (response) {
+        // console.log(response);
         return response.json();
       })
       .then(function (data) {
+        //console.log(data);
         return data;
       })
       .catch(function (error) {

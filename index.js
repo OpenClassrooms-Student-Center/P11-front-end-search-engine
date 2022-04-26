@@ -1,23 +1,24 @@
-import { Api } from "../api/api.js";
+import { Api } from "./scripts/api/api.js";
+import { Recipe } from "./scripts/templates/Recipe.js";
 
 class App {
   static async init() {
-    const globalDataApi = new Api("./data/recipes.js");
+    const globalDataApi = new Api("/data/recipes.json");
     const globalData = await globalDataApi.getData();
     new App(globalData);
   }
   constructor(globalData) {
     this.globalData = globalData;
-    this.displayRecipesCard();
+    console.log(this.globalData);
+    this.displayRecipes();
   }
-  displayRecipesCard() {
+  // RECUPERE LA DATA ET HYDRATE LES COMPOSANTS
+  displayRecipes() {
     const recipesSection = document.querySelector(".recipe_section");
     this.globalData.recipes.forEach((recipe) => {
-      recipe.alt = recipe.name;
-      const userCardDOM = new RecipeCard(recipe);
-      recipesSection.appendChild(userCardDOM.createRecipeCard());
+      const recipeCard = new Recipe(recipe);
+      recipesSection.appendChild(recipeCard.createRecipesCard());
     });
   }
 }
-
 App.init();

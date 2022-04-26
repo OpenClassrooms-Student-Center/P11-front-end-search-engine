@@ -6,85 +6,120 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-   <!-- Style CSS -->
+  <!-- Style CSS -->
   <link href="css/style.css" rel="stylesheet" type="text/css" />
   <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
-   <!-- Bootstrap CSS -->
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-  <title>Liste de recettes </title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+      integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
+      crossorigin="anonymous"
+    />
+  <title>Les petits plats</title>
 </head>
+
 <body>
-  <header>
-    <a href="index.html" aria-label="redirige vers la page d'accueil">
-      <img id="logoCenter" src="images/logo.png" class="logo" alt="Home page" />
-    </a>
-  </header>
+  <div class="container">
+    <header>
+      <a href="index.html" aria-label="redirige vers la page d'accueil">
+        <img id="logoCenter" src="images/logo.png" class="logo" alt="Home page" />
+      </a>
+    </header>
 
-  <nav class="navbar navbar-light bg-light">
-    <div class="input-group  container-fluid row">
-      <input type="text" class="col-4 form-control text-muted bg-light border-0" placeholder="Rechercher une recette" aria-label="Rechercher une recette">
-      <div class="input-group-append float-right">
-        <form class="d-flex">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-          </svg>
-        </form>
+    <!--The first zone search-->
+    <div class="search">
+      <div class="search-every">
+        <input class="search-all" id="search-all" type="search"
+          placeholder="Rechercher un ingrédient, appareil, ustensile ou une recette" autocomplete="off" />
+        <i class="fas fa-search"></i>
+      </div>
+
+      <!--Zone de recherche par tag-->
+      <!--affichage tags sélectionnés-->
+      <div class="tags">
+        <div class="tagsIngr"></div>
+        <div class="tagsAppl"></div>
+        <div class="tagsUst"></div>
       </div>
     </div>
-  </nav>
+    <!--drop down-->
+    <div id="absolute">
+      <div class="search">
+        <div id="drop">
+          <div class="drop drop-ingredients">
+            <div id="drop-ingredients_closed" class="drop-menu_closed">
+              <input type="text" id="ingredients" class="drop-input_closed drop-input_ingredients"
+                placeholder="Ingrédients" value="Ingrédients" autocomplete="off" />
+              <i class="fas fa-chevron-down" id="ingredients-down"></i>
+            </div>
+            <div id="drop-ing_open" class="drop-all_open drop-menu_open">
+              <div class="search-drop_all search-ing_all">
+                <input class="search-drop" id="search-drop_ing" type="search" placeholder="Rechercher un ingrédient"
+                  autocomplete="off" />
+                <i class="fas fa-chevron-up" id="ingredients-up"></i>
+              </div>
+              <div id="drop-ingredients_open" class="drop-menu_open">
+                liste tout
+              </div>
+            </div>
+          </div>
 
-  <section id="filter">
-    <!-- <div class="btn-group" role="group" aria-label="Button group with nested dropdown"> -->
-      <div class="btn-group dropdown" role="group" aria-label="Button group with nested dropdown">
-      <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ingredients </button>
-      <div class="w-75 p-3 dropdown-menu bg-primary" aria-labelledby="btnGroupDrop1">
-          <input type="text"  id="ingredients" class="form-control border-0 bg-primary text-white" placeholder="Rechercher un ingrédient" aria-label="Rechercher un ingrédient">  
-        <!-- Content Ingredients -->
-        <div class="row">
-        <a class=" col dropdown-item bg-primary text-white" href="#">link1</a>
-        <a class=" col dropdown-item bg-primary text-white" href="#">link2</a>
-        <a class=" col dropdown-item bg-primary text-white" href="#">link3</a>
+          <div class="drop drop-appareil">
+            <div id="drop-appareil_closed" class="drop-menu_closed">
+              <input type="text" id="appareil" class="drop-input_closed drop-input_appareil" placeholder="Appareil"
+                value="Appareil" autocomplete="off" />
+              <i class="fas fa-chevron-down" id="appareil-down"></i>
+            </div>
+            <div id="drop-app_open" class="drop-all_open drop-menu_open">
+              <div class="search-drop_all search-app_all">
+                <input class="search-drop" id="search-drop_app" type="search" placeholder="Rechercher un appareil"
+                  autocomplete="off" />
+                <i class="fas fa-chevron-up" id="appareil-up"></i>
+              </div>
+              <div id="drop-appareil_open" class="drop-menu_open">
+                liste tout
+              </div>
+            </div>
+          </div>
+
+          <div class="drop drop-ustensiles">
+            <div id="drop-ustensiles_closed" class="drop-menu_closed">
+              <input type="text" id="ustensiles" class="drop-input_closed drop-input_ustensiles"
+                placeholder="Ustensiles" value="Ustensiles" autocomplete="off" />
+              <i class="fas fa-chevron-down" id="ustensiles-down"></i>
+            </div>
+            <div id="drop-ust_open" class="drop-all_open drop-menu_open">
+              <div class="search-drop_all search-ust_all">
+                <input class="search-drop" id="search-drop_ust" type="search" placeholder="Rechercher un ustensile"
+                  autocomplete="off" />
+                <i class="fas fa-chevron-up" id="ustensiles-up"></i>
+              </div>
+              <div id="drop-ustensiles_open" class="drop-menu_open">
+                liste tout
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <!--message recherche vide-->
+      <div id="filtered-empty">
+        <img id="error-img" src="logo.png" alt=" Les Petits Plats, logo" />
+        «Aucune recette ne correspond à votre critère… vous pouvez chercher
+        "tarte aux pommes", "poisson" , etc.»
+      </div>
+      <main class="recipes">
+        <!-- CARDS COMPONENT JAVASCRIPTS DISPLAYCARDS.JS -->
+        <div class="recipe_section"></div>
+      </main>
     </div>
-  </div>
-
-  <div class="btn-group dropdown" role="group" aria-label="Button group with nested dropdown">
-      <button id="btnGroupDrop2" type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Appareils </button>
-      <div class="dropdown-menu bg-success" aria-labelledby="btnGroupDrop2">
-        <!-- Content Ingredients -->
-        <a class="dropdown-item text-white" href="#">link1</a>
-        <a class="dropdown-item text-white" href="#">link2</a>
-      </div>
-  </div>
-
-  <div class="btn-group dropdown" role="group" aria-label="Button group with nested dropdown">
-      <button id="btnGroupDrop3" type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Ustensiles</button>
-      <div class="dropdown-menu bg-danger" aria-labelledby="btnGroupDrop3">
-        <!-- Content Ingredients -->
-        <a class="dropdown-item  text-white" href="#">link1</a>
-        <a class="dropdown-item text-white" href="#">link2</a>
-      </div>
-    </div>
-</section>
-
-<section class="cards">
-  <!-- CARDS COMPONENT JAVASCRIPTS DISPLAYCARDS.JS -->
-  <div class="recipe_section"></div>
-</section>
 
 
-  <!-- Page -->
-  <script defer type="module" src="./index.js"></script>
+    <!-- Page -->
+    <script defer type="module" src="./index.js"></script>
 
 
-
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<!--   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
- -->
 </body>
 
 </html>
