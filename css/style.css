@@ -113,7 +113,7 @@
 }
 
 .fa-chevron-up {
-    line-height: 4!important;
+    line-height: 6!important;
 }
 
 .drop-menu_closed {
@@ -203,37 +203,39 @@
 
 .search-drop_all {
     width: 689px;
+    font-size: 14px;
 }
 
 .search-drop {
-    width: 689px;
+    width: 678px;
+    font-size: 17px;
 }
 
 .search-ing_all,
 .search-ing_all input {
-    height: 22px;
+    height: 27px;
     background-color: #3282f7;
     border: none;
     margin: 0.5rem 0.2rem;
-    color: white;
+    color: #d7d2ba;
 }
 
 .search-app_all,
 .search-app_all input {
-    height: 22px;
+    height: 27px;
     background-color: #68d9a4;
     border: none;
-    padding: 0.5rem 0.2rem;
-    color: white;
+    margin: 0.5rem 0.2rem;
+    color: #d7d2ba;
 }
 
 .search-ust_all,
 .search-ust_all input {
-    height: 22px;
+    height: 27px;
     background-color: #ed6454;
     border: none;
-    padding: 0.5rem 0.2rem;
-    color: white;
+    margin: 0.5rem 0.2rem;
+    color: #d7d2ba;
 }
 
 .search-ing_all input:focus,
@@ -302,7 +304,6 @@
 .tagAppl,
 .tagUst {
     display: flex;
-
     justify-content: space-around;
     color: white;
     font-family: "lato", sans-serif;

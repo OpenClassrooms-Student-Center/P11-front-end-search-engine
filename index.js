@@ -9,7 +9,7 @@ class App {
   }
   constructor(globalData) {
     this.globalData = globalData;
-    console.log(this.globalData);
+    //console.log(this.globalData);
     this.displayRecipes();
   }
   // RECUPERE LA DATA ET HYDRATE LES COMPOSANTS
