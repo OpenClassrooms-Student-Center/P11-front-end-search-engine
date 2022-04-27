@@ -1,11 +1,24 @@
 //gère déroulement et fermeture des drops down
-//let dropIngrBtn = document.getElementsByClassName("drop-ingredients");
-let dropIngrBtn = document.getElementById("ingredients");
-let dropAppBtn = document.getElementById("appareil");
-let dropUstBtn = document.getElementById("ustensiles");
-let dropIngrBtnClos = document.getElementById("drop-ing_open");
-let dropAppBtnClos = document.getElementById("drop-app_open");
-let dropUstBtnClos = document.getElementById("drop-ust_open");
+
+/* let dropIngrBtn = document.querySelectorAll("#ingredients #ingredients-down");
+let dropAppBtn = document.querySelectorAll("#appareil, #appareil-down");
+let dropUstBtn = document.querySelectorAll("#ustensiles, #ustensiles-down");
+let dropIngrBtnClos = document.querySelectorAll(
+  "#drop-ingredients_open,#ingredients-up"
+);
+let dropAppBtnClos = document.querySelectorAll(
+  "#drop-appareil_open,#appareil-up"
+);
+let dropUstBtnClos = document.querySelectorAll(
+  "#drop-ustensiles_open,#ustensiles-up"
+); */
+
+let dropIngrBtn = document.getElementById("ingredients-down");
+let dropAppBtn = document.getElementById("appareil-down");
+let dropUstBtn = document.getElementById("ustensiles-down");
+let dropIngrBtnClos = document.getElementById("ingredients-up");
+let dropAppBtnClos = document.getElementById("appareil-up");
+let dropUstBtnClos = document.getElementById("ustensiles-up");
 let main = document.querySelector(".recipes");
 let searchEvery = document.querySelector(".search-every");
 

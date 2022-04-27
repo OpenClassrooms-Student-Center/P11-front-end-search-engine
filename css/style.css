@@ -113,9 +113,7 @@
 }
 
 .fa-chevron-up {
-    font-size: 1rem;
-
-    color: white;
+    line-height: 4!important;
 }
 
 .drop-menu_closed {
@@ -204,11 +202,11 @@
 }
 
 .search-drop_all {
-    width: 667px;
+    width: 689px;
 }
 
 .search-drop {
-    width: 630px;
+    width: 689px;
 }
 
 .search-ing_all,
@@ -216,7 +214,7 @@
     height: 22px;
     background-color: #3282f7;
     border: none;
-    padding: 0.5rem 0.2rem;
+    margin: 0.5rem 0.2rem;
     color: white;
 }
 
@@ -244,14 +242,12 @@
     outline: none;
     font-family: "lato", sans-serif;
     color: white;
-    font-size: 18px;
-    font-weight: 700;
 }
 
 .search-ing_all input::placeholder,
 .search-app_all input::placeholder,
 .search-ust_all input::placeholder {
-    color: white;
+    color: rgb(231, 210, 210);
 }
 
 #drop {
