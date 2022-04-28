@@ -10,12 +10,8 @@
   <link href="css/style.css" rel="stylesheet" type="text/css" />
   <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
-      integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
-      crossorigin="anonymous"
-    />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+    integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous" />
   <title>Les petits plats</title>
 </head>
 
@@ -44,68 +40,90 @@
         <div class="tagsUst"></div>
       </div>
     </div>
-    <!--drop down-->
-    <div id="absolute">
-      <div class="search">
-        <div id="drop">
-          <div class="drop drop-ingredients">
-            <div id="drop-ingredients_closed" class="drop-menu_closed">
-              <input type="button" id="ingredients" class="drop-input_closed drop-input_ingredients"
-                placeholder="Ingrédients" value="Ingrédients" autocomplete="off" />
-              <i class="fas fa-chevron-down" id="ingredients-down"></i>
-            </div>
-            <div id="drop-ing_open" class="drop-all_open drop-menu_open">
-              <div class="search-drop_all search-ing_all">
-                <input class="search-drop" id="search-drop_ing" type="search" placeholder="Rechercher un ingrédient"
-                  autocomplete="off" />
-                <i class="fas fa-chevron-up" id="ingredients-up"></i>
-              </div>
-              <div id="drop-ingredients_open" class="drop-menu_open">
-                     <!-- UL et LI COMPONENT JAVASCRIPTS  -->
-                liste tout
-              </div>
-            </div>
-          </div>
 
-          <div class="drop drop-appareil">
-            <div id="drop-appareil_closed" class="drop-menu_closed">
-              <input type="button" id="appareil" class="drop-input_closed drop-input_appareil" placeholder="Appareil"
-                value="Appareils" autocomplete="off" />
-              <i class="fas fa-chevron-down" id="appareil-down"></i>
-            </div>
-            <div id="drop-app_open" class="drop-all_open drop-menu_open">
-              <div class="search-drop_all search-app_all">
-                <input class="search-drop" id="search-drop_app" type="search" placeholder="Rechercher un appareil"
-                  autocomplete="off" />
-                <i class="fas fa-chevron-up" id="appareil-up"></i>
-              </div>
-              <div id="drop-appareil_open" class="drop-menu_open">
-                     <!-- UL et LI COMPONENT JAVASCRIPTS  -->
-                liste tout
-              </div>
-            </div>
+    <!--Zone dropdown-->
+    <section class="filter">
+      <div class="drop drop-ingredients">
+        <div id="drop-ing_close" class="drop-menu_closed filter__custom-select">
+          <span class="filter__custom-arrow"></span>
+          <input class="filter__select filter__select--primary" type="button" data-color="primary"
+            data-value="Ingrédients" value="Ingrédients" /><i class="fas fa-chevron-down" id="ingredients-down"></i>
+        </div>
+        <div id="drop-ing_open" class="drop-all_open drop-menu_open">
+          <div class="search-drop_ing">
+            <input class="search-drop" id="search-drop_ing" type="text" placeholder="Rechercher un ingrédient"
+              autocomplete="off" />
+            <i class="fas fa-chevron-up" id="ingredients-up"></i>
           </div>
-
-          <div class="drop drop-ustensiles">
-            <div id="drop-ustensiles_closed" class="drop-menu_closed">
-              <input type="button" id="ustensiles" class="drop-input_closed drop-input_ustensiles"
-                placeholder="Ustensiles" value="Ustensiles" autocomplete="off" />
-              <i class="fas fa-chevron-down" id="ustensiles-down"></i>
-            </div>
-            <div id="drop-ust_open" class="drop-all_open drop-menu_open">
-              <div class="search-drop_all search-ust_all">
-                <input class="search-drop" id="search-drop_ust" type="search" placeholder="Rechercher un ustensile"
-                  autocomplete="off" />
-                <i class="fas fa-chevron-up" id="ustensiles-up"></i>
-              </div>
-              <div id="drop-ustensiles_open" class="drop-menu_open">
-                     <!-- UL et LI COMPONENT JAVASCRIPTS  -->
-                liste tout
-              </div>
-            </div>
+          <div id="drop-ingredients_open" class="drop-menu_open">
+            <!-- UL et LI COMPONENT JAVASCRIPTS  -->
+            liste tout
           </div>
         </div>
       </div>
+
+      <div class="filter__custom-select">
+        <span class="filter__custom-arrow"></span>
+        <input class="filter__select filter__select--success" type="button" data-color="success" data-value="Appareils"
+          value="Appareils" />
+        <!-- UL et LI COMPONENT JAVASCRIPTS  -->
+      </div>
+
+
+      <div class="drop drop-appareils">
+        <div id="drop-app_close" class="drop-menu_closed filter__custom-select">
+          <span class="filter__custom-arrow"></span>
+          <input class="filter__select filter__select--succes" type="button" data-color="succes"
+          data-value="Appareils"
+          value="Appareils"  /><i class="fas fa-chevron-down" id="ingredients-down"></i>
+        </div>
+        <div id="drop-ing_open" class="drop-all_open drop-menu_open">
+          <div class="search-drop_ing">
+            <input class="search-drop" id="search-drop_ing" type="text" placeholder="Rechercher un appareil"
+              autocomplete="off" />
+            <i class="fas fa-chevron-up" id="ingredients-up"></i>
+          </div>
+          <div id="drop-ingredients_open" class="drop-menu_open">
+            <!-- UL et LI COMPONENT JAVASCRIPTS  -->
+            liste tout
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="filter__custom-select">
+        <span class="filter__custom-arrow"></span>
+        <input class="filter__select filter__select--danger" type="button" data-color="danger" data-value="Ustensiles"
+          value="Ustensiles" />
+        <!-- UL et LI COMPONENT JAVASCRIPTS  -->
+      </div>
+      <div class="drop drop-ingredients">
+        <div id="drop-ing_close" class="drop-menu_closed filter__custom-select">
+          <span class="filter__custom-arrow"></span>
+          <input class="filter__select filter__select--primary" type="button" data-color="primary"
+            data-value="Ingrédients" value="Ingrédients" /><i class="fas fa-chevron-down" id="ingredients-down"></i>
+        </div>
+        <div id="drop-ing_open" class="drop-all_open drop-menu_open">
+          <div class="search-drop_ing">
+            <input class="search-drop" id="search-drop_ing" type="text" placeholder="Rechercher un ingrédient"
+              autocomplete="off" />
+            <i class="fas fa-chevron-up" id="ingredients-up"></i>
+          </div>
+          <div id="drop-ingredients_open" class="drop-menu_open">
+            <!-- UL et LI COMPONENT JAVASCRIPTS  -->
+            liste tout
+          </div>
+        </div>
+      </div>
+
+
+  
+    </section>
+
+    <section class="cards">
+      <!-- CARDS COMPONENT JAVASCRIPTS DISPLAYCARDS.JS -->
+    </section>
 
       <!--message recherche vide-->
       <div id="filtered-empty">
