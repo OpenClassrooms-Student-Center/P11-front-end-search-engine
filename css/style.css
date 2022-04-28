@@ -29,7 +29,7 @@
 }
 
 .search-all {
-    width: 91%;
+    width: 96%;
     height: 65px;
     font-size: 18px;
     font-family: "lato", sans-serif;
@@ -58,7 +58,7 @@
 
 .fa-search {
     position: absolute;
-    right: 3rem;
+    right: 0rem;
     top: 1.5rem;
     font-size: 1.5rem;
     cursor: pointer;
@@ -71,19 +71,17 @@
 
 /*drop down */
 #drop {
-    width: 550px;
+    width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     margin: 1% 7% 0 6.2%;
     position: absolute;
     z-index: 3;
-    position: relative;
     cursor: pointer;
 }
 
 .drop-menu_closed input {
-    width: 100%;
+    width: 107%;
     height: 22px;
     border: none;
     border-radius: 5px;
@@ -118,7 +116,7 @@
 
 .drop-menu_closed {
     width: 170px;
-    height: 65px;
+    height: 63px;
     color: white;
     font-family: "lato", sans-serif;
     display: flex;
@@ -252,11 +250,6 @@
     color: rgb(231, 210, 210);
 }
 
-#drop {
-    position: relative;
-    margin-left: 7%;
-    margin-top: 0;
-}
 
 .drop-all_open {
     z-index: 99;
@@ -478,13 +471,6 @@ font-weight: bold;
     .search-every {
         width: 94%;
         margin: 0;
-    }
-
-    #drop {
-        margin: 0 7%;
-
-        flex-direction: column;
-        width: 85%;
     }
 
     .drop {
