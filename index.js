@@ -1,5 +1,6 @@
 import { Api } from "./scripts/api/api.js";
 import { Recipe } from "./scripts/templates/Recipe.js";
+import { ListOfFiltre } from "./scripts/templates/dropIngredAparUstens.js";
 
 class App {
   static async init() {
@@ -19,6 +20,30 @@ class App {
       const recipeCard = new Recipe(recipe);
       recipesSection.appendChild(recipeCard.createRecipesCard());
     });
+  }
+
+  createListIngredients() {
+    const items = document.querySelector(".tagsIngr");
+    let list = new Set();
+    this.filtered.forEach((recipe) => {
+      recipe.ingredients.forEach((item) => {
+        const ingredient = new ListOfFiltre(item);
+        items.appendChild(ingredient.createListIngredients());
+        list.add(item.ingredient);
+      });
+    });
+    return list;
+
+    /* let html = "";
+    const items = document.querySelector(".tagsIngr");
+    this.globalData.recipes.forEach((recipe) => {
+      recipe.ingredients.forEach((item) => {
+        const ingredient = new ListOfFiltre(item);
+        items.appendChild(ingredient.createListIngredients());
+        //items.add(item.ingredient);
+      });
+    });
+    document.querySelector(".tagsIngr").innerHTML = html; */
   }
 }
 App.init();
