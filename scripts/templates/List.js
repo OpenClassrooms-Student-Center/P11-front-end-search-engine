@@ -13,7 +13,7 @@ class List {
 
   //COLLECTER ET AFFICHER LES RECETTES
   add(recipe) {
-    list.all.push(recipe);
+    this.all.push(recipe);
   }
   displayRecipes() {
     let html = "";

@@ -27,7 +27,7 @@
     <!--The first zone search-->
     <div class="search">
       <div class="search-every">
-        <input class="search-all" id="search-all" type="search"
+        <input id="search-all" type="search"
           placeholder="Rechercher un ingrédient, appareil, ustensile ou une recette" autocomplete="off" />
         <i class="fas fa-search"></i>
       </div>
@@ -40,8 +40,7 @@
         <div class="tagsUst"></div>
       </div>
     </div>
-
-    <!--Zone dropdown-->
+    <!--drop down-->
     <section class="filter">
       <div class="drop drop-ingredients">
         <div id="drop-ing_close" class="drop-menu_closed filter__custom-select">
@@ -51,97 +50,75 @@
         </div>
         <div id="drop-ing_open" class="drop-all_open drop-menu_open">
           <div class="search-drop_ing">
-            <input class="search-drop" id="search-drop_ing" type="text" placeholder="Rechercher un ingrédient"
+            <input class="search-drop" id="search-drop_ing" type="" placeholder="Rechercher un ingrédient"
               autocomplete="off" />
             <i class="fas fa-chevron-up" id="ingredients-up"></i>
           </div>
+
           <div id="drop-ingredients_open" class="drop-menu_open">
             <!-- UL et LI COMPONENT JAVASCRIPTS  -->
             liste tout
           </div>
         </div>
       </div>
-
-      <div class="filter__custom-select">
-        <span class="filter__custom-arrow"></span>
-        <input class="filter__select filter__select--success" type="button" data-color="success" data-value="Appareils"
-          value="Appareils" />
-        <!-- UL et LI COMPONENT JAVASCRIPTS  -->
-      </div>
-
 
       <div class="drop drop-appareils">
         <div id="drop-app_close" class="drop-menu_closed filter__custom-select">
           <span class="filter__custom-arrow"></span>
-          <input class="filter__select filter__select--succes" type="button" data-color="succes"
-          data-value="Appareils"
-          value="Appareils"  /><i class="fas fa-chevron-down" id="ingredients-down"></i>
+          <input class="filter__select filter__select--success" type="button" data-color="success"
+            data-value="Appareils" value="Appareils" /><i class="fas fa-chevron-down" id="appareils-down"></i>
         </div>
-        <div id="drop-ing_open" class="drop-all_open drop-menu_open">
-          <div class="search-drop_ing">
-            <input class="search-drop" id="search-drop_ing" type="text" placeholder="Rechercher un appareil"
+        <div id="drop-app_open" class="drop-all_open drop-menu_open">
+          <div class="search-drop_app">
+            <input class="search-drop" id="search-drop_app" type="" placeholder="Rechercher un appareil"
               autocomplete="off" />
-            <i class="fas fa-chevron-up" id="ingredients-up"></i>
+            <i class="fas fa-chevron-up" id="appareils-up"></i>
           </div>
-          <div id="drop-ingredients_open" class="drop-menu_open">
+
+          <div id="drop-appareils_open" class="drop-menu_open">
             <!-- UL et LI COMPONENT JAVASCRIPTS  -->
             liste tout
           </div>
         </div>
       </div>
 
-
-
-      <div class="filter__custom-select">
-        <span class="filter__custom-arrow"></span>
-        <input class="filter__select filter__select--danger" type="button" data-color="danger" data-value="Ustensiles"
-          value="Ustensiles" />
-        <!-- UL et LI COMPONENT JAVASCRIPTS  -->
-      </div>
-      <div class="drop drop-ingredients">
-        <div id="drop-ing_close" class="drop-menu_closed filter__custom-select">
+      <div class="drop drop-ustensiles">
+        <div id="drop-ust_close" class="drop-menu_closed filter__custom-select">
           <span class="filter__custom-arrow"></span>
-          <input class="filter__select filter__select--primary" type="button" data-color="primary"
-            data-value="Ingrédients" value="Ingrédients" /><i class="fas fa-chevron-down" id="ingredients-down"></i>
+          <input class="filter__select filter__select--danger" type="button" data-color="danger"
+            data-value="Ustensiles" value="Ustensiles" /><i class="fas fa-chevron-down" id="ustensiles-down"></i>
         </div>
-        <div id="drop-ing_open" class="drop-all_open drop-menu_open">
-          <div class="search-drop_ing">
-            <input class="search-drop" id="search-drop_ing" type="text" placeholder="Rechercher un ingrédient"
+        <div id="drop-ust_open" class="drop-all_open drop-menu_open">
+          <div class="search-drop_ust">
+            <input class="search-drop" id="search-drop_ust" type="" placeholder="Rechercher un ustensile"
               autocomplete="off" />
-            <i class="fas fa-chevron-up" id="ingredients-up"></i>
+            <i class="fas fa-chevron-up" id="ustensiles-up"></i>
           </div>
-          <div id="drop-ingredients_open" class="drop-menu_open">
+
+          <div id="drop-ustensiles_open" class="drop-menu_open">
             <!-- UL et LI COMPONENT JAVASCRIPTS  -->
             liste tout
           </div>
         </div>
       </div>
-
-
-  
     </section>
-
-    <section class="cards">
-      <!-- CARDS COMPONENT JAVASCRIPTS DISPLAYCARDS.JS -->
-    </section>
-
-      <!--message recherche vide-->
-      <div id="filtered-empty">
-        <img id="error-img" src="/images/logo.png" alt=" Les Petits Plats, logo" />
-        «Aucune recette ne correspond à votre critère… vous pouvez chercher
-        "tarte aux pommes", "poisson" , etc.»
-      </div>
-      <main class="recipes">
-        <!-- CARDS COMPONENT JAVASCRIPTS DISPLAYCARDS.JS -->
-        <div class="recipe_section"></div>
-      </main>
+    <!--message recherche vide-->
+    <div id="filtered-empty">
+      <img id="error-img" src="/images/logo.png" alt=" Les Petits Plats, logo" />
+      «Aucune recette ne correspond à votre critère… vous pouvez chercher
+      "tarte aux pommes", "poisson" , etc.»
     </div>
+    <main class="recipes">
+      <!-- CARDS COMPONENT JAVASCRIPTS DISPLAYCARDS.JS -->
+      <div class="recipe_section"></div>
+    </main>
+  </div>
 
 
-    <!-- Page -->
-    <script defer type="module" src="./index.js"></script>
-    <script defer src="/scripts/templates/dropdowns.js"></script>
-    <script defer src="/scripts/templates/List.js"></script>
+  <!-- Page -->
+  <script defer type="module" src="./index.js"></script>
+  <script defer src="/scripts/templates/dropdowns.js"></script>
+  <script defer src="/scripts/templates/List.js"></script>
 
 </body>
 
