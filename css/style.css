@@ -153,27 +153,33 @@
     display: none;
 }
 
-#drop-ing_open, #drop-app_open, #drop-ust_open {
+#drop-ing_open,
+#drop-app_open,
+#drop-ust_open {
     display: none;
+    width: 30em;
 }
 
- #drop-ing_open , #drop-app_open, #drop-ust_open{
+#drop-ing_open,
+#drop-app_open,
+#drop-ust_open {
     flex-direction: column;
     border: none;
     color: #fff;
     padding: 1em;
-    height: 69px;
     text-align: start;
     border-radius: var(--br-5);
     font-size: var(--fs-18);
     cursor: pointer;
     justify-content: space-between;
+    max-height: 25em;
 }
 
 #drop-ingr_close,
 #drop-ing_open {
     background: var(--primary);
 }
+
 #drop-app_close,
 #drop-app_open {
     background: var(--success);
@@ -184,30 +190,55 @@
     background: var(--danger);
 }
 
-#search-drop_ing, #search-drop_app, #search-drop_ust ::placeholder{
-font-style: italic;
-color: #fff;
+#search-drop_ing,
+#search-drop_app,
+#search-drop_ust ::placeholder {
+    font-style: italic;
+    color: #fff;
 }
 
-.search-drop_ing, .search-drop_app, .search-drop_ust{
+.search-drop_ing,
+.search-drop_app,
+.search-drop_ust {
+    display: flex;
     justify-content: space-between;
+    padding: 1em;
+    padding-top: 0.1em;
 }
 
-.search-drop_ing input, .search-drop_app input, .search-drop_ust input{
+.search-drop_ing input,
+.search-drop_app input,
+.search-drop_ust input {
     border: none;
     color: #e7e7e7;
 }
 
-.search-drop_ing input{
+.search-drop_ing input {
     background-color: var(--primary);
 }
 
-.search-drop_app input{
+.search-drop_app input {
     background-color: var(--success);
 }
 
-.search-drop_ust input{
+.search-drop_ust input {
     background-color: var(--danger);
+}
+
+#drop-ingredients_open,
+#drop-appareils_open,
+#drop-ustensiles_open {
+    column-count: 3 !important;
+    width: 32em;
+    height: 20em;
+}
+
+#drop-ingredients_open li,
+#drop-appareils_open li,
+#drop-ustensiles_open li {
+    width: 169px;
+    list-style-type: none;
+    list-style-position: inside;
 }
 
 
@@ -259,15 +290,19 @@ color: #fff;
 /*message recherche vide*/
 #filtered-empty {
     /*   display: :none;   */
-    color: var(--dark-grey);
-    font-size: 1.3em;
+    color: var(--light-grey);
+    font-size: 1.2em;
     text-align: center;
-    width: 39%;
+    width: 83%;
     margin: auto;
     margin-bottom: 1em;
-    padding: 2rem;
-    background-color: #d04f4f16;
+    padding: 1rem;
+    background-color: #ed6454;
     border-radius: var(--border-radius);
+}
+
+#filtered-empty img {
+    width: 150px;
 }
 
 /*fiches recettes*/
@@ -396,10 +431,9 @@ main img {
         margin-bottom: 2%;
     }
 
-    /* .drop-menu_closed,
     .drop-menu_open {
-        width: 100%;
-    } */
+        column-count: 3 !important;
+    }
 
     article {
         margin: auto;
