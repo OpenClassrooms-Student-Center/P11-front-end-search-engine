@@ -33,7 +33,7 @@
 }
 
 #search-all {
-    width: 96%;
+    width: 94%;
     height: 65px;
     font-size: 18px;
     font-family: "lato", sans-serif;
@@ -48,7 +48,7 @@
 
 .search-every {
     position: relative;
-    width: 91%;
+    width: 99%;
 }
 
 .search-every input:focus {
@@ -78,6 +78,19 @@
 .filter {
     margin-bottom: 2em;
     text-align: -webkit-center;
+}
+
+.ingredient-tag::after{
+    content: "";
+    width: 0px;
+    height: 1px;
+    display: block;
+    background: #fff;
+    transition: 300ms;
+}
+
+.ingredient-tag:hover::after{
+width: 15%;
 }
 
 @media only screen and (min-width: 992px) {
@@ -443,7 +456,6 @@ main img {
     .fa-chevron-up {
         font-size: 1rem;
         color: white;
-        position: absolute;
         top: 2%;
         right: 2%;
     }

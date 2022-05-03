@@ -1,5 +1,6 @@
 import { Api } from "./scripts/api/api.js";
 import { Recipe } from "./scripts/templates/Recipe.js";
+//import { search } from "../../search.js";
 
 class App {
   static async init() {
@@ -29,7 +30,10 @@ class App {
     let setIngredients = new Set();
     this.globalData.recipes.forEach((recipe) => {
       recipe.ingredients.forEach((ingredient) => {
-        setIngredients.add(ingredient.ingredient);
+        //toLowerCase()- returns the calling string value converted to lower case.
+        //trim()- removes whitespace from both ends of a string and returns a new string, without modifying the original string. Whitespace in this context is all the whitespace characters (space, tab, no-break space, etc.) and all the line terminator characters
+        //.sort()-sorts the elements of an array in place and returns the sorted array.
+        setIngredients.add(ingredient.ingredient.toLowerCase().trim());
       });
     });
     this.createItemsIngredient(setIngredients);
@@ -51,7 +55,7 @@ class App {
     ////Set n'autorise pas les doublons.
     let setAppareils = new Set();
     this.globalData.recipes.forEach((recipe) => {
-      setAppareils.add(recipe.appliance);
+      setAppareils.add(recipe.appliance.toLowerCase().trim());
     });
     this.createItemsAppareils(setAppareils);
   }
@@ -73,7 +77,7 @@ class App {
     let setUstensiles = new Set();
     this.globalData.recipes.forEach((recipe) => {
       recipe.ustensils.forEach((ustensil) => {
-        setUstensiles.add(ustensil);
+        setUstensiles.add(ustensil.toLowerCase().trim().sort());
       });
     });
     this.createItemsUstensiles(setUstensiles);

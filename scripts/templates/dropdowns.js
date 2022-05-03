@@ -30,7 +30,7 @@ function openDropIngr() {
   document.getElementById("drop-ing_open").style.display = "flex";
   document.getElementById("drop-ing_close").style.display = "none";
   //document.getElementById("drop-app_close").style.display = "block";
-  //document.getElementById("drop-app_close").style.display = "none";
+  //document.getElementById("drop-app_open").style.display = "flex";
   //document.getElementById("drop-ust_open").style.display = "none";
 }
 
