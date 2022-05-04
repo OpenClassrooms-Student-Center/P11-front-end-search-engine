@@ -22,6 +22,10 @@ class App {
       const recipeCard = new Recipe(recipe);
       recipesSection.appendChild(recipeCard.createRecipesCard());
     });
+    //message error
+    if (dataToDisplay.length == 0) {
+      document.getElementById("filtered-empty").style.display = "block";
+    }
     App.createListIngredients(dataToDisplay);
     App.createListAppareils(dataToDisplay);
     App.createListUstensiles(dataToDisplay);
