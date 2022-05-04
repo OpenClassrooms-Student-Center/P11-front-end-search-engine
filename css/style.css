@@ -302,7 +302,7 @@ width: 15%;
 
 /*message recherche vide*/
 #filtered-empty {
-    /*   display: :none;   */
+    display: none;   
     color: var(--light-grey);
     font-size: 1.2em;
     text-align: center;
