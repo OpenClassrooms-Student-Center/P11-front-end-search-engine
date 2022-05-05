@@ -80,7 +80,7 @@
     text-align: -webkit-center;
 }
 
-.ingredient-tag::after{
+.ingredient-tag::after {
     content: "";
     width: 0px;
     height: 1px;
@@ -89,14 +89,14 @@
     transition: 300ms;
 }
 
-.ingredient-tag:hover::after{
-width: 15%;
+.ingredient-tag:hover::after {
+    width: 15%;
 }
 
 @media only screen and (min-width: 992px) {
     .filter {
         margin-top: 20px;
-        margin-left: 82px;
+        margin-left: 7%;
         display: flex;
         gap: 20px;
     }
@@ -170,7 +170,6 @@ width: 15%;
 #drop-app_open,
 #drop-ust_open {
     display: none;
-    width: 30em;
 }
 
 #drop-ing_open,
@@ -224,6 +223,7 @@ width: 15%;
 .search-drop_ust input {
     border: none;
     color: #e7e7e7;
+    width: 50%;
 }
 
 .search-drop_ing input {
@@ -242,7 +242,6 @@ width: 15%;
 #drop-appareils_open,
 #drop-ustensiles_open {
     column-count: 3 !important;
-    width: 32em;
     height: 20em;
 }
 
@@ -302,7 +301,7 @@ width: 15%;
 
 /*message recherche vide*/
 #filtered-empty {
-    display: none;   
+    display: none;
     color: var(--light-grey);
     font-size: 1.2em;
     text-align: center;
@@ -462,6 +461,21 @@ main img {
 
     .drop-ingredients {
         margin-right: 0rem;
+        display: flex;
+    }
+
+    #drop-ing_open,
+    #drop-app_open,
+    #drop-ust_open {
+        max-width: 50%;
+    }
+
+    #drop-ingredients_open,
+    #drop-appareils_open,
+    #drop-ustensiles_open {
+        display: flex;
+        flex-wrap: wrap;
+        column-count: 2 !important;
     }
 
     .drop-appareil {
