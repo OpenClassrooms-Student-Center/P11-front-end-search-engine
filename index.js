@@ -16,6 +16,8 @@ class App {
   }
   // RECUPERE LA DATA ET HYDRATE LES COMPOSANTS, paramettre un array de recipes
   static displayRecipes(dataToDisplay) {
+    document.getElementById("filtered-empty").style.display = "none";
+    // message error hidden
     const recipesSection = document.querySelector(".recipe_section");
     recipesSection.innerHTML = "";
     dataToDisplay.forEach((recipe) => {
