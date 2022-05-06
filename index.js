@@ -72,6 +72,7 @@ class App {
   //
   static createItemsAppareils(set) {
     const items = document.querySelector("#drop-appareils_open");
+    items.innerHTML = "";
     //static method creates a new, shallow-copied Array instance from an array-like or iterable object.
     let array = Array.from(set);
     for (let i = 0; i < array.length; i++) {
@@ -95,6 +96,7 @@ class App {
   //
   static createItemsUstensiles(set) {
     const items = document.querySelector("#drop-ustensiles_open");
+    items.innerHTML = "";
     //static method creates a new, shallow-copied Array instance from an array-like or iterable object.
     let array = Array.from(set);
     //console.log(array);
@@ -107,14 +109,32 @@ class App {
 
   //search
   filterRecipes(recipes) {
+    //console.log(recipes);
     const itemSearch = document.getElementById("search-all");
     itemSearch.addEventListener("input", function () {
+      console.log(recipes.length);
       if (itemSearch.value.length < 3) {
         App.displayRecipes(recipes);
       }
       if (itemSearch.value.length >= 3) {
         let filteredList = Filter.search(this.value, recipes);
+        //console.log(recipes);
         App.displayRecipes(filteredList);
+      }
+    });
+  }
+
+  filterAppliance(app) {
+    //console.log(recipes);
+    const itemSearch = document.getElementById("search-drop_app");
+    itemSearch.addEventListener("input", function () {
+      if (itemSearch.value.length < 1) {
+        App.createListAppareils(app);
+      }
+      if (itemSearch.value.length >= 1) {
+        let filteredList = Filter.searchAppMenu(this.value, app);
+        //console.log(recipes);
+        App.createListAppareils(filteredList);
       }
     });
   }

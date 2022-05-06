@@ -18,6 +18,8 @@ export class Filter {
   //Search method in the first input of filter, menu of filter( name, descritption, ingredient)
   static search(request, data) {
     let recipesMatched = [];
+    // let ingredients = data.ingredients;
+    //console.log(ingredients);
     for (let recipe of data) {
       if (recipe.name.toLowerCase().includes(request)) {
         recipesMatched.push(recipe);
@@ -25,7 +27,29 @@ export class Filter {
       } else if (recipe.description.toLowerCase().includes(request)) {
         recipesMatched.push(recipe);
       }
+
+      /*  for (let ingredient of data) {
+        if (ingredient.ingredient.toLowerCase().includes(request)) {
+          recipesMatched.push(recipe);
+        }
+      } */
     }
     return recipesMatched;
+  }
+
+  static searchAppMeniu(request, data) {
+    let appMatched = [];
+    for (let recipe of data) {
+      if (recipe.appliance.toLowerCase().includes(request)) {
+        appMatched.push(recipe);
+        // Check if a recipe match with the requested description
+      } else if (recipe.description.toLowerCase().includes(request)) {
+        appMatched.push(recipe);
+      }
+      //else if (ingredients.ingredient.toLowerCase().includes(request)) {
+      // recipesMatched.push(recipe);
+      // }
+    }
+    return appMatched;
   }
 }

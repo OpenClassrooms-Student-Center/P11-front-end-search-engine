@@ -184,7 +184,7 @@
     font-size: var(--fs-18);
     cursor: pointer;
     justify-content: space-between;
-    max-height: 25em;
+    max-height: 23em;
 }
 
 #drop-ingr_close,
@@ -242,7 +242,6 @@
 #drop-appareils_open,
 #drop-ustensiles_open {
     column-count: 3 !important;
-    height: 20em;
 }
 
 #drop-ingredients_open li,
