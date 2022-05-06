@@ -18,6 +18,7 @@ export class Filter {
   //Search method in the first input of filter, menu of filter( name, descritption, ingredient)
   static search(request, data) {
     let recipesMatched = [];
+    let ingMatched = [];
     // let ingredients = data.ingredients;
     //console.log(ingredients);
     for (let recipe of data) {
@@ -28,13 +29,8 @@ export class Filter {
         recipesMatched.push(recipe);
       }
 
-      /*  for (let ingredient of data) {
-        if (ingredient.ingredient.toLowerCase().includes(request)) {
-          recipesMatched.push(recipe);
-        }
-      } */
+      return recipesMatched;
     }
-    return recipesMatched;
   }
 
   static searchAppMeniu(request, data) {

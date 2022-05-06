@@ -242,6 +242,7 @@
 #drop-appareils_open,
 #drop-ustensiles_open {
     column-count: 3 !important;
+    overflow: hidden;
 }
 
 #drop-ingredients_open li,
