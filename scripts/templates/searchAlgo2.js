@@ -48,20 +48,11 @@ export class Filter {
     let recipesMatchedIngredients = [];
     for (let recipe of recipesMatched) {
       let ingContained = false;
+      let ingredientsAsString = recipe.ingredients.map((el) => el.ingredient);
 
-      for (let ingSel of igredientsSelected) {
-        for (let ing of recipe.ingredients) {
-          if (ing.ingredient === ingSel) {
-            ingContained = true;
-            break;
-          } else {
-            ingContained = false;
-          }
-        }
-        if (!ingContained) {
-          break;
-        }
-      }
+      ingContained = igredientsSelected.every((el) =>
+        ingredientsAsString.includes(el)
+      );
 
       let ustContained = false;
       for (let ustensilSel of ustensilesSelected) {

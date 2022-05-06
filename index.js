@@ -10,6 +10,9 @@ class App {
   }
   constructor(globalData) {
     this.globalData = globalData;
+    this.ingredientsSelected = ["Oignon", "Ail"];
+    this.appareilsSelected = ["Mixer"];
+    this.ustensilesSelected = ["casserolle"];
     //console.log(this.globalData);
     App.displayRecipes(globalData.recipes);
     this.filterRecipes(globalData.recipes);
@@ -109,15 +112,24 @@ class App {
 
   //search
   filterRecipes(recipes) {
-    //console.log(recipes);
+    let ingredientsSelected = this.ingredientsSelected;
+    let appareilsSelected = this.appareilsSelected;
+    let ustensilesSelected = this.ustensilesSelected;
+
     const itemSearch = document.getElementById("search-all");
     itemSearch.addEventListener("input", function () {
-      console.log(recipes.length);
+      //console.log(recipes.length);
       if (itemSearch.value.length < 3) {
         App.displayRecipes(recipes);
       }
       if (itemSearch.value.length >= 3) {
-        let filteredList = Filter.search(this.value, recipes);
+        let filteredList = Filter.search(
+          this.value,
+          ingredientsSelected,
+          appareilsSelected,
+          ustensilesSelected,
+          recipes
+        );
         //console.log(recipes);
         App.displayRecipes(filteredList);
       }
