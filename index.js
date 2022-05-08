@@ -1,6 +1,7 @@
 import { Api } from "./scripts/api/api.js";
 import { Recipe } from "./scripts/templates/Recipe.js";
 import { Filter } from "./scripts/templates/searchAlgo1.js";
+//import { Tags } from "./scripts/templates/displayTags.js";
 
 class App {
   static async init() {
@@ -10,15 +11,17 @@ class App {
   }
   constructor(globalData) {
     this.globalData = globalData;
+    this.setIngredients = new Set();
     this.ingredientsSelected = ["Oignon", "Ail"];
     this.appareilsSelected = ["Mixer"];
     this.ustensilesSelected = ["casserolle"];
     //console.log(this.globalData);
-    App.displayRecipes(globalData.recipes);
+    App.displayRecipes(globalData.recipes, this.setIngredients);
     this.filterRecipes(globalData.recipes);
+    this.attachListenerTags();
   }
   // RECUPERE LA DATA ET HYDRATE LES COMPOSANTS, paramettre un array de recipes
-  static displayRecipes(dataToDisplay) {
+  static displayRecipes(dataToDisplay, setIngredients) {
     document.getElementById("filtered-empty").style.display = "none";
     // message error hidden
     const recipesSection = document.querySelector(".recipe_section");
@@ -31,14 +34,13 @@ class App {
     if (dataToDisplay.length == 0) {
       document.getElementById("filtered-empty").style.display = "block";
     }
-    App.createListIngredients(dataToDisplay);
+    App.createListIngredients(dataToDisplay, setIngredients);
     App.createListAppareils(dataToDisplay);
     App.createListUstensiles(dataToDisplay);
   }
 
-  static createListIngredients(dataToDisplay) {
+  static createListIngredients(dataToDisplay, setIngredients) {
     ////Set n'autorise pas les doublons.
-    let setIngredients = new Set();
     dataToDisplay.forEach((recipe) => {
       recipe.ingredients.forEach((ingredient) => {
         //toLowerCase()- returns the calling string value converted to lower case.
@@ -56,9 +58,11 @@ class App {
     items.innerHTML = "";
     //static method creates a new, shallow-copied Array instance from an array-like or iterable object.
     let array = Array.from(set);
+    array.sort();
     for (let i = 0; i < array.length; i++) {
-      let itemHtml = document.createElement("ingredient");
-      itemHtml.innerHTML = `<li class="ingredient-tag">${array[i]}</li>`;
+      let itemHtml = document.createElement("li");
+      itemHtml.classList.add("ingredient-tag");
+      itemHtml.innerHTML = array[i];
       items.appendChild(itemHtml);
     }
   }
@@ -136,19 +140,35 @@ class App {
     });
   }
 
-  filterAppliance(app) {
-    //console.log(recipes);
-    const itemSearch = document.getElementById("search-drop_app");
-    itemSearch.addEventListener("input", function () {
-      if (itemSearch.value.length < 1) {
-        App.createListAppareils(app);
-      }
-      if (itemSearch.value.length >= 1) {
-        let filteredList = Filter.searchAppMenu(this.value, app);
-        //console.log(recipes);
-        App.createListAppareils(filteredList);
-      }
-    });
+  attachListenerTags() {
+    const items = document.getElementById("tagIngr");
+    const ingredientsHTMLCollection =
+      document.getElementsByClassName("ingredient-tag");
+
+    const ingredientsParrentNode = document.getElementById(
+      "drop-ingredients_open"
+    );
+    let setIngredients = this.setIngredients;
+    for (let i = 0; i < ingredientsHTMLCollection.length; i++) {
+      let ing = ingredientsHTMLCollection[i];
+      ing.addEventListener("click", function () {
+        let itemHtml = document.createElement("i");
+        itemHtml.classList.add("tag");
+        itemHtml.innerHTML =
+          ing.innerText +
+          `<span class="tags__close">
+        <img src="./images/remove-icon.png" alt=""/></span>`;
+        itemHtml.addEventListener("click", function () {
+          items.removeChild(itemHtml);
+          ingredientsParrentNode.appendChild(ing);
+          setIngredients.add(ing.innerText);
+          App.createItemsIngredient(setIngredients);
+        });
+        items.appendChild(itemHtml);
+        setIngredients.delete(ing.innerText);
+        App.createItemsIngredient(setIngredients);
+      });
+    }
   }
 }
 App.init();

@@ -260,19 +260,20 @@
     display: flex;
 }
 
-.tags i {
+ .tags i {
     font-size: 20px;
     font-weight: 400;
     vertical-align: middle;
     line-height: 37px;
 }
 
-.tagIngr,
-.tagAppl,
-.tagUst {
+#tagIngr,
+#tagAppl,
+#tagUst {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    gap: 15px;
     color: white;
     font-family: "lato", sans-serif;
     font-size: 14px;
@@ -287,15 +288,16 @@
     margin-bottom: 1rem;
 }
 
-.tagIngr {
+#tagIngr i{
     background-color: var(--primary);
+
 }
 
-.tagAppl {
+#tagAppl i{
     background-color: var(--success);
 }
 
-.tagUst {
+#tagUst i{
     background-color: var(--danger);
 }
 
@@ -461,7 +463,6 @@ main img {
 
     .drop-ingredients {
         margin-right: 0rem;
-        display: flex;
     }
 
     #drop-ing_open,
