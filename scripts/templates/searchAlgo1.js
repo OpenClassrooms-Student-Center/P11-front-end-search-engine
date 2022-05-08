@@ -25,33 +25,38 @@ export class Filter {
     data
   ) {
     let recipesMatched = [];
-    for (let recipe of data) {
-      if (recipe.name.toLowerCase().includes(request)) {
-        recipesMatched.push(recipe);
-        continue;
-        // Check if a recipe match with the requested description
-      } else if (recipe.description.toLowerCase().includes(request)) {
-        recipesMatched.push(recipe);
-        continue;
-      }
-
-      for (let ingr of recipe.ingredients) {
-        //console.log(ingr);
-        if (ingr.ingredient.toLowerCase().includes(request)) {
+    if (request.length < 3) {
+      recipesMatched = data;
+    } else {
+      for (let recipe of data) {
+        if (recipe.name.toLowerCase().includes(request)) {
           recipesMatched.push(recipe);
-          //console.log(recipesMatched);
-          break;
+          continue;
+          // Check if a recipe match with the requested description
+        } else if (recipe.description.toLowerCase().includes(request)) {
+          recipesMatched.push(recipe);
+          continue;
+        }
+
+        for (let ingr of recipe.ingredients) {
+          //console.log(ingr);
+          if (ingr.ingredient.toLowerCase().includes(request)) {
+            recipesMatched.push(recipe);
+            //console.log(recipesMatched);
+            break;
+          }
         }
       }
     }
 
     let recipesMatchedIngredients = [];
     for (let recipe of recipesMatched) {
-      let ingContained = false;
+      let ingContained = true;
 
       for (let ingSel of igredientsSelected) {
         for (let ing of recipe.ingredients) {
-          if (ing.ingredient === ingSel) {
+          // ingred current est == avec celui selecté
+          if (ing.ingredient.toLowerCase() === ingSel.toLowerCase()) {
             ingContained = true;
             break;
           } else {
@@ -63,10 +68,10 @@ export class Filter {
         }
       }
 
-      let ustContained = false;
+      let ustContained = true;
       for (let ustensilSel of ustensilesSelected) {
         for (let ust of recipe.ustensils) {
-          if (ust === ustensilSel) {
+          if (ust.toLowerCase() === ustensilSel.toLowerCase()) {
             ustContained = true;
             break;
           } else {
@@ -78,9 +83,9 @@ export class Filter {
         }
       }
 
-      let applContained = false;
+      let applContained = true;
       for (let apareillSel of appareilsSelected) {
-        if (recipe.appliance === apareillSel) {
+        if (recipe.appliance.toLowerCase() === apareillSel.toLowerCase()) {
           applContained = true;
         } else {
           applContained = false;

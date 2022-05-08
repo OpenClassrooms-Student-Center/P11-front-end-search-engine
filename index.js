@@ -12,31 +12,37 @@ class App {
   constructor(globalData) {
     this.globalData = globalData;
     this.setIngredients = new Set();
-    this.ingredientsSelected = ["Oignon", "Ail"];
-    this.appareilsSelected = ["Mixer"];
-    this.ustensilesSelected = ["casserolle"];
+    this.filteredRecipes = globalData.recipes;
+
+    this.searchWord = "";
+    this.ingredientsSelected = new Set();
+    this.appareilsSelected = new Set();
+    this.ustensilesSelected = new Set();
     //console.log(this.globalData);
-    App.displayRecipes(globalData.recipes, this.setIngredients);
-    this.filterRecipes(globalData.recipes);
-    this.attachListenerTags();
+    this.displayRecipes();
   }
   // RECUPERE LA DATA ET HYDRATE LES COMPOSANTS, paramettre un array de recipes
-  static displayRecipes(dataToDisplay, setIngredients) {
+  displayRecipes() {
+    this.attachListnerGlobalSearch();
     document.getElementById("filtered-empty").style.display = "none";
     // message error hidden
     const recipesSection = document.querySelector(".recipe_section");
     recipesSection.innerHTML = "";
-    dataToDisplay.forEach((recipe) => {
+
+    console.log(this.filteredRecipes);
+
+    this.filteredRecipes.forEach((recipe) => {
       const recipeCard = new Recipe(recipe);
       recipesSection.appendChild(recipeCard.createRecipesCard());
     });
     //message error
-    if (dataToDisplay.length == 0) {
+    if (this.filteredRecipes.length == 0) {
       document.getElementById("filtered-empty").style.display = "block";
     }
-    App.createListIngredients(dataToDisplay, setIngredients);
-    App.createListAppareils(dataToDisplay);
-    App.createListUstensiles(dataToDisplay);
+    App.createListIngredients(this.filteredRecipes, this.setIngredients);
+    App.createListAppareils(this.filteredRecipes);
+    App.createListUstensiles(this.filteredRecipes);
+    this.attachListenerTags();
   }
 
   static createListIngredients(dataToDisplay, setIngredients) {
@@ -115,29 +121,29 @@ class App {
   }
 
   //search
-  filterRecipes(recipes) {
-    let ingredientsSelected = this.ingredientsSelected;
-    let appareilsSelected = this.appareilsSelected;
-    let ustensilesSelected = this.ustensilesSelected;
-
+  attachListnerGlobalSearch() {
+    let self = this;
     const itemSearch = document.getElementById("search-all");
+
     itemSearch.addEventListener("input", function () {
-      //console.log(recipes.length);
-      if (itemSearch.value.length < 3) {
-        App.displayRecipes(recipes);
-      }
-      if (itemSearch.value.length >= 3) {
-        let filteredList = Filter.search(
-          this.value,
-          ingredientsSelected,
-          appareilsSelected,
-          ustensilesSelected,
-          recipes
-        );
-        //console.log(recipes);
-        App.displayRecipes(filteredList);
+      self.searchWord = this.value;
+      if (self.searchWord.length >= 3) {
+        console.log(this.value);
+        self.filterRecipes();
       }
     });
+  }
+
+  filterRecipes() {
+    this.filteredRecipes = Filter.search(
+      this.searchWord,
+      this.ingredientsSelected,
+      this.appareilsSelected,
+      this.ustensilesSelected,
+      this.globalData.recipes
+    );
+
+    this.displayRecipes();
   }
 
   attachListenerTags() {
@@ -148,7 +154,8 @@ class App {
     const ingredientsParrentNode = document.getElementById(
       "drop-ingredients_open"
     );
-    let setIngredients = this.setIngredients;
+
+    let self = this;
     for (let i = 0; i < ingredientsHTMLCollection.length; i++) {
       let ing = ingredientsHTMLCollection[i];
       ing.addEventListener("click", function () {
@@ -158,15 +165,18 @@ class App {
           ing.innerText +
           `<span class="tags__close">
         <img src="./images/remove-icon.png" alt=""/></span>`;
+
         itemHtml.addEventListener("click", function () {
           items.removeChild(itemHtml);
           ingredientsParrentNode.appendChild(ing);
-          setIngredients.add(ing.innerText);
-          App.createItemsIngredient(setIngredients);
+          self.setIngredients.add(ing.innerText);
+          self.ingredientsSelected.delete(ing.innerText);
+          self.filterRecipes();
         });
         items.appendChild(itemHtml);
-        setIngredients.delete(ing.innerText);
-        App.createItemsIngredient(setIngredients);
+        self.setIngredients.delete(ing.innerText);
+        self.ingredientsSelected.add(ing.innerText);
+        self.filterRecipes();
       });
     }
   }
