@@ -1,0 +1,49 @@
+* {
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    border: none;    
+}
+
+body {
+    font-family: "DM Sans", "sans-serif";
+}
+#bloc-page {
+    max-width: 1600px;
+    margin: auto;
+    border: solid blue 2px;
+    
+}
+header {
+    border: solid red 2px;
+    display: flex;
+    justify-content: center;
+    padding: 3rem;
+}
+img {
+    width: 20rem;
+}
+.recipes_section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 70px;
+    margin-top: 70px;       
+}
+
+
+.recipes_section article {
+    display:inline-flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+   
+}
+.container_card {
+    height: 18rem;
+    width:auto;
+    border: solid red 2px;
+    background-color: rgb(229, 230, 234); 
+}
+.input_control {
+
+}
