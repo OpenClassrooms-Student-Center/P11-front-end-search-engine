@@ -261,7 +261,7 @@
 }
 
  .tags i {
-    font-size: 20px;
+    font-size: 2 em;
     font-weight: 400;
     vertical-align: middle;
     line-height: 37px;
@@ -290,7 +290,6 @@
 
 #tagIngr i{
     background-color: var(--primary);
-
 }
 
 #tagAppl i{
@@ -299,6 +298,10 @@
 
 #tagUst i{
     background-color: var(--danger);
+}
+
+.tags__close{
+justify-content: center;
 }
 
 /*message recherche vide*/
