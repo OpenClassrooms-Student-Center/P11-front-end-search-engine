@@ -15,12 +15,10 @@ class App {
     this.setAppareils = new Set();
     this.setUstensiles = new Set();
     this.filteredRecipes = globalData.recipes;
-
     this.searchWord = "";
     this.ingredientsSelected = new Set();
     this.appareilsSelected = new Set();
     this.ustensilesSelected = new Set();
-    //console.log(this.globalData);
     this.displayRecipes();
   }
   // RECUPERE LA DATA ET HYDRATE LES COMPOSANTS, paramettre un array de recipes
@@ -59,6 +57,7 @@ class App {
     this.attachListenerTagsIngredients();
     this.attachListenerTagsAppliances();
     this.attachListenerTagsUstensils();
+    this.attachListnerSearchIngDropdown();
   }
 
   static createListIngredients(
@@ -175,6 +174,20 @@ class App {
     });
   }
 
+  attachListnerSearchIngDropdown() {
+    let self = this;
+    const itemSearch = document.getElementById("search-drop_ing");
+    itemSearch.addEventListener("input", function () {
+      let searchText = this.value;
+      let filteredSetOfIngr = Filter.searchText(
+        searchText,
+        self.setIngredients
+      );
+      App.createItemsIngredient(filteredSetOfIngr, self.ingredientsSelected);
+      self.attachListenerTagsIngredients();
+    });
+  }
+
   filterRecipes() {
     this.filteredRecipes = Filter.search(
       this.searchWord,
@@ -200,6 +213,8 @@ class App {
     for (let i = 0; i < ingredientsHTMLCollection.length; i++) {
       let ing = ingredientsHTMLCollection[i];
       ing.addEventListener("click", function () {
+        //reset the value of input
+        document.getElementById("search-drop_ing").value = "";
         let itemHtml = document.createElement("i");
         itemHtml.classList.add("tag");
         itemHtml.innerHTML =

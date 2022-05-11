@@ -100,4 +100,15 @@ export class Filter {
 
     return recipesMatchedIngredients;
   }
+
+  static searchText(word, setOfItems) {
+    let setFoundItems = new Set();
+
+    for (let item of setOfItems) {
+      if (item.includes(word)) {
+        setFoundItems.add(item);
+      }
+    }
+    return setFoundItems;
+  }
 }
