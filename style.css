@@ -134,5 +134,18 @@ label img .container_logo {
     padding: 5px;
     border: solid red 2px;
 }
+.flex-direction-row {
+    display: flex;
+    flex-direction: row;
+}
+.box_ingrédients {
+    width:40%;
+    margin: 10px 5px 10px 5px;
+    line-height: 28px;
+}
+.box_description_confection{
+    width:48%;
+    margin: 10px 5px 10px 5px;
+}
 
 
