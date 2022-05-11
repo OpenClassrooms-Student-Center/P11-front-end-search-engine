@@ -2,54 +2,39 @@
     box-sizing: border-box;
     list-style: none;
     text-decoration: none;
-    border: none;    
+    border: none; 
+    margin: 0;
+    padding: 0;  
+}
+img {
+    width: 20px;
 }
 
 body {
     font-family: "DM Sans", "sans-serif";
+    margin: 5px;
 }
 #bloc-page {
     max-width: 1600px;
-    margin: auto;
-    /* border: solid blue 2px; */
+    margin: auto;   
     
 }
-header {
+.container_logo {
     /* border: solid red 2px; */
     display: flex;
-    justify-content: center;
-    padding: 3rem;
+    padding: 0.9rem;
+    margin:auto
 }
-img {
-    width: 20rem;
-}
-.recipes_section {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 40px;
-    margin-top: 20px;       
+.container_logo {
+width: calc(300px + 6vw);
 }
 
-
-.recipes_section article {
-    display:inline-flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-   
-}
-.container_image_card {
-    height: 15rem;
-    width:auto;
-    /* border: solid red 2px; */
-    background: #C7BEBE;
-    border-radius: 6px 6px 0px 0px;
-}
-label img {
-    width: 18px;
+label img .container_logo {
+    width: 16px;
     position:relative;
     padding-top: 3px;
 }
+
 .input_control, input_control-row input {
     display: flex;
     justify-content: space-between;
@@ -58,7 +43,7 @@ label img {
     background: #E7E7E7;
     padding:15px;
     border-radius: 6px;
-    margin-bottom: 20px;
+    margin-bottom: 26px;
 }
 .input_control input {
     width: 100%;
@@ -101,4 +86,53 @@ label img {
 .width_chevron {
     width: 0.9rem;
 }
+.recipes_section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 40px;
+    margin-top: 20px;       
+}
+
+.recipes_section_article {
+    /* display:inline-flex;
+    justify-content: center;
+    align-items: center; */
+    /* flex-direction: row; */
+    border: solid blue 2px;
+    height: 30rem;
+    width: calc(90%/3);
+    position: relative;
+    cursor: pointer;
+    /* margin: 5px; */
+   
+}
+.container_image_recipe {
+    height: 15rem;
+    width:100%;
+    /* border: solid red 2px; */
+    background: #C7BEBE;
+    border-radius: 6px 6px 0px 0px;
+}
+.flex_between {
+    display: flex;
+    justify-content: space-between;
+}
+.size_name_recipe {
+    font-size: calc(16px + 0.1vw);
+    margin: 5px;
+   
+}
+.size_horloge {
+    margin-top: 2px;
+ 
+}
+.size_min {
+    /* margin-right: 5px; */
+    align-items:center;
+    padding-bottom: 15px
+    font-size: 8px;
+    padding: 5px;
+    border: solid red 2px;
+}
+
 

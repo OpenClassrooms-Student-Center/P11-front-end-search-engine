@@ -11,56 +11,73 @@
 <body>
     <div id="bloc-page">
         <header>
-            <img src="img/logo.png" alt="logo site les petits plats">        
+            <img class="container_logo" src="img/logo.png" alt="logo site les petits plats">        
+        
+            <nav id="main_container">
+
+                <div class="input_control">                
+                    <input type="text"
+                    id="search"
+                    placeholder="Rechercher une recette">
+                    <label for="search">
+                        <img  src="img/loupe.svg" alt="icone loupe">                   
+                    </label>
+                </div>
+                <div class="flex_row">
+                    <div class="input_control input_control_2">                
+                        <input type="text"
+                        id="search"
+                        placeholder="Ingrédients">
+                        <label for="search">
+                            <img class="width_chevron" src="img/chevron_bas.png" alt="chevron d'ouverture du menu déroulant">                   
+                        </label>
+                    </div>
+                    <div class="input_control input_control_3">                
+                        <input type="text"
+                        id="search"
+                        placeholder="Appareils">
+                        <label for="search">
+                            <img class="width_chevron" src="img/chevron_bas.png" alt="chevron d'ouverture du menu déroulant">                   
+                        </label>
+                    </div>
+                    <div class="input_control input_control_4">                
+                        <input type="text"
+                        id="search"
+                        placeholder="Ustensiles">
+                        <label for="search">
+                            <img class="width_chevron"src="img/chevron_bas.png" alt="chevron d'ouverture du menu déroulant">                   
+                        </label>
+                    </div>
+                </div>
+            </nav>
         </header>
-        <main id="main_container">
 
-            <div class="input_control">                
-                <input type="text"
-                id="search"
-                placeholder="Rechercher une recette">
-                <label for="search">
-                    <img src="img/loupe.svg" alt="icone loupe">                   
-                </label>
-            </div>
-            <div class="flex_row">
-                <div class="input_control input_control_2">                
-                    <input type="text"
-                    id="search"
-                    placeholder="Ingrédients">
-                    <label for="search">
-                        <img class="width_chevron" src="img/chevron_bas.png" alt="chevron d'ouverture du menu déroulant">                   
-                    </label>
-                </div>
-                <div class="input_control input_control_3">                
-                    <input type="text"
-                    id="search"
-                    placeholder="Appareils">
-                    <label for="search">
-                        <img class="width_chevron" src="img/chevron_bas.png" alt="chevron d'ouverture du menu déroulant">                   
-                    </label>
-                </div>
-                <div class="input_control input_control_4">                
-                    <input type="text"
-                    id="search"
-                    placeholder="Ustensiles">
-                    <label for="search">
-                        <img class="width_chevron"src="img/chevron_bas.png" alt="chevron d'ouverture du menu déroulant">                   
-                    </label>
-                </div>
-            </div>
-
-            
+        <main>   
             <section class="respices_section">
-               <article class="recipes_section article">
+               <article class="recipes_section_article">
                     <a href="#">
-                        <div class="container_image_card">
-
+                        <img class="container_image_recipe" src="img/loupe.svg">
+                        <div class="flex_between">
+                            <span class="size_name_recipe">Nom recette</span>
+                            <span>
+                                <span><img class="size_horloge" src="img/icone_horloge.png" ></span>
+                                <span  class="size_min">XX min</span>
+                            </span>
                         </div>
+                        <span class="box_ingrédients">
+                            <div>Ingrédient 1</div>
+                            <div>Ingrédient 2</div>
+                            <div>Ingrédient 3</div>
+                            <div>Ingrédient 4</div>
+                            <div>Ingrédient 5</div>
+                        </span> 
+                        
+                        <span class="box_description_confection">Description confection
+                        </span>
                     </a>
                 </article> 
             </section>         
-          </main>
+        </main>
         <div class="global-container"></div>
     </div>
     <script> src="script.js"</script>
