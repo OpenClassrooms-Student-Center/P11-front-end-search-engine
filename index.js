@@ -58,6 +58,8 @@ class App {
     this.attachListenerTagsAppliances();
     this.attachListenerTagsUstensils();
     this.attachListnerSearchIngDropdown();
+    this.attachListnerSearchAppDropdown();
+    this.attachListnerSearchUstDropdown();
   }
 
   static createListIngredients(
@@ -188,6 +190,28 @@ class App {
     });
   }
 
+  attachListnerSearchAppDropdown() {
+    let self = this;
+    const itemSearch = document.getElementById("search-drop_app");
+    itemSearch.addEventListener("input", function () {
+      let searchText = this.value;
+      let filteredSetOfApp = Filter.searchText(searchText, self.setAppareils);
+      App.createItemsAppareils(filteredSetOfApp, self.appareilsSelected);
+      self.attachListenerTagsAppliances();
+    });
+  }
+
+  attachListnerSearchUstDropdown() {
+    let self = this;
+    const itemSearch = document.getElementById("search-drop_ust");
+    itemSearch.addEventListener("input", function () {
+      let searchText = this.value;
+      let filteredSetOfUst = Filter.searchText(searchText, self.setUstensiles);
+      App.createItemsUstensiles(filteredSetOfUst, self.ustensilesSelected);
+      self.attachListenerTagsUstensils();
+    });
+  }
+
   filterRecipes() {
     this.filteredRecipes = Filter.search(
       this.searchWord,
@@ -248,6 +272,7 @@ class App {
     for (let i = 0; i < appareilsHTMLCollection.length; i++) {
       let app = appareilsHTMLCollection[i];
       app.addEventListener("click", function () {
+        document.getElementById("search-drop_app").value = "";
         let itemHtml = document.createElement("i");
         itemHtml.classList.add("tag");
         itemHtml.innerHTML =
@@ -283,6 +308,7 @@ class App {
     for (let i = 0; i < ustensilsHTMLCollection.length; i++) {
       let ust = ustensilsHTMLCollection[i];
       ust.addEventListener("click", function () {
+        document.getElementById("search-drop_ust").value = "";
         let itemHtml = document.createElement("i");
         itemHtml.classList.add("tag");
         itemHtml.innerHTML =
