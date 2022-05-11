@@ -223,7 +223,6 @@
 .search-drop_ust input {
     border: none;
     color: #e7e7e7;
-    width: 50%;
 }
 
 .search-drop_ing input {
@@ -261,10 +260,10 @@
 }
 
  .tags i {
-    font-size: 2 em;
     font-weight: 400;
-    vertical-align: middle;
-    line-height: 37px;
+    font-style: normal;
+    padding-left: 1em;
+    padding-right: 1em;
 }
 
 #tagIngr,
@@ -300,8 +299,14 @@
     background-color: var(--danger);
 }
 
-.tags__close{
-justify-content: center;
+.tags__close img{
+    width: 15px;
+    height: 15px;
+}
+
+.disabled{
+    color: #7e7a7a;
+    pointer-events: none;
 }
 
 /*message recherche vide*/
@@ -435,7 +440,6 @@ main img {
     .tagsIngr,
     .tagsAppl,
     .tagsUst {
-        width: 100%;
         flex-wrap: wrap;
     }
 

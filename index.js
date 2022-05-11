@@ -74,26 +74,27 @@ class App {
         //trim()- removes whitespace from both ends of a string and returns a new string, without modifying the original string. Whitespace in this context is all the whitespace characters (space, tab, no-break space, etc.) and all the line terminator characters
         //.sort()-sorts the elements of an array in place and returns the sorted array.
         let ingredientName = ingredient.ingredient.toLowerCase().trim();
-        if (!ingredientsSelected.has(ingredientName)) {
-          setIngredients.add(ingredientName);
-        }
+        setIngredients.add(ingredientName);
       });
     });
-    App.createItemsIngredient(setIngredients);
+    App.createItemsIngredient(setIngredients, ingredientsSelected);
   }
 
   //
-  static createItemsIngredient(set) {
+  static createItemsIngredient(set, ingredientsSelected) {
     const items = document.querySelector("#drop-ingredients_open");
     items.innerHTML = "";
     //static method creates a new, shallow-copied Array instance from an array-like or iterable object.
     ////Set n'autorise pas les doublons.
     let array = Array.from(set);
-    array.sort();
+    array.sort().flat();
     for (let i = 0; i < array.length; i++) {
       let itemHtml = document.createElement("li");
       itemHtml.classList.add("ingredient-tag");
       itemHtml.innerHTML = array[i];
+      if (ingredientsSelected.has(array[i])) {
+        itemHtml.classList.add("disabled");
+      }
       items.appendChild(itemHtml);
     }
   }
@@ -102,15 +103,13 @@ class App {
     //setAppareils.clear();
     dataToDisplay.forEach((recipe) => {
       let appareilName = recipe.appliance.toLowerCase().trim();
-      if (!appareilsSelected.has(appareilName)) {
-        setAppareils.add(appareilName);
-      }
+      setAppareils.add(appareilName);
     });
-    App.createItemsAppareils(setAppareils);
+    App.createItemsAppareils(setAppareils, appareilsSelected);
   }
 
   //
-  static createItemsAppareils(set) {
+  static createItemsAppareils(set, appareilsSelected) {
     const items = document.querySelector("#drop-appareils_open");
     items.innerHTML = "";
     //static method creates a new, shallow-copied Array instance from an array-like or iterable object.
@@ -120,6 +119,9 @@ class App {
       let itemHtml = document.createElement("li");
       itemHtml.classList.add("appareil-tag");
       itemHtml.innerHTML = array[i];
+      if (appareilsSelected.has(array[i])) {
+        itemHtml.classList.add("disabled");
+      }
       items.appendChild(itemHtml);
     }
   }
@@ -130,30 +132,31 @@ class App {
     ustensilesSelected
   ) {
     ////Set n'autorise pas les doublons.
-    setUstensiles.clear();
+    //setUstensiles.clear();
     dataToDisplay.forEach((recipe) => {
       recipe.ustensils.forEach((ustensil) => {
         let ustensileName = ustensil.toLowerCase().trim();
-        if (!ustensilesSelected.has(ustensileName)) {
-          setUstensiles.add(ustensileName);
-        }
+        setUstensiles.add(ustensileName);
       });
     });
-    App.createItemsUstensiles(setUstensiles);
+    App.createItemsUstensiles(setUstensiles, ustensilesSelected);
   }
 
   //
-  static createItemsUstensiles(set) {
+  static createItemsUstensiles(set, ustensilesSelected) {
     const items = document.querySelector("#drop-ustensiles_open");
     items.innerHTML = "";
     //static method creates a new, shallow-copied Array instance from an array-like or iterable object.
     let array = Array.from(set);
-    array.sort();
+    array.sort().flat();
     //console.log(array);
     for (let i = 0; i < array.length; i++) {
       let itemHtml = document.createElement("li");
       itemHtml.classList.add("ustensile-tag");
       itemHtml.innerHTML = array[i];
+      if (ustensilesSelected.has(array[i])) {
+        itemHtml.classList.add("disabled");
+      }
       items.appendChild(itemHtml);
     }
   }
@@ -229,7 +232,6 @@ class App {
     let self = this;
     for (let i = 0; i < appareilsHTMLCollection.length; i++) {
       let app = appareilsHTMLCollection[i];
-      //console.log(app);
       app.addEventListener("click", function () {
         let itemHtml = document.createElement("i");
         itemHtml.classList.add("tag");
@@ -242,7 +244,7 @@ class App {
           items.removeChild(itemHtml);
           appareilsParrentNode.appendChild(app);
           self.setAppareils.add(app.innerText);
-          self.appareilsSelected.delete(app.innerText); //????
+          self.appareilsSelected.delete(app.innerText);
           self.filterRecipes();
         });
         items.appendChild(itemHtml);
@@ -281,7 +283,7 @@ class App {
           self.filterRecipes();
         });
         items.appendChild(itemHtml);
-        self.setUstensiles.delete(ust.innerText); // ???????????????????????
+        self.setUstensiles.delete(ust.innerText);
         self.ustensilesSelected.add(ust.innerText);
         self.filterRecipes();
       });
