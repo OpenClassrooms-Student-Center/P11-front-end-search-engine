@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/01f4723a4b.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet"> 
     <link href="style.css" rel="stylesheet" type="text/css" /> 
     <title>Les petits plats</title>
@@ -16,27 +15,51 @@
         </header>
         <main id="main_container">
 
-            <div class="input-control">
-                <label for="search">
-                    <i class="far fa-search aria-label="icone loupe"></i>                    
-                </label>
+            <div class="input_control">                
                 <input type="text"
                 id="search"
                 placeholder="Rechercher une recette">
-
-
+                <label for="search">
+                    <img src="img/loupe.svg" alt="icone loupe">                   
+                </label>
+            </div>
+            <div class="flex_row">
+                <div class="input_control input_control_2">                
+                    <input type="text"
+                    id="search"
+                    placeholder="Ingrédients">
+                    <label for="search">
+                        <img class="width_chevron" src="img/chevron_bas.png" alt="chevron d'ouverture du menu déroulant">                   
+                    </label>
+                </div>
+                <div class="input_control input_control_3">                
+                    <input type="text"
+                    id="search"
+                    placeholder="Appareils">
+                    <label for="search">
+                        <img class="width_chevron" src="img/chevron_bas.png" alt="chevron d'ouverture du menu déroulant">                   
+                    </label>
+                </div>
+                <div class="input_control input_control_4">                
+                    <input type="text"
+                    id="search"
+                    placeholder="Ustensiles">
+                    <label for="search">
+                        <img class="width_chevron"src="img/chevron_bas.png" alt="chevron d'ouverture du menu déroulant">                   
+                    </label>
+                </div>
             </div>
 
             
-            <div class="respices_section">
+            <section class="respices_section">
                <article class="recipes_section article">
                     <a href="#">
-                        <div class="container_card">
+                        <div class="container_image_card">
 
                         </div>
                     </a>
                 </article> 
-            </div>         
+            </section>         
           </main>
         <div class="global-container"></div>
     </div>

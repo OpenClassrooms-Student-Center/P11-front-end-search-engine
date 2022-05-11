@@ -11,11 +11,11 @@ body {
 #bloc-page {
     max-width: 1600px;
     margin: auto;
-    border: solid blue 2px;
+    /* border: solid blue 2px; */
     
 }
 header {
-    border: solid red 2px;
+    /* border: solid red 2px; */
     display: flex;
     justify-content: center;
     padding: 3rem;
@@ -26,8 +26,8 @@ img {
 .recipes_section {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 70px;
-    margin-top: 70px;       
+    gap: 40px;
+    margin-top: 20px;       
 }
 
 
@@ -38,12 +38,66 @@ img {
     flex-direction: row;
    
 }
-.container_card {
-    height: 18rem;
+.container_image_card {
+    height: 15rem;
     width:auto;
-    border: solid red 2px;
-    background-color: rgb(229, 230, 234); 
+    /* border: solid red 2px; */
+    background: #C7BEBE;
+    border-radius: 6px 6px 0px 0px;
 }
-.input_control {
+label img {
+    width: 18px;
+    position:relative;
+    padding-top: 3px;
+}
+.input_control, input_control-row input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: #f4f4f4;
+    padding:15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+.input_control input {
+    width: 100%;
+    font-size: 18px;
+    padding-left:10px;
+    outline: 0;
+    border:0;
+    background-color: #f4f4f4;
+    font-family: sans-serif, verdana;
+    color: black;
+}
+.flex_row {
+    display: inline-flex;
+}
+.input_control_2 {
+    margin-right: 25px;
+    background-color: #3282F7;
+}
+.input_control_2 input {
+    background-color:#3282F7;
+}
+.input_control_3 {
+    margin-right: 25px;
+    background-color: #68D9A4;
+} 
+.input_control_3 input {
+    background-color:#68D9A4;
+}
+.input_control_4{
+    background-color: #ED6454;
+}
+.input_control_4 input {
+    background-color: #ED6454;
+}
+.input_control_4 input::placeholder, .input_control_3 input::placeholder, .input_control_2 input::placeholder {
+    color:white;
+    padding-right: 23px;
+} 
+.width_chevron {
+    width: 0.9rem;
+}
 
-}
