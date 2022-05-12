@@ -1,6 +1,12 @@
-import { Api } from "./scripts/api/api.js";
-import { Recipe } from "./scripts/templates/Recipe.js";
-import { Filter } from "./scripts/templates/searchAlgo1.js";
+import {
+  Api
+} from "./scripts/api/api.js";
+import {
+  Recipe
+} from "./scripts/templates/Recipe.js";
+import {
+  Filter
+} from "./scripts/templates/searchAlgo1.js";
 
 class App {
   static async init() {

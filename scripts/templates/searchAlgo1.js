@@ -17,13 +17,7 @@ export class Filter {
 
   //Search method in the first input of filter, menu of filter( name, descritption, ingredient)
   //data- array of
-  static search(
-    request,
-    igredientsSelected,
-    appareilsSelected,
-    ustensilesSelected,
-    data
-  ) {
+  static search(request, igredientsSelected, appareilsSelected, ustensilesSelected, data) {
     let recipesMatched = [];
     if (request.length < 3) {
       recipesMatched = data;
@@ -99,9 +93,9 @@ export class Filter {
     return recipesMatchedIngredients;
   }
 
+  //function for serach in the Dropdowns( serach in the list of Ingr, in the list of App, in the list of Ust)
   static searchText(word, setOfItems) {
     let setFoundItems = new Set();
-
     for (let item of setOfItems) {
       if (item.includes(word)) {
         setFoundItems.add(item);

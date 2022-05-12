@@ -16,14 +16,8 @@ export class Filter {
    */
 
   //Search method in the first input of filter, menu of filter( name, descritption, ingredient)
-  //data- array of
-  static search(
-    request,
-    igredientsSelected,
-    appareilsSelected,
-    ustensilesSelected,
-    data
-  ) {
+  //data- array of recipes
+  static search(request, igredientsSelected, appareilsSelected, ustensilesSelected, data) {
     let recipesMatched = [];
     for (let recipe of data) {
       if (recipe.name.toLowerCase().includes(request)) {
@@ -85,5 +79,16 @@ export class Filter {
     }
 
     return recipesMatchedIngredients;
+  }
+
+  //function for serach in the Dropdowns( serach in the list of Ingr, in the list of App, in the list of Ust)
+  static searchText(word, setOfItems) {
+    let setFoundItems = new Set();
+    for (let item of setOfItems) {
+      if (item.includes(word)) {
+        setFoundItems.add(item);
+      }
+    }
+    return setFoundItems;
   }
 }
