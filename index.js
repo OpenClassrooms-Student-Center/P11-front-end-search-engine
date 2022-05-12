@@ -171,6 +171,8 @@ class App {
       self.searchWord = this.value;
       if (self.searchWord.length >= 3) {
         self.filterRecipes();
+      } else {
+        self.filterRecipes();
       }
     });
   }

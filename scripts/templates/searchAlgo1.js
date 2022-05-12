@@ -41,7 +41,7 @@ export class Filter {
       }
     }
 
-    let recipesMatchedIngredients = [];
+    let recipesMatchedTags = [];
     for (let recipe of recipesMatched) {
       let ingContained = true;
 
@@ -86,11 +86,11 @@ export class Filter {
       }
 
       if (ingContained && ustContained && applContained) {
-        recipesMatchedIngredients.push(recipe);
+        recipesMatchedTags.push(recipe);
       }
     }
 
-    return recipesMatchedIngredients;
+    return recipesMatchedTags;
   }
 
   //function for serach in the Dropdowns( serach in the list of Ingr, in the list of App, in the list of Ust)
