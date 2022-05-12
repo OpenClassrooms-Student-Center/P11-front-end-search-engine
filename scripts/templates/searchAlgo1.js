@@ -39,10 +39,8 @@ export class Filter {
         }
 
         for (let ingr of recipe.ingredients) {
-          //console.log(ingr);
           if (ingr.ingredient.toLowerCase().includes(request)) {
             recipesMatched.push(recipe);
-            //console.log(recipesMatched);
             break;
           }
         }

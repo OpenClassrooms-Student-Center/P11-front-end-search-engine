@@ -1,7 +1,6 @@
 import { Api } from "./scripts/api/api.js";
 import { Recipe } from "./scripts/templates/Recipe.js";
 import { Filter } from "./scripts/templates/searchAlgo1.js";
-//import { Tags } from "./scripts/templates/displayTags.js";
 
 class App {
   static async init() {
@@ -29,13 +28,11 @@ class App {
     const recipesSection = document.querySelector(".recipe_section");
     recipesSection.innerHTML = "";
 
-    // console.log(this.filteredRecipes);
-
     this.filteredRecipes.forEach((recipe) => {
       const recipeCard = new Recipe(recipe);
       recipesSection.appendChild(recipeCard.createRecipesCard());
     });
-    //message error
+    //display message error
     if (this.filteredRecipes.length == 0) {
       document.getElementById("filtered-empty").style.display = "block";
     }
@@ -81,7 +78,7 @@ class App {
     App.createItemsIngredient(setIngredients, ingredientsSelected);
   }
 
-  //
+  //Display for the page the ingredients
   static createItemsIngredient(set, ingredientsSelected) {
     const items = document.querySelector("#drop-ingredients_open");
     items.innerHTML = "";
@@ -113,7 +110,7 @@ class App {
   static createItemsAppareils(set, appareilsSelected) {
     const items = document.querySelector("#drop-appareils_open");
     items.innerHTML = "";
-    //static method creates a new, shallow-copied Array instance from an array-like or iterable object.
+    //static method creates a new array, shallow-copied Array instance from an array-like or iterable object.
     let array = Array.from(set);
     array.sort();
     for (let i = 0; i < array.length; i++) {
@@ -132,7 +129,6 @@ class App {
     setUstensiles,
     ustensilesSelected
   ) {
-    ////Set n'autorise pas les doublons.
     //setUstensiles.clear();
     dataToDisplay.forEach((recipe) => {
       recipe.ustensils.forEach((ustensil) => {
@@ -150,7 +146,6 @@ class App {
     //static method creates a new, shallow-copied Array instance from an array-like or iterable object.
     let array = Array.from(set);
     array.sort().flat();
-    //console.log(array);
     for (let i = 0; i < array.length; i++) {
       let itemHtml = document.createElement("li");
       itemHtml.classList.add("ustensile-tag");
@@ -162,15 +157,13 @@ class App {
     }
   }
 
-  //search
+  //function for first search
   attachListnerGlobalSearch() {
     let self = this;
     const itemSearch = document.getElementById("search-all");
-
     itemSearch.addEventListener("input", function () {
       self.searchWord = this.value;
       if (self.searchWord.length >= 3) {
-        //console.log(this.value);
         self.filterRecipes();
       }
     });
@@ -220,7 +213,6 @@ class App {
       this.ustensilesSelected,
       this.globalData.recipes
     );
-
     this.displayRecipes();
   }
 
@@ -228,7 +220,6 @@ class App {
     const items = document.getElementById("tagIngr");
     const ingredientsHTMLCollection =
       document.getElementsByClassName("ingredient-tag");
-
     const ingredientsParrentNode = document.getElementById(
       "drop-ingredients_open"
     );
@@ -265,7 +256,6 @@ class App {
     const items = document.getElementById("tagAppl");
     const appareilsHTMLCollection =
       document.getElementsByClassName("appareil-tag");
-
     const appareilsParrentNode = document.getElementById("drop-appareils_open");
 
     let self = this;
@@ -299,7 +289,6 @@ class App {
     const items = document.getElementById("tagUst");
     const ustensilsHTMLCollection =
       document.getElementsByClassName("ustensile-tag");
-
     const ustensilsParrentNode = document.getElementById(
       "drop-ustensiles_open"
     );
