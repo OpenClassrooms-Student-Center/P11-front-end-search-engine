@@ -1,5 +1,6 @@
 :root {
     --light-grey: #e7e7e7;
+    --grey: #585252;
     --dark-grey: #c7bebe;
     --primary: #3282f7;
     --success: #68d9a4;
@@ -203,11 +204,11 @@
     background: var(--danger);
 }
 
-#search-drop_ing,
-#search-drop_app,
-#search-drop_ust ::placeholder {
+#search-drop_ing::placeholder,
+#search-drop_app::placeholder,
+#search-drop_ust::placeholder {
     font-style: italic;
-    color: #fff;
+    color: var(--grey);
     font-size: medium;
 }
 
@@ -266,6 +267,7 @@
     font-style: normal;
     padding-left: 1em;
     padding-right: 1em;
+    margin-right: 1em;
 }
 
 #tagIngr,
@@ -274,18 +276,14 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    gap: 15px;
     color: white;
     font-family: "lato", sans-serif;
     font-size: 14px;
     font-weight: 700;
-    min-width: 107px;
     height: 37px;
-    padding: 0.2rem 0.5rem;
     vertical-align: middle;
     line-height: 37px;
     border-radius: 5px;
-    margin-right: 1rem;
     margin-bottom: 1rem;
 }
 
@@ -307,7 +305,7 @@
 }
 
 .disabled{
-    color: #7e7a7a;
+    color: var(--grey);;
     pointer-events: none;
 }
 
