@@ -25,10 +25,13 @@ class App {
     this.appareilsSelected = new Set();
     this.ustensilesSelected = new Set();
     this.displayRecipes();
+    this.attachListnerGlobalSearch();
+    this.attachListnerSearchIngDropdown();
+    this.attachListnerSearchAppDropdown();
+    this.attachListnerSearchUstDropdown();
   }
   // RECUPERE LA DATA ET HYDRATE LES COMPOSANTS, paramettre un array de recipes
   displayRecipes() {
-    this.attachListnerGlobalSearch();
     document.getElementById("filtered-empty").style.display = "none";
     // message error hidden
     const recipesSection = document.querySelector(".recipe_section");
@@ -60,9 +63,6 @@ class App {
     this.attachListenerTagsIngredients();
     this.attachListenerTagsAppliances();
     this.attachListenerTagsUstensils();
-    this.attachListnerSearchIngDropdown();
-    this.attachListnerSearchAppDropdown();
-    this.attachListnerSearchUstDropdown();
   }
 
   static createListIngredients(
@@ -169,11 +169,7 @@ class App {
     const itemSearch = document.getElementById("search-all");
     itemSearch.addEventListener("input", function () {
       self.searchWord = this.value;
-      if (self.searchWord.length >= 3) {
-        self.filterRecipes();
-      } else {
-        self.filterRecipes();
-      }
+      self.filterRecipes();
     });
   }
 
@@ -244,7 +240,12 @@ class App {
           ing.innerText +
           `<span class="tags__close">
         <img src="./images/remove-icon.png" alt=""/></span>`;
+        items.appendChild(itemHtml);
+        self.setIngredients.delete(ing.innerText);
+        self.ingredientsSelected.add(ing.innerText);
+        self.filterRecipes();
 
+        //listener to remove
         itemHtml.addEventListener("click", function () {
           items.removeChild(itemHtml);
           ingredientsParrentNode.appendChild(ing);
@@ -252,10 +253,6 @@ class App {
           self.ingredientsSelected.delete(ing.innerText);
           self.filterRecipes();
         });
-        items.appendChild(itemHtml);
-        self.setIngredients.delete(ing.innerText);
-        self.ingredientsSelected.add(ing.innerText);
-        self.filterRecipes();
       });
     }
   }

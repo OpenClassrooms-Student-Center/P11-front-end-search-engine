@@ -42,52 +42,56 @@ export class Filter {
     }
 
     let recipesMatchedTags = [];
-    for (let recipe of recipesMatched) {
-      let ingContained = true;
+    if (igredientsSelected.size > 0 || appareilsSelected.size > 0 || ustensilesSelected.size > 0) {
+      for (let recipe of recipesMatched) {
+        let ingContained = true;
 
-      for (let ingSel of igredientsSelected) {
-        for (let ing of recipe.ingredients) {
-          // ingred current est == avec celui selecté
-          if (ing.ingredient.toLowerCase() === ingSel.toLowerCase()) {
-            ingContained = true;
+        for (let ingSel of igredientsSelected) {
+          for (let ing of recipe.ingredients) {
+            // ingred current est == avec celui selecté
+            if (ing.ingredient.toLowerCase() === ingSel.toLowerCase()) {
+              ingContained = true;
+              break;
+            } else {
+              ingContained = false;
+            }
+          }
+          if (!ingContained) {
             break;
-          } else {
-            ingContained = false;
           }
         }
-        if (!ingContained) {
-          break;
-        }
-      }
 
-      let ustContained = true;
-      for (let ustensilSel of ustensilesSelected) {
-        for (let ust of recipe.ustensils) {
-          if (ust.toLowerCase() === ustensilSel.toLowerCase()) {
-            ustContained = true;
+        let ustContained = true;
+        for (let ustensilSel of ustensilesSelected) {
+          for (let ust of recipe.ustensils) {
+            if (ust.toLowerCase() === ustensilSel.toLowerCase()) {
+              ustContained = true;
+              break;
+            } else {
+              ustContained = false;
+            }
+          }
+          if (!ustContained) {
             break;
-          } else {
-            ustContained = false;
           }
         }
-        if (!ustContained) {
-          break;
+
+        let applContained = true;
+        for (let apareillSel of appareilsSelected) {
+          if (recipe.appliance.toLowerCase() === apareillSel.toLowerCase()) {
+            applContained = true;
+          } else {
+            applContained = false;
+            break;
+          }
+        }
+
+        if (ingContained && ustContained && applContained) {
+          recipesMatchedTags.push(recipe);
         }
       }
-
-      let applContained = true;
-      for (let apareillSel of appareilsSelected) {
-        if (recipe.appliance.toLowerCase() === apareillSel.toLowerCase()) {
-          applContained = true;
-        } else {
-          applContained = false;
-          break;
-        }
-      }
-
-      if (ingContained && ustContained && applContained) {
-        recipesMatchedTags.push(recipe);
-      }
+    } else {
+      recipesMatchedTags = recipesMatched;
     }
 
     return recipesMatchedTags;
