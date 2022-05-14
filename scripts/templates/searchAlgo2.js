@@ -16,94 +16,73 @@ export class Filter {
 
   //Search method in the first input of filter, menu of filter( name, descritption, ingredient)
   //data- array of
-  static search(request, igredientsSelected, appareilsSelected, ustensilesSelected, data) {
+  static search(
+    request,
+    igredientsSelected,
+    appareilsSelected,
+    ustensilesSelected,
+    data
+  ) {
     let recipesMatched = [];
-    if (request.length < 3) {
-      recipesMatched = data;
-    } else {
-      for (let recipe of data) {
-        if (recipe.name.toLowerCase().includes(request)) {
-          recipesMatched.push(recipe);
-          continue;
-          // Check if a recipe match with the requested description
-        } else if (recipe.description.toLowerCase().includes(request)) {
-          recipesMatched.push(recipe);
-          continue;
-        }
+    for (let recipe of data) {
+      if (recipe.name.toLowerCase().includes(request)) {
+        recipesMatched.push(recipe);
+        continue;
+        // Check if a recipe match with the requested description
+      } else if (recipe.description.toLowerCase().includes(request)) {
+        recipesMatched.push(recipe);
+        continue;
+      }
 
-        for (let ingr of recipe.ingredients) {
-          if (ingr.ingredient.toLowerCase().includes(request)) {
-            recipesMatched.push(recipe);
-            break;
-          }
+      for (let ingr of recipe.ingredients) {
+        //console.log(ingr);
+        if (ingr.ingredient.toLowerCase().includes(request)) {
+          recipesMatched.push(recipe);
+          //console.log(recipesMatched);
+          break;
         }
       }
     }
 
-    let recipesMatchedTags = [];
-    if (igredientsSelected.size > 0 || appareilsSelected.size > 0 || ustensilesSelected.size > 0) {
-      for (let recipe of recipesMatched) {
-        let ingContained = true;
+    let recipesMatchedIngredients = [];
+    for (let recipe of recipesMatched) {
+      let ingContained = false;
+      let ingredientsAsString = recipe.ingredients.map((el) => el.ingredient);
+      //The every() method executes a function for each array element.
+      ingContained = igredientsSelected.every((el) =>
+        ingredientsAsString.includes(el)
+      );
 
-        for (let ingSel of igredientsSelected) {
-          for (let ing of recipe.ingredients) {
-            // ingred current est == avec celui selecté
-            if (ing.ingredient.toLowerCase() === ingSel.toLowerCase()) {
-              ingContained = true;
-              break;
-            } else {
-              ingContained = false;
-            }
-          }
-          if (!ingContained) {
+      let ustContained = false;
+      for (let ustensilSel of ustensilesSelected) {
+        for (let ust of recipe.ustensils) {
+          if (ust === ustensilSel) {
+            ustContained = true;
             break;
-          }
-        }
-
-        let ustContained = true;
-        for (let ustensilSel of ustensilesSelected) {
-          for (let ust of recipe.ustensils) {
-            if (ust.toLowerCase() === ustensilSel.toLowerCase()) {
-              ustContained = true;
-              break;
-            } else {
-              ustContained = false;
-            }
-          }
-          if (!ustContained) {
-            break;
-          }
-        }
-
-        let applContained = true;
-        for (let apareillSel of appareilsSelected) {
-          if (recipe.appliance.toLowerCase() === apareillSel.toLowerCase()) {
-            applContained = true;
           } else {
-            applContained = false;
-            break;
+            ustContained = false;
           }
         }
-
-        if (ingContained && ustContained && applContained) {
-          recipesMatchedTags.push(recipe);
+        if (!ustContained) {
+          break;
         }
       }
-    } else {
-      recipesMatchedTags = recipesMatched;
-    }
 
-    return recipesMatchedTags;
-  }
+      let applContained = false;
+      for (let apareillSel of appareilsSelected) {
+        if (recipe.appliance === apareillSel) {
+          applContained = true;
+        } else {
+          applContained = false;
+          break;
+        }
+      }
 
-  //function for serach in the Dropdowns( serach in the list of Ingr, in the list of App, in the list of Ust)
-  static searchText(word, setOfItems) {
-    let setFoundItems = new Set();
-    for (let item of setOfItems) {
-      if (item.includes(word)) {
-        setFoundItems.add(item);
+      if (ingContained && ustContained && applContained) {
+        recipesMatchedIngredients.push(recipe);
       }
     }
-    return setFoundItems;
+
+    return recipesMatchedIngredients;
   }
 }
