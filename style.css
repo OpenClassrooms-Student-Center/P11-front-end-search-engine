@@ -8,6 +8,7 @@
 }
 img {
     width: 20px;
+    padding-top: 6px;
 }
 
 body {
@@ -23,7 +24,7 @@ body {
     /* border: solid red 2px; */
     display: flex;
     padding: 0.9rem;
-    margin:auto
+    margin:auto;
 }
 .container_logo {
 width: calc(300px + 6vw);
@@ -99,7 +100,7 @@ label img .container_logo {
     align-items: center; */
     /* flex-direction: row; */
     border: solid blue 2px;
-    height: 30rem;
+    height: 20vh;
     width: calc(90%/3);
     position: relative;
     cursor: pointer;
@@ -107,32 +108,33 @@ label img .container_logo {
    
 }
 .container_image_recipe {
-    height: 15rem;
+    height: 40%;
     width:100%;
     /* border: solid red 2px; */
     background: #C7BEBE;
     border-radius: 6px 6px 0px 0px;
 }
-.flex_between {
+.boxTitle_imgWatch_Time {
     display: flex;
     justify-content: space-between;
+    height: 10%;
+    line-height: 2rem;
+    border: solid blue 2px;
 }
+
 .size_name_recipe {
-    font-size: calc(16px + 0.1vw);
-    margin: 5px;
-   
+    font-size: 1rem;
+    padding: 5px; 
 }
-.size_horloge {
-    margin-top: 2px;
- 
-}
+
 .size_min {
     /* margin-right: 5px; */
-    align-items:center;
-    padding-bottom: 15px
-    font-size: 8px;
-    padding: 5px;
-    border: solid red 2px;
+    /* align-items:center; */
+    /* padding-bottom: 15px; */
+    font-size: 1rem;
+    padding: 5px; 
+    height: 2rem;
+    line-height: 2rem;   
 }
 .flex-direction-row {
     display: flex;
@@ -140,11 +142,13 @@ label img .container_logo {
 }
 .box_ingrédients {
     width:40%;
+    height: ;
     margin: 10px 5px 10px 5px;
     line-height: 28px;
 }
 .box_description_confection{
-    width:48%;
+    width:35%;
+    height: ;
     margin: 10px 5px 10px 5px;
 }
 
