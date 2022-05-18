@@ -8,79 +8,195 @@
     <link href="style.css" rel="stylesheet" type="text/css" /> 
     <title>Les petits plats</title>
 </head>
-<body>
-    <div id="bloc-page">
-        <header>
-            <img class="container_logo" src="img/logo.png" alt="logo site les petits plats">        
-        
-            <nav id="main_container">
+<body id="bloc-page">    
+    <header>
+        <img class="container_logo" src="img/logo.png" alt="logo site les petits plats">        
+    
+        <nav id="main_container">
 
-                <div class="input_control">                
+            <div class="input_control input_control_1">                
+                <input type="text"
+                id="search"
+                placeholder="Rechercher une recette">
+                <label for="search">
+                    <img  src="img/loupe.svg" alt="icone loupe">                   
+                </label>
+            </div>
+            <div class="flex_row">
+                <div class="input_control input_control_2">                
                     <input type="text"
                     id="search"
-                    placeholder="Rechercher une recette">
+                    placeholder="Ingrédients">
                     <label for="search">
-                        <img  src="img/loupe.svg" alt="icone loupe">                   
+                        <img class="width_chevron" src="img/chevron_bas.png" alt="chevron d'ouverture du menu déroulant">                   
                     </label>
                 </div>
-                <div class="flex_row">
-                    <div class="input_control input_control_2">                
-                        <input type="text"
-                        id="search"
-                        placeholder="Ingrédients">
-                        <label for="search">
-                            <img class="width_chevron" src="img/chevron_bas.png" alt="chevron d'ouverture du menu déroulant">                   
-                        </label>
-                    </div>
-                    <div class="input_control input_control_3">                
-                        <input type="text"
-                        id="search"
-                        placeholder="Appareils">
-                        <label for="search">
-                            <img class="width_chevron" src="img/chevron_bas.png" alt="chevron d'ouverture du menu déroulant">                   
-                        </label>
-                    </div>
-                    <div class="input_control input_control_4">                
-                        <input type="text"
-                        id="search"
-                        placeholder="Ustensiles">
-                        <label for="search">
-                            <img class="width_chevron"src="img/chevron_bas.png" alt="chevron d'ouverture du menu déroulant">                   
-                        </label>
+                <div class="input_control input_control_3">                
+                    <input type="text"
+                    id="search"
+                    placeholder="Appareils">
+                    <label for="search">
+                        <img class="width_chevron" src="img/chevron_bas.png" alt="chevron d'ouverture du menu déroulant">                   
+                    </label>
+                </div>
+                <div class="input_control input_control_4">                
+                    <input type="text"
+                    id="search"
+                    placeholder="Ustensiles">
+                    <label for="search">
+                        <img class="width_chevron"src="img/chevron_bas.png" alt="chevron d'ouverture du menu déroulant">                   
+                    </label>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="respices_section">         
+        <article class="recipes_section_article">
+            <a href="#">
+                <div class="container_image_recipe"> </div>
+                <div class="boxTitle_imgWatch_Time">
+                    <span class="size_name_recipe">Poisson cru à la tahitienne</span>
+                    <div>
+                        <span><img class="size_watch" src="img/icone_horloge.png" ></span>
+                        <span class="size_min">XX min</span>
                     </div>
                 </div>
-            </nav>
-        </header>
-
-        <main>   
-            <section class="respices_section">
-               <article class="recipes_section_article">
-                    <a href="#">
-                        <img class="container_image_recipe" src="img/loupe.svg">
-                        <div class="boxTitle_imgWatch_Time">
-                            <span class="size_name_recipe">Nom recette</span>
-                            <div>
-                                <span><img class="size_watch" src="img/icone_horloge.png" ></span>
-                                <span class="size_min">XX min</span>
-                            </div>
-                        </div>
-                            <div class="flex-direction-row">
-                                <span class="box_ingrédients">
-                                    <div>Ingrédient 1</div>
-                                    <div>Ingrédient 2</div>
-                                    <div>Ingrédient 3</div>
-                                    <div>Ingrédient 4</div>
-                                    <div>Ingrédient 5</div>
-                                </span>                        
-                                <span class="box_description_confection, ">Description confection, Description confection, Description confection, Description confection
-                                </span>
-                            </div>
-                    </a>
-                </article> 
-            </section>         
-        </main>
-        <div class="global-container"></div>
-    </div>
+                <div class="container_ingredients_description">
+                    <span class="box_ingrédients">
+                        <div>Ingrédient: lait</div>
+                        <div>Ingrédient: fromage</div>
+                        <div>Ingrédient: farine</div>
+                        <div>Ingrédient: beurre</div>
+                        <div>Ingrédient: vanille</div>
+                        <div>Ingrédient: lait</div>
+                    </span>                        
+                    <span class="box_description_confection">description confection description confection  description confection description confection description confection description confection description confection description confectiondescription confection description confection description 
+                    </span>
+                </div>
+            </a>
+        </article> 
+        <article class="recipes_section_article">
+            <a href="#">
+                <div class="container_image_recipe"> </div>
+                <div class="boxTitle_imgWatch_Time">
+                    <span class="size_name_recipe">Poisson cru à la tahitienne</span>
+                    <div>
+                        <span><img class="size_watch" src="img/icone_horloge.png" ></span>
+                        <span class="size_min">XX min</span>
+                    </div>
+                </div>
+                <div class="container_ingredients_description">
+                    <span class="box_ingrédients">
+                        <div>Ingrédient: lait</div>
+                        <div>Ingrédient: fromage</div>
+                        <div>Ingrédient: farine</div>
+                        <div>Ingrédient: beurre</div>
+                        <div>Ingrédient: vanille</div>
+                        <div>Ingrédient: lait</div>
+                    </span>                        
+                    <span class="box_description_confection">description confection description confection  description confection description confection description confection description confection description confection description confectiondescription confection description confection description 
+                    </span>
+                </div>
+            </a>
+        </article> 
+        <article class="recipes_section_article">
+            <a href="#">
+                <div class="container_image_recipe"> </div>
+                <div class="boxTitle_imgWatch_Time">
+                    <span class="size_name_recipe">Poisson cru à la tahitienne</span>
+                    <div>
+                        <span><img class="size_watch" src="img/icone_horloge.png" ></span>
+                        <span class="size_min">XX min</span>
+                    </div>
+                </div>
+                <div class="container_ingredients_description">
+                    <span class="box_ingrédients">
+                        <div>Ingrédient: lait</div>
+                        <div>Ingrédient: fromage</div>
+                        <div>Ingrédient: farine</div>
+                        <div>Ingrédient: beurre</div>
+                        <div>Ingrédient: vanille</div>
+                        <div>Ingrédient: lait</div>
+                    </span>                        
+                    <span class="box_description_confection">description confection description confection  description confection description confection description confection description confection description confection description confectiondescription confection description confection description 
+                    </span>
+                </div>
+            </a>
+        </article> 
+        <article class="recipes_section_article">
+            <a href="#">
+                <div class="container_image_recipe"> </div>
+                <div class="boxTitle_imgWatch_Time">
+                    <span class="size_name_recipe">Poisson cru à la tahitienne</span>
+                    <div>
+                        <span><img class="size_watch" src="img/icone_horloge.png" ></span>
+                        <span class="size_min">XX min</span>
+                    </div>
+                </div>
+                <div class="container_ingredients_description">
+                    <span class="box_ingrédients">
+                        <div>Ingrédient: lait</div>
+                        <div>Ingrédient: fromage</div>
+                        <div>Ingrédient: farine</div>
+                        <div>Ingrédient: beurre</div>
+                        <div>Ingrédient: vanille</div>
+                        <div>Ingrédient: lait</div>
+                    </span>                        
+                    <span class="box_description_confection">description confection description confection  description confection description confection description confection description confection description confection description confectiondescription confection description confection description 
+                    </span>
+                </div>
+            </a>
+        </article> 
+        <article class="recipes_section_article">
+            <a href="#">
+                <div class="container_image_recipe"> </div>
+                <div class="boxTitle_imgWatch_Time">
+                    <span class="size_name_recipe">Poisson cru à la tahitienne</span>
+                    <div>
+                        <span><img class="size_watch" src="img/icone_horloge.png" ></span>
+                        <span class="size_min">XX min</span>
+                    </div>
+                </div>
+                <div class="container_ingredients_description">
+                    <span class="box_ingrédients">
+                        <div>Ingrédient: lait</div>
+                        <div>Ingrédient: fromage</div>
+                        <div>Ingrédient: farine</div>
+                        <div>Ingrédient: beurre</div>
+                        <div>Ingrédient: vanille</div>
+                        <div>Ingrédient: lait</div>
+                    </span>                        
+                    <span class="box_description_confection">description confection description confection  description confection description confection description confection description confection description confection description confectiondescription confection description confection description 
+                    </span>
+                </div>
+            </a>
+        </article> 
+        <article class="recipes_section_article">
+            <a href="#">
+                <div class="container_image_recipe"> </div>
+                <div class="boxTitle_imgWatch_Time">
+                    <span class="size_name_recipe">Poisson cru à la tahitienne</span>
+                    <div>
+                        <span><img class="size_watch" src="img/icone_horloge.png" ></span>
+                        <span class="size_min">XX min</span>
+                    </div>
+                </div>
+                <div class="container_ingredients_description">
+                    <span class="box_ingrédients">
+                        <div>Ingrédient: lait</div>
+                        <div>Ingrédient: fromage</div>
+                        <div>Ingrédient: farine</div>
+                        <div>Ingrédient: beurre</div>
+                        <div>Ingrédient: vanille</div>
+                        <div>Ingrédient: lait</div>
+                    </span>                        
+                    <span class="box_description_confection">description confection description confection  description confection description confection description confection description confection description confection description confectiondescription confection description confection description 
+                    </span>
+                </div>
+            </a>
+        </article>          
+    </main>  
     <script> src="script.js"</script>
 </body>
 </html>
