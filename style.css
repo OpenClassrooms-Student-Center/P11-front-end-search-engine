@@ -101,7 +101,7 @@ main {
     margin: 0px 5px 0px 5px; 
 }
 
-.recipes_section_article {
+.recipe_article {
     height: 364px;
     min-width: 380px;
     max-width: 380px;
@@ -144,7 +144,6 @@ main {
 .container_ingredients_description {
     display: flex;
     flex-direction: row;
-    border: solide red 2px;
     height: 130px;
     background-color: #E7E7E7;
     border-radius: 0px 0px 6px 6px;
@@ -152,7 +151,7 @@ main {
 .box_ingrédients {
     width:40%;
     height: 120px ;
-    margin: 10px 5px 10px 10px;
+    margin: 10px 5px 10px 12px;
     line-height: 16px;
     padding-top: 5px;
     font-size: 12px;
@@ -163,19 +162,22 @@ main {
     height: 120px ;
     margin: 10px 10px 10px 5px;
     padding-top: 7px;
-    font-size: 12px;
+    font-size: 11px;
     font-family: "roboto", sans-serif;
+    font-weight: 600;
+    line-height: 15px;
 }
 @media screen and (max-width: 892px) {
     main {
-        display: block;
+        display: flex;
         flex-direction: column;
         gap: 0px !important;
-        margin: 5px auto;
+        margin: auto;
     }
     header {
-        display: block;
+        display: flex;
         flex-direction: column;
     }
+}
 
 
