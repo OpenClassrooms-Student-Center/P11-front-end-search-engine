@@ -18,8 +18,13 @@ function displayRecipe (data) {
                 </div>
                 <div class="container_ingredients_description">
                     <span class="box_ingrédients">
-                         ${recipe.ingredients.map((ingredient)=>{
 
+                         ${recipe.ingredients.map((ingredient)=>{
+// Méthode.map permet de returner un nouveau tableau à partir d'un tableau existant sur lequel on va appliquer une fonction sur chacun des éléments du tableau.
+
+
+
+// L'opérateur de coalescence des nuls (??), est un opérateur logique qui renvoie son opérande de droite lorsque son opérande de gauche vaut null ou undefined et qui renvoie son opérande de gauche sinon.
                             let quantity = ingredient.quantity ?? ingredient.quantite;
 
                             let unit = ingredient.unit ?? ingredient.unite;
