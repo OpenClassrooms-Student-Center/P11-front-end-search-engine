@@ -1,4 +1,4 @@
-function displayRecipe (data) {
+function displayRecipes(data) {
 
     let recipesHTML = "";
 
@@ -62,4 +62,3 @@ function displayRecipe (data) {
 
     document.querySelector("main").innerHTML = recipesHTML;
 }
-displayRecipe(recipes);
