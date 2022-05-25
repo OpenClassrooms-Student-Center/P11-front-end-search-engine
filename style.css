@@ -10,12 +10,14 @@
     padding: 0;  
 }
 img {
-    width: 17px;
-    padding-top: 8px;
+    width: 18px;
+    padding-top:7px;
+
 }
 
 body {
     font-family: "DM Sans", "sans-serif";
+    color:black;
 }
 #bloc-page {
     max-width: 1300px;
@@ -57,7 +59,6 @@ label img .container_logo {
     outline: 0;
     border:0;
     background: #E7E7E7;
-
     font-family: sans-serif, verdana;
     color: black;
 }
@@ -108,12 +109,16 @@ main {
     position: relative;
     cursor: pointer;
 }
+.container_image_recipe :hover {
+    transform : scale(1, 2)
+}
 .container_image_recipe {
     height: 178px;
     width:100%;
     background: #C7BEBE;
     border-radius: 6px 6px 0px 0px;
 }
+
 .boxTitle_imgWatch_Time {
     display: flex;
     justify-content: space-between;
@@ -124,67 +129,77 @@ main {
     /* padding-top: 10px; */
 }
 .size_name_recipe {
-    font-size: 17px;
-    padding: 1px 10px; 
+    font-size: 18px;
+    padding: 2px 10px; 
     font-family: "lato";
-    font-weight: 500; 
+    font-weight: 400; 
     height: 30px;  
     width: 78%; 
+    color:black;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 .size_watch {
     position: absolute;
-    right: 65px; 
+    right: 70px; 
 }
 .size_min {
-    font-size: 16px;
+    font-size: 17px;
     padding-right: 10px;
+    padding-top: 7px;
     height: 2rem;
     line-height: 2rem;  
     font-family: "lato"; 
     font-weight: 400;
+    color:black;
 }
 .container_ingredients_description {
     display: flex;
     flex-direction: row;
-    height: 130px;
+    height: 133px;
     background-color: #E7E7E7;
+    color:black;
     border-radius: 0px 0px 6px 6px;
     padding-top: 12px;
-    --line-h: 16px;
-    --nth-lines-trunc: 7;  
+    line-height: 16px;
+    /* --nth-lines-trunc: 7;   */
 }
 .box_ingrédients {
-    width:40%;
+    width:47%;
     height: 120px ;
-    margin: 10px 5px 10px 12px;
-    line-height: 16px;
-    padding-top: 5px;
-    font-size: 11px;
+    margin: 7px 0px 10px 12px;
+    line-height: 15px;
+    font-size: 12px;
     font-family: "lato";
-    position: relative;
-    line-height: var(--line-h);
-    max-height: calc(var(--line-h)*var(--nth-lines-trunc));
-    overflow: hidden;
-}
-.box_ingrédients::after {
+    font-weight: 500;
+    }
+/* .box_description_confection::after {
     content: "...";
     position: absolute; 
     bottom: 0;
-
-}
+    right: 0;
+} */
 .box_description_confection{
-    width:65%;
-    height: 120px ;
-    margin: 10px 10px 10px 5px;
-    padding-top: 7px;
-    font-size: 10px;
+    width:57%;
+    height: 92px ;
+    margin: 6px 10px 10px 5px;
+    padding-top: 2px;
+    font-size: 11px;
     font-family: "roboto", sans-serif;
     font-weight: 600;
     line-height: 15px;
+    /* position: relative; */
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;  
+    text-align: justify;
 }
+    /* line-height: var(--line-h);
+    max-height: calc(var(--line-h)*var(--nth-lines-trunc));
+    overflow: hidden;
+} */
 @media screen and (max-width: 892px) {
     main {
         display: flex;

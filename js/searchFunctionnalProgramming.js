@@ -8,22 +8,22 @@ function searchFunctionnalProgramming(userInput){
         function resultRecipesName(){
     
     
-               return new Promise((resolve, reject)=>{
+            return new Promise((resolve, reject)=>{
     
-                    const resultRecipesName = recipes.filter((recipe)=>{
+                const resultRecipesName = recipes.filter((recipe)=>{
     
                 
-                        if(recipe.name.toLowerCase().includes(userInput) === true){
+                    if(recipe.name.toLowerCase().includes(userInput) === true){
             
-                            return recipes;
+                        return recipes;
             
-                        }
+                    }
     
-                    });
+                });
     
-                    return resolve(resultRecipesName);
+                return resolve(resultRecipesName);
                 
-               })
+            })
     
     
         }
