@@ -12,7 +12,8 @@ function searchFunctionnalProgramming(userInput){
     
                 const resultRecipesName = recipes.filter((recipe)=>{
     
-                
+        // toLowercase méthode qui converti une chaine en minuscule
+        // ().includes : inclus) si les caractères saisis par l'utilisateur (=userInput) est inclu ds la tableau recipe.name = true 
                     if(recipe.name.toLowerCase().includes(userInput) === true){
             
                         return recipes;
@@ -93,12 +94,13 @@ function searchFunctionnalProgramming(userInput){
     
     
        Promise.all([resultRecipesName(), resultRecipesIngredients(), resultRecipesDescription()]).then((result)=>{
-    
+        //  operateur spread permet en ajoutant ... devant un tableau ou une itération de récupérer ts les éléments d'un tableau
+        // ci-dessous concaténation des ts les éléments des tableaux result dont l'index est 0 1 et 2.
                 result = [...result[0], ...result[1], ...result[2]];
     
                 if(result.length === 0){
     
-                     return resolve("Pas de recettes trouvees");
+                     return resolve(`Pas de recettes trouvée'`);
     
                 }
 
