@@ -36,13 +36,14 @@ function searchFunctionnalProgramming(userInput){
              return new Promise((resolve, reject)=>{
     
                 const resultRecipesIngredients = recipes.filter((recipe)=>{
-    
+
+// on crée une variable pour qui verifie si les caractères saisis dans l'input figure dans les ingrédients. Par défault on déclare que cette variable est fausse. Sans cette étape il nous renvoie unuquement le tableau des ingrédient et non le tableau de toute la recette avec le nom,...
                     let isOnIngredients = false;
-           
+                    // dans le tableau des ingrédients pour chaque ingrédient 
                     recipe.ingredients.forEach((recipeIngredient)=>{
-           
+                        // si la valeur de linput est correspondant à la liste d'un ingrédient alors c'est égale à vrai.
                         if(recipeIngredient.ingredient.toLowerCase().includes(userInput) === true){
-           
+                             //est dans les ingrédients    
                                isOnIngredients = true;
            
                         }
@@ -100,7 +101,7 @@ function searchFunctionnalProgramming(userInput){
     
                 if(result.length === 0){
     
-                     return resolve(`Pas de recettes trouvée'`);
+                     return resolve('Pas de recettes trouvées');
     
                 }
 

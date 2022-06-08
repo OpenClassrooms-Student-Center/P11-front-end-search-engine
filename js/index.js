@@ -18,13 +18,17 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
            }
 
-           2searchFunctionnalProgramming
+       
+           searchFunctionnalProgramming(this.value).then((response)=>{
 
-        //    searchFunctionnalProgramming(this.value).then((response)=>{
+            if(response === "Pas de recettes trouvées"){
+                const resultMessage = "<p>La recette que vous cherchez n'existe pas</p>"
+                return displayNoRecipes(resultMessage)
+            }
 
-        //         displayRecipes(response) //même résultat en mettant displayRecipes(result) result est le même que celui en fin de la page searchFunctionnalProgramming.js
+               return  displayRecipes(response) //même résultat en mettant displayRecipes(result) result est le même que celui en fin de la page searchFunctionnalProgramming.js
 
-        //    });
+           });
 
        
 
