@@ -26,6 +26,10 @@
     background: #e7e7ee;
 }
 
+.barre_recherche label {
+    display: none;
+}
+
 #barre_champ {
     display: flex;
     width: 100%;
@@ -120,6 +124,10 @@
     background-color: #3282F7;
 }
 
+.input_close_ingredients label {
+    display: none;
+}
+
 .btn_appareils,
 #input_appareils,
 #appareils_div,
@@ -127,11 +135,19 @@
     background-color: #68D9A4;
 }
 
+.input_close_appareils label {
+    display: none;
+}
+
 .btn_ustensiles,
 #input_ustensiles,
 #ustensiles_div,
 .input_close_ustensiles {
     background-color: #ED6454;
+}
+
+.input_close_ustensiles label {
+    display: none;
 }
 
 .btn_ingredients,
@@ -192,7 +208,6 @@
     height: auto;
     border-radius: 0 0 5px 5px;
     column-count: 3;
-    column-width: 20%;
     padding-right: 20px;
     padding-bottom: 20px;
     padding-top: 20px;
