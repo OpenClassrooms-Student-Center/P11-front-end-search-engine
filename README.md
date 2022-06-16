@@ -11,9 +11,14 @@ Les petits plats est une application de recherche de recettes de cuisine, les ut
 - Depuis la console
 
 ```
+Pour tester en local il faut se brancher sur la branche Master.
+
 git clone https://github.com/FZChlo/LesPetitsPlats.git
 
+Installer l'extension liveserver sur Visual Studio Code ( si ce n'est pas déjà fais).
+
 run liveserver
+
 ```
 
 ### Benchmark
@@ -21,5 +26,3 @@ run liveserver
 Afin de tester la fonctionnalité de recherche principale, un benchmark as été effectué sur deux algorythmes différents.
 
 **Lien du benchmark: https://jsben.ch/t1hXO**
-
-Pour tester en local il faut se brancher sur la branche Master
