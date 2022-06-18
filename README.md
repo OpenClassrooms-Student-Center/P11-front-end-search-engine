@@ -25,4 +25,4 @@ run liveserver
 
 Afin de tester la fonctionnalité de recherche principale, un benchmark as été effectué sur deux algorythmes différents.
 
-**Lien du benchmark: https://jsben.ch/t1hXO**
+**Lien du benchmark: https://jsben.ch/4Z4kM**
