@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="assets/logo.png" />
+
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto&display=swap" rel="stylesheet" />
+    <title>Les petits plats</title>
+</head>
+
+<body>
+    <header>
+        <img src="assets/logo.png" id="logo" alt="logo de la page d'accueil" tabindex="1" />
+        <span class="barre_recherche">
+        <label for="barre_champ">recherche</label>
+        <input
+          id="barre_champ"
+          type="text"
+          placeholder="Rechercher une recette, un ingrédient ou une description"
+        />
+        <i class="fas fa-search"></i>
+      </span>
+    </header>
+
+    <main>
+        <div id="champ_mot_cle">
+            <ul id="tag"></ul>
+        </div>
+        <section class="menu_recherche">
+            <div class="global_ingredients">
+                <div class="btn_ingredients">
+                    <h2>Ingredients</h2>
+
+                    <i class="fas fa-chevron-down" id="ingredients-down"></i>
+                </div>
+                <div class="liste_ingredients">
+                    <div class="input_close_ingredients">
+                        <label for="input_ingredients">ingredients</label>
+                        <input id="input_ingredients" type="text" placeholder="Rechercher un ingrédient" />
+
+                        <i class="fas fa-chevron-up" id="ingredients-up"></i>
+                    </div>
+                    <div id="ingredients_div"></div>
+                </div>
+            </div>
+
+            <div class="global_appareils">
+                <div class="btn_appareils">
+                    <h2>Appareils</h2>
+
+                    <i class="fas fa-chevron-down" id="appareils-down"></i>
+                </div>
+                <div class="liste_appareils">
+                    <div class="input_close_appareils">
+                        <label for="input_appareils">appareils</label>
+                        <input id="input_appareils" type="text" placeholder="Rechercher un appareil" />
+
+                        <i class="fas fa-chevron-up" id="appareils-up"></i>
+                    </div>
+                    <div id="appareils_div"></div>
+                </div>
+            </div>
+
+            <div class="global_ustensiles">
+                <div class="btn_ustensiles">
+                    <h2>Ustensiles</h2>
+
+                    <i class="fas fa-chevron-down" id="ustensiles-down"></i>
+                </div>
+                <div class="liste_ustensiles">
+                    <div class="input_close_ustensiles">
+                        <label for="input_ustensiles">ustensile</label>
+                        <input id="input_ustensiles" type="text" placeholder="Rechercher un ustensile" />
+
+                        <i class="fas fa-chevron-up" id="ustensiles-up"></i>
+                    </div>
+                    <div id="ustensiles_div"></div>
+                </div>
+            </div>
+        </section>
+
+        <div class="cartes_recettes"></div>
+    </main>
+    <script src="data/recipes.js"></script>
+    <script src="scripts/MenuRecherche.js"></script>
+    <script src="scripts/index.js"></script>
+    <script src="scripts/FiltreBouton.js"></script>
+    <script src="scripts/FiltreBarreRecherche.js"></script>
+</body>
+
+</html>

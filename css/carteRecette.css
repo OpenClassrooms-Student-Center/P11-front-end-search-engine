@@ -1,0 +1,82 @@
+.cartes_recettes {
+    display: flex;
+    width: 100%;
+    height: auto;
+    padding-left: 100px;
+    margin-top: 50px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+    #pas_de_recette{
+        width: 37%;
+        text-align: center;
+        font-size: 18px;
+        line-height: 30px;
+        margin-left: 100px;
+    }
+    .carte_recette {
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+        height: 400px;
+        margin-right: 50px;
+        margin-bottom: 50px;
+        background-color: #e7e7e7;
+        border-radius: 0 0 5px 5px;
+    }
+            .carte_recette img {
+            background-color: #c7bebe;
+            width: 100%;
+            height: 190px;
+            border-radius: 5px 5px 0 0;
+            }
+            .titre_duree {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                margin-left: 15px;
+                margin-right: 15px;
+                font-size: 18px;
+            }
+                .titre_duree h1 {
+                    width: 70%;
+                }
+                .titre_duree i {
+                    margin-right: 5px;
+                }
+                .titre_duree {
+                    font-weight: bold;
+                }
+            .detail {
+                display: flex;
+                justify-content: space-between;
+                margin-left: 15px;
+                margin-right: 15px;
+            }
+                .detail_recette {
+                    flex-direction: column;
+                }    
+                    .detail_recette h2 {
+                        display: flex;
+                        font-size: 13px;
+                        font-weight: bold;
+                    }
+                    .detail_recette h2 p{
+                        font-size: 12px;
+                        font-weight: normal;
+                        margin-left: 5px;
+                    }
+                .detail_commentaire {
+                    font-family: "roboto", cursive;
+                    font-size: 12px;
+                    width: 50%;
+                    height: 112px;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 8;
+                    -webkit-box-orient: vertical;
+                    -webkit-hyphens: auto;
+                    hyphens: auto;
+                    overflow: hidden;
+                }
