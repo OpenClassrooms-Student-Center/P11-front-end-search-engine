@@ -15,7 +15,7 @@ function searchFunctionnalProgramming(userInput){
         // ().includes : inclus) si les caractères saisis par l'utilisateur (=userInput) est inclu ds la tableau recipe.name = true 
                     if(recipe.name.toLowerCase().includes(userInput) === true){
             
-                        return recipes;
+                        return recipe;
             
                     }
     

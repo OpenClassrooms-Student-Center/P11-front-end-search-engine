@@ -1,4 +1,4 @@
-function searchFunctionnalProgramming(userInput){
+function searchImperativeProgramming(userInput){
 
     return new Promise((resolve, reject)=> {
          
@@ -35,8 +35,6 @@ function searchFunctionnalProgramming(userInput){
 
                 const resultRecipesIngredients = [];
 
-                return new Promise((resolve, reject)=>{
-
                 const j = recipes.length;
 
                 for(let i=0; i<j; i++){
@@ -65,7 +63,6 @@ function searchFunctionnalProgramming(userInput){
             
                 return  resolve(resultRecipesIngredients);
             
-            });
         }
 
         function resultRecipesDescription(){
