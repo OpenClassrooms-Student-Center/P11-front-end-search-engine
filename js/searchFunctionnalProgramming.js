@@ -1,9 +1,8 @@
 function searchFunctionnalProgramming(userInput){
 
-     return new Promise((resolve, reject)=>{
+     return new Promise((resolve, reject)=> {
 
         userInput = normalizeString(userInput);
-
 
         function resultRecipesName(){
     
@@ -30,8 +29,7 @@ function searchFunctionnalProgramming(userInput){
         }
     
         
-        function resultRecipesIngredients(){
-    
+        function resultRecipesIngredients(){    
     
              return new Promise((resolve, reject)=>{
     

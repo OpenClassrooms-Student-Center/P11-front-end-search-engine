@@ -22,7 +22,9 @@ document.addEventListener("DOMContentLoaded", ()=>{
            searchFunctionnalProgramming(this.value).then((response)=>{
 
             if(response === "Pas de recettes trouvées"){
-                const resultMessage = "<p>La recette que vous cherchez n'existe pas</p>"
+                const resultMessage = `<p id="message_no_recipes">Aucune recette ne correspond à votre critère…    Vous pouvez
+                chercher "tarte aux pommes", "poisson", etc.
+                </p>`;
                 return displayNoRecipes(resultMessage)
             }
 

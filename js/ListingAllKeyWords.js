@@ -17,6 +17,8 @@ for (let i=0; i<recipes.length; i++) {
 const ingredientsNoDuplicates = new Set(allIngredients);
 // console.log(ingredientsNoDuplicates);
 
+// RECUPERE LA LISTE DE TOUS LES APPAREILS
+
 const allAppliances = [];
 for (let i=0; i<recipes.length; i++) {
     let appliances = recipes [i].appliance;
@@ -24,6 +26,8 @@ for (let i=0; i<recipes.length; i++) {
 }
 const appliancesNoDuplicates = new Set(allAppliances);
 // console.log(appliancesNoDuplicates);
+
+// RECUPERE LA LISTE DE TOUS LES USTENSILES
 
 const allUstensils = [];
 for (let i=0; i<recipes.length; i++) {
