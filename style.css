@@ -49,14 +49,17 @@ label img .container_logo {
     background: #E7E7E7;
     padding: 5px 7px 5px 15px;
     border-radius: 6px;
+    outline:none;
+    border:none;
 }
 .input_control, .input input{
     width: auto;
     font-size: 16px;
     outline: #E7E7E7;
-    border: 0px;
+    border:none;
     font-family: sans-serif, verdana;
     color: white;
+
 }
 .boxFilterSearch2{
     display: flex;
