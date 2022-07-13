@@ -1,0 +1,123 @@
+.searchTheme {
+    display: flex;
+    flex-direction: row;
+    justify-self: flex-start;
+   
+}
+#ingredients, #ustensiles, #appareils{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+}
+#ingredients{
+  background-color: #3282F7;
+}
+#ustensiles{
+   background-color: #ED6454;
+}
+
+#appareils{
+    background-color: #68D9A4;
+}
+#appareils .btn{
+    align-items: center;
+    background-color: #68D9A4;
+    border: 0;
+    border-radius: 5px;
+    color: #fff;
+    display: flex;
+    font-size: 18px;
+    height:69px; 
+    justify-content: space-around;
+    width: 170px;
+}
+#ingredients .btn{
+    align-items: center;
+    background-color: #3282F7;
+    border: 0;
+    border-radius: 5px;
+    color: #fff;
+    display: flex;
+    font-size: 18px;
+    height:69px; 
+    justify-content: space-around;
+    width: 170px;
+}
+#ustensiles .btn{
+    align-items: center;
+    background-color:  #ED6454;
+    border: 0;
+    border-radius: 5px;
+    color: #fff;
+    display: flex;
+    font-size: 18px;
+    height:69px; 
+    justify-content: space-around;
+    width: 170px;
+}
+#ingredients .arrow{
+    border: 3px solid #fff;
+    border-top: 3px solid #3282F7;
+    border-right : 3px solid #3282F7; 
+    transform: rotate(-45deg);
+    width: 8px;
+    height: 8px;
+    transition: 0.5s;
+    z-index: 300;
+}
+#appareils .arrow{
+    border: 3px solid #fff;
+    border-top: 3px solid  #68D9A4;
+    border-right : 3px solid  #68D9A4; 
+    transform: rotate(-45deg);
+    width: 8px;
+    height: 8px;
+    transition: 0.5s;
+    z-index: 300;
+}
+#ustensiles .arrow{
+    border: 3px solid #fff;
+    border-top: 3px solid  #ED6454;
+    border-right : 3px solid  #ED6454; 
+    transform: rotate(-45deg);
+    width: 8px;
+    height: 8px;
+    transition: 0.5s;
+    z-index: 300;
+}
+.option{
+    display: none;
+}
+.select-item{
+    padding: 5% 7%; 
+    font-size: 18px;
+    border-top: 1px solid #fff;
+    cursor: pointer;
+}
+
+label:first-child{
+    border-top:0; 
+}
+
+.dropdown{
+    position: absolute;
+    top: 15px;
+    left: 0;
+    background-color: #901C1C;
+    border-radius: 0 0 5px 5px;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    width: 100%;
+    box-sizing: border-box;
+}
+.hidden{
+    display: none;
+}
+
+
+.arrow.active{
+    transform: rotate(-225deg);
+}

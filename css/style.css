@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+@import url('sortItems.css'); 
+
+body{
+    box-sizing: border-box;
+    width: 100%;
+}
+
+header {
+    color: #D04F4F; 
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 47px;
+    letter-spacing: 0em;
+    text-align: center;
+}
+header img{
+    height: 46px;
+    width: 50px;
+
+}
+section{
+    position: relative;}
+section .find{
+    padding: 1%;
+    border : none; 
+    background: #E7E7E7;
+    border-radius: 5px;
+}
+section .fa-search{
+    position: absolute;
+    top: 8%;
+    right: 1%;
+    font-size: 32px;
+}
+main{
+    height: 69px;
+    width: 1240px;
+    left: 0px;
+    top: 0px;
+    border-radius: 5px;
+
+}
