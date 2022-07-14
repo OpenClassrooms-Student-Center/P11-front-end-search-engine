@@ -8,6 +8,7 @@ function searchFunctionnalProgramming(userInput){
     
     
             return new Promise((resolve, reject)=>{
+            // filter renvoie toujours un tableau
     
                 const resultRecipesName = recipes.filter((recipe)=>{
     

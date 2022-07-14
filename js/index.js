@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
            }
 
        
-           searchFunctionnalProgramming(this.value).then((response)=>{
+           bisSearchImperativeProgramming(this.value).then((response)=>{
 
             if(response === "Pas de recettes trouvées"){
                 const resultMessage = `<p id="message_no_recipes">Aucune recette ne correspond à votre critère…    Vous pouvez
