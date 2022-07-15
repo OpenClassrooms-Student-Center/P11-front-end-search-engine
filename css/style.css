@@ -22,7 +22,7 @@ header img{
 #searchBar{
     position: relative;
 }
-section .find{
+section #find{
     height: calc(2.5em + 1rem + 2px);
     border : none; 
     background: #E7E7E7;
