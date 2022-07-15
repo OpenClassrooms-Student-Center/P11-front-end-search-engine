@@ -1,4 +1,4 @@
-import recipes from '../data/recipes.js';
+import recipes from '../../data/recipes.js';
 
 export default class CardReccipesFactory {
     constructor() {
@@ -9,7 +9,7 @@ export default class CardReccipesFactory {
      * @param {Arrray} Arrray media of data
      * affichage des cardRecipes avec leurs informations
      */
-    async displayRecipes() {
+    async AllRecipes() {
         this.recipesData.forEach(recipe => {
           
         
@@ -76,6 +76,3 @@ export default class CardReccipesFactory {
     }
     
 }
-// affichage de View
-const app = new CardReccipesFactory()
-app.displayRecipes() 
