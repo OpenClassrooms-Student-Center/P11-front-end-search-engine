@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
 @import url('sortItems.css'); 
-
+@import url('card.css'); 
 body{
     box-sizing: border-box;
     width: 100%;
@@ -19,17 +19,18 @@ header img{
     width: 50px;
 
 }
-section{
-    position: relative;}
+#searchBar{
+    position: relative;
+}
 section .find{
-    padding: 1%;
+    height: calc(2.5em + 1rem + 2px);
     border : none; 
     background: #E7E7E7;
     border-radius: 5px;
 }
 section .fa-search{
     position: absolute;
-    top: 8%;
+    top: 27%;
     right: 1%;
     font-size: 32px;
 }

@@ -1,14 +1,19 @@
+.searchSection{
+   margin: 0 3%;
+}
 .searchTheme {
     display: flex;
     flex-direction: row;
     justify-self: flex-start;
-   
+    margin: 0 3%;
 }
 #ingredients, #ustensiles, #appareils{
     position: relative;
     display: flex;
     flex-direction: column;
     border-radius: 5px;
+    height: 69px;
+    width: 170px;
 }
 #ingredients{
   background-color: #3282F7;
@@ -61,8 +66,8 @@
     border-top: 3px solid #3282F7;
     border-right : 3px solid #3282F7; 
     transform: rotate(-45deg);
-    width: 8px;
-    height: 8px;
+    width:12px;
+    height:12px;
     transition: 0.5s;
     z-index: 300;
 }
@@ -71,8 +76,8 @@
     border-top: 3px solid  #68D9A4;
     border-right : 3px solid  #68D9A4; 
     transform: rotate(-45deg);
-    width: 8px;
-    height: 8px;
+    width:12px;
+    height:12px;
     transition: 0.5s;
     z-index: 300;
 }
@@ -81,8 +86,8 @@
     border-top: 3px solid  #ED6454;
     border-right : 3px solid  #ED6454; 
     transform: rotate(-45deg);
-    width: 8px;
-    height: 8px;
+    width:12px;
+    height:12px;
     transition: 0.5s;
     z-index: 300;
 }
