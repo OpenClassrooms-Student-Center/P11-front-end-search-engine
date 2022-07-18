@@ -30,20 +30,20 @@ export default class App{
                     )
                 })
                /*this.recipes.filter(resultTag =>{
-                    resultTag.ingredients.find(item =>{
+                   * resultTag.ingredients.find(item =>{
                        
-                        if(item.ingredients.indexOf(searchString)){     
-                            const viewTag = ` 
-                            <button id="btnIngredient" >${this.input.value}</button>
-                            <i class="far fa-times-circle"></i>
-                            `
-                            this.tag.innerHTML = viewTag  
-                            document.querySelector(".fa-times-circle").addEventListener('click', (e)=>{
-                                e.setAttribute('.hidden')
-                            }) 
-                        }
-                    })
-                })/*
+                     *   if(item.ingredients.indexOf(searchString)){     
+                      *      const viewTag = ` 
+                      *      <button id="btnIngredient" >${this.input.value}</button>
+                      *      <i class="far fa-times-circle"></i>
+                       *     `
+                       *     this.tag.innerHTML = viewTag  
+                       *     document.querySelector(".fa-times-circle").addEventListener('click', (e)=>{
+                       *         e.setAttribute('.hidden')
+                       *     }) 
+                      *  }
+                  *  })
+               * })*/
               
                
                 
