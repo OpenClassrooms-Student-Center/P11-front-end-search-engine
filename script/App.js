@@ -29,7 +29,7 @@ export default class App{
                     }) != undefined
                     )
                 })
-               this.recipes.filter(resultTag =>{
+               /*this.recipes.filter(resultTag =>{
                     resultTag.ingredients.find(item =>{
                        
                         if(item.ingredients.indexOf(searchString)){     
@@ -43,7 +43,7 @@ export default class App{
                             }) 
                         }
                     })
-                })
+                })/*
               
                
                 
