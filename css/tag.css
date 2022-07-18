@@ -1,0 +1,32 @@
+#tag-ingredients{
+    border-radius: 5px;
+    background-color: #3282F7;
+    color: white;
+    margin-top: 2%;
+}
+#tag-appliance{
+    border-radius: 5px;
+    background-color: #68D9A4;
+    color: white;
+    margin-top: 2%;
+}
+#tag-ustensils{
+    border-radius: 5px;
+    background-color: #ED6454;
+    color: white;
+    margin-top: 2%;
+}
+button{
+    border: 0;
+    background-color: #3282F7;
+    color: white;
+    height: 37px;
+    width: 107px;
+}
+
+.active{
+    display: flex; 
+}
+.hidden{
+    display: none; 
+}

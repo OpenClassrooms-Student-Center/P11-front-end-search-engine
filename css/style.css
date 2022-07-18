@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
 @import url('sortItems.css'); 
 @import url('card.css'); 
+@import url('tag.css');
 body{
     box-sizing: border-box;
     width: 100%;

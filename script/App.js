@@ -5,7 +5,10 @@ export default class App{
     constructor(){
         this.recipes = recipes
         this.input = document.getElementById("find")
-        this.wrapper = document.getElementById('cardRecipes')
+        this.tag = document.getElementById("tag")
+        this.showTag = document.getElementById("btnIngredient")
+       
+       
     }
     displayAllRecipes(){
         const viewCard =  new CardRecipesFactory(this.recipes)
@@ -21,15 +24,34 @@ export default class App{
                    return (
                     result.name.toLowerCase().includes(searchString) || 
                     result.description.toLowerCase().includes(searchString) ||
-                    result.ingredients.find(element => {
-                        return element.ingredient.toLowerCase().includes(searchString)
+                    result.ingredients.find(items => {
+                        return items.ingredient.toLowerCase().includes(searchString)
                     }) != undefined
                     )
                 })
+               this.recipes.filter(resultTag =>{
+                    resultTag.ingredients.find(item =>{
+                       
+                        if(item.ingredients.indexOf(searchString)){     
+                            const viewTag = ` 
+                            <button id="btnIngredient" >${this.input.value}</button>
+                            <i class="far fa-times-circle"></i>
+                            `
+                            this.tag.innerHTML = viewTag  
+                            document.querySelector(".fa-times-circle").addEventListener('click', (e)=>{
+                                e.setAttribute('.hidden')
+                            }) 
+                        }
+                    })
+                })
+              
                
+                
                 const viewCard =  new CardRecipesFactory(filterRecipe)
                 viewCard.AllRecipes()
+                
             })
+
    
     }
 }
