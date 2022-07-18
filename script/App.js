@@ -17,13 +17,16 @@ export default class App{
         this.input.addEventListener("keyup", (e)=>{
                 const searchString = e.target.value
                 const filterRecipe = this.recipes.filter(result =>{
+                  
                    return (
-                    result.name.includes(searchString) || 
-                    result.description.includes(searchString) 
+                    result.name.toLowerCase().includes(searchString) || 
+                    result.description.toLowerCase().includes(searchString) ||
+                    result.ingredients.find(element => {
+                        return element.ingredient.toLowerCase().includes(searchString)
+                    }) != undefined
                     )
-                    
                 })
-                console.log(filterRecipe)
+               
                 const viewCard =  new CardRecipesFactory(filterRecipe)
                 viewCard.AllRecipes()
             })

@@ -8,8 +8,8 @@ export default class CardRecipesFactory {
      * affichage des cardRecipes avec leurs informations
      */
     async AllRecipes() {
-
-        this.recipesData.forEach(recipe => {
+        this.wrapper.innerHTML = ""
+        this.recipesData.map(recipe => {
             const card = `
                 <article id="card" class="col-lg-3 col-md-6 m-4">
                 
@@ -38,7 +38,7 @@ export default class CardRecipesFactory {
 
             // insert in DOM allCardRecipes
             this.wrapper.insertAdjacentHTML('beforeEnd', card)
-            recipe.ingredients.forEach((ingredient) => {
+            recipe.ingredients.map((ingredient) => {
                 // console.log(ingredient)
 
                 let listingredients = document.querySelector("#ingredients-" + recipe.id)
