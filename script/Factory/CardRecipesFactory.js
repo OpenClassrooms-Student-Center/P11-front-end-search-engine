@@ -9,6 +9,7 @@ export default class CardRecipesFactory {
      */
     async AllRecipes() {
         this.wrapper.innerHTML = ""
+       
         this.recipesData.map(recipe => {
             const card = `
                 <article id="card" class="col-lg-3 col-md-6 m-4">

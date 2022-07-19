@@ -6,20 +6,23 @@ export default class App{
         this.recipes = recipes
         this.input = document.getElementById("find")
         this.tag = document.getElementById("tag")
+        this.close = document.querySelector('.fa-times-circle')
     }
     displayAllRecipes(){
         const viewCard =  new CardRecipesFactory(this.recipes)
         viewCard.AllRecipes()
+       
     }
     
     filterRecipes(){
-        console.log(this.recipes)
         this.input.addEventListener("keyup", (e)=>{
                 const searchString = e.target.value
                 const filterRecipe = this.recipes.filter(result =>{
                     if (this.input.value === "")
                     {
                         this.tag.classList.add("d-none")
+                        const viewCard =  new CardRecipesFactory(this.recipes)
+                        viewCard.AllRecipes()
                     }
                     // show tag in DOM
                     else
@@ -27,11 +30,8 @@ export default class App{
                         this.tag.classList.remove("d-none")
                         document.getElementById("btnIngredient").innerText = this.input.value
                     }  
-                    document.querySelector('.fa-times-circle').addEventListener('click', (e)=>{
-                        this.tag.classList.add("d-none")
-                        this.input.value = ""
-                    })
-                    
+                   
+
                    return (
                     result.name.toLowerCase().includes(searchString) || 
                     result.description.toLowerCase().includes(searchString) ||
@@ -41,19 +41,19 @@ export default class App{
                     )
                    
                 })
-                
-                
-                   
-            
-              
-                
-               
-                
                 const viewCard =  new CardRecipesFactory(filterRecipe)
-                viewCard.AllRecipes()
-                
+                viewCard.AllRecipes() 
             })
 
+            this.close.addEventListener('click', ()=>{
+                this.input.value = ""
+                this.tag.classList.add("d-none") 
+                document.querySelectorAll("#card").forEach( (elt)=>{ 
+                    elt.remove() 
+                    const viewCard =  new CardRecipesFactory(this.recipes)
+                    viewCard.AllRecipes() 
+                }) 
+            })
    
     }
 }
