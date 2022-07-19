@@ -6,9 +6,6 @@ export default class App{
         this.recipes = recipes
         this.input = document.getElementById("find")
         this.tag = document.getElementById("tag")
-        this.showTag = document.getElementById("btnIngredient")
-       
-       
     }
     displayAllRecipes(){
         const viewCard =  new CardRecipesFactory(this.recipes)
@@ -20,7 +17,21 @@ export default class App{
         this.input.addEventListener("keyup", (e)=>{
                 const searchString = e.target.value
                 const filterRecipe = this.recipes.filter(result =>{
-                  
+                    if (this.input.value === "")
+                    {
+                        this.tag.classList.add("d-none")
+                    }
+                    // show tag in DOM
+                    else
+                    {
+                        this.tag.classList.remove("d-none")
+                        document.getElementById("btnIngredient").innerText = this.input.value
+                    }  
+                    document.querySelector('.fa-times-circle').addEventListener('click', (e)=>{
+                        this.tag.classList.add("d-none")
+                        this.input.value = ""
+                    })
+                    
                    return (
                     result.name.toLowerCase().includes(searchString) || 
                     result.description.toLowerCase().includes(searchString) ||
@@ -28,23 +39,14 @@ export default class App{
                         return items.ingredient.toLowerCase().includes(searchString)
                     }) != undefined
                     )
+                   
                 })
-               /*this.recipes.filter(resultTag =>{
-                   * resultTag.ingredients.find(item =>{
-                       
-                     *   if(item.ingredients.indexOf(searchString)){     
-                      *      const viewTag = ` 
-                      *      <button id="btnIngredient" >${this.input.value}</button>
-                      *      <i class="far fa-times-circle"></i>
-                       *     `
-                       *     this.tag.innerHTML = viewTag  
-                       *     document.querySelector(".fa-times-circle").addEventListener('click', (e)=>{
-                       *         e.setAttribute('.hidden')
-                       *     }) 
-                      *  }
-                  *  })
-               * })*/
+                
+                
+                   
+            
               
+                
                
                 
                 const viewCard =  new CardRecipesFactory(filterRecipe)
