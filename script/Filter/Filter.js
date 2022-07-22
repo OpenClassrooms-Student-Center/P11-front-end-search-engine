@@ -1,8 +1,7 @@
-import recipes from "../../data/recipes.js  ";
 import CardRecipesFactory from "../Factory/CardRecipesFactory.js";
 
 export default class Filter {
-    constructor() {
+    constructor(recipes) {
         this.recipes = recipes
         this.input = document.getElementById("find")
         this.tag = document.getElementById("tag")

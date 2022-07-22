@@ -1,128 +1,126 @@
-.searchSection{
-   margin: 0 3%;
-}
-.searchTheme {
-    display: flex;
-    flex-direction: row;
-    justify-self: flex-start;
+.searchSection {
     margin: 0 3%;
 }
-#ingredients, #ustensiles, #appareils{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    border-radius: 5px;
-    height: 69px;
-    width: 170px;
-}
-#ingredients{
-  background-color: #3282F7;
-}
-#ustensiles{
-   background-color: #ED6454;
-}
 
-#appareils{
-    background-color: #68D9A4;
-}
-#appareils .btn{
-    align-items: center;
-    background-color: #68D9A4;
-    border: 0;
+.tag-search-all-menus {
+    display: flex;
+  }
+  
+  .search-menu:not(:last-child) {
+    margin-right: 20px;
+  }
+  
+  .search-menu {
+    width: fit-content
+  }
+  
+  .search-menu input {
+    color: white;
+    font-family: var(--mainFont);
+    font-weight: 700;
+    line-height: 21.6px;
+    font-size: var(--basicFontSize);
+    border: none;
     border-radius: 5px;
-    color: #fff;
-    display: flex;
-    font-size: 18px;
-    height:69px; 
-    justify-content: space-around;
-    width: 170px;
-}
-#ingredients .btn{
-    align-items: center;
-    background-color: #3282F7;
-    border: 0;
-    border-radius: 5px;
-    color: #fff;
-    display: flex;
-    font-size: 18px;
-    height:69px; 
-    justify-content: space-around;
-    width: 170px;
-}
-#ustensiles .btn{
-    align-items: center;
-    background-color:  #ED6454;
-    border: 0;
-    border-radius: 5px;
-    color: #fff;
-    display: flex;
-    font-size: 18px;
-    height:69px; 
-    justify-content: space-around;
-    width: 170px;
-}
-#ingredients .arrow{
-    border: 3px solid #fff;
-    border-top: 3px solid #3282F7;
-    border-right : 3px solid #3282F7; 
-    transform: rotate(-45deg);
-    width:12px;
-    height:12px;
-    transition: 0.5s;
-    z-index: 300;
-}
-#appareils .arrow{
-    border: 3px solid #fff;
-    border-top: 3px solid  #68D9A4;
-    border-right : 3px solid  #68D9A4; 
-    transform: rotate(-45deg);
-    width:12px;
-    height:12px;
-    transition: 0.5s;
-    z-index: 300;
-}
-#ustensiles .arrow{
-    border: 3px solid #fff;
-    border-top: 3px solid  #ED6454;
-    border-right : 3px solid  #ED6454; 
-    transform: rotate(-45deg);
-    width:12px;
-    height:12px;
-    transition: 0.5s;
-    z-index: 300;
-}
-.option{
-    display: none;
-}
-.select-item{
-    padding: 5% 7%; 
-    font-size: 18px;
-    border-top: 1px solid #fff;
-    cursor: pointer;
-}
-
-label:first-child{
-    border-top:0; 
-}
-
-.dropdown{
-    position: absolute;
-    top: 15px;
-    left: 0;
-    background-color: #901C1C;
-    border-radius: 0 0 5px 5px;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    z-index: 100;
+    padding: 24px 15px;
+    outline: none;
+    width: 170px
+  }
+  
+  .search-menu.expanded input {
     width: 100%;
-    box-sizing: border-box;
-}
-.hidden{
-    display: none;
-}
-
-
-.arrow.active{
-    transform: rotate(-225deg);
-}
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+  
+  .search-menu input::placeholder {
+    color: white;
+  }
+  
+  .search-menu.expanded input::placeholder {
+    color: rgb(255, 255, 255);
+    opacity: 0.6;
+  }
+  
+  .search-menu .input-container {
+    position: relative;
+  }
+  
+  .search-menu i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    pointer-events: none;
+    cursor: pointer;
+  }
+  
+  .search-menu .dropdown-list {
+    display:none;
+    color: white;
+    line-height: 21.6px;
+    list-style-type: none;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 24px 0 24px 15px;
+    border-radius: 0 0 5px 5px;
+  }
+  
+  .search-menu.expanded .dropdown-list {
+    display: flex;
+  }
+  
+  .search-menu.ingredients .dropdown-list {
+    background-color: var(--blue);
+  }
+  
+  .search-menu.appliances .dropdown-list {
+    background-color: var(--green);
+  }
+  
+  .search-menu.ustensils .dropdown-list {
+    background-color: var(--red);
+  }
+  
+  .search-menu .dropdown-list li {
+    width: 200px;
+    margin: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .search-menu .dropdown-list li:hover {
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.04s;
+  }
+  
+  /* Display 30 list items maximum */
+  .search-menu .dropdown-list li:nth-child(n+31) {
+    display: none !important;
+  }
+  
+  .search-menu.ingredients input {
+    background-color: var(--blue);
+  }
+  
+  .search-menu.appliances input {
+    background-color: var(--green);
+  }
+  
+  .search-menu.ustensils input {
+    background-color: var(--red);
+  }
+  
+  .search-menu.expanded .dropdown-list {
+    display: flex;
+  }
+  
+  .search-menu.expanded input {
+    border-radius: 5px 5px 0 0;
+  }
+  
+  .search-menu.expanded i {
+    transform: rotate(180deg) translateY(50%);
+  }

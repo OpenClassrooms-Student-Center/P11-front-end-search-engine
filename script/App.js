@@ -1,6 +1,8 @@
 import recipes from "../data/recipes.js";
 import CardRecipesFactory from "./Factory/CardRecipesFactory.js";
 import Filter from "./Filter/Filter.js";
+import SortIngredients from "./sortType/sortIngredients.js";
+import TagFactory from "./Factory/TagFactory.js"
 
 export default class App {
     constructor() {
@@ -15,13 +17,30 @@ export default class App {
 
     }
 
-    displaySort() {
+    displaySortInput() {
         const sort = new Filter(this.recipes)
         sort.filterRecipes()
+    }
+
+    sortByIngredients(){
+        // link with sort
+        document.querySelector(".search-menu").addEventListener("click", () => {
+            if(!document.querySelector('.search-menu').classList.contains("expanded")){
+                document.querySelector('.dropdown-list').style.display = "flex"
+                document.querySelector('.search-menu').classList.add("expanded")
+            }else{
+                document.querySelector('.dropdown-list').style.display = "none"
+                document.querySelector('.search-menu').classList.remove("expanded")  
+            }
+            const dropdownIngredient = new SortIngredients(this.recipes)
+            dropdownIngredient.init()
+        })
+       
     }
 }
 
 // affichage dans la View
 const app = new App()
 app.displayAllRecipes()
-app.displaySort()
+app.displaySortInput()
+app.sortByIngredients()

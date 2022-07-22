@@ -2,6 +2,15 @@
 @import url('sortItems.css'); 
 @import url('card.css'); 
 @import url('tag.css');
+:root {
+    --blue: #3282f7;
+    --green: #68d9a4;
+    --red: #ed6454;
+    --logo-color: #d04f4f;
+    --lightGray: #e7e7e7;
+    --darkGray: #c7bebe;
+    --white: #ffffff;
+  }
 body{
     box-sizing: border-box;
     width: 100%;
@@ -26,7 +35,7 @@ header img{
 section #find{
     height: calc(2.5em + 1rem + 2px);
     border : none; 
-    background: #E7E7E7;
+    background: var(--lightGray);
     border-radius: 5px;
 }
 section .fa-search{
