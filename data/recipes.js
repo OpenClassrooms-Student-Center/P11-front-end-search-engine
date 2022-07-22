@@ -1733,6 +1733,6 @@ if (targetRecipies.length == 0)
 }
 else
 {
-    targetRecipies = currentRecipies
+    targetRecipies = targetRecipies
 }
 export default recipes

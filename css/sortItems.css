@@ -24,12 +24,14 @@
     border-radius: 5px;
     padding: 24px 15px;
     outline: none;
-    width: 170px
+    width: 170px; 
+    transition: .5s;
+
   }
   
   .search-menu.expanded input {
     width: 100%;
-    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: .5s;
   }
   
   .search-menu input::placeholder {
@@ -64,14 +66,18 @@
     margin: 0;
     padding: 24px 0 24px 15px;
     border-radius: 0 0 5px 5px;
+    justify-content: space-evenly;
+    
   }
   
   .search-menu.expanded .dropdown-list {
     display: flex;
+    
   }
   
   .search-menu.ingredients .dropdown-list {
     background-color: var(--blue);
+    transition: .5s;
   }
   
   .search-menu.appliances .dropdown-list {

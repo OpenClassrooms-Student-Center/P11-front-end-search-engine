@@ -44,11 +44,3 @@ section .fa-search{
     right: 1%;
     font-size: 32px;
 }
-main{
-    height: 69px;
-    width: 1240px;
-    left: 0px;
-    top: 0px;
-    border-radius: 5px;
-
-}

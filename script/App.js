@@ -2,7 +2,6 @@ import recipes from "../data/recipes.js";
 import CardRecipesFactory from "./Factory/CardRecipesFactory.js";
 import Filter from "./Filter/Filter.js";
 import SortIngredients from "./sortType/sortIngredients.js";
-import TagFactory from "./Factory/TagFactory.js"
 
 export default class App {
     constructor() {
@@ -32,6 +31,7 @@ export default class App {
                 document.querySelector('.dropdown-list').style.display = "none"
                 document.querySelector('.search-menu').classList.remove("expanded")  
             }
+            //const itemsRecipies = new TagFactory(this.recipes, "ingrédia")
             const dropdownIngredient = new SortIngredients(this.recipes)
             dropdownIngredient.init()
         })
