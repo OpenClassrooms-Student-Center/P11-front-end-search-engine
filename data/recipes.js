@@ -1725,14 +1725,4 @@ const recipes = [
   }
 ]
 
-let targetRecipies = []
-
-if (targetRecipies.length == 0)
-{
-    targetRecipies = recipes
-}
-else
-{
-    targetRecipies = targetRecipies
-}
 export default recipes

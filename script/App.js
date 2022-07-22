@@ -2,6 +2,8 @@ import recipes from "../data/recipes.js";
 import CardRecipesFactory from "./Factory/CardRecipesFactory.js";
 import Filter from "./Filter/Filter.js";
 import SortIngredients from "./sortType/sortIngredients.js";
+import SortAppliance from "./sortType/sortAppliance.js"
+import SortUstencils from "./sortType/sortUstensils.js"
 
 export default class App {
     constructor() {
@@ -21,21 +23,14 @@ export default class App {
         sort.filterRecipes()
     }
 
-    sortByIngredients(){
+    sortByButton(){
         // link with sort
-        document.querySelector(".search-menu").addEventListener("click", () => {
-            if(!document.querySelector('.search-menu').classList.contains("expanded")){
-                document.querySelector('.dropdown-list').style.display = "flex"
-                document.querySelector('.search-menu').classList.add("expanded")
-            }else{
-                document.querySelector('.dropdown-list').style.display = "none"
-                document.querySelector('.search-menu').classList.remove("expanded")  
-            }
-            //const itemsRecipies = new TagFactory(this.recipes, "ingrédia")
-            const dropdownIngredient = new SortIngredients(this.recipes)
-            dropdownIngredient.init()
-        })
-       
+        const dropdownIngredient = new SortIngredients(this.recipes)
+        dropdownIngredient.init()
+        const dropdownAppliances = new SortAppliance(this.recipes)
+        dropdownAppliances .init()
+        const dropdownUstensils = new SortUstencils(this.recipes)
+        dropdownUstensils.init()       
     }
 }
 
@@ -43,4 +38,4 @@ export default class App {
 const app = new App()
 app.displayAllRecipes()
 app.displaySortInput()
-app.sortByIngredients()
+app.sortByButton()

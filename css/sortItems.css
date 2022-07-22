@@ -57,7 +57,7 @@
     cursor: pointer;
   }
   
-  .search-menu .dropdown-list {
+  .search-menu .dropdown-list-ingredients, .search-menu .dropdown-list-appliances, .search-menu .dropdown-list-ustensils {
     display:none;
     color: white;
     line-height: 21.6px;
@@ -70,25 +70,24 @@
     
   }
   
-  .search-menu.expanded .dropdown-list {
-    display: flex;
-    
+  .search-menu .dropdown-list-ingredients, .search-menu .dropdown-list-appliances, .search-menu .dropdown-list-ustensils {
+    display: none; 
   }
   
-  .search-menu.ingredients .dropdown-list {
+  .search-menu.ingredients .dropdown-list-ingredients {
     background-color: var(--blue);
     transition: .5s;
   }
   
-  .search-menu.appliances .dropdown-list {
+  .search-menu.appliances .dropdown-list-appliances {
     background-color: var(--green);
   }
   
-  .search-menu.ustensils .dropdown-list {
+  .search-menu.ustensils .dropdown-list-ustensils {
     background-color: var(--red);
   }
   
-  .search-menu .dropdown-list li {
+  .search-menu .dropdown-list-ingredients li , .search-menu .dropdown-list-appliances li, .search-menu .dropdown-list-ustensils li{
     width: 200px;
     margin: 8px;
     white-space: nowrap;
@@ -96,14 +95,14 @@
     text-overflow: ellipsis;
   }
   
-  .search-menu .dropdown-list li:hover {
+  .search-menu .dropdown-list-ingredients li:hover, .search-menu .dropdown-list-appliances li:hover, .search-menu .dropdown-list-ustensils li:hover{
     cursor: pointer;
     font-weight: bold;
     transition: all 0.04s;
   }
   
   /* Display 30 list items maximum */
-  .search-menu .dropdown-list li:nth-child(n+31) {
+  .search-menu .dropdown-list-ingredients li:nth-child(n+31), .search-menu .dropdown-list-appliances li:nth-child(n+31), .search-menu .dropdown-list-ustensils li:nth-child(n+31){
     display: none !important;
   }
   
@@ -119,7 +118,7 @@
     background-color: var(--red);
   }
   
-  .search-menu.expanded .dropdown-list {
+  .search-menu.expanded .dropdown-list-ingredients, .search-menu.expanded .dropdown-list-appliances, .search-menu.expanded .dropdown-list-ustensils {
     display: flex;
   }
   
