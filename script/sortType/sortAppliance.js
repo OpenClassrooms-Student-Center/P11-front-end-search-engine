@@ -1,11 +1,12 @@
 export default class SortAppliance {
     constructor(recipes, type) {
         this.recipes = recipes
-        this.tableauIngredients = []
+        this.tableauAppliances = []
         this.type = type
     }
 
     init() {
+        this.tableauAppliances = []
         document.querySelector(".appliances ").addEventListener("click", () => {
             if (document.querySelector('.appliances').classList.contains("expanded")) {
                 document.querySelector('.dropdown-list-appliances').style.display = "none"
@@ -15,18 +16,16 @@ export default class SortAppliance {
                 document.querySelector('.appliances').classList.add("expanded")
 
             }
-            this.tableauIngredients = []
+            this.tableauAppliances = []
             this.recipes.forEach(el => {
-                el.ingredients.forEach(ingredients => {
-                    const toLower = ingredients.ingredient.toLowerCase()
-                    if (this.tableauIngredients.includes(toLower) == false) {
-                        this.tableauIngredients.push(toLower)
+                    const toLower = el.appliance.toLowerCase()
+                    if (this.tableauAppliances.includes(toLower) == false) {
+                        this.tableauAppliances.push(toLower)
                         const items = `<li class="tag">${toLower[0].toUpperCase() + toLower.slice(1)}</li>`
-                        document.querySelector('.dropdown-list-ingredients').insertAdjacentHTML('beforeend', items)
+                        document.querySelector('.dropdown-list-appliances').insertAdjacentHTML('beforeend', items)
                     }
                 })
             })
-        })
 
 
     }

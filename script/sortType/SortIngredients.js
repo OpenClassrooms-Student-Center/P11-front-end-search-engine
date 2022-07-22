@@ -5,12 +5,13 @@ export default class SortIngredients{
         this.type = type
     }
     init() {
+        this.tableauIngredients = []
         document.querySelector(".ingredients ").addEventListener("click", () => {
             if (document.querySelector('.ingredients').classList.contains("expanded")) {
-                document.querySelector('.dropdown-list-appliances').style.display = "none"
+                document.querySelector('.dropdown-list-ingredients').style.display = "none"
                 document.querySelector('.ingredients').classList.remove("expanded")
             } else {
-                document.querySelector('.dropdown-list-appliances').style.display = "flex"
+                document.querySelector('.dropdown-list-ingredients').style.display = "flex"
                 document.querySelector('.ingredients').classList.add("expanded")
 
             }
@@ -26,8 +27,5 @@ export default class SortIngredients{
                 })
             })
         })
-
-
     }
-    
 }
