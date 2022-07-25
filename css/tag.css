@@ -1,62 +1,62 @@
-#tag{
-    border-radius: 5px;
-    background-color: #db7c72;
-    color: var(--white);
-    margin-top: 2%;
+#tagItem {
+  border-radius: 5px;
+  background-color: #db7c72;
+  color: var(--white);
+  margin-top: 2%;
 }
 
-button{
-    border: 0;
-    background-color: #db7c72;
-    color: var(--white);
-    height: 37px;
-    width: 107px;
+button {
+  border: 0;
+  background-color: #db7c72;
+  color: var(--white);
+  height: 37px;
+  width: 107px;
 }
 
 
 .thumbnail-tags-container {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 20px 0 10px 0;
-    justify-content: space-between;
-  }
-  
-  .thumbnailTag {
-    width: fit-content;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-    font-family: var(--mainFont);
-    font-weight: 700;
-    font-size: 0.875rem;
-    line-height: 1.05rem;
-    padding: 6px 12px;
-    margin-bottom: 5px;
-    margin-right: 10px;
-  }
-  
-  .thumbnail:last-child {
-    margin-right: auto;
-  }
-  
-  .thumbnail.ingredients {
-    background-color: var(--blue);
-  }
-  
-  .thumbnail.appliances {
-    background-color: var(--green);
-  }
-  
-  .thumbnail.ustensils {
-    background-color: var(--red);
-  }
-  
-  .thumbnail button {
-    padding: 0;
-    background: none;
-    border: none;
-    margin-left: 10px;
-    cursor: pointer;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px 0 10px 0;
+  justify-content: flex-start;
+}
+
+.thumbnailTag {
+  width: fit-content;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  font-family: var(--mainFont);
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 1.05rem;
+  padding: 6px 12px;
+  margin-bottom: 5px;
+  margin-right: 10px;
+}
+
+.thumbnail:last-child {
+  margin-right: auto;
+}
+
+.thumbnail.ingredients {
+  background-color: var(--blue);
+}
+
+.thumbnail.appliances {
+  background-color: var(--green);
+}
+
+.thumbnail.ustensils {
+  background-color: var(--red);
+}
+
+.thumbnail button {
+  padding: 0;
+  background: none;
+  border: none;
+  margin-left: 10px;
+  cursor: pointer;
+}

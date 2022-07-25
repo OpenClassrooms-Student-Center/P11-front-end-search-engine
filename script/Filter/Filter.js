@@ -4,10 +4,10 @@ export default class Filter {
     constructor(recipes) {
         this.recipes = recipes
         this.input = document.getElementById("find")
-        this.tag = document.getElementById("tag")
+        this.tag = document.getElementById("tagItem")
         this.close = document.querySelector('.fa-times-circle')
     }
-
+    
     filterRecipes() {
         this.input.addEventListener("keyup", (e) => {
             const searchString = e.target.value
@@ -33,8 +33,8 @@ export default class Filter {
                 )
 
             })
-            const viewCard = new CardRecipesFactory(filterRecipe)
-            viewCard.AllRecipes()
+                const viewCard = new CardRecipesFactory(filterRecipe)
+                viewCard.AllRecipes()
         })
 
         this.close.addEventListener('click', () => {

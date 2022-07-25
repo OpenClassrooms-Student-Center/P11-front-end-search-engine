@@ -13,6 +13,10 @@ export default class SortIngredients{
             } else {
                 document.querySelector('.dropdown-list-ingredients').style.display = "flex"
                 document.querySelector('.ingredients').classList.add("expanded")
+                document.querySelector('.dropdown-list-ustensils').style.display = "none"
+                document.querySelector('.ustensils').classList.remove("expanded") 
+                document.querySelector('.dropdown-list-appliances').style.display = "none"
+                document.querySelector('.appliances').classList.remove("expanded")
 
             }
             this.tableauIngredients = []

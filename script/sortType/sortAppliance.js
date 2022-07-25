@@ -14,6 +14,10 @@ export default class SortAppliance {
             } else {
                 document.querySelector('.dropdown-list-appliances').style.display = "flex"
                 document.querySelector('.appliances').classList.add("expanded")
+                document.querySelector('.dropdown-list-ingredients').style.display = "none"
+                document.querySelector('.ingredients').classList.remove("expanded")
+                document.querySelector('.dropdown-list-ustensils').style.display = "none"
+                document.querySelector('.ustensils').classList.remove("expanded") 
 
             }
             this.tableauAppliances = []
