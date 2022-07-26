@@ -18,6 +18,16 @@ ul li{
 .title{
     font-size: 18px;
 }
+
+#card .card-img-top {
+    background-color: #c7bebe;
+    border: none;
+    height: 178px;
+    object-fit: cover;
+    width: 100%;
+    border-top-left-radius: calc(0.5rem - 1px);
+    border-top-right-radius: calc(0.5rem - 1px);
+  }
 .description{
     height: 153px;
     overflow: hidden;

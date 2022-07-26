@@ -9,12 +9,13 @@ export default class CardRecipesFactory {
      */
     async AllRecipes() {
         this.wrapper.innerHTML = ""
-       
+        
         this.recipesData.map(recipe => {
+            let photo = "";
+             photo = recipe.name.toLowerCase().replace(/\s/g, "");
             const card = `
                 <article id="card" class="col-lg-3 col-md-6 m-4">
-                
-                <img class="card-img-top" src="./assets/images/img-recipes.jpg" alt="default image" role="image"/>
+                <img class="card-img-top"  src="assets/images/${photo}.jpg" alt="default image" role="image"/>
                 
                 <div class="row infoDescription p-3">
                 
