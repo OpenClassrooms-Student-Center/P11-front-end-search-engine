@@ -4,6 +4,15 @@ export default class SortIngredients{
         this.tableauIngredients = []
         this.type = type
     }
+    normalizeString(string) {
+        const diacriticRegex = new RegExp(/\p{Diacritic}/, "gu");
+        const spaceRegex = new RegExp(/\s/, "g");
+        return string
+            .normalize("NFD") // returns the string in normalized Unicode form with decomposition of diacritics (accents, umlauts, cedillas, etc.)
+            .replace(diacriticRegex, "") // remove diacritics
+            .toLowerCase()
+            .replace(spaceRegex, ""); // remove all spaces
+    }
     init() {
         this.tableauIngredients = []
         document.querySelector(".ingredients ").addEventListener("click", () => {
@@ -25,7 +34,7 @@ export default class SortIngredients{
                     const toLower = ingredients.ingredient.toLowerCase()
                     if (this.tableauIngredients.includes(toLower) == false) {
                         this.tableauIngredients.push(toLower)
-                        const items = `<li class="tag">${toLower[0].toUpperCase() + toLower.slice(1)}</li>`
+                        const items = `<li id="tag" data-id= ${this.normalizeString(toLower).split(" ").join("") + "-" + el.id}" >${toLower[0].toUpperCase() + toLower.slice(1)}</li>`
                         document.querySelector('.dropdown-list-ingredients').insertAdjacentHTML('beforeend', items)
                     }
                 })

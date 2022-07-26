@@ -76,8 +76,6 @@ export default class SortUstencils {
                        return this.input.value = ustensilDom.textContent.toLowerCase().concat(" ", this.input.value)
                      
                     }
-                    const newFilter = new Filter(this.input.value)
-                    newFilter.filterRecipes()
                     const viewCard = new CardRecipesFactory(this.input.value)
                     viewCard.AllRecipes()
                         
