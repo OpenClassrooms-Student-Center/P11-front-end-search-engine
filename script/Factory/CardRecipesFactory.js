@@ -13,6 +13,7 @@ export default class CardRecipesFactory {
         this.recipesData.map(recipe => {
             let photo = "";
              photo = recipe.name.toLowerCase().replace(/\s/g, "");
+             
             const card = `
                 <article id="card" class="col-lg-3 col-md-6 m-4">
                 <img class="card-img-top"  src="assets/images/${photo}.jpg" alt="default image" role="image"/>

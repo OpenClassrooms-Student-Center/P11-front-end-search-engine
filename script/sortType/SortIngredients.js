@@ -1,11 +1,10 @@
-import Filter from "../Filter/Filter.js"
 import CardRecipesFactory from "../Factory/CardRecipesFactory.js"
 export default class SortIngredients{
     constructor(recipes, type){
         this.recipes = recipes
         this.tableauIngredients = []
         this.type = type
-        this.tagIngredient = document.querySelector(".thumbnail-tags-container")
+        this.tagIngredient = document.getElementById("thumbnail-tags-container")
         this.input = document.getElementById('ingredients')
         this.close = document.querySelector('.fa-times-circle')
     }
@@ -20,7 +19,7 @@ export default class SortIngredients{
     }
     init() {
         this.tableauIngredients = []
-        this.filterIngredients() 
+        this.filterInputIngradients() 
         document.querySelector(".ingredients ").addEventListener("click", () => {
             if (document.querySelector('.ingredients').classList.contains("expanded")) {
                 document.querySelector('.dropdown-list-ingredients').style.display = "none"
@@ -48,7 +47,7 @@ export default class SortIngredients{
             })
         })
     }
-    filterIngredients() {
+    filterInputIngradients(){
         this.input.addEventListener("keyup", (e) => {
             const searchString = e.target.value
             const filterRecipe = this.recipes.filter(result => {
@@ -56,13 +55,29 @@ export default class SortIngredients{
                     this.tagIngredient.classList.add("d-none")
                     const viewCard = new CardRecipesFactory(this.recipes)
                     viewCard.AllRecipes()
+
+                    this.tagIngredient.innerHTML = ""
                 }
                 // show tag in DOM
                 else {
                     this.tagIngredient.classList.remove("d-none")
                     document.getElementById("btnIngredient").innerText = this.input.value
+                    const tagItem = `
+                            <div id="tagItemIngredients" class="thumbnailTag thumbnail ingredients">
+                            <button id="btnIngredients" >${this.input.value}</button>
+                            <i class="far fa-times-circle pe-auto"></i>
+                            </div>`
+                    this.tagIngredient.innerHTML = tagItem
                 }
-
+                this.close.addEventListener('click', () => {
+                    this.input.value = ""
+                    this.tagIngredient.classList.add("d-none")
+                    document.querySelectorAll("#card").forEach((elt) => {
+                        elt.remove()
+                        const viewCard = new CardRecipesFactory(this.recipes)
+                        viewCard.AllRecipes()
+                    })
+                })
 
                 return (
                     result.name.toLowerCase().includes(searchString) ||
@@ -72,20 +87,15 @@ export default class SortIngredients{
                     }) != undefined
                 )
 
-            })
+            })  
                 const viewCard = new CardRecipesFactory(filterRecipe)
                 viewCard.AllRecipes()
         })
 
-        this.close.addEventListener('click', () => {
-            this.input.value = ""
-            this.tagIngredient.classList.add("d-none")
-            document.querySelectorAll("#card").forEach((elt) => {
-                elt.remove()
-                const viewCard = new CardRecipesFactory(this.recipes)
-                viewCard.AllRecipes()
-            })
-        })
+       
+    }
+    filterIngredients() {
+     
         document
             .querySelectorAll(".dropdown-list-ingredients #tag")
             .forEach((ingredientsDom) => {

@@ -14,7 +14,7 @@ button {
 }
 
 
-.thumbnail-tags-container {
+#thumbnail-tags-container {
   display: flex;
   flex-wrap: wrap;
   margin: 20px 0 10px 0;
