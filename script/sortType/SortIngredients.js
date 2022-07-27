@@ -1,6 +1,6 @@
 import CardRecipesFactory from "../Factory/CardRecipesFactory.js"
-export default class SortIngredients{
-    constructor(recipes, type){
+export default class SortIngredients {
+    constructor(recipes, type) {
         this.recipes = recipes
         this.tableauIngredients = []
         this.type = type
@@ -19,7 +19,7 @@ export default class SortIngredients{
     }
     init() {
         this.tableauIngredients = []
-        this.filterInputIngradients() 
+        this.filterInputIngradients()
         document.querySelector(".ingredients ").addEventListener("click", () => {
             if (document.querySelector('.ingredients').classList.contains("expanded")) {
                 document.querySelector('.dropdown-list-ingredients').style.display = "none"
@@ -28,7 +28,7 @@ export default class SortIngredients{
                 document.querySelector('.dropdown-list-ingredients').style.display = "flex"
                 document.querySelector('.ingredients').classList.add("expanded")
                 document.querySelector('.dropdown-list-ustensils').style.display = "none"
-                document.querySelector('.ustensils').classList.remove("expanded") 
+                document.querySelector('.ustensils').classList.remove("expanded")
                 document.querySelector('.dropdown-list-appliances').style.display = "none"
                 document.querySelector('.appliances').classList.remove("expanded")
 
@@ -39,7 +39,7 @@ export default class SortIngredients{
                     const toLower = ingredients.ingredient.toLowerCase()
                     if (this.tableauIngredients.includes(toLower) == false) {
                         this.tableauIngredients.push(toLower)
-                        const items = `<li id="tag" data-id= ${this.normalizeString(toLower).split(" ").join("") + "-" + el.id}" onclick="${this.filterIngredients(this)}" >${toLower[0].toUpperCase() + toLower.slice(1)}</li>`
+                        const items = `<li id="tag" data-id= ${this.normalizeString(toLower).split(" ").join("") + "-" + el.id}" onclick="${this.filterSelectIngredients(this)}" >${toLower[0].toUpperCase() + toLower.slice(1)}</li>`
                         document.querySelector('.dropdown-list-ingredients').insertAdjacentHTML('beforeend', items)
 
                     }
@@ -47,7 +47,7 @@ export default class SortIngredients{
             })
         })
     }
-    filterInputIngradients(){
+    filterInputIngradients() {
         this.input.addEventListener("keyup", (e) => {
             const searchString = e.target.value
             const filterRecipe = this.recipes.filter(result => {
@@ -87,40 +87,37 @@ export default class SortIngredients{
                     }) != undefined
                 )
 
-            })  
-                const viewCard = new CardRecipesFactory(filterRecipe)
-                viewCard.AllRecipes()
+            })
+            const viewCard = new CardRecipesFactory(filterRecipe)
+            viewCard.AllRecipes()
         })
 
-       
+
     }
-    filterIngredients() {
-     
+    filterSelectIngredients() {
         document
             .querySelectorAll(".dropdown-list-ingredients #tag")
-            .forEach((ingredientsDom) => {
-                ingredientsDom
+            .forEach((ingredientsList) => {
+                ingredientsList
                     .addEventListener("click", () => {
                         // console.log(toLower)
 
-                        if (this.tableauIngredients.includes(ingredientsDom) == false) {
+                        if (this.tableauIngredients.includes(ingredientsList) == false) {
 
-                            this.tableauIngredients.push(ingredientsDom)
-
+                            this.tableauIngredients.push(ingredientsList)
+                           
                             //console.log(e.currentTarget)
                             const tagItem = `
                             <div id="tagItemIngredients" class="thumbnailTag thumbnail ingredients">
-                            <button id="btnIngredients" >${ingredientsDom.textContent}</button>
+                            <button id="btnIngredients" >${ingredientsList.textContent}</button>
                             <i class="far fa-times-circle"></i>
                             </div>`
                             this.tagIngredient.insertAdjacentHTML('beforeend', tagItem)
-
-                           // this.input.value = ingredientsDom.textContent.toLowerCase().concat(" ", this.input.value)
+                            console.log(document.getElementById("btnIngredients"))
+                            // this.input.value = ingredientsList.textContent.toLowerCase().concat(" ", this.input.value)
 
                         }
                     })
-
-
             })
     }
 }
