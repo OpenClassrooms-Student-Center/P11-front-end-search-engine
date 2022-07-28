@@ -12,17 +12,18 @@ export default class Filter {
     filterRecipes() {
         this.input.oninput = (e) => {
             const searchString = e.target.value
-            const filterRecipe = this.recipes.filter(result => {
+            const filteredRecipe = this.recipes.filter(result => {
                 if (this.input.value === "") {
                     this.tag.classList.add("d-none")
                     const viewCard = new CardRecipesFactory(this.recipes)
-                    viewCard.AllRecipes()
+                    viewCard.Recipes()
                 }
                 // show tag in DOM
                 else {
                     this.tag.classList.remove("d-none")
                     document.getElementById("btnIngredient").innerText = this.input.value
                 }
+              
 
 
                 return (
@@ -33,9 +34,20 @@ export default class Filter {
                     }) != undefined
                 )
 
+
+
             })
-                const viewCard = new CardRecipesFactory(filterRecipe)
+
+            console.log("filtred recip ", filteredRecipe)
+            
+               const viewCard = new CardRecipesFactory(filteredRecipe)
                 viewCard.Recipes()
+
+               
+
+                 const dropdownIngredient = new SortIngredients(filteredRecipe)
+                 dropdownIngredient.manageEventFilterItem()
+               
         }
 
         this.close.addEventListener('click', () => {
@@ -44,7 +56,7 @@ export default class Filter {
             document.querySelectorAll("#card").forEach((elt) => {
                 elt.remove()
                 const viewCard = new CardRecipesFactory(this.recipes)
-                viewCard.AllRecipes()
+                viewCard.Recipes()
             })
         })
     }

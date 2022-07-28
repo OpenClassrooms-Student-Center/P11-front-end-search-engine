@@ -1,12 +1,14 @@
 import CardRecipesFactory from "../Factory/CardRecipesFactory.js"
 export default class SortIngredients {
+
     constructor(recipes, type) {
+        console.log('je suis ici  sorted', recipes.length)
         this.recipes = recipes
         this.type = type
         this.tagIngredient = document.getElementById("thumbnail-tags-container")
         this.input = document.getElementById('search-ingredients')
         this.close = document.querySelector('.fa-times-circle')
-        console.log("Ici Constructor", recipes)
+    
         
     }
     normalizeString(string) {
@@ -18,14 +20,23 @@ export default class SortIngredients {
             .toLowerCase()
             .replace(spaceRegex, ""); // remove all spaces
     }
+
+    removeIngredients(){
+           document.querySelector('.dropdown-list-ingredients').innerHTML = ''
+        
+    }
     
     displayIngredients() {
-       this.filterInputIngradients()
+      // this.filterInputIngradients()
+    this.removeIngredients()
+
         document.querySelector(".ingredients ").addEventListener("click", (e) => {
             e.preventDefault()
             e.stopPropagation()
+
             this.toogle()
-            
+             
+          console.log("this RR", this.recipes)
             const tableauIngredients = []
             this.recipes.forEach(recipe => {
                 const recipeIngredients = recipe.ingredients
@@ -59,13 +70,14 @@ export default class SortIngredients {
         }
     }
 
-    manageEventFilterItem(filteredRecipes){
-        this.filterInputIngradients()
+    manageEventFilterItem(){
+          this.removeIngredients()
+        //this.filterInputIngradients()
      
             this.toogle()
             
             const tableauIngredients = []
-            filteredRecipes.forEach(recipe => {
+            this.recipes.forEach(recipe => {
                 console.log(recipe)
                 recipe.ingredients.forEach((ingredients) => {
                     //  console.log(ingredients) 
@@ -96,7 +108,7 @@ export default class SortIngredients {
                 if (this.input.value === "") {
                     this.tagIngredient.classList.add("d-none")
                     const viewCard = new CardRecipesFactory(this.recipes)
-                    viewCard.AllRecipes()
+                    viewCard.Recipes()
 
                     this.tagIngredient.innerHTML = ""
                 }
@@ -131,7 +143,7 @@ export default class SortIngredients {
 
             })
             const viewCard = new CardRecipesFactory(filterRecipe)
-            viewCard.AllRecipes()
+            viewCard.Recipes()
         }
 
 
