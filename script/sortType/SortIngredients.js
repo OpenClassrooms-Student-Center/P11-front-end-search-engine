@@ -5,8 +5,9 @@ export default class SortIngredients {
         this.tableauIngredients = []
         this.type = type
         this.tagIngredient = document.getElementById("thumbnail-tags-container")
-        this.input = document.getElementById('ingredients')
+        this.input = document.getElementById('search-ingredients')
         this.close = document.querySelector('.fa-times-circle')
+        console.log("Ici Constructor", recipes)
     }
     normalizeString(string) {
         const diacriticRegex = new RegExp(/\p{Diacritic}/, "gu");
@@ -17,10 +18,12 @@ export default class SortIngredients {
             .toLowerCase()
             .replace(spaceRegex, ""); // remove all spaces
     }
-    init() {
-        this.tableauIngredients = []
-        this.filterInputIngradients()
-        document.querySelector(".ingredients ").addEventListener("click", () => {
+    
+    displayIngredients() {
+       this.filterInputIngradients()
+        document.querySelector(".ingredients ").addEventListener("click", (e) => {
+            e.preventDefault()
+            e.stopPropagation()
             if (document.querySelector('.ingredients').classList.contains("expanded")) {
                 document.querySelector('.dropdown-list-ingredients').style.display = "none"
                 document.querySelector('.ingredients').classList.remove("expanded")
@@ -31,25 +34,33 @@ export default class SortIngredients {
                 document.querySelector('.ustensils').classList.remove("expanded")
                 document.querySelector('.dropdown-list-appliances').style.display = "none"
                 document.querySelector('.appliances').classList.remove("expanded")
-
             }
-            this.tableauIngredients = []
-            this.recipes.forEach(el => {
-                el.ingredients.forEach(ingredients => {
-                    const toLower = ingredients.ingredient.toLowerCase()
-                    if (this.tableauIngredients.includes(toLower) == false) {
-                        this.tableauIngredients.push(toLower)
-                        const items = `<li id="tag" data-id= ${this.normalizeString(toLower).split(" ").join("") + "-" + el.id}" onclick="${this.filterSelectIngredients(this)}" >${toLower[0].toUpperCase() + toLower.slice(1)}</li>`
+            const tableauIngredients = []
+            this.recipes.forEach(recipe => {
+                const recipeIngredients = recipe.ingredients
+                recipeIngredients.forEach((ingredients) => {
+                    //  console.log(ingredients) 
+                    const ingredient = ingredients.ingredient.toLowerCase()
+                    if(!tableauIngredients.includes(ingredient)){ 
+                        tableauIngredients.push(ingredient)
+                        // const sortIngredient = sort(this.tableauIngredients)
+                        console.log(tableauIngredients)
+                        const items = `<li id="tag" onclick="${this.filterSelectIngredients(this)}">${ingredient}</li>`
                         document.querySelector('.dropdown-list-ingredients').insertAdjacentHTML('beforeend', items)
-
                     }
+                    //const doubleDelete = tableauIngredients.filter((item, index, arr) => arr.indexOf(item) == index)
+                    
                 })
             })
         })
     }
+
+
+
     filterInputIngradients() {
-        this.input.addEventListener("keyup", (e) => {
+        this.input.oninput = (e) => {
             const searchString = e.target.value
+            console.log(searchString)
             const filterRecipe = this.recipes.filter(result => {
                 if (this.input.value === "") {
                     this.tagIngredient.classList.add("d-none")
@@ -90,34 +101,50 @@ export default class SortIngredients {
             })
             const viewCard = new CardRecipesFactory(filterRecipe)
             viewCard.AllRecipes()
-        })
+        }
 
 
     }
     filterSelectIngredients() {
+        this.tableauIngredients = []
         document
             .querySelectorAll(".dropdown-list-ingredients #tag")
             .forEach((ingredientsList) => {
                 ingredientsList
-                    .addEventListener("click", () => {
-                        // console.log(toLower)
-
-                        if (this.tableauIngredients.includes(ingredientsList) == false) {
-
-                            this.tableauIngredients.push(ingredientsList)
+                    .addEventListener("click", (e) => {
+                        e.preventDefault()
+                        const ingredient = e.currentTarget.textContent
+                        const filterRecipe = this.recipes.filter(result => {
+                            if (this.tableauIngredients.includes(ingredientsList) == false) {
+                                this.tableauIngredients.push(ingredientsList)
+                                const tagItem = `
+                                    <div id="tagItemIngredients" class="thumbnailTag thumbnail ingredients" >
+                                    <button id="btnIngredients" >${ingredient}</button>
+                                    <i class="far fa-times-circle"></i>
+                                    </div>`
+                                this.tagIngredient.insertAdjacentHTML('beforeend', tagItem)
+                                if (this.tagIngredient.innerHTML == "") {
+                                    const viewCard = new CardRecipesFactory(this.recipes)
+                                    viewCard.AllRecipes()
+                                    this.tagIngredient.innerHTML = ""
+                                } else {
+                                    return (
+                                        result.name.toLowerCase().includes(ingredient) ||
+                                        result.description.toLowerCase().includes(ingredient) ||
+                                        result.ingredients.find(items => {
+                                            return items.ingredient.toLowerCase().includes(ingredient)
+                                        }) != undefined
+                                    )
+                                }
+                            }
                            
-                            //console.log(e.currentTarget)
-                            const tagItem = `
-                            <div id="tagItemIngredients" class="thumbnailTag thumbnail ingredients">
-                            <button id="btnIngredients" >${ingredientsList.textContent}</button>
-                            <i class="far fa-times-circle"></i>
-                            </div>`
-                            this.tagIngredient.insertAdjacentHTML('beforeend', tagItem)
-                            console.log(document.getElementById("btnIngredients"))
-                            // this.input.value = ingredientsList.textContent.toLowerCase().concat(" ", this.input.value)
-
-                        }
+                            })
+                            const viewCard = new CardRecipesFactory(filterRecipe)
+                            viewCard.AllRecipes()
                     })
+
+
+
             })
     }
 }

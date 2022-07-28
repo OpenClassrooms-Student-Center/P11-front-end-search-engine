@@ -26,7 +26,7 @@ export default class App {
     sortByButton(){
         // link with sort
         const dropdownIngredient = new SortIngredients(this.recipes)
-        dropdownIngredient.init()
+        dropdownIngredient.displayIngredients()
         const dropdownAppliances = new SortAppliance(this.recipes)
         dropdownAppliances .init()
         const dropdownUstensils = new SortUstencils(this.recipes)

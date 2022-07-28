@@ -1,4 +1,5 @@
 import CardRecipesFactory from "../Factory/CardRecipesFactory.js";
+import SortIngredients from "../sortType/sortIngredients.js";
 
 export default class Filter {
     constructor(recipes) {
@@ -9,7 +10,7 @@ export default class Filter {
     }
     
     filterRecipes() {
-        this.input.addEventListener("keyup", (e) => {
+        this.input.oninput = (e) => {
             const searchString = e.target.value
             const filterRecipe = this.recipes.filter(result => {
                 if (this.input.value === "") {
@@ -35,7 +36,11 @@ export default class Filter {
             })
                 const viewCard = new CardRecipesFactory(filterRecipe)
                 viewCard.AllRecipes()
-        })
+                const sortIng = new SortIngredients([...filterRecipe])
+                sortIng.displayIngredients()
+
+                console.log(filterRecipe)
+        }
 
         this.close.addEventListener('click', () => {
             this.input.value = ""

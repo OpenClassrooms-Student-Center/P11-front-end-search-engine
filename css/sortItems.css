@@ -101,10 +101,10 @@
     transition: all 0.04s;
   }
   
-  /* Display 30 list items maximum */
+  /* Display 30 list items maximum 
   .search-menu .dropdown-list-ingredients #tag:nth-child(n+31), .search-menu .dropdown-list-appliances #tag:nth-child(n+31), .search-menu .dropdown-list-ustensils #tag:nth-child(n+31){
     display: none !important;
-  }
+  }*/
   
   .search-menu.ingredients input {
     background-color: var(--blue);

@@ -36,15 +36,15 @@ export default class SortUstencils {
                 document.querySelector('.appliances').classList.remove("expanded")
             }
             this.tableauUstensils = []
-            this.recipes.forEach(el => {
-                el.ustensils.forEach((ustensil) => {
+            this.recipes.forEach(itemUstensils => {
+                itemUstensils.ustensils.forEach((ustensil) => {
                     const toLower = ustensil.toLowerCase()
                     // console.log(toLower)
                     if (this.tableauUstensils.includes(toLower) == false) {
 
                         this.tableauUstensils.push(toLower)
                         //  console.log(el.id)
-                        const items = `<li id="tag" data-id= ${this.normalizeString(toLower).split(" ").join("") + "-" + el.id}" onclick="${this.filterUstensils(this)}">${toLower[0].toUpperCase() + toLower.slice(1)}</li>`
+                        const items = `<li id="tag"  onclick="${this.filterUstensils(this)}">${toLower[0].toUpperCase() + toLower.slice(1)}</li>`
                         document.querySelector('.dropdown-list-ustensils').insertAdjacentHTML('beforeend', items)
 
                     }
