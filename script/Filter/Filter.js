@@ -35,11 +35,7 @@ export default class Filter {
 
             })
                 const viewCard = new CardRecipesFactory(filterRecipe)
-                viewCard.AllRecipes()
-                const sortIng = new SortIngredients([...filterRecipe])
-                sortIng.displayIngredients()
-
-                console.log(filterRecipe)
+                viewCard.Recipes()
         }
 
         this.close.addEventListener('click', () => {

@@ -7,7 +7,7 @@ export default class CardRecipesFactory {
      * @param {Arrray} Arrray media of data
      * affichage des cardRecipes avec leurs informations
      */
-    async AllRecipes() {
+    async Recipes() {
         this.wrapper.innerHTML = ""
         
         this.recipesData.map(recipe => {

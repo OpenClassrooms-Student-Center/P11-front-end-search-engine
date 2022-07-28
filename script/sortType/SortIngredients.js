@@ -2,12 +2,12 @@ import CardRecipesFactory from "../Factory/CardRecipesFactory.js"
 export default class SortIngredients {
     constructor(recipes, type) {
         this.recipes = recipes
-        this.tableauIngredients = []
         this.type = type
         this.tagIngredient = document.getElementById("thumbnail-tags-container")
         this.input = document.getElementById('search-ingredients')
         this.close = document.querySelector('.fa-times-circle')
         console.log("Ici Constructor", recipes)
+        
     }
     normalizeString(string) {
         const diacriticRegex = new RegExp(/\p{Diacritic}/, "gu");
@@ -24,17 +24,8 @@ export default class SortIngredients {
         document.querySelector(".ingredients ").addEventListener("click", (e) => {
             e.preventDefault()
             e.stopPropagation()
-            if (document.querySelector('.ingredients').classList.contains("expanded")) {
-                document.querySelector('.dropdown-list-ingredients').style.display = "none"
-                document.querySelector('.ingredients').classList.remove("expanded")
-            } else {
-                document.querySelector('.dropdown-list-ingredients').style.display = "flex"
-                document.querySelector('.ingredients').classList.add("expanded")
-                document.querySelector('.dropdown-list-ustensils').style.display = "none"
-                document.querySelector('.ustensils').classList.remove("expanded")
-                document.querySelector('.dropdown-list-appliances').style.display = "none"
-                document.querySelector('.appliances').classList.remove("expanded")
-            }
+            this.toogle()
+            
             const tableauIngredients = []
             this.recipes.forEach(recipe => {
                 const recipeIngredients = recipe.ingredients
@@ -43,20 +34,60 @@ export default class SortIngredients {
                     const ingredient = ingredients.ingredient.toLowerCase()
                     if(!tableauIngredients.includes(ingredient)){ 
                         tableauIngredients.push(ingredient)
-                        // const sortIngredient = sort(this.tableauIngredients)
-                        console.log(tableauIngredients)
-                        const items = `<li id="tag" onclick="${this.filterSelectIngredients(this)}">${ingredient}</li>`
+                        // const sortIngredient = sort(this.tableauIngredients)ingredient
+                        
+                        const items = `<li id="tag" >${ingredient}</li>`
                         document.querySelector('.dropdown-list-ingredients').insertAdjacentHTML('beforeend', items)
                     }
-                    //const doubleDelete = tableauIngredients.filter((item, index, arr) => arr.indexOf(item) == index)
-                    
+                
+                //const doubleDelete = tableauIngredients.filter((item, index, arr) => arr.indexOf(item) == index)
                 })
             })
         })
     }
+    toogle(){
+        if (document.querySelector('.ingredients').classList.contains("expanded")) {
+            document.querySelector('.dropdown-list-ingredients').style.display = "none"
+            document.querySelector('.ingredients').classList.remove("expanded")
+        } else {
+            document.querySelector('.dropdown-list-ingredients').style.display = "flex"
+            document.querySelector('.ingredients').classList.add("expanded")
+            document.querySelector('.dropdown-list-ustensils').style.display = "none"
+            document.querySelector('.ustensils').classList.remove("expanded")
+            document.querySelector('.dropdown-list-appliances').style.display = "none"
+            document.querySelector('.appliances').classList.remove("expanded")
+        }
+    }
+
+    manageEventFilterItem(filteredRecipes){
+        this.filterInputIngradients()
+     
+            this.toogle()
+            
+            const tableauIngredients = []
+            filteredRecipes.forEach(recipe => {
+                console.log(recipe)
+                recipe.ingredients.forEach((ingredients) => {
+                    //  console.log(ingredients) 
+                    const ingredient = ingredients.ingredient.toLowerCase()
+                    if(!tableauIngredients.includes(ingredient)){ 
+                        tableauIngredients.push(ingredient)
+                        // const sortIngredient = sort(this.tableauIngredients)ingredient
+                        
+                        const items = `<li id="tag" >${ingredient}</li>`
+                        document.querySelector('.dropdown-list-ingredients').insertAdjacentHTML('beforeend', items)
+                    }
+                
+                //const doubleDelete = tableauIngredients.filter((item, index, arr) => arr.indexOf(item) == index)
+         
+                })
+                console.log(tableauIngredients)
+            })
+    
+    }
 
 
-
+    
     filterInputIngradients() {
         this.input.oninput = (e) => {
             const searchString = e.target.value
@@ -105,7 +136,7 @@ export default class SortIngredients {
 
 
     }
-    filterSelectIngredients() {
+   /* filterSelectIngredients() {
         this.tableauIngredients = []
         document
             .querySelectorAll(".dropdown-list-ingredients #tag")
@@ -146,5 +177,5 @@ export default class SortIngredients {
 
 
             })
-    }
+    }*/
 }

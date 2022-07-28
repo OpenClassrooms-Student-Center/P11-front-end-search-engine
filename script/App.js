@@ -5,16 +5,19 @@ import SortIngredients from "./sortType/sortIngredients.js";
 import SortAppliance from "./sortType/sortAppliance.js"
 import SortUstencils from "./sortType/sortUstensils.js"
 
+
 export default class App {
     constructor() {
         this.recipes = recipes
         this.input = document.getElementById("find")
         this.tag = document.getElementById("tag")
         this.close = document.querySelector('.fa-times-circle')
+       
     }
     displayAllRecipes() {
-        const viewCard = new CardRecipesFactory(this.recipes)
-        viewCard.AllRecipes()
+        const currentRecipes = this.recipes
+        const viewCard = new CardRecipesFactory(currentRecipes)
+        viewCard.Recipes()
 
     }
 
@@ -25,8 +28,10 @@ export default class App {
 
     sortByButton(){
         // link with sort
-        const dropdownIngredient = new SortIngredients(this.recipes)
-        dropdownIngredient.displayIngredients()
+       
+            const dropdownIngredient = new SortIngredients(this.recipes)
+            dropdownIngredient.displayIngredients()
+      
         const dropdownAppliances = new SortAppliance(this.recipes)
         dropdownAppliances .init()
         const dropdownUstensils = new SortUstencils(this.recipes)
