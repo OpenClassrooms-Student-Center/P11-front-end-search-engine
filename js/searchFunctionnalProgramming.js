@@ -1,5 +1,5 @@
 function searchFunctionnalProgramming(userInput){
-
+// Une promesse est un objet renvoyé par une fonction asynchrone et qui représente l'état courant de l'opération.Ojectif : rapidité en lançant plusieurs recherches simultanément.
      return new Promise((resolve, reject)=> {
 
         userInput = normalizeString(userInput);
@@ -13,7 +13,7 @@ function searchFunctionnalProgramming(userInput){
                 const resultRecipesName = recipes.filter((recipe)=>{
     
         // toLowercase méthode qui converti une chaine en minuscule
-        // (.includes : inclus) si les caractères saisis par l'utilisateur (=userInput) est inclu ds la tableau recipe.name = true 
+        // .includes si les caractères saisis par l'utilisateur (=userInput) est inclu ds les noms des recettes = true 
                     if(recipe.name.toLowerCase().includes(userInput) === true){
             
                         return recipe;
@@ -103,11 +103,11 @@ function searchFunctionnalProgramming(userInput){
                      return resolve('Pas de recettes trouvées');
     
                 }
-
+// La méthode map() crée un nouveau tableau avec les résultats de l'appel d'une fonction fournie sur chaque élément du tableau appelant.
                 const jsonObject = result.map(JSON.stringify);
-      
+//Set(=ensemble) est un ensemble JS est une collection de valeurs uniques.Chaque valeur ne peut apparaître qu'une seule fois dans un ensemble. permet d'éviter les doublons.   
                 const uniqueSet = new Set(jsonObject);
-
+// La Array.from()méthode renvoie un tableau à partir de n'importe quel objet avec une propriété de longueur.
                 result = Array.from(uniqueSet).map(JSON.parse);
       
                 return resolve(result);

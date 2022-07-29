@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
 // écouteur d'évènement pour récupérer tous ce qui sera saisi dans l'input. 
     userInput.addEventListener("input", function(){
-        // test : concole.log(this.value) 
+        // test : console.log(this.value) 
 
         // ici this vaut userInput - si la valeur est inférieur à 3 caractères, on ne fait rien
            if(this.value.length < 3){
