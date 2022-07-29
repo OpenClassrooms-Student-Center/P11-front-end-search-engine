@@ -1,33 +1,36 @@
 import CardRecipesFactory from "../Factory/CardRecipesFactory.js"
 export default class SortIngredients {
 
-    constructor(recipes, type) {
+    constructor(recipes) {
         console.log('je suis ici  sorted', recipes.length)
         this.recipes = recipes
-        this.type = type
+        
         this.tagIngredient = document.getElementById("thumbnail-tags-container")
         this.input = document.getElementById('search-ingredients')
         this.close = document.querySelector('.fa-times-circle')
-    
-        
     }
-    normalizeString(string) {
-        const diacriticRegex = new RegExp(/\p{Diacritic}/, "gu");
-        const spaceRegex = new RegExp(/\s/, "g");
-        return string
-            .normalize("NFD") // returns the string in normalized Unicode form with decomposition of diacritics (accents, umlauts, cedillas, etc.)
-            .replace(diacriticRegex, "") // remove diacritics
-            .toLowerCase()
-            .replace(spaceRegex, ""); // remove all spaces
-    }
+    buildListIngredient(ingredient){
+            const listIngredients = document.createElement("li");
+            listIngredients.classList.add(
+            "list-items",
+            "ingredient-item"
+            );
+            listIngredients.setAttribute('id', 'tag')
+            listIngredients.setAttribute("data-item", ingredient)
+            listIngredients.setAttribute("data-type", "ingredient")
+            listIngredients.innerText = ingredient[0].toUpperCase() + ingredient.slice(1)
+           // console.log(listOfIngredients)
 
+            return document.querySelector('.dropdown-list-ingredients').append(listIngredients)
+    }
+   
     removeIngredients(){
            document.querySelector('.dropdown-list-ingredients').innerHTML = ''
         
     }
     
     displayIngredients() {
-      // this.filterInputIngradients()
+    this.filterInputIngradients()
     this.removeIngredients()
 
         document.querySelector(".ingredients ").addEventListener("click", (e) => {
@@ -37,6 +40,7 @@ export default class SortIngredients {
             this.toogle()
              
           console.log("this RR", this.recipes)
+         
             const tableauIngredients = []
             this.recipes.forEach(recipe => {
                 const recipeIngredients = recipe.ingredients
@@ -46,9 +50,8 @@ export default class SortIngredients {
                     if(!tableauIngredients.includes(ingredient)){ 
                         tableauIngredients.push(ingredient)
                         // const sortIngredient = sort(this.tableauIngredients)ingredient
-                        
-                        const items = `<li id="tag" >${ingredient}</li>`
-                        document.querySelector('.dropdown-list-ingredients').insertAdjacentHTML('beforeend', items)
+                        return this.buildListIngredient(ingredient)
+                        //console.log(listOfIngredients); 
                     }
                 
                 //const doubleDelete = tableauIngredients.filter((item, index, arr) => arr.indexOf(item) == index)
@@ -72,27 +75,23 @@ export default class SortIngredients {
 
     manageEventFilterItem(){
           this.removeIngredients()
-        //this.filterInputIngradients()
-     
-            this.toogle()
-            
             const tableauIngredients = []
             this.recipes.forEach(recipe => {
                 console.log(recipe)
+                this.removeIngredients()
                 recipe.ingredients.forEach((ingredients) => {
                     //  console.log(ingredients) 
                     const ingredient = ingredients.ingredient.toLowerCase()
                     if(!tableauIngredients.includes(ingredient)){ 
                         tableauIngredients.push(ingredient)
                         // const sortIngredient = sort(this.tableauIngredients)ingredient
-                        
-                        const items = `<li id="tag" >${ingredient}</li>`
-                        document.querySelector('.dropdown-list-ingredients').insertAdjacentHTML('beforeend', items)
+                        this.buildListIngredient(ingredient)
                     }
                 
                 //const doubleDelete = tableauIngredients.filter((item, index, arr) => arr.indexOf(item) == index)
          
                 })
+                this.filterInputIngradients(tableauIngredients)
                 console.log(tableauIngredients)
             })
     
@@ -102,10 +101,12 @@ export default class SortIngredients {
     
     filterInputIngradients() {
         this.input.oninput = (e) => {
+            
             const searchString = e.target.value
             console.log(searchString)
             const filterRecipe = this.recipes.filter(result => {
-                if (this.input.value === "") {
+               
+                if (this.input.value < 3) {
                     this.tagIngredient.classList.add("d-none")
                     const viewCard = new CardRecipesFactory(this.recipes)
                     viewCard.Recipes()
@@ -123,29 +124,20 @@ export default class SortIngredients {
                             </div>`
                     this.tagIngredient.innerHTML = tagItem
                 }
-                this.close.addEventListener('click', () => {
-                    this.input.value = ""
-                    this.tagIngredient.classList.add("d-none")
-                    document.querySelectorAll("#card").forEach((elt) => {
-                        elt.remove()
-                        const viewCard = new CardRecipesFactory(this.recipes)
-                        viewCard.AllRecipes()
-                    })
-                })
-
+               
+                
                 return (
-                    result.name.toLowerCase().includes(searchString) ||
-                    result.description.toLowerCase().includes(searchString) ||
                     result.ingredients.find(items => {
                         return items.ingredient.toLowerCase().includes(searchString)
                     }) != undefined
                 )
-
+             
             })
+            
             const viewCard = new CardRecipesFactory(filterRecipe)
-            viewCard.Recipes()
+            viewCard.Recipes()  
         }
-
+       
 
     }
    /* filterSelectIngredients() {

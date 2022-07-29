@@ -8,12 +8,12 @@ export default class Filter {
         this.tag = document.getElementById("tagItem")
         this.close = document.querySelector('.fa-times-circle')
     }
-    
+   
     filterRecipes() {
         this.input.oninput = (e) => {
             const searchString = e.target.value
             const filteredRecipe = this.recipes.filter(result => {
-                if (this.input.value === "") {
+                if (this.input.value < 3) {
                     this.tag.classList.add("d-none")
                     const viewCard = new CardRecipesFactory(this.recipes)
                     viewCard.Recipes()
@@ -24,7 +24,15 @@ export default class Filter {
                     document.getElementById("btnIngredient").innerText = this.input.value
                 }
               
-
+                this.close.addEventListener('click', () => {
+                    this.input.value = ""
+                    this.tag.classList.add("d-none")
+                    document.querySelectorAll("#card").forEach((elt) => {
+                        elt.remove()
+                        const viewCard = new CardRecipesFactory(this.recipes)
+                        viewCard.Recipes()
+                    })
+                })
 
                 return (
                     result.name.toLowerCase().includes(searchString) ||
@@ -33,31 +41,19 @@ export default class Filter {
                         return items.ingredient.toLowerCase().includes(searchString)
                     }) != undefined
                 )
-
-
-
             })
 
             console.log("filtred recip ", filteredRecipe)
             
-               const viewCard = new CardRecipesFactory(filteredRecipe)
-                viewCard.Recipes()
-
-               
-
-                 const dropdownIngredient = new SortIngredients(filteredRecipe)
-                 dropdownIngredient.manageEventFilterItem()
+            const viewCard = new CardRecipesFactory(filteredRecipe)
+            viewCard.Recipes()
+            const dropdownIngredient = new SortIngredients(filteredRecipe)
+            dropdownIngredient.manageEventFilterItem()
+           
                
         }
 
-        this.close.addEventListener('click', () => {
-            this.input.value = ""
-            this.tag.classList.add("d-none")
-            document.querySelectorAll("#card").forEach((elt) => {
-                elt.remove()
-                const viewCard = new CardRecipesFactory(this.recipes)
-                viewCard.Recipes()
-            })
-        })
     }
+
+    
 }

@@ -14,9 +14,19 @@ export default class App {
         this.close = document.querySelector('.fa-times-circle')
        
     }
+    normalizeString(string) {
+        const diacriticRegex = new RegExp(/\p{Diacritic}/, "gu");
+        const spaceRegex = new RegExp(/\s/, "g");
+        return string
+            .normalize("NFD") // returns the string in normalized Unicode form with decomposition of diacritics (accents, umlauts, cedillas, etc.)
+            .replace(diacriticRegex, "") // remove diacritics
+            .toLowerCase()
+            .replace(spaceRegex, ""); // remove all spaces
+    }
+   
+
     displayAllRecipes() {
-        const currentRecipes = this.recipes
-        const viewCard = new CardRecipesFactory(currentRecipes)
+        const viewCard = new CardRecipesFactory(this.recipes)
         viewCard.Recipes()
 
     }
@@ -29,8 +39,8 @@ export default class App {
     sortByButton(){
         // link with sort
        
-            const dropdownIngredient = new SortIngredients(this.recipes)
-            dropdownIngredient.displayIngredients()
+        const dropdownIngredient = new SortIngredients(this.recipes)
+        dropdownIngredient.displayIngredients()
       
         const dropdownAppliances = new SortAppliance(this.recipes)
         dropdownAppliances .init()
