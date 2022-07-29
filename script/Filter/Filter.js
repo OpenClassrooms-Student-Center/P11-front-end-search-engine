@@ -1,5 +1,5 @@
+import DropDown from "../dropdown.js";
 import CardRecipesFactory from "../Factory/CardRecipesFactory.js";
-import SortIngredients from "../sortType/sortIngredients.js";
 
 export default class Filter {
     constructor(recipes) {
@@ -23,17 +23,6 @@ export default class Filter {
                     this.tag.classList.remove("d-none")
                     document.getElementById("btnIngredient").innerText = this.input.value
                 }
-              
-                this.close.addEventListener('click', () => {
-                    this.input.value = ""
-                    this.tag.classList.add("d-none")
-                    document.querySelectorAll("#card").forEach((elt) => {
-                        elt.remove()
-                        const viewCard = new CardRecipesFactory(this.recipes)
-                        viewCard.Recipes()
-                    })
-                })
-
                 return (
                     result.name.toLowerCase().includes(searchString) ||
                     result.description.toLowerCase().includes(searchString) ||
@@ -47,10 +36,24 @@ export default class Filter {
             
             const viewCard = new CardRecipesFactory(filteredRecipe)
             viewCard.Recipes()
-            const dropdownIngredient = new SortIngredients(filteredRecipe)
-            dropdownIngredient.manageEventFilterItem()
+
+            const dropdownIngredient = new DropDown(filteredRecipe)
+            dropdownIngredient.displayIngredients()
+            const dropdownAppliance = new DropDown(filteredRecipe)
+            dropdownAppliance.displayAppliances()
+            const dropdownUstensils = new DropDown(filteredRecipe)
+            dropdownUstensils.displayUstensils()
            
-               
+            this.close.addEventListener('click', () => {
+                this.input.value = ""
+                this.tag.classList.add("d-none")
+                document.querySelectorAll("#card").forEach((elt) => {
+                    elt.remove()
+                    const viewCard = new CardRecipesFactory(this.recipes)
+                    viewCard.Recipes()
+
+                })
+            })
         }
 
     }

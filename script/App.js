@@ -1,9 +1,7 @@
 import recipes from "../data/recipes.js";
 import CardRecipesFactory from "./Factory/CardRecipesFactory.js";
 import Filter from "./Filter/Filter.js";
-import SortIngredients from "./sortType/sortIngredients.js";
-import SortAppliance from "./sortType/sortAppliance.js"
-import SortUstencils from "./sortType/sortUstensils.js"
+import DropDown from "./dropdown.js";
 
 
 export default class App {
@@ -36,16 +34,16 @@ export default class App {
         sort.filterRecipes()
     }
 
+    displayDropDown(){
+        const dropdowningre = new DropDown(this.recipes)
+        dropdowningre.displayIngredients()
+        const dropdownappl = new DropDown(this.recipes)
+        dropdownappl.displayAppliances()
+        const dropdownusten = new DropDown(this.recipes)
+        dropdownusten.displayUstensils()
+    }
     sortByButton(){
-        // link with sort
-       
-        const dropdownIngredient = new SortIngredients(this.recipes)
-        dropdownIngredient.displayIngredients()
-      
-        const dropdownAppliances = new SortAppliance(this.recipes)
-        dropdownAppliances .init()
-        const dropdownUstensils = new SortUstencils(this.recipes)
-        dropdownUstensils.init()       
+             
     }
 }
 
@@ -53,4 +51,5 @@ export default class App {
 const app = new App()
 app.displayAllRecipes()
 app.displaySortInput()
-app.sortByButton()
+app.displayDropDown()
+//app.sortByButton()
