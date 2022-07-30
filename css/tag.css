@@ -41,15 +41,15 @@ button {
   margin-right: auto;
 }
 
-.thumbnail.ingredients {
+.thumbnail.ingre {
   background-color: var(--blue);
 }
 
-.thumbnail.appliances {
+.thumbnail.appl {
   background-color: var(--green);
 }
 
-.thumbnail.ustensils {
+.thumbnail.uste {
   background-color: var(--red);
 }
 
