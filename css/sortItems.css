@@ -96,7 +96,7 @@
   }
   
   .search-menu .dropdown-list-ingredients #tag:hover, .search-menu .dropdown-list-appliances #tag:hover, .search-menu .dropdown-list-ustensils #tag:hover{
-    cursor: pointer;
+   
     font-weight: bold;
     transition: all 0.04s;
   }

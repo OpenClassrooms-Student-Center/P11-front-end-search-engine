@@ -28,11 +28,11 @@ export default class App {
 
     displayDropDown(){
         const dropdowningre = new DropDown(this.recipes)
-        dropdowningre.displayIngredients()
+        dropdowningre.displayItem("ingredients")
         const dropdownappl = new DropDown(this.recipes)
-        dropdownappl.displayAppliances()
+        dropdownappl.displayItem("appliances")
         const dropdownusten = new DropDown(this.recipes)
-        dropdownusten.displayUstensils()
+        dropdownusten.displayItem("ustensils")
     }
 
 }

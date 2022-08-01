@@ -5,7 +5,6 @@ export default class Filter {
   constructor(recipes) {
     this.recipes = recipes;
     this.input = document.getElementById("find");
-    this.tag = document.getElementById("tagItem");
    
     this.onfocusInput;
   }
@@ -60,24 +59,23 @@ export default class Filter {
         const viewCard = new CardRecipesFactory(filteredRecipe);
         viewCard.Recipes();
 
-        const dropdownIngredient = new DropDown(filteredRecipe);
-        dropdownIngredient.displayIngredients();
-        const dropdownAppliance = new DropDown(filteredRecipe);
-        dropdownAppliance.displayAppliances();
-        const dropdownUstensils = new DropDown(filteredRecipe);
-        dropdownUstensils.displayUstensils();
+        const dropdowningre = new DropDown(filteredRecipe)
+        dropdowningre.displayItem("ingredients")
+        const dropdownappl = new DropDown(filteredRecipe)
+        dropdownappl.displayItem("appliances")
+        const dropdownusten = new DropDown(filteredRecipe)
+        dropdownusten.displayItem("ustensils")
       } else {
-        this.tag.classList.add("d-none");
         const viewCard = new CardRecipesFactory(this.recipes);
         viewCard.Recipes();
        
   
-        const dropdownIngredient = new DropDown(this.recipes);
-        dropdownIngredient.displayIngredients();
-        const dropdownAppliance = new DropDown(this.recipes);
-        dropdownAppliance.displayAppliances();
-        const dropdownUstensils = new DropDown(this.recipes);
-        dropdownUstensils.displayUstensils();
+        const dropdowningre = new DropDown(this.recipes)
+        dropdowningre.displayItem("ingredients")
+        const dropdownappl = new DropDown(this.recipes)
+        dropdownappl.displayItem("appliances")
+        const dropdownusten = new DropDown(this.recipes)
+        dropdownusten.displayItem("ustensils")
       }
 
      
