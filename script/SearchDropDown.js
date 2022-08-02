@@ -7,7 +7,9 @@ export default class DropDown {
     this.tagIngredient = document.getElementById("thumbnail-tags-container");
     this.inputIngredient = document.getElementById("search-ingredients");
     this.inputAppliance = document.getElementById("search-appliances");
+    this.inputUstensils = document.getElementById("search-ustensils");
     this.dropIngredient = document.querySelector(".dropdown-list-ingredients");
+    this.dropUstensils = document.querySelector(".dropdown-list-ustensils");
     this.tags = [];
   }
 
@@ -55,7 +57,7 @@ toggle(type) {
     //let bagdeDiv =
     // console.log(item, type, item)
     // Je crée le texte recherché
-    console.log(this.tags)
+    //console.log(this.tags)
     //this.tags.push(item);
     this.buildBadges(this.tags, type, item);
   }
@@ -82,17 +84,18 @@ toggle(type) {
           // viewCard.Recipes();
 
           this.tags = this.tags.filter((tag) => tag != isInclude);
-          console.log(this.tags);
+          //console.log(this.tags);
 
           // appel des CARD avec des fonctions filtrer par rapport au this.tags selectionné / Je boucle sur toute les recipes et je regarde si recipies.ingredient inclus dans tableau des tags view card avec filerRecipes
 
-          if (this.tags.length !== 0) {
+          //if (this.tags.length !== 0) {
             this.tags.forEach((tag) => {
               const recipiesFiltered = this.recipes.filter((recette) => {
                 // je fais un lowercase sur tag.value pour bien comparer ensuite
                 tag = tag.toLowerCase();
 
                 // INGREDIENTS
+              
                 if (tagType == "ingredients") {
                   let ingredientfounded = false;
 
@@ -110,11 +113,14 @@ toggle(type) {
                   }
                 }
                 // APPAREILS
+            
                 if (tagType == "appliances") {
                   let appreilfounded = false;
-                  console.log(recette.appliance)
+                  console.log(recette)
                   for (let i = 0; i < recette.appliance.length; i++) {
-                    if (recette.appliance[i].toLowerCase() == tag) {
+                    console.log("dans la boucle appareil")
+                    if (recette.appliance.toLowerCase() == tag) {
+                      console.log("dans la boucle appareil")
                       appreilfounded = true;
                       break;
                     }
@@ -144,14 +150,16 @@ toggle(type) {
               const viewCard = new CardRecipesFactory(recipiesFiltered);
               viewCard.Recipes();
             });
-          } else {
-            const viewCard = new CardRecipesFactory(this.recipes);
-            viewCard.Recipes();
-          }
+
+          /*} else {
+         
+          }*/
 
           //  console.log("filtre", filterRecipes);
           //tags.pop(filterTagBadge)
           //buildBages(filter, item)
+          const viewCard = new CardRecipesFactory(this.recipes);
+          viewCard.Recipes();
           e.currentTarget.parentNode.remove();
         });
       }
@@ -160,16 +168,16 @@ toggle(type) {
 
   generateItems(tab, domBlock, type) {
     tab.forEach((item) => {
-      const itemNormalized = normalizeString(item);
+      const itemNormalized = this.normalizeString(item);
       const listDOM = document.createElement("li");
       listDOM.classList.add("list-items", `${type}-item`);
       listDOM.setAttribute("id", "tag");
       listDOM.setAttribute("data-item", `${itemNormalized}`);
       listDOM.setAttribute("data-type", `${itemNormalized}`);
-      listDOM.innerText = item;
+      listDOM.innerText = item[0].toUpperCase() + item.slice(1);
       //console.log(listDOM)
       listDOM.addEventListener("click", () => this.addTag(item, type));
-      this.filterBySelect(type);
+      this.badgeEvent(type);
       return domBlock.append(listDOM);
     });
   }
@@ -187,19 +195,16 @@ toggle(type) {
 
   displayItem(types) {
     let tableauIngredients = [];
+    let tableauUstensils = [];
     let itemToDisplay = [];
     switch (types) {
       case "ingredients":
-        document
-          .querySelector(".ingredients")
-          .addEventListener("click", (e) => {
+        document.querySelector(".ingredients").onclick = (e) => {
             console.log("ici");
-
-            e.preventDefault();
             e.stopPropagation();
 
-            this.toggle("ingredients");
-
+            //this.toggle("ingredients");
+            document.querySelector(`.ingredients`).classList.add("expanded");
             
             this.recipes.forEach((recipe) => {
               const recipeIngredients = recipe.ingredients;
@@ -214,11 +219,10 @@ toggle(type) {
               });
             });
             this.badgeEvent("ingredients");
-          });
+          };
 
         this.inputIngredient.oninput = (e) => {
           const searchString = e.target.value;
-          this.toggle("ingredients");
           this.recipes.forEach((recipe) => {
             const recipeIngredients = recipe.ingredients;
             recipeIngredients.forEach((ingredients) => {
@@ -246,7 +250,7 @@ toggle(type) {
           });
           console.log(tableauIngredients);
           console.log(itemToDisplay);
-          if (searchString.length > 2) {
+          if (!searchString.length == 0) {
             const filteredRecipe = this.recipes.filter((result) => {
               console.log("RR", searchString.length);
               if (
@@ -270,28 +274,13 @@ toggle(type) {
         };
         break;
       case "appliances":
-        this.inputAppliance.oninput = (e) => {
-          const searchString = e.target.value;
-
-          if (searchString.length > 2) {
-            const filteredRecipe = this.recipes.filter((result) => {
-              if (
-                result.appliance.find((items) => {
-                  return items.toLowerCase().includes(searchString);
-                }) != undefined
-              ) {
-                return result;
-              }
-            });
-          }
-        };
-        document.querySelector(".appliances").addEventListener("click", (e) => {
+       
+        document.querySelector(".appliances").onclick =  (e) => {
           this.removeListItem("appliances");
           e.preventDefault();
           e.stopPropagation();
 
           this.toggle("appliances");
-          console.log("this RR", this.recipes);
         
           const tableauAppliances = [];
           this.recipes.forEach((recipe) => {
@@ -303,18 +292,19 @@ toggle(type) {
               return this.buildList("appliances", recipeAppliance);
             }
           });
-          this.badgeEvent("appliances");
-        });
+          this.badgeEvent("appliances");  
+        };
         break;
       case "ustensils":
-        document.querySelector(".ustensils").addEventListener("click", (e) => {
+       
+        document.querySelector(".ustensils").onclick =  (e) => {
          this.removeListItem("ustensils");
           e.preventDefault();
           e.stopPropagation();
 
           this.toggle("ustensils");
          
-          const tableauUstensils = [];
+         
           this.recipes.forEach((itemUstensils) => {
             itemUstensils.ustensils.forEach((ustensil) => {
               const ustensilItem = ustensil.toLowerCase();
@@ -326,7 +316,56 @@ toggle(type) {
             });
           });
           this.badgeEvent("ustensils");
-        });
+        };
+        this.inputUstensils.oninput = (e) => {
+          const searchString = e.target.value;
+          this.recipes.forEach((recipe) => {
+            const  itemUstensils = recipe.ustensils;
+            itemUstensils.forEach((ustensil) => {
+              const ustensilItem = ustensil.toLowerCase();
+              if (!tableauUstensils.includes(ustensilItem)) {
+                tableauUstensils.push(ustensilItem);
+                return this.generateItems(
+                  itemToDisplay,
+                  this.dropUstensils,
+                  "ustensils"
+                );
+              }
+              itemToDisplay = tableauUstensils .filter((item) =>
+                item.startsWith(e.target.value)
+              );
+             this.removeListItem("ustensils");
+             this.generateItems(
+                itemToDisplay,
+                this.dropUstensils,
+                "ustensils"
+              );
+            });
+          });
+          console.log(tableauUstensils);
+          console.log(itemToDisplay);
+          if (searchString.length > 2) {
+            const filteredRecipe = this.recipes.filter((result) => {
+              console.log("RR", searchString.length);
+              if (
+                result.ustensils.find((items) => {
+                  return items.ustensil.toLowerCase().includes(searchString);
+                }) != undefined
+              ) {
+                return result;
+              }
+            });
+            const appliFiltre = new DropDown(filteredRecipe);
+            appliFiltre.displayItem("appliances");
+            const ingreFiltre = new DropDown(filteredRecipe);
+            ingreFiltre.displayItem("ingredients");
+          } else {
+            const appliFiltre = new DropDown(this.recipes);
+            appliFiltre.displayItem("appliances");
+            const ingreFiltre = new DropDown(this.recipes);
+            ingreFiltre.displayItem("ingredients");
+          }
+        };
         break;
       default:
         break;
@@ -352,11 +391,12 @@ toggle(type) {
               );
               break;
             case "appliances":
+              console.log("je suis ici")
               currentItem = e.currentTarget.textContent.toLowerCase();
               filterIngreByTag.filterType(
                 this.tags,
                 currentItem,
-                "ingredients"
+                "appliances"
               );
               break;
             case "ustensils":

@@ -94,8 +94,11 @@ export default class Filter {
               return result;
             }
           });
+          console.log(currentRecipes)
           const viewCard = new CardRecipesFactory(currentRecipes);
           viewCard.Recipes();
+          
+         
 
         } else {
           const viewCard = new CardRecipesFactory(this.recipes);
