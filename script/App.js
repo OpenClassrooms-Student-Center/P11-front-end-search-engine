@@ -1,7 +1,7 @@
 import recipes from "../data/recipes.js";
 import CardRecipesFactory from "./Factory/CardRecipesFactory.js";
 import Filter from "./Filter/Filter.js";
-import DropDown from "./dropdown.js";
+import SearchDropDown from './SearchDropDown.js'
 
 
 export default class App {
@@ -27,11 +27,11 @@ export default class App {
     }
 
     displayDropDown(){
-        const dropdowningre = new DropDown(this.recipes)
+        const dropdowningre =new SearchDropDown(this.recipes)
         dropdowningre.displayItem("ingredients")
-        const dropdownappl = new DropDown(this.recipes)
+        const dropdownappl =new SearchDropDown(this.recipes)
         dropdownappl.displayItem("appliances")
-        const dropdownusten = new DropDown(this.recipes)
+        const dropdownusten =new SearchDropDown(this.recipes)
         dropdownusten.displayItem("ustensils")
     }
 

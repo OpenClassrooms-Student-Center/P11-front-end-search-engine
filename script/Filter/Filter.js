@@ -1,11 +1,12 @@
-import DropDown from "../dropdown.js";
+import SearchDropDown from '../SearchDropDown.js'
 import CardRecipesFactory from "../Factory/CardRecipesFactory.js";
 
 export default class Filter {
   constructor(recipes) {
     this.recipes = recipes;
     this.input = document.getElementById("find");
-   
+    this.arrIngredient = [];
+    this.tags = [];
     this.onfocusInput;
   }
   onfocusInput() {
@@ -59,26 +60,90 @@ export default class Filter {
         const viewCard = new CardRecipesFactory(filteredRecipe);
         viewCard.Recipes();
 
-        const dropdowningre = new DropDown(filteredRecipe)
-        dropdowningre.displayItem("ingredients")
-        const dropdownappl = new DropDown(filteredRecipe)
-        dropdownappl.displayItem("appliances")
-        const dropdownusten = new DropDown(filteredRecipe)
-        dropdownusten.displayItem("ustensils")
+        const dropdowningre = new SearchDropDown(filteredRecipe);
+        dropdowningre.displayItem("ingredients");
+        const dropdownappl = new SearchDropDown(filteredRecipe);
+        dropdownappl.displayItem("appliances");
+        const dropdownusten = new SearchDropDown(filteredRecipe);
+        dropdownusten.displayItem("ustensils");
       } else {
         const viewCard = new CardRecipesFactory(this.recipes);
         viewCard.Recipes();
-       
-  
-        const dropdowningre = new DropDown(this.recipes)
-        dropdowningre.displayItem("ingredients")
-        const dropdownappl = new DropDown(this.recipes)
-        dropdownappl.displayItem("appliances")
-        const dropdownusten = new DropDown(this.recipes)
-        dropdownusten.displayItem("ustensils")
-      }
 
-     
+        const dropdowningre = new SearchDropDown(this.recipes);
+        dropdowningre.displayItem("ingredients");
+        const dropdownappl = new SearchDropDown(this.recipes);
+        dropdownappl.displayItem("appliances");
+        const dropdownusten = new SearchDropDown(this.recipes);
+        dropdownusten.displayItem("ustensils");
+      }
     };
+  }
+
+  filterType(tab, currentItem, type) {
+    let currentRecipes = [];
+    switch (type) {
+      case "ingredients":
+        if (!tab.length == 0) {
+          currentRecipes = this.recipes.filter((result) => {
+            if (
+              result.ingredients.find((items) => {
+                return items.ingredient.toLowerCase().includes(currentItem);
+              }) != undefined
+            ) {
+              return result;
+            }
+          });
+          const viewCard = new CardRecipesFactory(currentRecipes);
+          viewCard.Recipes();
+
+        } else {
+          const viewCard = new CardRecipesFactory(this.recipes);
+          viewCard.Recipes();
+        
+        }
+
+        break;
+      case "appliances":
+        if (!tab.length == 0) {
+          currentRecipes = this.recipes.filter((result) => {
+            if (result.appliance.toLowerCase().includes(currentItem)) {
+              return result;
+            }
+          });
+          const viewCard = new CardRecipesFactory(currentRecipes);
+          viewCard.Recipes();
+        } else {
+          const viewCard = new CardRecipesFactory(this.recipes);
+          viewCard.Recipes();
+       
+        }
+
+        break;
+      case "ustensils":
+        if (!tab.length == 0) {
+        currentRecipes = this.recipes.filter((result) => {
+        
+
+          if (
+            result.ustensils.find((ustensils) =>
+              ustensils.toLowerCase().includes(currentItem)
+            )
+          ) {
+            return result;
+          }
+        });
+        const viewCard = new CardRecipesFactory(currentRecipes);
+          viewCard.Recipes();
+        } else {
+          const viewCard = new CardRecipesFactory(this.recipes);
+          viewCard.Recipes();
+         
+        }
+
+        break;
+      default:
+        break;
+    }
   }
 }
