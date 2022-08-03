@@ -425,7 +425,7 @@ const recipes = [
       ],
       "time": 40,
       "description": "Éplucher les fruits et les couper en morceaux, les mettre dans une casserolle en ajoutant l'eau et le sucre vanillé. Laisser cuire 15 minutes en remuant régulièrement.",
-      "appliance": "Casserole",
+      "appliance": "Casserolle",
       "ustensils": ["couteau", "économe"]
   },
   {
@@ -742,7 +742,7 @@ const recipes = [
       ],
       "time": 30,
       "description":"Cuisiner la viande hachée dans une poelle à frire. Dans une autre faire cuire les oignons découpés en fins dés avec un peu de beurre. Ajouter du vin rouge. Mélanger les oigons avec la viande hachée. Faire cuire les pates le temps indiqué sur le paquet. Ajouter le coulis de tomates à la viande hachée. Une fois que les pates sont cuites, ajouter la crème fraiche à la viande hachée. Serivir.",
-      "appliance": "Casserolle.",
+      "appliance": "Casserolle",
       "ustensils":["Cuillère en bois", "louche", "couteau"]
   },
   {

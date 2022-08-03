@@ -9,31 +9,33 @@ export default class Filter {
     this.tags = [];
     this.onfocusInput;
   }
-  onfocusInput() {
+  onfocusInput(type) {
     this.input.onfocus = () => {
+      if(type == "ingredients"){
       document
-        .querySelector(".dropdown-list-ingredients")
+        .querySelector(`.dropdown-list-${type}`)
         .classList.add("d-none");
-      document.querySelector(".ingredients").classList.remove("expanded");
+      document.querySelector(`.${type}`).classList.remove("expanded");
       document
-        .querySelector(".dropdown-list-ingredients")
+        .querySelector(`.dropdown-list-${type}`)
         .classList.remove("d-none");
-
+      }else if(type == "appliances"){
       document
-        .querySelector(".dropdown-list-appliances")
+        .querySelector(`.dropdown-list-${type}`)
         .classList.add("d-none");
-      document.querySelector(".appliances").classList.remove("expanded");
+      document.querySelector(`.${type}`).classList.remove("expanded");
       document
-        .querySelector(".dropdown-list-appliances")
+        .querySelector(`.dropdown-list-${type}`)
         .classList.remove("d-none");
-
+      }else if(type == "ingredients"){
       document
-        .querySelector(".dropdown-list-ustensils")
+        .querySelector(`.dropdown-list-${type}`)
         .classList.add("d-none");
-      document.querySelector(".ustensils").classList.remove("expanded");
+      document.querySelector(`.${type}`).classList.remove("expanded");
       document
-        .querySelector(".dropdown-list-ustensils")
+        .querySelector(`.dropdown-list-${type}`)
         .classList.remove("d-none");
+      }
     };
   }
 
@@ -94,7 +96,7 @@ export default class Filter {
               return result;
             }
           });
-          console.log(currentRecipes)
+          //console.log(currentRecipes)
           const viewCard = new CardRecipesFactory(currentRecipes);
           viewCard.Recipes();
           
