@@ -1,7 +1,8 @@
 export default class CardRecipesFactory {
-    constructor(recipesData) {
-        this.recipesData = recipesData
+    constructor(recipes) {
+        this.recipes = recipes
         this.wrapper = document.getElementById('cardRecipes')
+       // console.log('CardFactory', this.recipes)
     }
     /**
      * @param {Arrray} Arrray media of data
@@ -10,7 +11,7 @@ export default class CardRecipesFactory {
     async Recipes() {
         this.wrapper.innerHTML = ""
         
-        this.recipesData.map(recipe => {
+        this.recipes.map(recipe => {
             let photo = "";
              photo = recipe.name.toLowerCase().replace(/\s/g, "");
              

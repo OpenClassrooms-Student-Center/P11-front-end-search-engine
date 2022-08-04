@@ -86,11 +86,11 @@ toggle(type) {
           // viewCard.Recipes();
 
           this.tags = this.tags.filter((tag) => tag != isInclude);
-          //console.log(this.tags);
+          console.log("tag close",this.tags);
 
           // appel des CARD avec des fonctions filtrer par rapport au this.tags selectionné / Je boucle sur toute les recipes et je regarde si recipies.ingredient inclus dans tableau des tags view card avec filerRecipes
 
-          //if (this.tags.length !== 0) {
+          if (this.tags.length !== 0) {
             this.tags.forEach((tag) => {
               const recipiesFiltered = this.recipes.filter((recette) => {
                 // je fais un lowercase sur tag.value pour bien comparer ensuite
@@ -161,10 +161,11 @@ toggle(type) {
               const ustFiltre = new SearchDropDown(recipiesFiltered);
               ustFiltre.displayItem("ustensils");
             });
-
-      
-          const viewCard = new CardRecipesFactory(this.recipes);
-          viewCard.Recipes();
+          }else {
+            const viewCard = new CardRecipesFactory(this.recipes);
+            viewCard.Recipes();
+            
+          }
           console.log("recette filtrer", this.recipes);
         
           const ingreFiltre = new SearchDropDown(this.recipes);
@@ -235,9 +236,8 @@ toggle(type) {
               });
             });
             this.badgeEvent("ingredients");
-           
           };
-        
+         
 
 
         this.inputIngredient.oninput = (e) => {

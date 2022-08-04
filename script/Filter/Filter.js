@@ -68,6 +68,8 @@ export default class Filter {
         dropdownappl.displayItem("appliances");
         const dropdownusten = new SearchDropDown(filteredRecipe);
         dropdownusten.displayItem("ustensils");
+        console.log(filteredRecipe)
+        console.log(dropdowningre.displayItem("ingredients"))
       } else {
         const viewCard = new CardRecipesFactory(this.recipes);
         viewCard.Recipes();
