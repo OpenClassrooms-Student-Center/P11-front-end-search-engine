@@ -101,12 +101,24 @@ export default class Filter {
           //console.log(currentRecipes)
           const viewCard = new CardRecipesFactory(currentRecipes);
           viewCard.Recipes();
+          const dropdowningre = new SearchDropDown(currentRecipes);
+        dropdowningre.displayItem("ingredients");
+        const dropdownappl = new SearchDropDown(currentRecipes);
+        dropdownappl.displayItem("appliances");
+        const dropdownusten = new SearchDropDown(currentRecipes);
+        dropdownusten.displayItem("ustensils");
           
          
 
         } else {
           const viewCard = new CardRecipesFactory(this.recipes);
           viewCard.Recipes();
+          const dropdowningre = new SearchDropDown(this.recipes);
+         dropdowningre.displayItem("ingredients");
+          const dropdownappl = new SearchDropDown(this.recipes);
+          dropdownappl.displayItem("appliances");
+            const dropdownusten = new SearchDropDown(this.recipes);
+        dropdownusten.displayItem("ustensils");
         
         }
 
@@ -120,9 +132,21 @@ export default class Filter {
           });
           const viewCard = new CardRecipesFactory(currentRecipes);
           viewCard.Recipes();
+          const dropdowningre = new SearchDropDown(currentRecipes);
+        dropdowningre.displayItem("ingredients");
+        const dropdownappl = new SearchDropDown(currentRecipes);
+        dropdownappl.displayItem("appliances");
+        const dropdownusten = new SearchDropDown(currentRecipes);
+        dropdownusten.displayItem("ustensils");
         } else {
           const viewCard = new CardRecipesFactory(this.recipes);
           viewCard.Recipes();
+          const dropdowningre = new SearchDropDown(this.recipes);
+         dropdowningre.displayItem("ingredients");
+          const dropdownappl = new SearchDropDown(this.recipes);
+          dropdownappl.displayItem("appliances");
+            const dropdownusten = new SearchDropDown(this.recipes);
+        dropdownusten.displayItem("ustensils");
        
         }
 
@@ -140,11 +164,23 @@ export default class Filter {
             return result;
           }
         });
-        const viewCard = new CardRecipesFactory(currentRecipes);
+        const viewCard = new CardRecipesFactory(this.recipes);
           viewCard.Recipes();
+          const dropdowningre = new SearchDropDown(this.recipes);
+         dropdowningre.displayItem("ingredients");
+          const dropdownappl = new SearchDropDown(this.recipes);
+          dropdownappl.displayItem("appliances");
+            const dropdownusten = new SearchDropDown(this.recipes);
+        dropdownusten.displayItem("ustensils");
         } else {
           const viewCard = new CardRecipesFactory(this.recipes);
           viewCard.Recipes();
+          const dropdowningre = new SearchDropDown(this.recipes);
+         dropdowningre.displayItem("ingredients");
+          const dropdownappl = new SearchDropDown(this.recipes);
+          dropdownappl.displayItem("appliances");
+            const dropdownusten = new SearchDropDown(this.recipes);
+        dropdownusten.displayItem("ustensils");
          
         }
 
