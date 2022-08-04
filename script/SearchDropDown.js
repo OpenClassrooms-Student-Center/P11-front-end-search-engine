@@ -1,5 +1,6 @@
 import CardRecipesFactory from "./Factory/CardRecipesFactory.js";
 import Filter from "./Filter/Filter.js";
+import { SearchResultMessage } from "./utils/SearchResultMessage.js";
 export default class SearchDropDown {
   constructor(recipes) {
     //console.log('je suis ici  sorted', recipes.length)
@@ -13,6 +14,7 @@ export default class SearchDropDown {
     this.dropUstensils = document.querySelector(".dropdown-list-ustensils");
     this.filter = new Filter(this.recipes);
     this.closeAllFilter();
+    this.errorMessage = new SearchResultMessage(this.recipes);
     this.tags = [];
   }
 
@@ -305,7 +307,6 @@ export default class SearchDropDown {
               return this.buildList("appliances", recipeAppliance);
             }
           });
-          this.badgeEvent("appliances");
         };
         this.removeListItem("appliances");
         this.inputAppliance.oninput = (e) => {
@@ -369,7 +370,6 @@ export default class SearchDropDown {
               }
             });
           });
-          this.badgeEvent("ustensils");
         };
 
         this.inputUstensils.oninput = (e) => {
