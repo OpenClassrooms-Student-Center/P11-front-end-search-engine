@@ -5,6 +5,7 @@
     flex-wrap: wrap;
     padding: 0;
     margin: 5% 0 ;
+    transition: all 1s ease-out;
 }
 #card{
     background-color:var(--lightGray);

@@ -1,6 +1,7 @@
 import CardRecipesFactory from "./Factory/CardRecipesFactory.js";
 import Filter from "./Filter/Filter.js";
 import { SearchResultMessage } from "./utils/SearchResultMessage.js";
+import { normalizeString, closeAllFilter, removeListItem, toggle} from "./utils/utils.js";
 export default class SearchDropDown {
   constructor(recipes) {
     //console.log('je suis ici  sorted', recipes.length)
@@ -13,54 +14,9 @@ export default class SearchDropDown {
     this.dropAppliance = document.querySelector(".dropdown-list-appliances");
     this.dropUstensils = document.querySelector(".dropdown-list-ustensils");
     this.filter = new Filter(this.recipes);
-    this.closeAllFilter();
+    closeAllFilter();
     this.errorMessage = new SearchResultMessage(this.recipes);
     this.tags = [];
-  }
-
-  normalizeString(string) {
-    const diacriticRegex = new RegExp(/\p{Diacritic}/, "gu");
-    const spaceRegex = new RegExp(/\s/, "g");
-    return string
-      .normalize("NFD") // returns the string in normalized Unicode form with decomposition of diacritics (accents, umlauts, cedillas, etc.)
-      .replace(diacriticRegex, "") // remove diacritics
-      .toLowerCase()
-      .replace(spaceRegex, ""); // remove all spaces
-  }
-  closeAllFilter() {
-    this.body = document.querySelector("body").addEventListener("click", () => {
-      document.querySelector(`.ingredients`).classList.remove("expanded");
-      document.querySelector(`.appliances`).classList.remove("expanded");
-      document.querySelector(`.ustensils`).classList.remove("expanded");
-    });
-  }
-
-  removeListItem(types) {
-    document.querySelector(`.dropdown-list-${types}`).innerHTML = "";
-  }
-
-  toggle(type) {
-    switch (type) {
-      case "ingredients":
-        console.log("ouvert");
-        document.querySelector(`.${type}`).classList.toggle("expanded");
-        document.querySelector(`.appliances`).classList.remove("expanded");
-        document.querySelector(`.ustensils`).classList.remove("expanded");
-        break;
-      case "appliances":
-        document.querySelector(`.${type}`).classList.toggle("expanded");
-        document.querySelector(`.ingredients`).classList.remove("expanded");
-        document.querySelector(`.ustensils`).classList.remove("expanded");
-        break;
-      case "ustensils":
-        document.querySelector(`.${type}`).classList.toggle("expanded");
-        document.querySelector(`.appliances`).classList.remove("expanded");
-        document.querySelector(`.ingredients`).classList.remove("expanded");
-        break;
-      default:
-        document.querySelector(`.${type}`).classList.remove("expanded");
-        break;
-    }
   }
 
   buildBadges(tags, filter, item) {
@@ -77,9 +33,10 @@ export default class SearchDropDown {
       let currentTag = document.querySelector("#thumbnail-tags-container");
 
       currentTag.innerHTML += tagBadge;
-
+      
       const close = document.getElementsByClassName(`fa-times-circle`);
       for (let closeItem of close) {
+        
         closeItem.addEventListener("click", (e) => {
           const isInclude =
             e.currentTarget.parentNode.getAttribute("data-value");
@@ -166,7 +123,7 @@ export default class SearchDropDown {
             viewCard.Recipes();
           }
           console.log("recette filtrer", this.recipes);
-
+          
           const ingreFiltre = new SearchDropDown(this.recipes);
           ingreFiltre.displayItem("ingredient");
           const appliFiltre = new SearchDropDown(this.recipes);
@@ -181,7 +138,7 @@ export default class SearchDropDown {
 
   generateItems(tab, domBlock, type) {
     tab.forEach((item) => {
-      const itemNormalized = this.normalizeString(item);
+      const itemNormalized = normalizeString(item);
       const listDOM = document.createElement("li");
       listDOM.classList.add("list-items", `${type}-item`);
       listDOM.setAttribute("id", "tag");
@@ -193,7 +150,7 @@ export default class SearchDropDown {
         this.buildBadges(this.tags, type, item)
       );
       this.badgeEvent(type);
-      return domBlock.append(listDOM);
+      return domBlock.appendChild(listDOM);
     });
   }
   buildList(type, item) {
@@ -218,11 +175,11 @@ export default class SearchDropDown {
     switch (types) {
       case "ingredients":
         document.querySelector(".ingredients").onclick = (e) => {
-          console.log("ici");
+          
           e.stopPropagation();
 
-          //this.toggle("ingredients");
-          this.toggle("ingredients");
+          //toggle("ingredients");
+          toggle("ingredients");
 
           this.recipes.forEach((recipe) => {
             const recipeIngredients = recipe.ingredients;
@@ -231,12 +188,11 @@ export default class SearchDropDown {
               const ingredient = ingredients.ingredient.toLowerCase();
               if (!tableauIngredients.includes(ingredient)) {
                 tableauIngredients.push(ingredient);
-                //console.log(tableauIngredients)
+                console.log(tableauIngredients)
                 return this.buildList("ingredients", ingredient);
               }
             });
           });
-          this.badgeEvent("ingredients");
         };
 
         this.inputIngredient.oninput = (e) => {
@@ -258,7 +214,7 @@ export default class SearchDropDown {
               itemToDisplay = tableauIngredients.filter((item) =>
                 item.startsWith(e.target.value)
               );
-              this.removeListItem("ingredients");
+              removeListItem("ingredients");
               this.generateItems(
                 itemToDisplay,
                 this.dropIngredient,
@@ -292,7 +248,7 @@ export default class SearchDropDown {
         break;
       case "appliances":
         document.querySelector(".appliances").onclick = (e) => {
-          this.toggle("appliances");
+          toggle("appliances");
 
           e.preventDefault();
           e.stopPropagation();
@@ -308,7 +264,7 @@ export default class SearchDropDown {
             }
           });
         };
-        this.removeListItem("appliances");
+        removeListItem("appliances");
         this.inputAppliance.oninput = (e) => {
           this.filter.onfocusInput("appliances");
           e.preventDefault();
@@ -327,7 +283,7 @@ export default class SearchDropDown {
             itemToDisplay = tableauAppliances.filter((item) =>
               item.startsWith(e.target.value)
             );
-            this.removeListItem("appliances");
+            removeListItem("appliances");
             this.generateItems(itemToDisplay, this.dropAppliance, "appliances");
           });
 
@@ -356,8 +312,8 @@ export default class SearchDropDown {
           console.log("ici");
           e.stopPropagation();
 
-          //this.toggle("ingredients");
-          this.toggle("ustensils");
+          //toggle("ingredients");
+          toggle("ustensils");
 
           this.recipes.forEach((recipe) => {
             const itemUstensils = recipe.ustensils;
@@ -390,7 +346,7 @@ export default class SearchDropDown {
               itemToDisplay = tableauUstensils.filter((item) =>
                 item.startsWith(e.target.value)
               );
-              this.removeListItem("ustensils");
+              removeListItem("ustensils");
               this.generateItems(
                 itemToDisplay,
                 this.dropUstensils,

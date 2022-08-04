@@ -1,5 +1,6 @@
 import SearchDropDown from "../SearchDropDown.js";
 import CardRecipesFactory from "../Factory/CardRecipesFactory.js";
+import { removeListItem } from "../utils/utils.js";
 
 export default class Filter {
   constructor(recipes) {
@@ -89,6 +90,7 @@ export default class Filter {
     switch (type) {
       case "ingredients":
         if (!tab.length == 0) {
+          
           currentRecipes = this.recipes.filter((result) => {
             if (
               result.ingredients.find((items) => {
@@ -98,9 +100,9 @@ export default class Filter {
               return result;
             }
           });
-          //console.log(currentRecipes)
           const viewCard = new CardRecipesFactory(currentRecipes);
           viewCard.Recipes();
+          
           const dropdowningre = new SearchDropDown(currentRecipes);
           dropdowningre.displayItem("ingredients");
           const dropdownappl = new SearchDropDown(currentRecipes);
