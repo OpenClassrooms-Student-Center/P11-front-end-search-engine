@@ -2,6 +2,7 @@ import CardRecipesFactory from "./Factory/CardRecipesFactory.js";
 import Filter from "./Filter/Filter.js";
 import { SearchResultMessage } from "./utils/SearchResultMessage.js";
 import { normalizeString, closeAllFilter, removeListItem, toggle} from "./utils/utils.js";
+
 export default class SearchDropDown {
   constructor(recipes) {
     //console.log('je suis ici  sorted', recipes.length)
