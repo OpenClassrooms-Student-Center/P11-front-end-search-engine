@@ -1,6 +1,5 @@
 import SearchDropDown from "../SearchDropDown.js";
 import CardRecipesFactory from "../Factory/CardRecipesFactory.js";
-import { removeListItem } from "../utils/utils.js";
 
 export default class Filter {
   constructor(recipes) {
