@@ -1,0 +1,31 @@
+.result-message {
+    display: flex;
+    justify-content: space-between;
+    width: 94%;
+    margin-bottom: 3%;
+    padding: 2%;
+    border-radius: 5px;
+    overflow: hidden;
+    font-size: 18px;
+    transform: scaleY(0);
+    transition: transform 300ms;
+  }
+  .result-message.opened {
+    height: auto;
+    margin: 2% 3%;
+    transform: scaleY(1);
+  }
+  .result-message i {
+    margin-left: 3%;
+    cursor: pointer;
+  }
+  .result-message--info {
+    color: black;
+    background: #46A2B9;
+    opacity: 0.5;
+  }
+  .result-message--warning {
+    color: white;
+    background: #F9C128;
+    opacity: 0.5;
+  }
