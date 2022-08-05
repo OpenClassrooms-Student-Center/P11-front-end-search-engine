@@ -1,128 +1,131 @@
-.searchSection{
-   margin: 0 3%;
-}
-.searchTheme {
-    display: flex;
-    flex-direction: row;
-    justify-self: flex-start;
+.searchSection {
     margin: 0 3%;
 }
-#ingredients, #ustensiles, #appareils{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    border-radius: 5px;
-    height: 69px;
-    width: 170px;
-}
-#ingredients{
-  background-color: #3282F7;
-}
-#ustensiles{
-   background-color: #ED6454;
-}
 
-#appareils{
-    background-color: #68D9A4;
-}
-#appareils .btn{
-    align-items: center;
-    background-color: #68D9A4;
-    border: 0;
-    border-radius: 5px;
-    color: #fff;
+.tag-search-all-menus {
     display: flex;
-    font-size: 18px;
-    height:69px; 
-    justify-content: space-around;
-    width: 170px;
-}
-#ingredients .btn{
-    align-items: center;
-    background-color: #3282F7;
-    border: 0;
+  }
+  
+  .search-menu:not(:last-child) {
+    margin-right: 20px;
+  }
+  
+  .search-menu {
+    width: fit-content
+  }
+  
+  .search-menu input {
+    color: white;
+    font-family: var(--mainFont);
+    font-weight: 700;
+    line-height: 21.6px;
+    font-size: var(--basicFontSize);
+    border: none;
     border-radius: 5px;
-    color: #fff;
-    display: flex;
-    font-size: 18px;
-    height:69px; 
-    justify-content: space-around;
-    width: 170px;
-}
-#ustensiles .btn{
-    align-items: center;
-    background-color:  #ED6454;
-    border: 0;
-    border-radius: 5px;
-    color: #fff;
-    display: flex;
-    font-size: 18px;
-    height:69px; 
-    justify-content: space-around;
-    width: 170px;
-}
-#ingredients .arrow{
-    border: 3px solid #fff;
-    border-top: 3px solid #3282F7;
-    border-right : 3px solid #3282F7; 
-    transform: rotate(-45deg);
-    width:12px;
-    height:12px;
-    transition: 0.5s;
-    z-index: 300;
-}
-#appareils .arrow{
-    border: 3px solid #fff;
-    border-top: 3px solid  #68D9A4;
-    border-right : 3px solid  #68D9A4; 
-    transform: rotate(-45deg);
-    width:12px;
-    height:12px;
-    transition: 0.5s;
-    z-index: 300;
-}
-#ustensiles .arrow{
-    border: 3px solid #fff;
-    border-top: 3px solid  #ED6454;
-    border-right : 3px solid  #ED6454; 
-    transform: rotate(-45deg);
-    width:12px;
-    height:12px;
-    transition: 0.5s;
-    z-index: 300;
-}
-.option{
-    display: none;
-}
-.select-item{
-    padding: 5% 7%; 
-    font-size: 18px;
-    border-top: 1px solid #fff;
-    cursor: pointer;
-}
+    padding: 24px 15px;
+    outline: none;
+    width: 170px; 
+    transition: .5s;
 
-label:first-child{
-    border-top:0; 
-}
-
-.dropdown{
-    position: absolute;
-    top: 15px;
-    left: 0;
-    background-color: #901C1C;
-    border-radius: 0 0 5px 5px;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    z-index: 100;
+  }
+  
+  .search-menu.expanded input {
     width: 100%;
-    box-sizing: border-box;
-}
-.hidden{
-    display: none;
-}
-
-
-.arrow.active{
-    transform: rotate(-225deg);
-}
+    transition: .5s;
+  }
+  
+  .search-menu input::placeholder {
+    color: white;
+  }
+  
+  .search-menu.expanded input::placeholder {
+    color: rgb(255, 255, 255);
+    opacity: 0.6;
+  }
+  
+  .search-menu .input-container {
+    position: relative;
+  }
+  
+  .search-menu i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    pointer-events: none;
+    cursor: pointer;
+  }
+  
+  .search-menu .dropdown-list-ingredients, .search-menu .dropdown-list-appliances, .search-menu .dropdown-list-ustensils {
+    display:none;
+    color: white;
+    line-height: 21.6px;
+    list-style-type: none;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 24px 0 24px 15px;
+    border-radius: 0 0 5px 5px;
+    justify-content: flex-start;
+    
+  }
+  
+  .search-menu .dropdown-list-ingredients, .search-menu .dropdown-list-appliances, .search-menu .dropdown-list-ustensils {
+    display: none; 
+  }
+  
+  .search-menu.ingredients .dropdown-list-ingredients {
+    background-color: var(--blue);
+    transition: .5s;
+  }
+  
+  .search-menu.appliances .dropdown-list-appliances {
+    background-color: var(--green);
+  }
+  
+  .search-menu.ustensils .dropdown-list-ustensils {
+    background-color: var(--red);
+  }
+  
+  .search-menu .dropdown-list-ingredients #tag , .search-menu .dropdown-list-appliances #tag, .search-menu .dropdown-list-ustensils #tag{
+    width: 200px;
+    margin: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .search-menu .dropdown-list-ingredients #tag:hover, .search-menu .dropdown-list-appliances #tag:hover, .search-menu .dropdown-list-ustensils #tag:hover{
+   
+    font-weight: bold;
+    transition: all 0.04s;
+  }
+  
+  /* Display 30 list items maximum */
+  .search-menu .dropdown-list-ingredients #tag:nth-child(n+31), .search-menu .dropdown-list-appliances #tag:nth-child(n+31), .search-menu .dropdown-list-ustensils #tag:nth-child(n+31){
+    display: none !important;
+  }
+  
+  .search-menu.ingredients input {
+    background-color: var(--blue);
+  }
+  
+  .search-menu.appliances input {
+    background-color: var(--green);
+  }
+  
+  .search-menu.ustensils input {
+    background-color: var(--red);
+  }
+  
+  .search-menu.expanded .dropdown-list-ingredients, .search-menu.expanded .dropdown-list-appliances, .search-menu.expanded .dropdown-list-ustensils {
+    display: flex;
+  }
+  
+  .search-menu.expanded input {
+    border-radius: 5px 5px 0 0;
+  }
+  
+  .search-menu.expanded i {
+    transform: rotate(180deg) translateY(50%);
+  }

@@ -1,6 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
 @import url('sortItems.css'); 
 @import url('card.css'); 
+@import url('tag.css');
+@import url('errormessage.css'); 
+:root {
+    --blue: #3282f7;
+    --green: #68d9a4;
+    --red: #ed6454;
+    --logo-color: #d04f4f;
+    --lightGray: #e7e7e7;
+    --darkGray: #c7bebe;
+    --white: #ffffff;
+  }
 body{
     box-sizing: border-box;
     width: 100%;
@@ -22,10 +33,10 @@ header img{
 #searchBar{
     position: relative;
 }
-section .find{
+section #find{
     height: calc(2.5em + 1rem + 2px);
     border : none; 
-    background: #E7E7E7;
+    background: var(--lightGray);
     border-radius: 5px;
 }
 section .fa-search{
@@ -33,12 +44,4 @@ section .fa-search{
     top: 27%;
     right: 1%;
     font-size: 32px;
-}
-main{
-    height: 69px;
-    width: 1240px;
-    left: 0px;
-    top: 0px;
-    border-radius: 5px;
-
 }
