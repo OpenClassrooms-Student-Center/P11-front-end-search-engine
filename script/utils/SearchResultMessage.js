@@ -5,7 +5,7 @@ export class SearchResultMessage {
   }
   
 
-  displayMessage(recipes) {
+  displayMessage() {
     const messageAside = document.getElementById("message");
     const messageSpan = document.querySelector("#message span");
 

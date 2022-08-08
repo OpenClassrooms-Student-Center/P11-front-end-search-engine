@@ -1,8 +1,12 @@
+import { SearchResultMessage } from "../utils/SearchResultMessage.js";
+
 export default class CardRecipesFactory {
     constructor(recipes) {
         this.recipes = recipes
         this.wrapper = document.getElementById('cardRecipes')
        // console.log('CardFactory', this.recipes)
+       this.errorMessage = new SearchResultMessage(this.recipes);
+
     }
     /**
      * @param {Arrray} Arrray media of data

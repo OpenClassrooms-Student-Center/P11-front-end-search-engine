@@ -1,5 +1,6 @@
 import SearchDropDown from "../SearchDropDown.js";
 import CardRecipesFactory from "../Factory/CardRecipesFactory.js";
+import {updatePage } from "../utils/utils.js";
 
 export default class Filter {
   constructor(recipes) {
@@ -8,6 +9,10 @@ export default class Filter {
     this.arrIngredient = [];
     this.tags = [];
     this.onfocusInput;
+    this.inputIngredient = document.getElementById("search-ingredients");
+    this.inputAppliance = document.getElementById("search-appliances");
+    this.inputUstensils = document.getElementById("search-ustensils");
+    
   }
   onfocusInput(type) {
     this.input.onfocus = () => {
@@ -59,96 +64,54 @@ export default class Filter {
             return result;
           }
         });
-        const viewCard = new CardRecipesFactory(filteredRecipe);
-        viewCard.Recipes();
-
-        const dropdowningre = new SearchDropDown(filteredRecipe);
-        dropdowningre.displayItem("ingredients");
-        const dropdownappl = new SearchDropDown(filteredRecipe);
-        dropdownappl.displayItem("appliances");
-        const dropdownusten = new SearchDropDown(filteredRecipe);
-        dropdownusten.displayItem("ustensils");
-        console.log(filteredRecipe);
-        console.log(dropdowningre.displayItem("ingredients"));
+        updatePage(filteredRecipe)
+     
       } else {
-        const viewCard = new CardRecipesFactory(this.recipes);
-        viewCard.Recipes();
-
-        const dropdowningre = new SearchDropDown(this.recipes);
-        dropdowningre.displayItem("ingredients");
-        const dropdownappl = new SearchDropDown(this.recipes);
-        dropdownappl.displayItem("appliances");
-        const dropdownusten = new SearchDropDown(this.recipes);
-        dropdownusten.displayItem("ustensils");
+       updatePage(this.recipes)
       }
     };
   }
 
-  filterType(tab, currentItem, type) {
+  filterType(tags, currentItem, type) {
+   // console.log("TAGS", tags)
     let currentRecipes = [];
     switch (type) {
       case "ingredients":
-        if (!tab.length == 0) {
-          
+        if (!tags.length == 0) {
+          //console.log("FT", tags)
           currentRecipes = this.recipes.filter((result) => {
+       
             if (
               result.ingredients.find((items) => {
                 return items.ingredient.toLowerCase().includes(currentItem);
               }) != undefined
             ) {
+             
               return result;
             }
           });
-          const viewCard = new CardRecipesFactory(currentRecipes);
-          viewCard.Recipes();
-          
-          const dropdowningre = new SearchDropDown(currentRecipes);
-          dropdowningre.displayItem("ingredients");
-          const dropdownappl = new SearchDropDown(currentRecipes);
-          dropdownappl.displayItem("appliances");
-          const dropdownusten = new SearchDropDown(currentRecipes);
-          dropdownusten.displayItem("ustensils");
+          console.log("FT", currentRecipes.length)
+          updatePage(currentRecipes)
         } else {
-          const viewCard = new CardRecipesFactory(this.recipes);
-          viewCard.Recipes();
-          const dropdowningre = new SearchDropDown(this.recipes);
-          dropdowningre.displayItem("ingredients");
-          const dropdownappl = new SearchDropDown(this.recipes);
-          dropdownappl.displayItem("appliances");
-          const dropdownusten = new SearchDropDown(this.recipes);
-          dropdownusten.displayItem("ustensils");
+          updatePage(this.recipes)
         }
 
         break;
       case "appliances":
-        if (!tab.length == 0) {
+        if (!tags.length == 0) {
           currentRecipes = this.recipes.filter((result) => {
             if (result.appliance.toLowerCase().includes(currentItem)) {
               return result;
             }
           });
-          const viewCard = new CardRecipesFactory(currentRecipes);
-          viewCard.Recipes();
-          const dropdowningre = new SearchDropDown(currentRecipes);
-          dropdowningre.displayItem("ingredients");
-          const dropdownappl = new SearchDropDown(currentRecipes);
-          dropdownappl.displayItem("appliances");
-          const dropdownusten = new SearchDropDown(currentRecipes);
-          dropdownusten.displayItem("ustensils");
+          updatePage(currentRecipes)
         } else {
-          const viewCard = new CardRecipesFactory(this.recipes);
-          viewCard.Recipes();
-          const dropdowningre = new SearchDropDown(this.recipes);
-          dropdowningre.displayItem("ingredients");
-          const dropdownappl = new SearchDropDown(this.recipes);
-          dropdownappl.displayItem("appliances");
-          const dropdownusten = new SearchDropDown(this.recipes);
-          dropdownusten.displayItem("ustensils");
+          updatePage(this.recipes)
         }
 
         break;
       case "ustensils":
-        if (!tab.length == 0) {
+        if (!tags.length == 0) {
           currentRecipes = this.recipes.filter((result) => {
             if (
               result.ustensils.find((ustensils) =>
@@ -158,23 +121,9 @@ export default class Filter {
               return result;
             }
           });
-          const viewCard = new CardRecipesFactory(currentRecipes);
-          viewCard.Recipes();
-          const dropdowningre = new SearchDropDown(currentRecipes);
-          dropdowningre.displayItem("ingredients");
-          const dropdownappl = new SearchDropDown(currentRecipes);
-          dropdownappl.displayItem("appliances");
-          const dropdownusten = new SearchDropDown(currentRecipes);
-          dropdownusten.displayItem("ustensils");
+          updatePage(currentRecipes)
         } else {
-          const viewCard = new CardRecipesFactory(this.recipes);
-          viewCard.Recipes();
-          const dropdowningre = new SearchDropDown(this.recipes);
-          dropdowningre.displayItem("ingredients");
-          const dropdownappl = new SearchDropDown(this.recipes);
-          dropdownappl.displayItem("appliances");
-          const dropdownusten = new SearchDropDown(this.recipes);
-          dropdownusten.displayItem("ustensils");
+          updatePage(this.recipes)
         }
 
         break;
@@ -182,4 +131,7 @@ export default class Filter {
         break;
     }
   }
+
+
+  
 }
