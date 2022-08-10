@@ -1,5 +1,3 @@
-import SearchDropDown from "../SearchDropDown.js";
-import CardRecipesFactory from "../Factory/CardRecipesFactory.js";
 import {updatePage } from "../utils/utils.js";
 
 export default class Filter {
