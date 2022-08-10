@@ -141,7 +141,8 @@ export default class FilterBadge {
                       return recette;
                     }
                   });
-                  console.log(recipiesFiltered);
+                  const viewCard = new CardRecipesFactory(recipiesFiltered);
+                  viewCard.Recipes();
                   removeListItem("ustensils");
                   recipiesFiltered.forEach((recipe) => {
                     const itemUstensils = recipe.ustensils;
@@ -158,9 +159,6 @@ export default class FilterBadge {
                     this.dropUstensils,
                     "ustensils"
                   );
-
-                  const viewCard = new CardRecipesFactory(recipiesFiltered);
-                  viewCard.Recipes();
                   const dropdowningre = new SearchDropDown(recipiesFiltered);
                   dropdowningre.displayItem("ingredients", recipiesFiltered);
                   const dropdownappl = new SearchDropDown(recipiesFiltered);
@@ -191,7 +189,7 @@ export default class FilterBadge {
     for (let closeItem of close) {
       closeItem.addEventListener("click", (e) => {
         const isInclude = e.currentTarget.parentNode.getAttribute("data-value");
-        tagType = e.currentTarget.getAttribute("data-type");
+       tagType = e.currentTarget.getAttribute("data-type");
 
         tags = tags.filter((tag) => tag != isInclude);
         console.log("tag close", tags);
