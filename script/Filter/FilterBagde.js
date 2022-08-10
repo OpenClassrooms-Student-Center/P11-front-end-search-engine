@@ -44,9 +44,7 @@ export default class FilterBadge {
                       return recette;
                     }
                   });
-                  console.log("je suis dedans");
-                  const viewCard = new CardRecipesFactory(recipiesFiltered);
-                  viewCard.Recipes();
+                 
                   removeListItem("ingredients");
                   recipiesFiltered.forEach((recipe) => {
                     const recipeIngredients = recipe.ingredients;
@@ -58,8 +56,11 @@ export default class FilterBadge {
                       }
                     });
                   });
-                  console.log("TABIN", tableauIngredients);
 
+                  console.log("TABIN", tableauIngredients);
+                  console.log("je suis dedans");
+                  const viewCard = new CardRecipesFactory(recipiesFiltered);
+                  viewCard.Recipes();
                   const search = new SearchDropDown(this.recipes);
                   search.generateItems(
                     tableauIngredients,
@@ -140,10 +141,9 @@ export default class FilterBadge {
                       return recette;
                     }
                   });
-                  const viewCard = new CardRecipesFactory(recipiesFiltered);
-                  viewCard.Recipes();
+                  console.log(recipiesFiltered);
                   removeListItem("ustensils");
-                  this.recipes.forEach((recipe) => {
+                  recipiesFiltered.forEach((recipe) => {
                     const itemUstensils = recipe.ustensils;
                     itemUstensils.forEach((ustensil) => {
                       const ustensilItem = ustensil.toLowerCase();
@@ -158,6 +158,9 @@ export default class FilterBadge {
                     this.dropUstensils,
                     "ustensils"
                   );
+
+                  const viewCard = new CardRecipesFactory(recipiesFiltered);
+                  viewCard.Recipes();
                   const dropdowningre = new SearchDropDown(recipiesFiltered);
                   dropdowningre.displayItem("ingredients", recipiesFiltered);
                   const dropdownappl = new SearchDropDown(recipiesFiltered);
@@ -183,12 +186,12 @@ export default class FilterBadge {
       });
   }
 
-  removeBadge(tags) {
+  removeBadge(tags, tagType) {
     const close = document.getElementsByClassName(`fa-times-circle`);
     for (let closeItem of close) {
       closeItem.addEventListener("click", (e) => {
         const isInclude = e.currentTarget.parentNode.getAttribute("data-value");
-        const tagType = e.currentTarget.getAttribute("data-type");
+        tagType = e.currentTarget.getAttribute("data-type");
 
         tags = tags.filter((tag) => tag != isInclude);
         console.log("tag close", tags);

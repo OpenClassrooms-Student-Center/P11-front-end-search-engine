@@ -50,7 +50,7 @@ export default class SearchDropDown {
       //console.log(listDOM)
       listDOM.addEventListener("click", () =>
         this.addBagde(this.tags, type, item), 
-        this.badge.removeBadge(this.tags)
+        this.badge.removeBadge(this.tags, type)
       );
       
       return domBlock.appendChild(listDOM);
