@@ -1,5 +1,3 @@
-import CardRecipesFactory from "../Factory/CardRecipesFactory.js";
-import SearchDropDown from "../SearchDropDown.js";
 export function normalizeString(string) {
   const diacriticRegex = new RegExp(/\p{Diacritic}/, "gu");
   const spaceRegex = new RegExp(/\s/, "g");
@@ -19,19 +17,11 @@ export function closeAllFilter() {
 }
 
 export function removeListItem(types) {
+  console.log("je suis dans removeList")
   document.querySelector(`.dropdown-list-${types}`).innerHTML = "";
 }
 
-export function updatePage(listRecipes) {
-  const viewCard = new CardRecipesFactory(listRecipes);
-  viewCard.Recipes();
-  const dropdowningre = new SearchDropDown(listRecipes);
-  dropdowningre.displayItem("ingredients", listRecipes);
-  const dropdownappl = new SearchDropDown(listRecipes);
-  dropdownappl.displayItem("appliances", listRecipes);
-  const dropdownusten = new SearchDropDown(listRecipes);
-  dropdownusten.displayItem("ustensils", listRecipes);
-}
+
 
 export function toggle(type) {
   switch (type) {

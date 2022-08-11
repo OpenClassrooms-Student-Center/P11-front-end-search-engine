@@ -1,5 +1,5 @@
-import {updatePage } from "../utils/utils.js";
-
+import CardRecipesFactory from "../Factory/CardRecipesFactory.js";
+import SearchDropDown from "../SearchDropDown.js";
 export default class Filter {
   constructor(recipes) {
     this.recipes = recipes;
@@ -41,8 +41,9 @@ export default class Filter {
       }
     };
   }
+ 
 
-  filterRecipes() {
+  FilterDisplayRecipes() {
     this.onfocusInput();
     this.input.oninput = (e) => {
       const searchString = e.target.value;
@@ -62,74 +63,15 @@ export default class Filter {
             return result;
           }
         });
-        updatePage(filteredRecipe)
+        const viewCard = new CardRecipesFactory(filteredRecipe);
+        viewCard.Recipes();
+        new SearchDropDown(filteredRecipe);
      
       } else {
-       updatePage(this.recipes)
+        const viewCard = new CardRecipesFactory(this.recipes);
+        viewCard.Recipes();
+        new SearchDropDown(this.recipes);
       }
     };
-  }
-
-  filterType(tags, currentItem, type) {
-   // console.log("TAGS", tags)
-    let currentRecipes = [];
-    switch (type) {
-      case "ingredients":
-        if (!tags.length == 0) {
-          //console.log("FT", tags)
-          currentRecipes = this.recipes.filter((result) => {
-       
-            if (
-              result.ingredients.find((items) => {
-                return items.ingredient.toLowerCase().includes(currentItem);
-              }) != undefined
-            ) {
-             
-              return result;
-            }
-          });
-          console.log("FT", currentRecipes.length)
-          updatePage(currentRecipes)
-        } else {
-          updatePage(this.recipes)
-        }
-
-        break;
-      case "appliances":
-        if (!tags.length == 0) {
-          currentRecipes = this.recipes.filter((result) => {
-            if (result.appliance.toLowerCase().includes(currentItem)) {
-              return result;
-            }
-          });
-          updatePage(currentRecipes)
-        } else {
-          updatePage(this.recipes)
-        }
-
-        break;
-      case "ustensils":
-        if (!tags.length == 0) {
-          currentRecipes = this.recipes.filter((result) => {
-            if (
-              result.ustensils.find((ustensils) =>
-                ustensils.toLowerCase().includes(currentItem)
-              )
-            ) {
-              return result;
-            }
-          });
-          updatePage(currentRecipes)
-        } else {
-          updatePage(this.recipes)
-        }
-
-        break;
-      default:
-        break;
-    }
-  }
-
-
-  
+  } 
 }

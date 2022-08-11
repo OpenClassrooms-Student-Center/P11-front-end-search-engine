@@ -8,6 +8,25 @@ export default class FilterBadge {
     this.dropAppliance = document.querySelector(".dropdown-list-appliances");
     this.dropUstensils = document.querySelector(".dropdown-list-ustensils");
   }
+  
+
+ addBagde(tags, filter, item) {
+    //console.log(document.querySelector("#thumbnail-tags-container"))
+
+    if (!tags.includes(item)) {
+      tags.push(item);
+      const tagBadge = `
+      <div id="tagItem" class="thumbnailTag thumbnail ${filter}" data-value ="${item}">
+          <button id="btn-${filter}" >${item}</button>
+          <i class="far fa-times-circle" data-type="${filter}"></i>
+      </div>`;
+
+      let currentTag = document.querySelector("#thumbnail-tags-container");
+
+      currentTag.innerHTML += tagBadge;
+  
+    }
+  }
   badgeEvent(tags, type) {
     let tableauIngredients = [];
     let tableauAppliances = [];
@@ -107,6 +126,7 @@ export default class FilterBadge {
                     const appliance = recipe.appliance.toLowerCase();
                     if (!tableauAppliances.includes(appliance)) {
                       tableauAppliances.push(appliance);
+                     
                     }
                   });
 
@@ -116,6 +136,7 @@ export default class FilterBadge {
                     this.dropAppliance,
                     "appliances"
                   );
+                  console.log(tableauUstensils)
                   const dropdowningre = new SearchDropDown(recipiesFiltered);
                   dropdowningre.displayItem("ingredients", recipiesFiltered);
                   const dropdownusten = new SearchDropDown(recipiesFiltered);
@@ -153,6 +174,7 @@ export default class FilterBadge {
                       }
                     });
                   });
+                  console.log(tableauUstensils)
                   const search = new SearchDropDown(this.recipes);
                   search.generateItems(
                     tableauUstensils,
@@ -189,14 +211,15 @@ export default class FilterBadge {
     for (let closeItem of close) {
       closeItem.addEventListener("click", (e) => {
         const isInclude = e.currentTarget.parentNode.getAttribute("data-value");
-       tagType = e.currentTarget.getAttribute("data-type");
+        tagType = e.currentTarget.getAttribute("data-type");
 
         tags = tags.filter((tag) => tag != isInclude);
         console.log("tag close", tags);
 
         // appel des CARD avec des fonctions filtrer par rapport au tags selectionné / Je boucle sur toute les recipes et je regarde si recipies.ingredient inclus dans tableau des tags view card avec filerRecipes
 
-        if (tags.length !== 0) {
+         /*if (tags.length !== 0) {
+         
           tags.forEach((tag) => {
             const recipiesFiltered = this.recipes.filter((recette) => {
               // je fais un lowercase sur tag.value pour bien comparer ensuite
@@ -204,7 +227,8 @@ export default class FilterBadge {
 
               // INGREDIENTS
 
-              if (tagType == "ingredients") {
+            if (tagType == "ingredients") {
+                console.log("dedans")
                 let ingredientfounded = false;
 
                 for (let i = 0; i < recette.ingredients.length; i++) {
@@ -218,6 +242,7 @@ export default class FilterBadge {
                   return recette;
                 }
               }
+
               // APPAREILS
 
               if (tagType == "appliances") {
@@ -253,14 +278,14 @@ export default class FilterBadge {
                 }
               }
             });
-            console.log("recette filtrer", recipiesFiltered);
             const viewCard = new CardRecipesFactory(recipiesFiltered);
             viewCard.Recipes();
           });
+          console.log("recette filtrer", recipiesFiltered);
         } else {
           const viewCard = new CardRecipesFactory(this.recipes);
           viewCard.Recipes();
-        }
+        }*/
 
         e.currentTarget.parentNode.remove();
       });

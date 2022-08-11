@@ -24,16 +24,11 @@ export default class App {
 
     displaySortInput() {
         const sort = new Filter(this.recipes)
-        sort.filterRecipes()
+        sort.FilterDisplayRecipes()
     }
 
     displayDropDown(){
-        const dropdowningre =new SearchDropDown(this.recipes)
-        dropdowningre.displayItem("ingredients", this.recipes)
-        const dropdownappl =new SearchDropDown(this.recipes)
-        dropdownappl.displayItem("appliances", this.recipes)
-        const dropdownusten =new SearchDropDown(this.recipes)
-        dropdownusten.displayItem("ustensils", this.recipes)
+        return new SearchDropDown(this.recipes)
     }
 
 }
