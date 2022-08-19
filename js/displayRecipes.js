@@ -20,7 +20,7 @@ function displayRecipes(data) {
                     <span class="box_ingrédients">
 
                          ${recipe.ingredients.map((ingredient)=>{
-// Méthode.map permet de returner un nouveau tableau à partir d'un tableau existant sur lequel on va appliquer une fonction sur chacun des éléments du tableau.
+// Méthode.map permet de retourner un nouveau tableau à partir d'un tableau existant sur lequel on va appliquer une fonction sur chacun des éléments du tableau.
 
 
 
