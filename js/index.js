@@ -29,7 +29,9 @@ document.addEventListener("DOMContentLoaded", ()=>{
            }
 
        
-           imperativeSearchProgramming(this.value).then((response)=>{
+           searchFunctionnalProgramming(this.value).then((response)=>{
+
+            console.log(response)
 
             if(response === "Pas de recettes trouvées"){
                 const resultMessage = `<p id="message_no_recipes">Aucune recette ne correspond à votre critère…    Vous pouvez
