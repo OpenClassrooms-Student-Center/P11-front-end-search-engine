@@ -21,53 +21,62 @@
                 <label for="search">
                     <img  src="img/loupe.svg" alt="icone loupe">                   
                 </label>
+            </div> 
+            <div id="tags">  
+                                                                  
             </div>           
-            <div class="boxFilterSearch2">               
-                <details class="input_control input_control_2"> 
-                    <summary>  
-                        <div class="input">Ingrédients
-
-                        </div>            
-                       
-                            <img class="width_chevron" src="img/chevron_bas.png" alt="chevron d'ouverture du menu déroulant">                   
-                        </label>                     
-                    </summary> 
-                    <div class="summary-content">Essai menu déroulant</div>  
-                </details>
-                <div class="boxFilterSearch2">               
-                <details class="input_control input_control_3"> 
-                    <summary>  
-                        <div class="input">Appareils
-
-                        </div>            
-                        
-                            <img class="width_chevron" src="img/chevron_bas.png" alt="chevron d'ouverture du menu déroulant">                   
-                        </label>                     
-                    </summary> 
-                    <div class="summary-content">Essai menu déroulant</div>  
-                </details>
-                <div class="boxFilterSearch2">               
-                    <details class="input_control input_control_4"> 
-                        <summary>  
-                            <div class="input">Ustensiles
-    
-                            </div>            
-                            
-                                <img class="width_chevron" src="img/chevron_bas.png" alt="chevron d'ouverture du menu déroulant">                   
-                            </label>                     
-                        </summary> 
-                        <div class="summary-content">Essai menu déroulant</div>  
-                    </details>
-         
-            </div>
             
+            <section id="filters-tags-area">
+    
+                <details id="details-ingredients">
+
+                    <summary>
+                        Ingredients
+                        <svg width="16" height="11" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M14.12 0.453369L8 6.56004L1.88 0.453369L0 2.33337L8 10.3334L16 2.33337L14.12 0.453369Z" fill="white"/>
+                        </svg> 
+                    </summary>
+                    <input type="text" class="filters-tags-area-input ingredient-color" id="search-ingredients" name="search-ingredients" minlength="3" maxlength="20" size="10" placeholder="Rechercher un Ingredient">
+
+                    <ul class="ingredient-color" id="liste-ingredients"></ul>
+
+                </details>
+
+                <details id="details-appareils">
+
+                    <summary>
+                        Appareils
+                        <svg width="16" height="11" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M14.12 0.453369L8 6.56004L1.88 0.453369L0 2.33337L8 10.3334L16 2.33337L14.12 0.453369Z" fill="white"/>
+                        </svg> 
+                    </summary>
+                    <input type="text" class="filters-tags-area-input appareils-color" id="search-appareils" name="search-appareils" minlength="3" maxlength="20" size="10" placeholder="Rechercher un appareil">
+
+                    <ul class="appareils-color" id="liste-appareils"></ul>
+
+                </details>
+
+                <details id="details-ustensiles">
+
+                    <summary>
+                        Ustensiles
+                        <svg width="16" height="11" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M14.12 0.453369L8 6.56004L1.88 0.453369L0 2.33337L8 10.3334L16 2.33337L14.12 0.453369Z" fill="white"/>
+                        </svg> 
+                    </summary>
+                        <input type="text" class="filters-tags-area-input ustensiles-color" id="search-ustensiles" name="search-ustensiles" minlength="3" maxlength="20" size="10" placeholder="Rechercher un ustensile">
+                    <ul class="ustensiles-color" id="liste-ustensiles"></ul>
+                    
+                </details>
+
+            </section>
         
         </nav>
     </header>
 
     <main>         
         
-    </main> 
+    </main>
     
     <script src="js/searchFunctionnalProgramming.js"></script>
     <script src="js/index.js"></script>
