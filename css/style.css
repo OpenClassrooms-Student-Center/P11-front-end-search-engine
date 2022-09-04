@@ -1,0 +1,104 @@
+*{
+    box-sizing: border-box;
+}
+
+header > section{
+    display: flex;
+    flex-direction: column;
+    color: #D04F4F;
+}
+
+.logo{
+    height: 1.7em;
+    margin: auto;
+}
+
+h1{
+    font-family:"DM Sans";
+    font-size: 1.4em;
+    font-weight: bold;
+    margin: auto;
+}
+
+.nav{
+    position: relative;
+    margin: auto;
+    margin-top: 15px;
+    width: 80%;
+    height: 35px;
+    display: flex;
+}
+
+.nav::after{
+    content: "";
+    width: 4%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background-image: url("../assets/search.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    cursor: pointer;
+}
+
+.nav input{
+    height: 100%;
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    padding-left: 1%;
+    background-color: #E7E7E7;
+}
+
+.tools{
+    display: flex;
+    width: 80%;
+    margin: auto;
+    position: relative;
+}
+
+.tools__menu{
+    position: relative;
+    width: 15%;
+    height: 50px;
+    margin: 20px 4% 0 0;
+    margin-right: 4%;
+    display: flex;
+    align-items: center;
+}
+
+.tools__menu::after{
+    position: absolute;
+    content: "";
+    background-image: url("../assets/arrow.svg");
+    background-repeat: no-repeat;
+    top: 40%;
+    right: 15px;
+    width: 20px;
+    height: 10px;
+}
+
+.tools__menu input{
+    display: flex;
+    width: 80%;
+    margin: auto;
+    color: white;
+    font-size: 0.9em;
+}
+
+.menu1, .menu1 input{
+    background-color: #3282F7;
+}
+
+.menu2, .menu2 input{
+    background-color: #68D9A4;
+}
+
+.menu3, .menu3 input{
+    background-color: #ED6454;
+}
+
+.menu__item--hiden{
+    display: none;
+}

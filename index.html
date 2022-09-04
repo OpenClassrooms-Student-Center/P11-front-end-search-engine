@@ -1,44 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link href="css/style.css" rel="stylesheet" type="text/css" />
         <meta charset="utf-8">
-        <link rel="icon" type="image/png" href="assets/favicon.png">
-        <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/2d2374fe7a.js" crossorigin="anonymous"></script>
+        <link rel="icon" type="image/png" href="assets/favicon.png">
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet">
+        <link href="css/normalize.css" rel="stylesheet" type="text/css" />
+        <link href="css/style.css" rel="stylesheet" type="text/css"/>
         <title>LesPetitsPlats</title>
     </head>
     <body>
         <header>
             <section> 
-                <img alt="logo" src="assets/logo.svg">
+                <img class="logo" alt="logo" src="assets/logo.svg">
                 <h1>Les petits plats</h1>
             </section>
             <nav>
-                <input type="search" placeholder="Rechercher une recette" class="nav"/>
-                <section>
-                    <div role="menu" aria-labelledby="title">
-                        <ul>
-                            <label for="ingredients" id="title">Ingredients</label>
-                            <input id="ingredients" type="search"/>
-                        </ul>
+                <div class="nav" role="search">
+                    <input type="text" name="search" id="search" class="nav__search" placeholder="Rechercher une recette"/>
+                </div>
+                <div role="navigation" aria-label="outils de recherche" class="tools" tabindex="0">
+                    <div role="menu" class="tools__menu menu1" aria-expanded="false" aria-haspopup="true">
+                        <div role="searchbox" aria-labelledby="ingredients">
+                            <label for="ingredients"></label>
+                            <input id="ingredients" name="ingredients" type="text" value="Ingrédients"/>
+                        </div>
+                        <div role="menuitem" aria-label="liste proposé" class="menu__item menu__item--hidden active">
+                            <ul></ul>
+                        </div>
                     </div>
-                    <div role="menu" aria-labelledby="title1">
-                        <ul>
-                            <label for="devices" id="title1">Appareils</label>
-                            <input id="devices" type="search"/>
-                        </ul>
+                    <div role="menu" class="tools__menu menu2" aria-expanded="false" aria-haspopup="true">
+                        <div role="searchbox" aria-labelledby="devices">
+                            <label for="devices"></label>
+                            <input id="devices" name="devices" type="text" value="Appareils" />
+                        </div>
+                        <div role="menuitem" aria-label="liste proposé" class="menu__item menu__item--hidden active" >
+                            <ul></ul>
+                        </div>
                     </div>
-                    <div role="menu" aria-labelledby="title2">
-                        <ul>
-                            <label for="utensils" id="title2">Ustensiles</label>
-                            <input id="utensils" type="search"/>
-                        </ul>
+                    <div role="menu" class="tools__menu menu3" aria-expanded="false" aria-haspopup="true">
+                        <div role="searchbox" aria-labelledby="utensils">
+                            <label for="utensils"></label>
+                            <input  id="utensils" name="utensils" type="text" value="Ustensiles"/>
+                        </div>
+                        <div role="menuitem" aria-label="liste proposé" class="menu__item menu__item--hidden active" >
+                            <ul></ul>
+                        </div>
                     </div>
-                </section>
+                </div>
             </nav>
         </header>
         <main>
             
         </main>
+        <script src="data/recipes.js"></script>
+        <script src="scripts/index.js"></script>
     </body>
+</html>
