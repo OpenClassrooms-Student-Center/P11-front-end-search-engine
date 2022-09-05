@@ -29,12 +29,11 @@ function handleTags(arrayOfAllElements, arrayOfRecipes){
              arrayOfRecipes = filterIngredients(arrayOfRecipes,ingredient);
 
              displayRecipes(arrayOfRecipes) 
-             
+
              listingAllKeywords(arrayOfRecipes);
 
              deleteTag();
-         }
-       
+         }       
    };   
 
    parentListeAppareils.onclick = (event)=>{
@@ -54,9 +53,7 @@ function handleTags(arrayOfAllElements, arrayOfRecipes){
            listingAllKeywords(arrayOfRecipes);
 
            deleteTag();
-
-       }
-     
+       }     
    };
 
    parentListeUstensiles.onclick = (event)=>{
@@ -76,9 +73,7 @@ function handleTags(arrayOfAllElements, arrayOfRecipes){
            listingAllKeywords(arrayOfRecipes);
 
            deleteTag();
-
-       }
-     
+       }     
    };
 
    function displayTag(tagName, tagCategory){
@@ -88,19 +83,16 @@ function handleTags(arrayOfAllElements, arrayOfRecipes){
        if(tagCategory === "Ingredients"){
 
            color = "#3282F7";
-
        }
 
        if(tagCategory === "Appareils"){
 
            color = "#68D9A4";
-
        }
 
        if(tagCategory === "Ustensiles"){
 
             color = "#ED6454";
-
        }
 
        const tag = `
@@ -116,7 +108,6 @@ function handleTags(arrayOfAllElements, arrayOfRecipes){
        `;
 
        document.querySelector("#tags").insertAdjacentHTML("beforeend", tag);
-
    }
 
 // FERMETURE DES TAGS
@@ -136,17 +127,14 @@ function handleTags(arrayOfAllElements, arrayOfRecipes){
 
                            displayRecipes(recipes);
 
-                           // retourne l'ancienne valeur de la liste des mots clefs
-
                            return listingAllKeywords(recipes);
-
                        } 
                        
-                       // j'affiche l'ancienne du tableaux des recettes 
+                       // j'affiche l'ancien tableau des recettes 
        
                        displayRecipes(oldValueArrayOfRecipes);
 
-                       // retourne l'ancienne valeur de la liste des mots clefs
+                       // retourne  liste des mots clefs
 
                        return listingAllKeywords(oldValueArrayOfRecipes);
 
