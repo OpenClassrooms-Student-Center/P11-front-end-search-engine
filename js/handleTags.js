@@ -5,8 +5,8 @@ function handleTags(arrayOfAllElements, arrayOfRecipes){
     const parentListeAppareils = document.querySelector("#liste-appareils");
 
     const parentListeUstensiles = document.querySelector("#liste-ustensiles");
-// Récupération de l'ancienne valeur tableau des recettes avant la recherche.
-
+    
+    // Récupération de l'ancienne valeur du tableau des recettes avant la recherche.
     let oldValueArrayOfRecipes;
 
    /* ArrayOfAllElements[0] c'est le tableau des ingredients
@@ -129,12 +129,8 @@ function handleTags(arrayOfAllElements, arrayOfRecipes){
 
                            return listingAllKeywords(recipes);
                        } 
-                       
-                       // j'affiche l'ancien tableau des recettes 
-       
+                              
                        displayRecipes(oldValueArrayOfRecipes);
-
-                       // retourne  liste des mots clefs
 
                        return listingAllKeywords(oldValueArrayOfRecipes);
 
