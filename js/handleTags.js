@@ -5,7 +5,7 @@ function handleTags(arrayOfAllElements, arrayOfRecipes){
     const parentListeAppareils = document.querySelector("#liste-appareils");
 
     const parentListeUstensiles = document.querySelector("#liste-ustensiles");
-// Ajout de cette variable pour pouvoir récupérer l'ancienne valeur tableau des ingrédients avant la recherche, ainsi lorsque l'on cliquera sur la croix du tag, ça entrainera en plus de fermeture du tag, l'affichage des recettes avant la recherche.
+// Récupération de l'ancienne valeur tableau des recettes avant la recherche.
 
     let oldValueArrayOfRecipes;
 
@@ -14,7 +14,6 @@ function handleTags(arrayOfAllElements, arrayOfRecipes){
       ArrayOfAllElements[1]  c'est le tableau des appareils
 
       ArrayOfAllElements[2] c'est le tableau des ustensiles
-
    */
 
    parentListeIngredients.onclick = (event)=>{
@@ -29,8 +28,8 @@ function handleTags(arrayOfAllElements, arrayOfRecipes){
 
              arrayOfRecipes = filterIngredients(arrayOfRecipes,ingredient);
 
-             displayRecipes(arrayOfRecipes) //même résultat en mettant displayRecipes(result) result est le même que celui en fin de la page searchFunctionnalProgramming.js
-
+             displayRecipes(arrayOfRecipes) 
+             
              listingAllKeywords(arrayOfRecipes);
 
              deleteTag();
@@ -122,13 +121,13 @@ function handleTags(arrayOfAllElements, arrayOfRecipes){
 
 // FERMETURE DES TAGS
    function deleteTag(){
-// je place un clique sur le parent de tous les tags
+
        document.querySelector("#tags").onclick = (event)=>{
-// si je clique sur le parent et que je touche un de ses enfant 
+
             if(event.target !== event.currentTarget){
-// si ma cible est égale à "img_croix")
+
                   if(event.target.className === "img_croix"){
-// récupère le parent de la cible 
+
                        const tag = event.target.parentNode;
                   
                        tag.remove();
@@ -160,16 +159,15 @@ function handleTags(arrayOfAllElements, arrayOfRecipes){
    }
 
 
-// getTheUserinput = obtenir l'entrée utilisateur
+
    function getTheUserinput(){
 
         const allinputs = document.querySelectorAll(".filters-tags-area-input");
-// le deuxième paramètre index va permettre à la fctio filterDetails de savoir sur quel tableau il doit aller chez les éléments
+
 
         allinputs.forEach((input, index)=>{
 
                input.addEventListener("input", ()=>{
-                   // input.value permet de récupérer les caractères saisies dans l'input
 
                      const filteredArray = filterDetails(input.value, arrayOfAllElements[index]);
 
@@ -184,8 +182,5 @@ function handleTags(arrayOfAllElements, arrayOfRecipes){
    } 
 
    getTheUserinput();
-
-   
-
 
 }
