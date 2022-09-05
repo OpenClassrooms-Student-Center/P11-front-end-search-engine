@@ -5,7 +5,7 @@ function handleTags(arrayOfAllElements, arrayOfRecipes){
     const parentListeAppareils = document.querySelector("#liste-appareils");
 
     const parentListeUstensiles = document.querySelector("#liste-ustensiles");
-// ajout de cette variable pour pouvoir récupérer l'ancienne valeur tableau des ingrédients avant la recherche, ainsi lorsque l'on cliquera sur la croix du tag, ça entrainera en plus de fermeture du tag, l'affichage des recettes avant la recherche.
+// Ajout de cette variable pour pouvoir récupérer l'ancienne valeur tableau des ingrédients avant la recherche, ainsi lorsque l'on cliquera sur la croix du tag, ça entrainera en plus de fermeture du tag, l'affichage des recettes avant la recherche.
 
     let oldValueArrayOfRecipes;
 
@@ -16,12 +16,11 @@ function handleTags(arrayOfAllElements, arrayOfRecipes){
       ArrayOfAllElements[2] c'est le tableau des ustensiles
 
    */
-// fonctionnement au clique sur la recherche des ingrédients
+
    parentListeIngredients.onclick = (event)=>{
-// !== inégalité strite 
-// La propriété currentTarget fait toujours référence à l'élément dont l'écouteur d'événement a déclenché l'événement, par opposition à la propriété target , qui renvoie l'élément qui a déclenché l'événement.  
+
          if(event.target !== event.currentTarget){
-// récupération du texte de l'événement cible
+
              const ingredient = event.target.textContent;
 
              displayTag(ingredient, "Ingredients"); 
@@ -37,9 +36,7 @@ function handleTags(arrayOfAllElements, arrayOfRecipes){
              deleteTag();
          }
        
-   };
- 
-   
+   };   
 
    parentListeAppareils.onclick = (event)=>{
      
@@ -85,7 +82,6 @@ function handleTags(arrayOfAllElements, arrayOfRecipes){
      
    };
 
-
    function displayTag(tagName, tagCategory){
        
        let color = "";
@@ -107,7 +103,6 @@ function handleTags(arrayOfAllElements, arrayOfRecipes){
             color = "#ED6454";
 
        }
-
 
        const tag = `
        
@@ -133,9 +128,9 @@ function handleTags(arrayOfAllElements, arrayOfRecipes){
             if(event.target !== event.currentTarget){
 // si ma cible est égale à "img_croix")
                   if(event.target.className === "img_croix"){
-// / récupère le parent de la cible 
+// récupère le parent de la cible 
                        const tag = event.target.parentNode;
-                       // je retire le tag 
+                  
                        tag.remove();
 
                        if(document.querySelectorAll(".tag").length === 0){
@@ -148,7 +143,7 @@ function handleTags(arrayOfAllElements, arrayOfRecipes){
 
                        } 
                        
-                       // j'affiche l'ancienne valeur du tableaux des recettes 
+                       // j'affiche l'ancienne du tableaux des recettes 
        
                        displayRecipes(oldValueArrayOfRecipes);
 
