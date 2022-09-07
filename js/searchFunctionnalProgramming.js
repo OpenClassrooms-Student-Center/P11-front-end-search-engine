@@ -19,8 +19,7 @@ function searchFunctionnalProgramming(userInput){
                         if(recipeIngredient.ingredient.toLowerCase().includes(userInput) === true){
                             isOnIngredients = true;           
                         }           
-                    });
-           
+                    });           
                     if(isOnIngredients === true){           
                         return recipe;         
                     }           
@@ -32,7 +31,7 @@ function searchFunctionnalProgramming(userInput){
               return new Promise((resolve, reject)=>{    
                     const resultRecipesDescription = recipes.filter((recipe)=>{    
                         if(recipe.description.toLocaleLowerCase().includes(userInput) === true){                
-                            return recipes;                
+                            return recipe;                
                         }                
                     });    
                     return resolve(resultRecipesDescription);     
