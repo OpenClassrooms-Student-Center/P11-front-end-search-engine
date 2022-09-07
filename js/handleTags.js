@@ -9,6 +9,8 @@ function handleTags(arrayOfAllElements, arrayOfRecipes){
     // Récupération de l'ancienne valeur du tableau des recettes avant la recherche.
     let oldValueArrayOfRecipes;
 
+      console.log(selectedTags)
+
    /* ArrayOfAllElements[0] c'est le tableau des ingredients
 
       ArrayOfAllElements[1]  c'est le tableau des appareils
@@ -77,6 +79,14 @@ function handleTags(arrayOfAllElements, arrayOfRecipes){
    };
 
    function displayTag(tagName, tagCategory){
+
+       // On vérifie si le tag que l'on veut ajouter a  deja été selectionné ou pas.
+
+       if(selectedTags.includes(tagName.toLowerCase()) === true){
+
+           return false;
+
+       }
        
        let color = "";
 
@@ -107,6 +117,8 @@ function handleTags(arrayOfAllElements, arrayOfRecipes){
        
        `;
 
+       selectedTags.push(tagName);
+
        document.querySelector("#tags").insertAdjacentHTML("beforeend", tag);
    }
 
@@ -120,6 +132,18 @@ function handleTags(arrayOfAllElements, arrayOfRecipes){
                   if(event.target.className === "img_croix"){
 
                        const tag = event.target.parentNode;
+
+                       // Ici on enlève le tag du tableau des tags déjà selectionnés
+
+                      const tagName = tag.querySelector("span").textContent;
+                      
+                      const tagIndex = selectedTags.findIndex((tag)=>{
+
+                            return tag.toLowerCase() === tagName.toLowerCase();
+
+                      });
+
+                      selectedTags.splice(tagIndex, 1);
                   
                        tag.remove();
 

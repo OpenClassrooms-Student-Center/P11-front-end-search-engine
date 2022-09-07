@@ -6,7 +6,7 @@ function filterAppareils(arrayOfRecipes, applianceToSearch){
 
        for(let i=0; i<j; i++){
 
-            if(arrayOfRecipes[i].appliance.includes(applianceToSearch) === true){
+            if(arrayOfRecipes[i].appliance.toLowerCase().includes(applianceToSearch) === true){
 
                    filteredAppliances.push(arrayOfRecipes[i]);
 
