@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet"> 
+    <link href="style.css" rel="stylesheet" type="text/css" /> 
+    <title>Les petits plats</title>
+</head>
+<body id="bloc-page">    
+    <header>
+        <img class="container_logo" src="img/logo.png" alt="logo site les petits plats">        
+    
+        <nav id="main_container">
+
+            <div class="input_control input_control_1">                
+                <input type="text"
+                id="search"
+                placeholder="Rechercher une recette">
+                <label for="search">
+                    <img  src="img/loupe.svg" alt="icone loupe">                   
+                </label>
+            </div> 
+            <div id="tags">  
+                                                                  
+            </div>           
+            
+            <section id="filters-tags-area">
+    
+                <details id="details-ingredients">
+
+                    <summary>
+                        Ingredients
+                        <svg width="16" height="11" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M14.12 0.453369L8 6.56004L1.88 0.453369L0 2.33337L8 10.3334L16 2.33337L14.12 0.453369Z" fill="white"/>
+                        </svg> 
+                    </summary>
+                    <input type="text" class="filters-tags-area-input ingredient-color" id="search-ingredients" name="search-ingredients" minlength="3" maxlength="20" size="10" placeholder="Rechercher un Ingredient">
+
+                    <ul class="ingredient-color" id="liste-ingredients"></ul>
+
+                </details>
+
+                <details id="details-appareils">
+
+                    <summary>
+                        Appareils
+                        <svg width="16" height="11" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M14.12 0.453369L8 6.56004L1.88 0.453369L0 2.33337L8 10.3334L16 2.33337L14.12 0.453369Z" fill="white"/>
+                        </svg> 
+                    </summary>
+                    <input type="text" class="filters-tags-area-input appareils-color" id="search-appareils" name="search-appareils" minlength="3" maxlength="20" size="10" placeholder="Rechercher un appareil">
+
+                    <ul class="appareils-color" id="liste-appareils"></ul>
+
+                </details>
+
+                <details id="details-ustensiles">
+
+                    <summary>
+                        Ustensiles
+                        <svg width="16" height="11" viewBox="0 0 16 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M14.12 0.453369L8 6.56004L1.88 0.453369L0 2.33337L8 10.3334L16 2.33337L14.12 0.453369Z" fill="white"/>
+                        </svg> 
+                    </summary>
+                        <input type="text" class="filters-tags-area-input ustensiles-color" id="search-ustensiles" name="search-ustensiles" minlength="3" maxlength="20" size="10" placeholder="Rechercher un ustensile">
+                    <ul class="ustensiles-color" id="liste-ustensiles"></ul>
+                    
+                </details>
+
+            </section>
+        
+        </nav>
+    </header>
+
+    <main>         
+        
+    </main>
+
+    
+</body>
+<script src="js/searchFunctionnalProgramming.js"></script>
+<script src="js/index.js"></script>
+<script src="data/recipes.js"></script> 
+<script src="js/displayRecipes.js"></script>
+<script src="js/normalizeString.js"></script>
+<script src="js/displayNoRecipes.js"></script>
+<script src="js/handleTags.js"></script>
+<script src="js/filterDetails.js"></script>
+<script src="js/displayDetails.js"></script>
+<script src="js/ListingAllKeyWords.js"></script>
+<script src="js/filterIngredients.js"></script>
+<script src="js/filterAppareils.js"></script>
+<script src="js/filterTagsByTitle.js"></script>
+<script src="js/filterUstensiles.js"></script>
+<script src="js/selectedTags.js"></script>
+</html>
