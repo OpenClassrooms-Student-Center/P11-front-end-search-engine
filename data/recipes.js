@@ -20,7 +20,7 @@ const recipes = [
             },
             {
                 "ingredient" : "Sucre",
-                "quantite" : 30,
+                "quantity" : 30,
                 "unit" : "grammes"
             },
             {
@@ -52,7 +52,7 @@ const recipes = [
             },
             {
                 "ingredient" : "Carotte",
-                "quantite" : 1
+                "quantity" : 1
             },
             {
                 "ingredient" : "Citron Vert",
@@ -98,7 +98,7 @@ const recipes = [
             {
                 "ingredient": "Huile d'olive",
                 "quantity": 1,
-               "unit": "cuillères à soupe"
+               "unit": "cuillère à soupe"
             }
         ],
         "time": 80,
@@ -174,7 +174,7 @@ const recipes = [
            {
                 "ingredient": "Moutarde de Dijon",
                 "quantity": 1,
-                "unite": "cuillères à soupe"
+                "unite": "cuillère à soupe"
            }
         ],
         "time": 45,
@@ -212,7 +212,7 @@ const recipes = [
             {
                 "ingredient": "Sucre vanillé",
                 "quantity": 1,
-                "unit": "sachets"
+                "unit": "sachet"
 
             }
         ],
@@ -420,7 +420,7 @@ const recipes = [
             {
                 "ingredient": "Eau",
                 "quantity" : "0.5",
-                "unit" : "tasses"
+                "unit" : "tasse"
             }
         ],
         "time": 40,
@@ -456,7 +456,7 @@ const recipes = [
             {
                 "ingredient": "huile d'olive",
                 "quantity": 2,
-                "unit": "cuillère à soupe"
+                "unit": "cuillères à soupe"
             }
         ],
         "time":40,
@@ -566,12 +566,12 @@ const recipes = [
             {
                 "ingredient": "Basilic",
                 "quantity": 1,
-                "unit":"tiges"
+                "unit":"tige"
             },
             {
                 "ingredient": "huile d'olives",
                 "quantity": 2,
-                "unit": "cuillère à soupe"
+                "unit": "cuillères à soupe"
             }
         ],
         "time": 45,
@@ -596,7 +596,7 @@ const recipes = [
             {
                 "ingredient": "Jus de citron",
                 "quantity": 1,
-                "unit":"cuillères à soupe"
+                "unit":"cuillère à soupe"
             },
             {
                 "ingredient": "Glaçons",
@@ -697,7 +697,7 @@ const recipes = [
             {
                 "ingredient": "huile d'olive",
                 "quantity": 1,
-                "unit": "cuillères à soupe"
+                "unit": "cuillère à soupe"
             }
         ],
         "time": 30,
@@ -737,7 +737,7 @@ const recipes = [
             {
                 "ingredient": "Crème Fraiche",
                 "quantity" : 1,
-                "unit": "cuillères à soupe"
+                "unit": "cuillère à soupe"
             }
         ],
         "time": 30,
@@ -917,7 +917,7 @@ const recipes = [
             {
                 "ingredient": "Ail",
                 "quantity": 1,
-                "unit": "gousses"
+                "unit": "gousse"
             }
         ],
         "time": 25,
@@ -941,12 +941,12 @@ const recipes = [
             {
                 "ingredient": "Crème fraîche",
                 "quantity": 4,
-                "unit": "cuillère à soupe"
+                "unit": "cuillères à soupe"
             },
             {
                 "ingredient": "Vermicelles",
                 "quantity": 1,
-                "unit":"verres"
+                "unit":"verre"
             },
             {
                 "ingredient": "Beurre salé",
@@ -1002,12 +1002,12 @@ const recipes = [
             {
                 "ingredient": "Pois chiches",
                 "quantity": 1,
-                "unit": "boites"
+                "unit": "boite"
             },
             {
                 "ingredient": "Ail",
                 "quantity": 1,
-                "unit": "gousses"
+                "unit": "gousse"
             },
             {
                 "ingredient": "Citron",
@@ -1117,7 +1117,7 @@ const recipes = [
             {
                 "ingredient": "Noix de muscade",
                 "quantity": 1,
-                "unit": "pincées"
+                "unit": "pincée"
             }
         ],
         "time": 20,
@@ -1152,7 +1152,7 @@ const recipes = [
             {
                 "ingredient": "Jus de citron",
                 "quantity": 1,
-                "unit": "cuillères à soupe"
+                "unit": "cuillère à soupe"
             }
         ],
         "time": 5,
@@ -1214,12 +1214,12 @@ const recipes = [
             {
                 "ingredient": "Cumin",
                 "quantity": 1,
-                "unit": "cuillères à café"
+                "unit": "cuillère à café"
             },
             {
                 "ingredient": "Noix de muscade",
                 "quantity": 1,
-                "unit": "pincées"
+                "unit": "pincée"
             }
         ],
         "time": 25,
@@ -1258,7 +1258,7 @@ const recipes = [
             {
                 "ingredient": "Maïzena",
                 "quantity": 1,
-                "unit": "cuillères à soupe"
+                "unit": "cuillère à soupe"
             }
         ],
         "time": 35,
@@ -1374,7 +1374,7 @@ const recipes = [
             {
                 "ingredient": "Eau",
                 "quantity": 1,
-                "unit": "Litres"
+                "unit": "Litre"
             },
             {
                 "ingredient": "Citron Vert",
@@ -1388,7 +1388,7 @@ const recipes = [
             {
                 "ingredient": "Bicarbonate",
                 "quantity": 1,
-                "unit": "cuillères à café"
+                "unit": "cuillère à café"
             }
         ],
         "time": 10,
@@ -1413,7 +1413,7 @@ const recipes = [
             {
                 "ingredient": "Sucre vanillé",
                 "quantity": 1,
-                "unit": "sachets"
+                "unit": "sachet"
             }
         ],
         "time": 20,
@@ -1438,7 +1438,7 @@ const recipes = [
             {
                 "ingredient": "Poires au jus",
                 "quantity": 0.5,
-                "unit" : "boites"
+                "unit" : "boite"
             },
             {
                 "ingredient": "Boudoirs",
@@ -1491,7 +1491,7 @@ const recipes = [
             {
                 "ingredient": "Lait",
                 "quantity": 1,
-                "unit": "litres"
+                "unit": "litre"
             },
             {
                 "ingredient": "Chocolat",
@@ -1567,7 +1567,7 @@ const recipes = [
             {
                 "ingredient": "Sucre vanillé",
                 "quantity": 1,
-                "unit": "sachets"
+                "unit": "sachet"
             },
             {
                 "ingredient": "Oeuf",
@@ -1632,17 +1632,17 @@ const recipes = [
             {
                 "ingredient": "Tomates pelées",
                 "quantity": 1,
-                "unit": "boites"
+                "unit": "boite"
             },
             {
                 "ingredient": "Lardons",
                 "quantity": 1,
-                "unit": "barquettes"
+                "unit": "barquette"
             },
             {
                 "ingredient": "Champignons de paris",
                 "quantity": 1,
-                "unit":"boites"
+                "unit":"boite"
             },
             {
                 "ingredient": "Gruyère",

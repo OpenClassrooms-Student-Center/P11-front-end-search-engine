@@ -1,5 +1,6 @@
 *{
     box-sizing: border-box;
+    font-family: "Lato";
 }
 
 header > section{
@@ -25,7 +26,7 @@ h1{
     margin: auto;
     margin-top: 15px;
     width: 80%;
-    height: 35px;
+    height: 50px;
     display: flex;
 }
 
@@ -46,7 +47,7 @@ h1{
     height: 100%;
     width: 100%;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     padding-left: 1%;
     background-color: #E7E7E7;
 }
@@ -66,6 +67,7 @@ h1{
     margin-right: 4%;
     display: flex;
     align-items: center;
+    border-radius: 5px;
 }
 
 .tools__menu::after{
@@ -101,4 +103,76 @@ h1{
 
 .menu__item--hiden{
     display: none;
+}
+
+main section{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1%;
+    width: 80%;
+    margin: 40px auto;
+}
+
+article figure{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    margin: 0;
+    height: 280px;
+    width: 90%;
+    background-color: #C7BEBE;
+    border-radius: 5px;
+}
+
+article figcaption{
+    height: 50%;
+    background-color: #E7E7E7;
+    border-radius: 0 0 5px 5px;
+    padding: 0 5%;
+}
+
+figcaption header{
+    display: flex;
+    justify-content: space-between;
+    height: 30%;
+    margin-top: 3%;
+}
+
+figcaption header h2{
+    font-size: 0.8em;
+    width: 80%;
+}
+
+figcaption header p{
+    font-size: 0.8em;
+}
+
+figcaption > div{
+    display: flex;
+    font-size: 0.5em;
+    height: 70%;
+}
+
+
+figcaption > div ul{
+    width: 50%;
+    margin: 0;
+}
+
+figcaption > div li{
+    display: flex;
+    align-items: center;
+}
+
+h3{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+figcaption > div p{
+    width: 50%;
+    height: 50px;
+    margin: 0;
 }
