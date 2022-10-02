@@ -108,7 +108,8 @@ h1{
 main section{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 1%;
+    row-gap: 1%;
+    column-gap: 2%;
     width: 80%;
     margin: 40px auto;
 }
@@ -118,8 +119,8 @@ article figure{
     flex-direction: column;
     justify-content: end;
     margin: 0;
-    height: 280px;
-    width: 90%;
+    height: 330px;
+    width: 100%;
     background-color: #C7BEBE;
     border-radius: 5px;
 }
@@ -129,39 +130,63 @@ article figcaption{
     background-color: #E7E7E7;
     border-radius: 0 0 5px 5px;
     padding: 0 5%;
+    display: block;
 }
 
 figcaption header{
     display: flex;
     justify-content: space-between;
-    height: 30%;
-    margin-top: 3%;
+    align-items: center;
+    height: 40px;
+    margin: 3% 0;
 }
 
 figcaption header h2{
-    font-size: 0.8em;
-    width: 80%;
+    font-size: 1.1em;
+    width: 70%;
+    overflow: hidden;
+    white-space: nowrap;
+    font-weight:normal;
+    margin: 0;
 }
 
 figcaption header p{
-    font-size: 0.8em;
+    position: relative;
+    font-size: 1em;
+    margin: 0;
+}
+
+figcaption header p::before{
+    position: absolute;
+    content: "";
+    background-image: url("../assets/timer.svg");
+    background-repeat: no-repeat;
+    bottom: 0;
+    right: 115%;
+    height: 18px;
+    width: 18px;
 }
 
 figcaption > div{
     display: flex;
-    font-size: 0.5em;
-    height: 70%;
+    font-size: 0.65em;
+    height: 200px;
 }
-
 
 figcaption > div ul{
     width: 50%;
     margin: 0;
+     margin-right: 10px;
 }
 
 figcaption > div li{
     display: flex;
     align-items: center;
+    margin: 0;
+}
+
+li p{
+    margin: 0;
 }
 
 h3{
@@ -171,8 +196,16 @@ h3{
     flex-wrap: wrap;
 }
 
-figcaption > div p{
+.ellipsis{
     width: 50%;
-    height: 50px;
+    height: 60px;
+    /* line-height: 1.1; */
     margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: pre-line;
 }
+

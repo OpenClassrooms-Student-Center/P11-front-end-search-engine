@@ -13,16 +13,17 @@ function recipesFactory(data){
         const ul = document.createElement("ul");
         const pDescription = document.createElement("p");
         pDescription.textContent = description;
+        pDescription.classList.add("ellipsis");
         ingredients.forEach(ingredient => {
             const li = document.createElement("li");
             if(ingredient.unit !== undefined){
-                li.innerHTML = `<strong>${ingredient.ingredient}:\xA0</strong>${ingredient.quantity}${getSpacing(ingredient.unit)}`;
+                li.innerHTML = `<p><strong>${ingredient.ingredient}:\xA0</strong>${ingredient.quantity}${getSpacing(ingredient.unit)}</p>`;
             }else
             if(ingredient.quantity !== undefined){
-                li.innerHTML = `<strong>${ingredient.ingredient}:\xA0</strong>${ingredient.quantity}`;
+                li.innerHTML = `<p><strong>${ingredient.ingredient}:\xA0</strong>${ingredient.quantity}</p>`;
             }
             else{
-                li.innerHTML = `<strong>${ingredient.ingredient}</strong>`;
+                li.innerHTML = `<p><strong>${ingredient.ingredient}</strong></p>`;
             }
             ul.appendChild(li);
         });
