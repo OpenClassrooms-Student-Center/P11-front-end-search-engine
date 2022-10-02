@@ -56,5 +56,5 @@ function recipesFactory(data){
         }
     }
 
-    return {id, servings, appliance, ustensils, getRecipesCardDOM}
+    return {id, appliance, ustensils, ingredients, getRecipesCardDOM}
 }
