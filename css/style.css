@@ -50,6 +50,7 @@ h1{
     border-radius: 5px;
     padding-left: 1%;
     background-color: #E7E7E7;
+    font-size: 1.1em;
 }
 
 .tools{
@@ -208,3 +209,18 @@ h3{
     white-space: pre-line;
 }
 
+
+@keyframes errorInput{
+    0%{
+      transform: translateX(0px);
+    }
+    20%{
+      transform: translateX(-20px);
+    }
+    80%{
+      transform: translateX(20px);
+    }
+    100%{
+      transform: translateX(0px);
+    }
+}

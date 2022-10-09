@@ -17,7 +17,7 @@ function recipesFactory(data){
         ingredients.forEach(ingredient => {
             const li = document.createElement("li");
             if(ingredient.unit !== undefined){
-                li.innerHTML = `<p><strong>${ingredient.ingredient}:\xA0</strong>${ingredient.quantity}${getSpacing(ingredient.unit)}</p>`;
+                li.innerHTML = `<p><strong>${ingredient.ingredient}:\xA0</strong>${ingredient.quantity}${getSpacing(ingredient.unit.toLowerCase())}</p>`;
             }else
             if(ingredient.quantity !== undefined){
                 li.innerHTML = `<p><strong>${ingredient.ingredient}:\xA0</strong>${ingredient.quantity}</p>`;
