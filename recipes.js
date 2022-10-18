@@ -315,7 +315,7 @@ const recipes = [
                 "ingredient": "Vinaigre Balsamic"
             },
             {
-                "ingredient": "Huile d'olive"
+                "ingredient": "Huile d'olive",
             }, 
             {
                 "ingredient": "Basilic"    
