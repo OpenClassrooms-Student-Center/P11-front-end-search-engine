@@ -108,11 +108,19 @@ h1{
     height : 250px;
     top: 100%;
     border-radius: 0 0 5px 5px;
+    overflow: hidden;
+    overflow-y: scroll;
+    z-index: 1;
 }
 
 .menu__item ul{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    color: white;
+}
+
+.menu__item ul li{
+    margin: 2.5px 20px;
 }
 
 .ingredients{
