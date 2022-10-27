@@ -41,6 +41,36 @@ function recipesFactory(data){
         return article;
     }
 
+    function setItemsDOM(items,testArray){
+        const menu = document.querySelector("div[class=tools]");
+        switch(items){
+            case ingredients:
+                items.forEach(ingredient => {
+                    if(compareItem(testArray,ingredient.ingredient) === false){
+                        const liItem = document.createElement("li");
+                        liItem.textContent = ingredient.ingredient;
+                        menu.children[0].children[1].children[0].appendChild(liItem);
+                    }
+                });
+                break;
+            case appliance:
+                if(compareItem(testArray,items) === false){
+                    const liItem = document.createElement("li");
+                    liItem.textContent = items;
+                    menu.children[1].children[1].children[0].appendChild(liItem);
+                }
+                break;
+            case ustensils:
+                items.forEach(ustensil => {
+                    if(compareItem(testArray,ustensil) === false){
+                        const liItem = document.createElement("li");
+                        liItem.textContent = ustensil;
+                        menu.children[2].children[1].children[0].appendChild(liItem);   
+                    }
+                });
+        }
+    }
+
     function getSpacing(unit){
         if(unit !== "ml" && unit !== "cl" && unit !== "grammes" && unit !== "litre"){
             return `\xA0${unit}`
@@ -56,5 +86,20 @@ function recipesFactory(data){
         }
     }
 
-    return {id, appliance, ustensils, ingredients, getRecipesCardDOM}
+
+    function compareItem(testArray, item){
+        const unbreakItem = item.toLowerCase();
+        let validItem = false;
+        testArray.forEach( test => {
+            if(test === unbreakItem){
+                validItem = true;
+            }
+        });
+        if(validItem === false){
+            testArray.push(unbreakItem);
+            return validItem
+        }
+    }
+
+    return {id, appliance, ustensils, ingredients, getRecipesCardDOM, setItemsDOM}
 }

@@ -8,15 +8,22 @@ function init(){
     main.appendChild(section);
     section.setAttribute("tabindex","0");
     section.setAttribute("aria-label","Contenu des recettes");
-    setRecipesDOM();
+    setDOM();
 } 
 
-function setRecipesDOM(){
+function setDOM(){
     const searchInput = document.getElementById("search");
+    const tagsBtn = document.getElementsByClassName("tools__menu");
     const section = document.querySelector(".articles");
     const listOfRecipes = [];
+    const ingredientsArray = [];
+    const applianceArray = [];
+    const ustensilsArray= [];
     recipes.forEach(recipe => {
         recipesModel = recipesFactory(recipe);
+        recipesModel.setItemsDOM(recipesModel.ingredients,ingredientsArray);
+        recipesModel.setItemsDOM(recipesModel.appliance, applianceArray);
+        recipesModel.setItemsDOM(recipesModel.ustensils,ustensilsArray);
         const recipeArticle = recipesModel.getRecipesCardDOM();
         section.appendChild(recipeArticle);
         listOfRecipes.push(recipe);
@@ -24,6 +31,43 @@ function setRecipesDOM(){
     searchInput.addEventListener("input", function eventSearchInput(e){
         searchInput.style.animation = "none";
         research(listOfRecipes, e);
+    });
+    const arrayTagsBtn = [].slice.call(tagsBtn);
+    console.log(arrayTagsBtn);
+    arrayTagsBtn.forEach(btn => {
+        btn.addEventListener("click", function(e){
+            btn.lastElementChild.classList.remove("menu__item--hidden");
+            btn.classList.add("tools__menu--active");
+            switch(btn.children[0].children[1].value){
+                case "Ingrédients":
+                    btn.children[0].children[1].setAttribute("placeholder","Rechercher un ingrédient");
+                    break;
+                case "Appareils":
+                    btn.children[0].children[1].setAttribute("placeholder","Rechercher un appareil");
+                    break;
+                case "Ustensiles":
+                    btn.children[0].children[1].setAttribute("placeholder","Rechercher un ustensile");
+            }
+            btn.children[0].children[1].value = "";
+            btn.children[0].children[1].focus();
+        });
+        btn.children[0].children[1].addEventListener("blur",function(e){
+            btn.lastElementChild.classList.add("menu__item--hidden");
+            btn.classList.remove("tools__menu--active");
+            console.log(btn.children[0].children[1].classList[1]);
+            switch(btn.children[0].children[1].placeholder){
+                case "Rechercher un ingrédient":
+                    btn.children[0].children[1].value = "Ingrédients";
+                    break;
+                case "Rechercher un appareil":
+                    btn.children[0].children[1].value = "Appareils";
+                    break;
+                case "Rechercher un ustensile":
+                    btn.children[0].children[1].value = "Ustensiles";
+            }
+            btn.children[0].children[1].removeAttribute("placeholder");
+            btn.children[0].children[1].removeEventListener("blur",e);
+        });
     });
 }
 
@@ -34,8 +78,7 @@ function research(listOfRecipes, event){
     
     if(search.length >= 3){
         const searchRegex = new RegExp(search);
-        const index = [];
-        console.log(index);
+        const indexList = [];
         let articleDelete = 0;
         listOfRecipes.forEach(recipe => {
             let findName = false;
@@ -53,32 +96,32 @@ function research(listOfRecipes, event){
                 findDescription = true;
             }
             if(findName === false && findIngredient === false && findDescription === false){
-                index.push(listOfRecipes.indexOf(recipe));
+                indexList.push(listOfRecipes.indexOf(recipe));
             }
         });
-        if(index.length > 0){
+        if(indexList.length > 0){
             //on supprime les articles correspondants
-            index.forEach(index => {
+            indexList.forEach(index => {
                 listOfRecipes.splice(index-articleDelete,1);
                 section.removeChild(section.children[index-articleDelete]);
                 articleDelete += 1;
             });
         }
-        reloadSearch(section,searchInput,event);
+        if(section.children.length === 0){
+            reloadSearch(searchInput,event);
+        }
     }
 }
 
-function reloadSearch(section, searchInput, event){
+function reloadSearch(searchInput, event){
     const errorColor = "#e54858";
-    if(section.children.length === 0){
-        searchInput.style.animation = "errorInput 100ms 5";
-        searchInput.style.border = errorColor;
-        searchInput.removeEventListener("input",event);
-        searchInput.setAttribute("placeholder","Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson », etc.");
-        event.target.value = "";
-        event.target.blur();
-        setRecipesDOM();
-    }
+    searchInput.style.animation = "errorInput 100ms 5";
+    searchInput.style.border = errorColor;
+    searchInput.removeEventListener("input",event);
+    searchInput.setAttribute("placeholder","Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson », etc.");
+    event.target.value = "";
+    event.target.blur();
+    setDOM();
 }
 
 init();
