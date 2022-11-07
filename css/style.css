@@ -109,8 +109,11 @@ h1{
     top: 100%;
     border-radius: 0 0 5px 5px;
     overflow: hidden;
-    overflow-y: scroll;
     z-index: 1;
+}
+
+.ingredients{
+    overflow-y: scroll;
 }
 
 .menu__item ul{

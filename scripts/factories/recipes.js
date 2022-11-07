@@ -41,12 +41,12 @@ function recipesFactory(data){
         return article;
     }
 
-    function setItemsDOM(items,testArray){
+    function setItemsDOM(items,arrayItems){
         const menu = document.querySelector("div[class=tools]");
         switch(items){
             case ingredients:
                 items.forEach(ingredient => {
-                    if(compareItem(testArray,ingredient.ingredient) === false){
+                    if(compareItem(arrayItems,ingredient.ingredient)){
                         const liItem = document.createElement("li");
                         liItem.textContent = ingredient.ingredient;
                         menu.children[0].children[1].children[0].appendChild(liItem);
@@ -54,7 +54,7 @@ function recipesFactory(data){
                 });
                 break;
             case appliance:
-                if(compareItem(testArray,items) === false){
+                if(compareItem(arrayItems,items)){
                     const liItem = document.createElement("li");
                     liItem.textContent = items;
                     menu.children[1].children[1].children[0].appendChild(liItem);
@@ -62,10 +62,10 @@ function recipesFactory(data){
                 break;
             case ustensils:
                 items.forEach(ustensil => {
-                    if(compareItem(testArray,ustensil) === false){
+                    if(compareItem(arrayItems,ustensil)){
                         const liItem = document.createElement("li");
                         liItem.textContent = ustensil;
-                        menu.children[2].children[1].children[0].appendChild(liItem);   
+                        menu.children[2].children[1].children[0].appendChild(liItem);
                     }
                 });
         }
@@ -89,13 +89,13 @@ function recipesFactory(data){
 
     function compareItem(testArray, item){
         const unbreakItem = item.toLowerCase();
-        let validItem = false;
+        let validItem = true;
         testArray.forEach( test => {
             if(test === unbreakItem){
-                validItem = true;
+                validItem = false;
             }
         });
-        if(validItem === false){
+        if(validItem){
             testArray.push(unbreakItem);
             return validItem
         }
