@@ -41,12 +41,12 @@ function recipesFactory(data){
         return article;
     }
 
-    function setItemsDOM(items,arrayItems){
+    function setItemsDOM(items,toolsArray){
         const menu = document.querySelector("div[class=tools]");
         switch(items){
             case ingredients:
                 items.forEach(ingredient => {
-                    if(compareItem(arrayItems,ingredient.ingredient)){
+                    if(compareItem(toolsArray,ingredient.ingredient)){
                         const liItem = document.createElement("li");
                         liItem.textContent = ingredient.ingredient;
                         menu.children[0].children[1].children[0].appendChild(liItem);
@@ -54,7 +54,7 @@ function recipesFactory(data){
                 });
                 break;
             case appliance:
-                if(compareItem(arrayItems,items)){
+                if(compareItem(toolsArray,items)){
                     const liItem = document.createElement("li");
                     liItem.textContent = items;
                     menu.children[1].children[1].children[0].appendChild(liItem);
@@ -62,7 +62,7 @@ function recipesFactory(data){
                 break;
             case ustensils:
                 items.forEach(ustensil => {
-                    if(compareItem(arrayItems,ustensil)){
+                    if(compareItem(toolsArray,ustensil)){
                         const liItem = document.createElement("li");
                         liItem.textContent = ustensil;
                         menu.children[2].children[1].children[0].appendChild(liItem);
