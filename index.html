@@ -16,38 +16,39 @@
                 <h1>Les petits plats</h1>
             </section>
             <nav>
-                <div class="nav" role="search">
+                <section class="nav" role="search">
                     <input type="text" name="search" id="search" class="nav__search" min="3" placeholder="Rechercher une recette"/>
-                </div>
-                <div role="navigation" aria-label="outils de recherche" class="tools" tabindex="0">
-                    <div role="menu" class="tools__menu menu1" aria-expanded="false" aria-haspopup="true">
-                        <div role="searchbox" aria-labelledby="ingredients">
+                </section>
+                <section class="tagMenu"></section>
+                <section role="menubar" aria-label="outils de recherche" class="tools" tabindex="0">
+                    <div role="menu" class="tools__menu menu1" aria-expanded="false" aria-haspopup="true" tabindex="0">
+                        <div role="combobox" aria-labelledby="ingredients">
                             <label for="ingredients"></label>
                             <input id="ingredients" name="ingredients" type="text" value="Ingrédients" class="active"/>
                         </div>
-                        <div role="menuitem" aria-label="liste d'ingrédients" class="menu__item menu__item--hidden ingredients">
+                        <div role="listbox" aria-label="liste d'ingrédients" class="menu__item menu__item--hidden ingredients">
                             <ul></ul>
                         </div>
                     </div>
-                    <div role="menu" class="tools__menu menu2" aria-expanded="false" aria-haspopup="true">
-                        <div role="searchbox" aria-labelledby="devices">
+                    <div role="menu" class="tools__menu menu2" aria-expanded="false" aria-haspopup="true" tabindex="0">
+                        <div role="combobox" aria-labelledby="devices">
                             <label for="devices"></label>
                             <input id="devices" name="devices" type="text" value="Appareils"/>
                         </div>
-                        <div role="menuitem" aria-label="liste d'appareils" class="menu__item menu__item--hidden appliances" >
+                        <div role="listbox" aria-label="liste d'appareils" class="menu__item menu__item--hidden appliances" >
                             <ul></ul>
                         </div>
                     </div>
-                    <div role="menu" class="tools__menu menu3" aria-expanded="false" aria-haspopup="true">
-                        <div role="searchbox" aria-labelledby="ustensils">
+                    <div role="menu" class="tools__menu menu3" aria-expanded="false" aria-haspopup="true" tabindex="0">
+                        <div role="combobox" aria-labelledby="ustensils">
                             <label for="utensils"></label>
                             <input  id="utensils" name="ustensils" type="text" value="Ustensiles"/>
                         </div>
-                        <div role="menuitem" aria-label="liste d'ustensils" class="menu__item menu__item--hidden ustensils" >
+                        <div role="listbox" aria-label="liste d'ustensils" class="menu__item menu__item--hidden ustensils" >
                             <ul></ul>
                         </div>
                     </div>
-                </div>
+                </section>
             </nav>
         </header>
         <main>

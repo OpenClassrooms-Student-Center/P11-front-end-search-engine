@@ -53,6 +53,24 @@ h1{
     font-size: 1.1em;
 }
 
+.tagMenu{
+    display: flex;
+    width: 80%;
+    margin: auto;
+}
+
+.tag{
+    display: flex;
+    width: 10%;
+    border-radius: 5px;
+    height: 30px;
+    font-size: 0.6em;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 20px 0 0;
+    color: white;
+}
+
 .tools{
     display: flex;
     width: 80%;
@@ -90,15 +108,15 @@ h1{
     font-size: 0.9em;
 }
 
-.menu1, .menu1 input{
+.menu1, .tag1, .menu1 input{
     background-color: #3282F7;
 }
 
-.menu2, .menu2 input{
+.menu2, .tag2, .menu2 input{
     background-color: #68D9A4;
 }
 
-.menu3, .menu3 input{
+.menu3, .tag3, .menu3 input{
     background-color: #ED6454;
 }
 

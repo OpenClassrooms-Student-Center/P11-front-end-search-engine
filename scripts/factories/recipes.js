@@ -42,7 +42,7 @@ function recipesFactory(data){
     }
 
     function setItemsDOM(items,toolsArray){
-        const menu = document.querySelector("div[class=tools]");
+        const menu = document.querySelector("section[class=tools]");
         switch(items){
             case ingredients:
                 items.forEach(ingredient => {

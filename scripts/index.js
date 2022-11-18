@@ -155,11 +155,11 @@ function reloadDOM(searchInput,event){
 function setEventsDOM(searchInput, listOfRecipes, toolsArray){
     const toolsBtn = document.getElementsByClassName("tools__menu");
     const arrayToolsBtn = [].slice.call(toolsBtn);
-    arrayToolsBtn.forEach(toolsBtn => {
-        const inputToolsBtn = toolsBtn.children[0].children[1];
-        toolsBtn.addEventListener("click", function(e){
-            toolsBtn.lastElementChild.classList.remove("menu__item--hidden");
-            toolsBtn.classList.add("tools__menu--active");
+    arrayToolsBtn.forEach(toolBtn => {
+        const inputToolsBtn = toolBtn.children[0].children[1];
+        toolBtn.addEventListener("click", function(e){
+            toolBtn.lastElementChild.classList.remove("menu__item--hidden");
+            toolBtn.classList.add("tools__menu--active");
             switch(inputToolsBtn.value){
                 case "Ingrédients":
                     inputToolsBtn.setAttribute("placeholder","Rechercher un ingrédient");
@@ -172,21 +172,35 @@ function setEventsDOM(searchInput, listOfRecipes, toolsArray){
             }
             inputToolsBtn.value = "";
             inputToolsBtn.focus();
+            inputToolsBtn.addEventListener("blur", function(e){
+                console.log(e);
+                if(e.relatedTarget !== toolBtn){
+                    eventCloseItemsBtn(e,toolBtn,inputToolsBtn);
+                }
+            });
         });
-        inputToolsBtn.addEventListener("blur",function(e){
-            toolsBtn.lastElementChild.classList.add("menu__item--hidden");
-            toolsBtn.classList.remove("tools__menu--active");
-            switch(e.target.name){
-                case "ingredients":
-                    inputToolsBtn.value = "Ingrédients";
-                    break;
-                case "devices":
-                    inputToolsBtn.value = "Appareils";
-                    break;
-                case "ustensils":
-                    inputToolsBtn.value = "Ustensiles";
-            }
-            inputToolsBtn.removeAttribute("placeholder");
+        const ulToolBtn = toolBtn.children[1].children[0];
+        const liArrayBtn = Array.from(ulToolBtn.querySelectorAll("li"));
+        liArrayBtn.forEach( liBtn => {
+            liBtn.addEventListener("click", function(e){
+                e.stopPropagation();
+                const divTag = document.createElement("div");
+                divTag.setAttribute("role","status");
+                switch(inputToolsBtn.name){
+                    case "ingredients":
+                        divTag.classList.add("tag","tag1");
+                        break;
+                    case "devices":
+                        divTag.classList.add("tag","tag2");
+                        break;
+                    case "ustensils":
+                        divTag.classList.add("tag","tag3");
+                }
+                divTag.textContent = liBtn.textContent;
+                document.querySelector(".tagMenu").appendChild(divTag);
+                eventCloseItemsBtn(e,toolBtn,inputToolsBtn);
+                research(inputToolsBtn,listOfRecipes,toolsArray,e);
+            });
         });
         inputToolsBtn.addEventListener("input",function(event){
             research(inputToolsBtn,listOfRecipes,toolsArray,event);
@@ -195,6 +209,29 @@ function setEventsDOM(searchInput, listOfRecipes, toolsArray){
     searchInput.addEventListener("input", function(event){
         eventSearchInput(searchInput, listOfRecipes, toolsArray, event);
     });
+}
+
+function eventCloseItemsBtn(e,toolBtn,inputToolsBtn){
+    toolBtn.lastElementChild.classList.add("menu__item--hidden");
+    toolBtn.classList.remove("tools__menu--active");
+    let target = undefined;
+    if(e.target.nodeName === "LI"){
+        target = inputToolsBtn.name;
+    }
+    else{
+        target = e.target.name;
+    }
+    switch(target){
+        case "ingredients":
+            inputToolsBtn.value = "Ingrédients";
+            break;
+        case "devices":
+            inputToolsBtn.value = "Appareils";
+            break;
+        case "ustensils":
+            inputToolsBtn.value = "Ustensiles";
+    }
+    inputToolsBtn.removeAttribute("placeholder");
 }
 
 function eventSearchInput(searchInput,listOfRecipes, toolsArray, event){
