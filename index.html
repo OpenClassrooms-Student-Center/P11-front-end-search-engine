@@ -17,12 +17,12 @@
             </section>
             <nav>
                 <section class="nav" role="search">
-                    <input type="text" name="search" id="search" class="nav__search" min="3" placeholder="Rechercher une recette"/>
+                    <input type="text" name="search" id="search" class="nav__search" placeholder="Rechercher une recette"/>
                 </section>
                 <section class="tagMenu"></section>
-                <section role="menubar" aria-label="outils de recherche" class="tools" tabindex="0">
-                    <div role="menu" class="tools__menu menu1" aria-expanded="false" aria-haspopup="true" tabindex="0">
-                        <div role="combobox" aria-labelledby="ingredients">
+                <section aria-label="outils de recherche" class="tools" tabindex="0">
+                    <div role="menu" class="tools__menu menu1" aria-expanded="false" aria-haspopup="menu" tabindex="0">
+                        <div role="combobox" aria-labelledby="ingredients" aria-expanded="false">
                             <label for="ingredients"></label>
                             <input id="ingredients" name="ingredients" type="text" value="Ingrédients" class="active"/>
                         </div>
@@ -30,8 +30,8 @@
                             <ul></ul>
                         </div>
                     </div>
-                    <div role="menu" class="tools__menu menu2" aria-expanded="false" aria-haspopup="true" tabindex="0">
-                        <div role="combobox" aria-labelledby="devices">
+                    <div role="menu" class="tools__menu menu2" aria-expanded="false" aria-haspopup="menu" tabindex="0">
+                        <div role="combobox" aria-labelledby="devices" aria-expanded="false">
                             <label for="devices"></label>
                             <input id="devices" name="devices" type="text" value="Appareils"/>
                         </div>
@@ -39,10 +39,10 @@
                             <ul></ul>
                         </div>
                     </div>
-                    <div role="menu" class="tools__menu menu3" aria-expanded="false" aria-haspopup="true" tabindex="0">
-                        <div role="combobox" aria-labelledby="ustensils">
-                            <label for="utensils"></label>
-                            <input  id="utensils" name="ustensils" type="text" value="Ustensiles"/>
+                    <div role="menu" class="tools__menu menu3" aria-expanded="false" aria-haspopup="menu" tabindex="0">
+                        <div role="combobox" aria-labelledby="ustensils" aria-expanded="false">
+                            <label for="ustensils"></label>
+                            <input  id="ustensils" name="ustensils" type="text" value="Ustensiles"/>
                         </div>
                         <div role="listbox" aria-label="liste d'ustensils" class="menu__item menu__item--hidden ustensils" >
                             <ul></ul>
@@ -53,8 +53,8 @@
         </header>
         <main>
         </main>
+        <script src="data/recipes.js"></script>
+        <script src="scripts/factories/recipes.js"></script>
+        <script src="scripts/index.js"></script>
     </body>
-    <script src="data/recipes.js"></script>
-    <script src="scripts/factories/recipes.js"></script>
-    <script src="scripts/index.js"></script>
 </html>

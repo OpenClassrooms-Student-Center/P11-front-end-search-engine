@@ -69,6 +69,8 @@ function setEventsDOM(searchInput, listOfRecipes, toolsArray){
         toolBtn.addEventListener("click", function(e){
             toolBtn.lastElementChild.classList.remove("menu__item--hidden");
             toolBtn.classList.add("tools__menu--active");
+            toolBtn.setAttribute("aria-expanded","true");
+            toolBtn.children[0].setAttribute("aria-expanded","true");
             switch(inputToolsBtn.value){
                 case "Ingrédients":
                     inputToolsBtn.setAttribute("placeholder","Rechercher un ingrédient");
@@ -198,6 +200,7 @@ function removeItemsWithTag(toolsArray,arrayIndex, ulToolBtn,searchRegex){
     let findItem = false;
     let itemsDelete = 0;
     toolsArray[arrayIndex].forEach(function(tool,index){
+        console.log(toolsArray[arrayIndex]);
         if(!tool.toLowerCase().match(searchRegex)){
             removeItems(ulToolBtn,index,itemsDelete);
             itemsDelete++;
