@@ -2,18 +2,18 @@ function init(){
     const main = document.querySelector("main");
     const section = document.createElement("section");
     const searchInput = document.getElementById("search");
+    const reload = false;
     section.classList.add("articles");
     const inputBg = "#E7E7E7";
     searchInput.style.background = inputBg;
     main.appendChild(section);
     section.setAttribute("tabindex","0");
     section.setAttribute("aria-label","Contenu des recettes");
-    setDOM(searchInput);
+    setDOM(searchInput,reload);
 } 
 
 function setDOM(searchInput){
     const listOfRecipes = [];
-    const section = document.querySelector(".articles");
     const ingredientsArray = [];
     const appliancesArray = [];
     const ustensilsArray = [];
@@ -33,7 +33,7 @@ function setDOM(searchInput){
             }
         });
         const recipeArticle = recipesModel.getRecipesCardDOM();
-        section.appendChild(recipeArticle);
+        document.querySelector(".articles").appendChild(recipeArticle);
         listOfRecipes.push(recipe);
     });
     setEventsDOM(searchInput,listOfRecipes, toolsArray);
@@ -44,7 +44,6 @@ function setDOM(searchInput){
 function reloadDOM(searchInput,event){
     const globalSearchInput = document.getElementById("search");
     event.target.value = "";
-    console.log(event);
     if(event.target.name === "search"){
         searchInput.style.animation = "errorInput 100ms 5";
         searchInput.setAttribute("placeholder","Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson », etc.");
@@ -62,7 +61,7 @@ function reloadDOM(searchInput,event){
 function setEventsDOM(searchInput, listOfRecipes, toolsArray){
     const toolsBtn = document.getElementsByClassName("tools__menu");
     const arrayToolsBtn = [].slice.call(toolsBtn);
-    const arrayTagBtn = [];
+    const arrayTagsBtn = [];
     arrayToolsBtn.forEach(toolBtn => {
         const inputToolsBtn = toolBtn.children[0].children[1];
         const ulToolBtn = toolBtn.children[1].children[0];
@@ -103,18 +102,24 @@ function setEventsDOM(searchInput, listOfRecipes, toolsArray){
                 switch(inputToolsBtn.name){
                     case "ingredients":
                         divTag.classList.add("tag","tag1");
-                        reloadItems(toolsArray,0,ulToolBtn);
                         break;
                     case "devices":
                         divTag.classList.add("tag","tag2");
-                        reloadItems(toolsArray,1,ulToolBtn);
                         break;
                     case "ustensils":
                         divTag.classList.add("tag","tag3");
-                        reloadItems(toolsArray,2,ulToolBtn);
                 }
-                arrayTagBtn.push(divTag);
-                research(inputToolsBtn,listOfRecipes,toolsArray,e,isInput);
+                e.target.remove();
+                document.querySelectorAll("article").forEach(article =>{
+                    document.querySelector(".articles").removeChild(article);
+                });
+                recipes.forEach(recipe =>{
+                    recipesModel = recipesFactory(recipe);
+                    const recipeArticle = recipesModel.getRecipesCardDOM();
+                    document.querySelector(".articles").appendChild(recipeArticle);
+                });
+                arrayTagsBtn.push(divTag);
+                research(inputToolsBtn,listOfRecipes,toolsArray,e,isInput,arrayTagsBtn);
             });
         });
         inputToolsBtn.addEventListener("input",function(event){
@@ -260,7 +265,7 @@ function removeItemsWithRecipe(currentItemsArray, currentItemsIndexArray, validI
 
 //Fonctionnalité - Algorithme de recherche
 
-function research(searchInput, listOfRecipes, toolsArray, event, isInput){
+function research(searchInput, listOfRecipes, toolsArray, event, isInput,arrayTagsBtn){
     let search = undefined;
     if(isInput){
         search = event.target.value.toLowerCase();
@@ -272,48 +277,21 @@ function research(searchInput, listOfRecipes, toolsArray, event, isInput){
         const section = document.querySelector(".articles");
         const searchRegex = new RegExp(search);
         const recipeIndexArray = [];
-        listOfRecipes.forEach(recipe => {
-            switch(searchInput.name){
-                case "search":
-                    let findName = false;
-                    let findDescription = false;
-                    if(recipe.name.toLowerCase().match(searchRegex)){
-                        findName = true;
-                    }
-                    if(recipe.description.toLowerCase().match(searchRegex)){
-                        findDescription = true;
-                    }
-                    if(findName === false && findDescription === false && findIngredient(recipe,searchRegex) === false){
-                        pushIndexRecipe(listOfRecipes,recipe,recipeIndexArray);
-                    }
-                    break;
-                case "ingredients":
-                    if(findIngredient(recipe,searchRegex) === false){
-                        pushIndexRecipe(listOfRecipes,recipe,recipeIndexArray);
-                    }
-                    break;
-                case "devices":
-                    if(!recipe.appliance.toLowerCase().match(searchRegex)){
-                        pushIndexRecipe(listOfRecipes,recipe,recipeIndexArray);
-                    }
-                    break;
-                case "ustensils":
-                    let ustensils = false ;
-                    recipe.ustensils.forEach(ustensil => {
-                        if(ustensil.toLowerCase().match(searchRegex)){
-                            ustensils = true;
-                        }                    
-                    });
-                    if(ustensils === false){
-                        pushIndexRecipe(listOfRecipes,recipe,recipeIndexArray);
-                    }
-            }
-        });
+        if(isInput){
+            setIndexRecipeArray(listOfRecipes,searchInput,recipeIndexArray,searchRegex);
+        }
+        else{
+            arrayTagsBtn.forEach(tagBtn =>{
+                setIndexRecipeArray(listOfRecipes,searchInput,recipeIndexArray,searchRegex);
+            });
+        }
         if(recipeIndexArray.length > 0){
             let articleDelete = 0;
             //on supprime les articles correspondants
             recipeIndexArray.forEach(recipeIndex => {
-                listOfRecipes.splice(recipeIndex-articleDelete,1);
+                if(isInput){
+                    listOfRecipes.splice(recipeIndex-articleDelete,1);
+                }
                 section.removeChild(section.children[recipeIndex-articleDelete]);
                 articleDelete += 1;
             });
@@ -336,8 +314,13 @@ function research(searchInput, listOfRecipes, toolsArray, event, isInput){
                             });
                     }
                 });
-                setIndexArray(toolArray,itemIndexArray); 
-                removeItemsWithRecipe(toolArray, itemIndexArray, validItemIndexArray,indexTool);
+                if(isInput){
+                    setIndexArray(toolArray,itemIndexArray);
+                    removeItemsWithRecipe(toolArray, itemIndexArray, validItemIndexArray,indexTool);
+                }
+                else{
+
+                } 
             });
         }
         if(section.children.length === 0){
@@ -356,8 +339,57 @@ function findIngredient(recipe,searchRegex){
     return test
 }
 
+function setIndexRecipeArray(listOfRecipes,searchInput,recipeIndexArray,searchRegex){
+    listOfRecipes.forEach(recipe => {
+        switch(searchInput.name){
+            case "search":
+                let findName = false;
+                let findDescription = false;
+                if(recipe.name.toLowerCase().match(searchRegex)){
+                    findName = true;
+                }
+                if(recipe.description.toLowerCase().match(searchRegex)){
+                    findDescription = true;
+                }
+                if(findName === false && findDescription === false && findIngredient(recipe,searchRegex) === false){
+                    pushIndexRecipe(listOfRecipes,recipe,recipeIndexArray);
+                }
+                break;
+            case "ingredients":
+                if(findIngredient(recipe,searchRegex) === false){
+                    pushIndexRecipe(listOfRecipes,recipe,recipeIndexArray);
+                }
+                break;
+            case "devices":
+                if(!recipe.appliance.toLowerCase().match(searchRegex)){
+                    pushIndexRecipe(listOfRecipes,recipe,recipeIndexArray);
+                }
+                break;
+            case "ustensils":
+                let ustensils = false ;
+                recipe.ustensils.forEach(ustensil => {
+                    if(ustensil.toLowerCase().match(searchRegex)){
+                        ustensils = true;
+                    }                    
+                });
+                if(ustensils === false){
+                    pushIndexRecipe(listOfRecipes,recipe,recipeIndexArray);
+                }
+        }
+    });
+}
+
 function pushIndexRecipe(listOfRecipes, recipe, recipeIndexArray){
-    recipeIndexArray.push(listOfRecipes.indexOf(recipe));
+    let findIndex = false;
+    const indexTest = listOfRecipes.indexOf(recipe);
+    recipeIndexArray.forEach(recipeIndex=>{
+        if(recipeIndex === indexTest){
+            findIndex = true;
+        }
+    });
+    if(!findIndex){
+        recipeIndexArray.push(indexTest);
+    }
 }
 
 init();
