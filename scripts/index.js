@@ -282,8 +282,19 @@ function research(searchInput, listOfRecipes, toolsArray, event, isInput,arrayTa
         }
         else{
             arrayTagsBtn.forEach(tagBtn =>{
+                //implémenter en utilisant tagBtn
                 setIndexRecipeArray(listOfRecipes,searchInput,recipeIndexArray,searchRegex);
             });
+            if(arrayTagsBtn.length > 1){
+                recipeIndexArray.forEach((a) =>{
+                    recipeIndexArray.forEach((b,index) =>{
+                        if(a === b && index > 0){
+                            recipeIndexArray.splice(index,1);
+                        }
+                    });
+                });
+                console.log(recipeIndexArray);
+            }
         }
         if(recipeIndexArray.length > 0){
             let articleDelete = 0;
@@ -318,9 +329,6 @@ function research(searchInput, listOfRecipes, toolsArray, event, isInput,arrayTa
                     setIndexArray(toolArray,itemIndexArray);
                     removeItemsWithRecipe(toolArray, itemIndexArray, validItemIndexArray,indexTool);
                 }
-                else{
-
-                } 
             });
         }
         if(section.children.length === 0){
@@ -377,19 +385,11 @@ function setIndexRecipeArray(listOfRecipes,searchInput,recipeIndexArray,searchRe
                 }
         }
     });
+    return recipeIndexArray
 }
 
 function pushIndexRecipe(listOfRecipes, recipe, recipeIndexArray){
-    let findIndex = false;
-    const indexTest = listOfRecipes.indexOf(recipe);
-    recipeIndexArray.forEach(recipeIndex=>{
-        if(recipeIndex === indexTest){
-            findIndex = true;
-        }
-    });
-    if(!findIndex){
-        recipeIndexArray.push(indexTest);
-    }
+    recipeIndexArray.push(listOfRecipes.indexOf(recipe));
 }
 
 init();
