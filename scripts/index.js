@@ -62,7 +62,7 @@ function setEventsDOM(searchInput, listOfRecipes, toolsArray){
     const toolsBtn = document.getElementsByClassName("tools__menu");
     const arrayToolsBtn = [].slice.call(toolsBtn);
     const arrayTagsBtn = [];
-    arrayToolsBtn.forEach(toolBtn => {
+    arrayToolsBtn.forEach((toolBtn,indexToolBtn) => {
         const inputToolsBtn = toolBtn.children[0].children[1];
         const ulToolBtn = toolBtn.children[1].children[0];
         toolBtn.addEventListener("click", function(e){
@@ -109,6 +109,9 @@ function setEventsDOM(searchInput, listOfRecipes, toolsArray){
                     case "ustensils":
                         divTag.classList.add("tag","tag3");
                 }
+                //On supprime notre target item du tableau d'outils correspondant 
+                spliceTarget(toolsArray,e,indexToolBtn);
+                //Ainsi que sur le DOM
                 e.target.remove();
                 arrayTagsBtn.push(divTag);
                 research(inputToolsBtn,listOfRecipes,toolsArray,e,isInput);
@@ -211,6 +214,14 @@ function reloadItems(toolsArray,arrayIndex,ulToolBtn){
         itemsDelete++;
     });
     addItems(toolsArray,arrayIndex,ulToolBtn);
+}
+
+function spliceTarget(toolsArray,e,indexToolBtn){
+    toolsArray[indexToolBtn].forEach((tool,index) => {
+        if(tool.toLowerCase() === e.target.textContent.toLowerCase()){
+            toolsArray[indexToolBtn].splice(index,1);
+        }
+    });
 }
 
 function addItems(toolsArray,arrayIndex,ulToolBtn){
