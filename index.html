@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <!-- Style CSS -->
+   <link rel="stylesheet" href="./style/style.css" />
+   <!-- Font Awesome -->
+   <script src="https://kit.fontawesome.com/5ef216e1ec.js" crossorigin="anonymous"></script>
+   <title>Les petits plat</title>
+</head>
+<body>
+<div class="container">
+   <!-- logo -->
+   <header class="header">
+      <div class="logo">
+         <a href="#"><img src="./assets/images/logo.png" alt="les petits plats"></a>
+      </div>
+   </header>
+   <!-- search bar -->
+   <main class="main">
+      <section class="search">
+         <div class="search_container">
+            <form action="" class="search_form">
+               <input type="text" class="search_input" placeholder="Recherchez une recette">
+               <button class="search_button"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+         </div>
+      </section>
+      <!-- tags -->
+      <section class="tags">
+      <!-- here are the array of tags from the javascript -->
+      </section>
+      <!-- filters -->
+      <section class="filter">
+         <div class="filter__custom-select">
+            <input
+              class="filter__select filter__select--primary"
+              type="button"
+              data-color="primary"
+              data-value="Ingrédients"
+              value="Ingrédients"
+            />
+            <!-- UL et LI COMPONENT JAVASCRIPTS  -->
+          </div>
+          <div class="filter__custom-select">
+            <span class="filter__custom-arrow"></span>
+            <input
+              class="filter__select filter__select--success"
+              type="button"
+              data-color="success"
+              data-value="Appareil"
+              value="Appareil"
+            />
+            <!-- UL et LI COMPONENT JAVASCRIPTS  -->
+          </div>
+          <div class="filter__custom-select">
+            <span class="filter__custom-arrow"></span>
+            <input
+              class="filter__select filter__select--danger"
+              type="button"
+              data-color="danger"
+              data-value="Ustensiles"
+              value="Ustensiles"
+            />
+            <!-- UL et LI COMPONENT JAVASCRIPTS  -->
+          </div>
+      </section>
+   </main>
+</div>
+<script src="index.js" type="module"></script>
+</body>
+</html>
