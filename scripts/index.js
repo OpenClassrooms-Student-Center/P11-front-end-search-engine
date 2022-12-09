@@ -181,7 +181,13 @@ function eventSearchInput(searchInput,listOfRecipes, toolsArray, event){
 };
 
 
-//Fonctionnalité - Partie outils des recettes/tools of recipes 
+//Fonctionnalité - Partie outils des recettes/tools of recipes
+
+function setIndexArray(currentItemsArray,indexArray){
+    currentItemsArray.forEach((currentItem,index) => {
+        indexArray.push(index);
+    });
+}
 
 function setValidItemsIndex(currentItemsArray,itemData,validItemsIndexArray){
     const validIndex = currentItemsArray.findIndex(currentItem => currentItem.toLowerCase() === itemData.toLowerCase());
@@ -238,12 +244,13 @@ function removeItems(ulToolBtn,index,itemsDelete){
     }
 }
 
-function removeItemsWithRecipe(toolArray, validItemsIndexArray,ulTool){
+function removeItemsWithRecipe(toolArray,itemsIndexArray, validItemsIndexArray,ulTool){
     //On retire les items ne correspondant pas au tableau d'index valide
     let itemsDelete = 0;
-    toolArray.forEach((tool,index) => {
-        if(validItemsIndexArray.every(validItemIndex => validItemIndex !== index)){
-            ulTool.removeChild(ulTool.children[index-itemsDelete]);
+    itemsIndexArray.forEach((itemsIndex) => {
+        if(validItemsIndexArray.every(validItemIndex => validItemIndex !== itemsIndex)){
+            ulTool.removeChild(ulTool.children[itemsIndex-itemsDelete]);
+            toolArray.splice(itemsIndex-itemsDelete,1);
             itemsDelete++;
         }
     });
@@ -274,6 +281,7 @@ function research(searchInput, listOfRecipes, toolsArray, event, isInput){
             });
             toolsArray.forEach((toolArray,indexTool) => {
                 const validItemIndexArray = [];
+                const itemsIndexArray= [];
                 var ulTool = undefined;
                 listOfRecipes.forEach( recipe => {
                     switch(indexTool){
@@ -294,8 +302,10 @@ function research(searchInput, listOfRecipes, toolsArray, event, isInput){
                             ulTool = document.querySelector(".ustensils").children[0];
                     }
                 });
-                validItemIndexArray.sort((a,b)=> a-b);
-                removeItemsWithRecipe(toolArray, validItemIndexArray,ulTool);
+                //On remplit un tableau d'index d'items courant car on ne peut pas boucler sur le tableau
+                //d'outils et supprimer ses éléments en même temps.
+                setIndexArray(toolArray,itemsIndexArray); 
+                removeItemsWithRecipe(toolArray,itemsIndexArray, validItemIndexArray, ulTool);
             });
         }
         if(section.children.length === 0){
