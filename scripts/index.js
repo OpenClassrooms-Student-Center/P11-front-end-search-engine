@@ -2,14 +2,13 @@ function init(){
     const main = document.querySelector("main");
     const section = document.createElement("section");
     const searchInput = document.getElementById("search");
-    const reload = false;
     section.classList.add("articles");
     const inputBg = "#E7E7E7";
     searchInput.style.background = inputBg;
     main.appendChild(section);
     section.setAttribute("tabindex","0");
     section.setAttribute("aria-label","Contenu des recettes");
-    setDOM(searchInput,reload);
+    setDOM(searchInput);
 } 
 
 function setDOM(searchInput){
@@ -37,23 +36,24 @@ function setDOM(searchInput){
         listOfRecipes.push(recipe);
     });
     setEventsDOM(searchInput,listOfRecipes, toolsArray);
+    return {listOfRecipes, toolsArray}
 }
 
 
 
-function reloadDOM(searchInput,event){
+function reloadDOM(event){
     const globalSearchInput = document.getElementById("search");
     event.target.value = "";
     if(event.target.name === "search"){
-        searchInput.style.animation = "errorInput 100ms 5";
-        searchInput.setAttribute("placeholder","Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson », etc.");
+        globalSearchInput.style.animation = "errorInput 100ms 5";
+        globalSearchInput.setAttribute("placeholder","Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson », etc.");
     }
-    setDOM(globalSearchInput);
     //On supprime les tags
     const arrayTagsBtn = Array.from(document.querySelectorAll("div[role=status]"));
     arrayTagsBtn.forEach(tagBtn => {
         tagBtn.remove();
     });
+    setDOM(globalSearchInput);
 }
 
 //Fonctionnalité - Gestion des évènements
@@ -61,7 +61,7 @@ function reloadDOM(searchInput,event){
 function setEventsDOM(searchInput, listOfRecipes, toolsArray){
     const toolsBtn = document.getElementsByClassName("tools__menu");
     const arrayToolsBtn = [].slice.call(toolsBtn);
-    const arrayTagsBtn = [];
+    const eventClickLiArray = [];
     arrayToolsBtn.forEach((toolBtn,indexToolBtn) => {
         const inputToolsBtn = toolBtn.children[0].children[1];
         const ulToolBtn = toolBtn.children[1].children[0];
@@ -91,13 +91,13 @@ function setEventsDOM(searchInput, listOfRecipes, toolsArray){
         });
         const liArrayBtn = Array.from(ulToolBtn.querySelectorAll("li"));
         liArrayBtn.forEach( liBtn => {
-            liBtn.addEventListener("click", function(e){
+            liBtn.addEventListener("click", function(eventClickLi){
                 const isInput = false;
                 const divTag = document.createElement("div");
                 divTag.setAttribute("role","status");
                 divTag.textContent = liBtn.textContent;
                 document.querySelector(".tagMenu").appendChild(divTag);
-                eventCloseItemsBtn(e,toolBtn,inputToolsBtn);
+                eventCloseItemsBtn(eventClickLi,toolBtn,inputToolsBtn);
                 //Faire un reset des items
                 switch(inputToolsBtn.name){
                     case "ingredients":
@@ -110,11 +110,27 @@ function setEventsDOM(searchInput, listOfRecipes, toolsArray){
                         divTag.classList.add("tag","tag3");
                 }
                 //On supprime notre target item du tableau d'outils correspondant 
-                spliceTarget(toolsArray,e,indexToolBtn);
+                spliceTarget(toolsArray,eventClickLi,indexToolBtn);
                 //Ainsi que sur le DOM
-                e.target.remove();
-                arrayTagsBtn.push(divTag);
-                research(inputToolsBtn,listOfRecipes,toolsArray,e,isInput);
+                eventClickLi.target.remove();
+                eventClickLiArray.push(eventClickLi);
+                research(inputToolsBtn,listOfRecipes,toolsArray,eventClickLi,isInput);
+                divTag.addEventListener("click",function(eventClickTag){
+                    const newItems = document.createElement("li");
+                    newItems.textContent = divTag.textContent;
+                    ulToolBtn.appendChild(newItems);
+                    const section = document.querySelector(".articles");
+                    divTag.remove();
+                    section.innerHTML = "";
+                    ulToolBtn.innerHTML = "";
+                    const reset = setDOM(searchInput);
+                    const eventClickLiFilterArray = eventClickLiArray.filter(eventClickLi => eventClickLi.target.textContent.toLowerCase() !== eventClickTag.target.textContent.toLowerCase());
+                    console.log(eventClickLiFilterArray);
+                    eventClickLiFilterArray.forEach(eventClickLiFilter =>{
+                        //retirer les items de l'interface qui correspondents au tag restant par l'eventLi
+                        research(searchInput,reset.listOfRecipes,reset.toolsArray,eventClickLiFilter,isInput);
+                    });
+                });
             });
         });
         inputToolsBtn.addEventListener("input",function(event){
@@ -302,14 +318,16 @@ function research(searchInput, listOfRecipes, toolsArray, event, isInput){
                             ulTool = document.querySelector(".ustensils").children[0];
                     }
                 });
-                //On remplit un tableau d'index d'items courant car on ne peut pas boucler sur le tableau
-                //d'outils et supprimer ses éléments en même temps.
-                setIndexArray(toolArray,itemsIndexArray); 
-                removeItemsWithRecipe(toolArray,itemsIndexArray, validItemIndexArray, ulTool);
+                if(validItemIndexArray.length > 0){
+                    //On remplit un tableau d'index d'items courant car on ne peut pas boucler sur le tableau
+                    //d'outils et supprimer ses éléments en même temps.
+                    setIndexArray(toolArray,itemsIndexArray); 
+                    removeItemsWithRecipe(toolArray,itemsIndexArray, validItemIndexArray, ulTool);
+                }
             });
         }
         if(section.children.length === 0){
-            reloadDOM(searchInput,event);
+            reloadDOM(event);
         }
     }
 }
