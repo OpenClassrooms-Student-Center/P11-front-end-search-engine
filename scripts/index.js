@@ -127,23 +127,23 @@ function setEventsDOM(searchInput, listOfRecipes, toolsArray){
                         toolBtn.children[1].children[0].innerHTML = "";
                     });
                     const reset = setDOM(searchInput);
-                    const resetToolsArray = reset.toolsArray;
                     const resetListOfRecipes = reset.listOfRecipes;
+                    //Revoir cette partie -> problème d'évènement filtré donc revoir la condition de filtrage
                     const eventClickLiFilterArray = eventClickLiArray.filter(eventClickLi => eventClickLi.target.textContent.toLowerCase() !== eventClickTag.target.textContent.toLowerCase());
                     //retirer les items de l'interface qui correspondents au tag restant par l'eventLi
-                    eventClickLiFilterArray.forEach(eventClickLiFilter =>{
-                        resetToolsArray.forEach(toolArray => {
-                            toolArray.forEach((tool,toolIndex) => {
-                                if(eventClickLiFilter.target.textContent.toLowerCase() === tool.toLowerCase()){
-                                    ulToolBtn.removeChild(ulToolBtn.children[toolIndex]);
-                                }
+                    if(eventClickLiFilterArray.length > 0){
+                        eventClickLiFilterArray.forEach(eventClickLiFilter =>{
+                            reset.toolsArray.forEach(toolArray => {
+                                toolArray.forEach((tool,toolIndex) => {
+                                    if(eventClickLiFilter.target.textContent.toLowerCase() === tool.toLowerCase()){
+                                        ulToolBtn.removeChild(ulToolBtn.children[toolIndex]);
+                                    }
+                                });
+                                toolArray.filter(tool => eventClickLiFilter.target.textContent.toLowerCase() == tool.toLowerCase());
                             });
-                            toolArray.filter(tool => eventClickLiFilter.target.textContent.toLowerCase() === tool.toLowerCase());
+                            research(inputToolsBtn,resetListOfRecipes,toolsArray,eventClickLiFilter,isInput);
                         });
-                    });
-                    eventClickLiFilterArray.forEach(eventClickLiFilter =>{
-                        research(inputToolsBtn,resetListOfRecipes,resetToolsArray,eventClickLiFilter,isInput);
-                    });
+                    }
                 });
             });
         });
