@@ -122,13 +122,27 @@ function setEventsDOM(searchInput, listOfRecipes, toolsArray){
                     const section = document.querySelector(".articles");
                     divTag.remove();
                     section.innerHTML = "";
-                    ulToolBtn.innerHTML = "";
+                    //Faire un reset de tous les ultToolBtn
+                    arrayToolsBtn.forEach(toolBtn => {
+                        toolBtn.children[1].children[0].innerHTML = "";
+                    });
                     const reset = setDOM(searchInput);
+                    const resetToolsArray = reset.toolsArray;
+                    const resetListOfRecipes = reset.listOfRecipes;
                     const eventClickLiFilterArray = eventClickLiArray.filter(eventClickLi => eventClickLi.target.textContent.toLowerCase() !== eventClickTag.target.textContent.toLowerCase());
-                    console.log(eventClickLiFilterArray);
+                    //retirer les items de l'interface qui correspondents au tag restant par l'eventLi
                     eventClickLiFilterArray.forEach(eventClickLiFilter =>{
-                        //retirer les items de l'interface qui correspondents au tag restant par l'eventLi
-                        research(searchInput,reset.listOfRecipes,reset.toolsArray,eventClickLiFilter,isInput);
+                        resetToolsArray.forEach(toolArray => {
+                            toolArray.forEach((tool,toolIndex) => {
+                                if(eventClickLiFilter.target.textContent.toLowerCase() === tool.toLowerCase()){
+                                    ulToolBtn.removeChild(ulToolBtn.children[toolIndex]);
+                                }
+                            });
+                            toolArray.filter(tool => eventClickLiFilter.target.textContent.toLowerCase() === tool.toLowerCase());
+                        });
+                    });
+                    eventClickLiFilterArray.forEach(eventClickLiFilter =>{
+                        research(inputToolsBtn,resetListOfRecipes,resetToolsArray,eventClickLiFilter,isInput);
                     });
                 });
             });
