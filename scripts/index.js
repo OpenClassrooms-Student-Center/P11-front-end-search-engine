@@ -128,11 +128,17 @@ function setEventsDOM(searchInput, listOfRecipes, toolsArray){
                     });
                     const reset = setDOM(searchInput);
                     const resetListOfRecipes = reset.listOfRecipes;
-                    //Revoir cette partie -> problème d'évènement filtré donc revoir la condition de filtrage
-                    const eventClickLiFilterArray = eventClickLiArray.filter(eventClickLi => eventClickLi.target.textContent.toLowerCase() !== eventClickTag.target.textContent.toLowerCase());
+                    let eventsDelete = 0;
+                    //Retirer l'évènement li correspondant au tag sélectionné du tableau d'évènement 
+                    eventClickLiArray.forEach((eventClickLi,indexEventclickLi) => {
+                        if(eventClickLi.target.textContent.toLowerCase() === eventClickTag.target.textContent.toLowerCase()){
+                            eventClickLiArray.splice(indexEventclickLi-eventsDelete,1);
+                            eventsDelete++;
+                        }
+                    });
                     //retirer les items de l'interface qui correspondents au tag restant par l'eventLi
-                    if(eventClickLiFilterArray.length > 0){
-                        eventClickLiFilterArray.forEach(eventClickLiFilter =>{
+                    if(eventClickLiArray.length > 0){
+                        eventClickLiArray.forEach(eventClickLiFilter =>{
                             reset.toolsArray.forEach(toolArray => {
                                 toolArray.forEach((tool,toolIndex) => {
                                     if(eventClickLiFilter.target.textContent.toLowerCase() === tool.toLowerCase()){
