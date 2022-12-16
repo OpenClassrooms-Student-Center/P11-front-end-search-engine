@@ -128,12 +128,10 @@ function setEventsDOM(searchInput, listOfRecipes, toolsArray){
                     });
                     const reset = setDOM(searchInput);
                     const resetListOfRecipes = reset.listOfRecipes;
-                    let eventsDelete = 0;
                     //Retirer l'évènement li correspondant au tag sélectionné du tableau d'évènement 
                     eventClickLiArray.forEach((eventClickLi,indexEventclickLi) => {
                         if(eventClickLi.target.textContent.toLowerCase() === eventClickTag.target.textContent.toLowerCase()){
-                            eventClickLiArray.splice(indexEventclickLi-eventsDelete,1);
-                            eventsDelete++;
+                            eventClickLiArray.splice(indexEventclickLi,1);
                         }
                     });
                     //retirer les items de l'interface qui correspondents au tag restant par l'eventLi
@@ -338,12 +336,10 @@ function research(searchInput, listOfRecipes, toolsArray, event, isInput){
                             ulTool = document.querySelector(".ustensils").children[0];
                     }
                 });
-                if(validItemIndexArray.length > 0){
-                    //On remplit un tableau d'index d'items courant car on ne peut pas boucler sur le tableau
-                    //d'outils et supprimer ses éléments en même temps.
-                    setIndexArray(toolArray,itemsIndexArray); 
-                    removeItemsWithRecipe(toolArray,itemsIndexArray, validItemIndexArray, ulTool);
-                }
+                //On remplit un tableau d'index d'items courant car on ne peut pas boucler sur le tableau
+                //d'outils et supprimer ses éléments en même temps.
+                setIndexArray(toolArray,itemsIndexArray); 
+                removeItemsWithRecipe(toolArray,itemsIndexArray, validItemIndexArray, ulTool);
             });
         }
         if(section.children.length === 0){
