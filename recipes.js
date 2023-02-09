@@ -2,6 +2,7 @@ const recipes = [
     {
         "id": 1,
         "name" : "Limonade de Coco",
+        "picture" : "limonade_coco.avif",
         "servings" : 1,
         "ingredients": [
             {
@@ -35,6 +36,7 @@ const recipes = [
     {
         "id": 2,
         "name" : "Poisson Cru à la tahitienne",
+        "picture" : "tahitian_fish.webp",
         "servings": 2,
         "ingredients": [
             {
@@ -71,6 +73,7 @@ const recipes = [
     },{
         "id": 3,
         "name": "Poulet coco réunionnais",
+        "picture" : "chicken_coco_reunion.avif",
         "servings": 4,
         "ingredients": [
             {
@@ -108,6 +111,7 @@ const recipes = [
     },{
         "id": 4,
         "name": "Salade de riz",
+        "picture" : "rice_salad.avif",
         "servings": 4,
         "ingredients":[
             {
@@ -146,6 +150,7 @@ const recipes = [
     {
         "id": 5,
         "name": "Tarte au thon",
+        "picture" : "tuna_pie.avif",
         "servings": 4,
         "ingredients":[
            {
@@ -185,6 +190,7 @@ const recipes = [
     {
         "id": 6,
         "name": "Tarte aux pommes",
+        "picture" : "apple_pie.avif",
         "servings": 6,
         "ingredients":[
             {
@@ -223,6 +229,7 @@ const recipes = [
     },{
         "id": 7,
         "name": "Tartelettes au chocolat et aux fraises",
+        "picture" : "chocolate_pie.avif",
         "servings": 6,
         "ingredients":[
             {
@@ -256,6 +263,7 @@ const recipes = [
     }, {
         "id": 8,
         "name": "Brownie",
+        "picture" : "brownie.avif",
         "servings": 10,
         "ingredients":[
            {
@@ -297,6 +305,7 @@ const recipes = [
     {
         "id": 9,
         "name": "Salade Méditerannéene fraîche au chèvre",
+        "picture" : "chevre_salad.avif",
         "servings": 4,
         "ingredients":[
             {
@@ -329,6 +338,7 @@ const recipes = [
     {
         "id": 10,
         "name": "Tartiflette",
+        "picture" : "tartiflette.jpeg",
         "servings": 4,
         "ingredients":[
             {
@@ -363,6 +373,7 @@ const recipes = [
     },{
         "id": 11,
         "name": "Salade tomate, mozzarella et pommes",
+        "picture" : "mozza_tomato.avif",
         "servings": 4,
         "ingredients":[
             {
@@ -401,6 +412,7 @@ const recipes = [
     },{
         "id": 12,
         "name": "Compote pomme rhubarbe",
+        "picture" : "apple_compote.avif",
         "servings": 4,
         "ingredients":[
             {
@@ -431,6 +443,7 @@ const recipes = [
     {
         "id": 13,
         "name": "Salade mâchée de patates",
+        "picture" : "potato_salad.avif",
         "servings": 2,
         "ingredients": [
             {
@@ -467,6 +480,7 @@ const recipes = [
     {
         "id": 14,
         "name": "Galette Bretonne Saucisse et Fromage à raclette",
+        "picture" : "breton_galette.jpeg",
         "servings": 2,
         "ingredients": [
             {
@@ -507,6 +521,7 @@ const recipes = [
     {
         "id": 15,
         "name": "Crêpes Chocolat Banane",
+        "picture" : "crepe_banane_chocolat.avif",
         "servings": 10,
         "ingredients": [
             {
@@ -546,6 +561,7 @@ const recipes = [
     {
         "id": 16,
         "name": "Gratin de pâtes à la tomate",
+        "picture" : "gratin_pate.jpeg",
         "servings": 2,
         "ingredients": [
             {
@@ -582,6 +598,7 @@ const recipes = [
     {
         "id": 17,
         "name": "Smoothie à la fraise",
+        "picture" : "fraise_smoothie.avif",
         "servings": 6,
         "ingredients": [
             {
@@ -614,6 +631,7 @@ const recipes = [
     {
         "id": 18,
         "name": "Smoothie ananas et vanille",
+        "picture" : "smoothie_ananas.avif",
         "servings": 5,
         "ingredients": [
             {
@@ -639,6 +657,7 @@ const recipes = [
     {
         "id": 19,
         "name": "Shake Banane Kiwi",
+        "picture" : "kiwi_smoothie.avif",
         "servings": 4,
         "ingredients": [
             {
@@ -672,6 +691,7 @@ const recipes = [
     {
         "id": 20,
         "name": "Pates Carbonara",
+        "picture" : "carbonara.avif",
         "servings": 5,
         "ingredients": [
             {
@@ -708,6 +728,7 @@ const recipes = [
     {
         "id": 21,
         "name": "Spaghettis à la bolognaise",
+        "picture" : "bolognese_spaghetti.avif",
         "servings": 4,
         "ingredients": [
             {
@@ -748,6 +769,7 @@ const recipes = [
     {
         "id": 22,
         "name": "Fondant au chocolat",
+        "picture" : "fondant_chocolate.avif",
         "servings": 4,
         "ingredients": [
             {
@@ -783,6 +805,7 @@ const recipes = [
     {
         "id": 23,
         "name": "Quiche lorraine",
+        "picture" : "quiche_lorraine.avif",
         "servings": 4,
         "ingredients": [
             {
@@ -823,6 +846,7 @@ const recipes = [
     {
         "id": 24,
         "name": "Salade de pâtes",
+        "picture" : "salad_pasta.avif",
         "servings": 4,
         "ingredients": [
             {
@@ -862,6 +886,7 @@ const recipes = [
     {
         "id": 25,
         "name": "Cookies",
+        "picture" : "cookies.avif",
         "servings": 4,
         "ingredients": [
             {
@@ -897,6 +922,7 @@ const recipes = [
     {
         "id": 26,
         "name": "Soupe de tomates",
+        "picture" : "soupe_tomates.avif",
         "servings": 2,
         "ingredients": [
             {
@@ -928,6 +954,7 @@ const recipes = [
     {
         "id": 27,
         "name": "Soupe à l'oseille",
+        "picture" : "sorrel_soup.avif",
         "servings": 4,
         "ingredients": [
             {
@@ -962,6 +989,7 @@ const recipes = [
     {
         "id": 28,
         "name": "Soupe de poireaux",
+        "picture" : "leeks_soup.avif",
         "servings": 4,
         "ingredients": [
             {
@@ -997,6 +1025,7 @@ const recipes = [
     {
         "id": 29,
         "name": "Houmous Express",
+        "picture" : "houmous.avif",
         "servings": 2,
         "ingredients": [
             {
@@ -1028,6 +1057,7 @@ const recipes = [
     {
         "id": 30,
         "name": "Purée de pois cassés",
+        "picture" : "split_peas.avif",
         "servings": 4,
         "ingredients": [
             {
@@ -1053,6 +1083,7 @@ const recipes = [
     {
         "id": 31,
         "name": "Jardinière de légumes",
+        "picture" : "jardiniere_legumes.avif",
         "servings": 4,
         "ingredients": [
             {
@@ -1087,6 +1118,7 @@ const recipes = [
     {
         "id": 32,
         "name": "Croque Monsieur à la dinde",
+        "picture" : "croque_monsieur.avif",
         "servings": 4,
         "ingredients": [
             {
@@ -1128,6 +1160,7 @@ const recipes = [
     {
         "id": 33,
         "name": "Sandwich au saumon fumé",
+        "picture" : "salmon_sandwich.avif",
         "servings": 4,
         "ingredients": [
             {
@@ -1163,6 +1196,7 @@ const recipes = [
     {
         "id": 34,
         "name": "Purée de patate douce",
+        "picture" : "sweet_potatoes.avif",
         "servings": 4,
         "ingredients": [
             {
@@ -1191,6 +1225,7 @@ const recipes = [
     {
         "id": 35,
         "name": "Purée de carottes",
+        "picture" : "carott_mash.avif",
         "servings": 2,
         "ingredients": [
             {
@@ -1230,6 +1265,7 @@ const recipes = [
     {
         "id": 36,
         "name": "Lasagne Courgettes et Chèvre",
+        "picture" : "courgettes_lasagne.avif",
         "servings": 2,
         "ingredients": [
             {
@@ -1269,6 +1305,7 @@ const recipes = [
     {
         "id": 37,
         "name": "Courgettes farcies au boeuf",
+        "picture" : "courgette_beef.avif",
         "servings": 2,
         "ingredients": [
             {
@@ -1309,6 +1346,7 @@ const recipes = [
     {
         "id": 38,
         "name": "Pain Perdu",
+        "picture" : "pain_perdu.avif",
         "servings": 4,
         "ingredients": [
             {
@@ -1339,6 +1377,7 @@ const recipes = [
     {
         "id": 39,
         "name": "Crumble aux pommes",
+        "picture" : "crumble.avif",
         "servings": 40,
         "ingredients": [
             {
@@ -1369,6 +1408,7 @@ const recipes = [
     {
         "id": 40,
         "name": "Limonade",
+        "picture" : "lemonade.avif",
         "servings": 4,
         "ingredients": [
             {
@@ -1399,6 +1439,7 @@ const recipes = [
     {
         "id": 41,
         "name": "Mousse au chocolat",
+        "picture" : "mousse_chocolat.avif",
         "servings": 4,
         "ingredients": [
             {
@@ -1424,6 +1465,7 @@ const recipes = [
     {
         "id": 42,
         "name": "Charlotte au poires",
+        "picture" : "charlotte_poir.avif",
         "servings": 3,
         "ingredients": [
             {
@@ -1453,6 +1495,7 @@ const recipes = [
     {
         "id": 43,
         "name": "Tarte au citron",
+        "picture" : "lemon_pie.avif",
         "servings": 6,
         "ingredients": [
             {
@@ -1486,6 +1529,7 @@ const recipes = [
     {
         "id": 44,
         "name": "Crème dessert au chocolat",
+        "picture" : "creme_chocolat.jpeg",
         "servings": 6,
         "ingredients": [
             {
@@ -1522,6 +1566,7 @@ const recipes = [
     {
         "id": 45,
         "name": "Crème pâtissière",
+        "picture" : "creme_patissiere.webp",
         "servings": 8,
         "ingredients": [
             {
@@ -1552,6 +1597,7 @@ const recipes = [
     {
         "id": 46,
         "name": "Far breton",
+        "picture" : "far_breton.webp",
         "servings": 6,
         "ingredients": [
             {
@@ -1592,6 +1638,7 @@ const recipes = [
     {
         "id": 47,
         "name": "Mousse au citron",
+        "picture" : "mousse_citron.jpeg",
         "servings": 6,
         "ingredients": [
             {
@@ -1623,6 +1670,7 @@ const recipes = [
     {
         "id": 48,
         "name": "Pizza",
+        "picture" : "pizza.avif",
         "servings": 4,
         "ingredients": [
             {
@@ -1658,6 +1706,7 @@ const recipes = [
     {
         "id": 49,
         "name": "Smoothie tropical",
+        "picture" : "tropical_smoothie.avif",
         "servings": 4,
         "ingredients": [
             {
@@ -1691,6 +1740,7 @@ const recipes = [
     {
         "id": 50,
         "name": "Frangipane",
+        "picture" : "frangipane.jpeg",
         "servings": 2,
         "ingredients": [
             {
