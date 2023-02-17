@@ -73,7 +73,7 @@ const recipes = [
     },{
         "id": 3,
         "name": "Poulet coco réunionnais",
-        "picture" : "chicken_coco_reunion.avif",
+        "picture" : "chiken_coco_reunion.avif",
         "servings": 4,
         "ingredients": [
             {
@@ -1305,7 +1305,7 @@ const recipes = [
     {
         "id": 37,
         "name": "Courgettes farcies au boeuf",
-        "picture" : "courgette_beef.avif",
+        "picture" : "courgette_beef.jpeg",
         "servings": 2,
         "ingredients": [
             {
