@@ -1,6 +1,6 @@
 
 // Select DOM element
-const recipesContainer = document.querySelector(".recipes-container");
+const recipesContainer = document.querySelector(".recipe-container");
 
 // Recipe Factory
 function DisplayRecipe(recipe) {

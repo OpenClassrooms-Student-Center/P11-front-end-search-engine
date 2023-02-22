@@ -1,0 +1,14 @@
+.search {
+    border: 1px solid;
+
+    &-form {
+        width: 100%;
+
+        &_input {
+            width: calc(100% - 20rem);
+            margin: 2rem auto;
+            height: 7rem;
+            background-color: $primary-color;
+        }
+    }
+}
