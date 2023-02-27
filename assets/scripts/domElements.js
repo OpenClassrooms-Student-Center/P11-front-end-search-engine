@@ -1,7 +1,7 @@
 const domElements = {
-  inputSecondary: document.querySelector('.input-secondary'),
+  inputSecondary: document.querySelectorAll('.input-secondary'),
   inputSecondaryIcon: document.querySelectorAll('.input-secondary-icon'),
-  inputSecondaryAllItems: document.querySelector('.input-secondary-items'),
+  inputSecondaryAllItems: document.querySelectorAll('.input-secondary-items'),
 };
 
 export default domElements;

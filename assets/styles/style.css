@@ -107,9 +107,10 @@ span {
 .ingredients {
   background: #3282f7;
 }
-.appliance {
+.appliances {
   background: #68d9a4;
 }
+
 .ustensils {
   background: #ed6454;
 }
@@ -120,6 +121,20 @@ span {
   height: 25px;
   border-radius: 5px;
   padding: 20px;
+  animation: 0.3s linear;
+}
+@keyframes append-animate {
+  to {
+    width: 660px;
+    height: 400px;
+  }
+}
+
+@keyframes disappear-animate {
+  to {
+    width: 170px;
+    height: 25px;
+  }
 }
 
 .input-secondary-open {

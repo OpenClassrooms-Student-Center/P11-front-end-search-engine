@@ -1,4 +1,4 @@
-import { recipes } from '../../data/recipes.js';
+import recipes from '../../data/recipes.js';
 
 function pushItemOrAddRecurrence(array, itemtoFind, itemLower) {
   const tempArray = array;
@@ -11,44 +11,47 @@ function pushItemOrAddRecurrence(array, itemtoFind, itemLower) {
 }
 
 export default function getData() {
-  let ingredients = [];
-  let appliances = [];
-  let ustensils = [];
+  let allIngredients = [];
+  let allAppliances = [];
+  let allUstensils = [];
 
   recipes.forEach((recipe) => {
     recipe.ingredients.forEach((ingredient) => {
       const ingredientLower = ingredient.ingredient.toLowerCase();
-      const ingredientFind = ingredients.find(
+      const ingredientFind = allIngredients.find(
         (ing) => ing.item === ingredientLower
       );
 
-      ingredients = pushItemOrAddRecurrence(
-        ingredients,
+      allIngredients = pushItemOrAddRecurrence(
+        allIngredients,
         ingredientFind,
         ingredientLower
       );
     });
 
     const applianceLower = recipe.appliance.toLowerCase();
-    const applianceFind = appliances.find((rec) => rec.item === applianceLower);
+    const applianceFind = allAppliances.find(
+      (rec) => rec.item === applianceLower
+    );
 
-    appliances = pushItemOrAddRecurrence(
-      appliances,
+    allAppliances = pushItemOrAddRecurrence(
+      allAppliances,
       applianceFind,
       applianceLower
     );
 
     recipe.ustensils.forEach((ustensil) => {
       const ustensilLower = ustensil.toLocaleLowerCase();
-      const ustensilFind = ustensils.find((ust) => ust.item === ustensilLower);
+      const ustensilFind = allUstensils.find(
+        (ust) => ust.item === ustensilLower
+      );
 
-      ustensils = pushItemOrAddRecurrence(
-        ustensils,
+      allUstensils = pushItemOrAddRecurrence(
+        allUstensils,
         ustensilFind,
         ustensilLower
       );
     });
   });
-
-  return { ingredients, appliances, ustensils };
+  return { allIngredients, allAppliances, allUstensils };
 }
