@@ -123,14 +123,14 @@ span {
   padding: 20px;
   animation: 0.3s linear;
 }
-@keyframes append-animate {
+@keyframes append-animate-inputs-secondary {
   to {
     width: 660px;
     height: 400px;
   }
 }
 
-@keyframes disappear-animate {
+@keyframes disappear-animate-inputs-secondary {
   to {
     width: 170px;
     height: 25px;
