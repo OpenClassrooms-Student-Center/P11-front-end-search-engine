@@ -11,12 +11,12 @@ function clickSecondaryElementsArrow(e) {
 
     if (
       inputClassList.contains(thisInput) &&
-      input.lastElementChild.style.display !== 'flex'
+      !inputLEC.classList.contains('show')
     ) {
       inputStyle.animationName = 'append-animate-inputs-secondary';
       setTimeout(() => {
         inputClassList.add('input-secondary-open');
-        inputLEC.style.display = 'flex';
+        inputLEC.classList.add('show');
       }, 270);
       icon.style.transform = 'rotate(180deg)';
     } else {
@@ -24,7 +24,7 @@ function clickSecondaryElementsArrow(e) {
       setTimeout(() => {
         inputClassList.remove('input-secondary-open');
       }, 300);
-      inputLEC.style.display = 'none';
+      inputLEC.classList.remove('show');
       icon.style.transform = 'rotate(0deg)';
     }
   });

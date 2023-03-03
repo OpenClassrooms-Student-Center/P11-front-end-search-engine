@@ -16,32 +16,91 @@ export function showInputsSecondary() {
     } else if (inputSecondaryName === 'ustensils') {
       array = allUstensils;
     }
+
     inputLEC.replaceChildren();
+
     array
       .sort((a, b) => a.recurrence < b.recurrence)
-      .slice(0, 30)
-      .forEach((item) => {
+      .forEach((item, index) => {
         const div = document.createElement('div');
-        div.className = 'input-secondary-ingredient';
         div.textContent =
           item.item.substring(0, 1).toUpperCase() + item.item.substring(1);
         inputLEC.appendChild(div);
+        div.className = 'input-secondary-ingredient';
+
+        if (index < 30) {
+          div.classList.add('show');
+        }
       });
   });
 }
 
 export function showRecipes() {
-  console.log(recipes[1]);
   recipes.forEach((recipe) => {
-    console.log(recipe);
     const article = document.createElement('article');
     article.className = 'recipe';
+    article.classList.add('show');
+    article.dataset.id = recipe.id;
 
-    const img = document.createElement('img');
-    img.className = 'recipe-img';
-    img.src = 'assets/images/logos/logo.svg';
-    img.alt = 'image empty logo';
-    article.appendChild(img);
+    const imgMain = document.createElement('img');
+    imgMain.className = 'recipe-img';
+    imgMain.src = 'assets/images/logos/logo.svg';
+    imgMain.alt = 'image empty logo';
+    article.appendChild(imgMain);
+
+    const description = document.createElement('div');
+    description.className = 'recipe-description';
+
+    const descriptionHead = document.createElement('div');
+    descriptionHead.className = 'recipe-description-head';
+
+    const descriptionHeadLeft = document.createElement('h4');
+    descriptionHeadLeft.textContent = recipe.name;
+
+    descriptionHead.appendChild(descriptionHeadLeft);
+
+    const descriptionHeadRight = document.createElement('div');
+    const imgTime = document.createElement('img');
+    imgTime.src = 'assets/images/icons/time.svg';
+    imgTime.alt = ' icon time';
+    descriptionHeadRight.appendChild(imgTime);
+
+    const time = document.createElement('h5');
+    time.textContent = `${recipe.time} min`;
+    descriptionHeadRight.appendChild(time);
+
+    descriptionHead.appendChild(descriptionHeadRight);
+
+    description.appendChild(descriptionHead);
+
+    const descriptionBody = document.createElement('div');
+    descriptionBody.className = 'recipe-description-body';
+
+    const ingredients = document.createElement('div');
+
+    recipe.ingredients.forEach((ingredient) => {
+      const ingredientDiv = document.createElement('div');
+      ingredientDiv.className = '';
+      const ingredientTitle = document.createElement('h6');
+      ingredientTitle.textContent = `${ingredient.ingredient} : `;
+      const ingredientMesure = document.createElement('span');
+      ingredientMesure.textContent = ` ${
+        ingredient.quantity ? ingredient.quantity : 'non indiqué'
+      } ${ingredient.unit ? ingredient.unit : ''}`;
+
+      ingredientDiv.appendChild(ingredientTitle);
+      ingredientDiv.appendChild(ingredientMesure);
+      ingredients.appendChild(ingredientDiv);
+    });
+    descriptionBody.appendChild(ingredients);
+
+    const descriptionBodyDescription = document.createElement('span');
+    descriptionBodyDescription.textContent = recipe.description;
+
+    descriptionBody.appendChild(descriptionBodyDescription);
+    description.appendChild(descriptionBody);
+
+    article.appendChild(description);
 
     domElements.allRecipes.appendChild(article);
   });

@@ -94,6 +94,7 @@ span {
   font-size: 14px;
   color: #ffffff;
 }
+
 .field-img {
   cursor: pointer;
 }
@@ -126,7 +127,7 @@ span {
 @keyframes append-animate-inputs-secondary {
   to {
     width: 660px;
-    height: 400px;
+    height: 380px;
   }
 }
 
@@ -139,7 +140,7 @@ span {
 
 .input-secondary-open {
   width: 660px;
-  height: 400px;
+  height: 380px;
 }
 .input-secondary-input::placeholder {
   opacity: 1;
@@ -178,9 +179,11 @@ input:focus {
   font-size: 18px;
   line-height: 22px;
   color: #ffffff;
+  cursor: pointer;
 }
 
 .input-secondary-ingredient {
+  display: none;
   width: 31%;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -190,11 +193,11 @@ input:focus {
   display: flex;
   flex-wrap: wrap;
   margin-top: 120px;
-  justify-content: space-between;
+  justify-content: flex-start;
+  column-gap: 5%;
   row-gap: 50px;
 }
 .recipe {
-  display: flex;
   flex-direction: column;
   width: 30%;
   height: 365px;
@@ -237,15 +240,17 @@ input:focus {
   flex-direction: column;
   width: 50%;
   text-overflow: ellipsis;
+  overflow-y: auto;
+  height: 90px;
 }
 .recipe-description-body > div > div {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 .no-recipes {
   margin-top: 100px;
   display: none;
-  /* display: flex; */
   text-align: center;
   flex-direction: column;
   opacity: 0.9;
@@ -264,4 +269,8 @@ input:focus {
   font-weight: 700;
   font-size: 30px;
   color: #d04f4f;
+}
+
+.show {
+  display: flex;
 }
