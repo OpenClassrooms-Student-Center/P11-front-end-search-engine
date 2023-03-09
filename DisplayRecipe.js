@@ -1,11 +1,14 @@
 
 // Select DOM element
-const recipesContainer = document.querySelector(".recipe-container");
+export const recipesContainer = document.querySelector(".recipe-container");
 
 // Recipe Factory
-function DisplayRecipe(recipe) {
+export function DisplayRecipe(recipes) {
 
-    // Card
+    recipesContainer.innerHTML = ""
+
+    recipes.forEach(recipe => {
+        // Card
     const recipeCard = document.createElement('section');
     recipeCard.classList.add('recipe-card');
     recipesContainer.appendChild(recipeCard);
@@ -63,9 +66,6 @@ function DisplayRecipe(recipe) {
         const recipeDescription = document.createElement('p'); 
         recipeDescription.textContent = `${recipe.description}`;
         cardBodyContent.appendChild(recipeDescription); 
-}
-
-
-recipes.forEach(recipe => {
-    DisplayRecipe(recipe);
-})
+    })
+    
+};
