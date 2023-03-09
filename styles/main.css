@@ -54,7 +54,7 @@ body {
 }
 
 .header {
-  margin: 4rem auto;
+  margin: 2rem auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -89,15 +89,16 @@ body {
 .recipe-card_header-img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .recipe-card_body-header, .recipe-card_body-content {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  padding: 1rem 2rem;
   margin: 1rem auto;
+}
+.recipe-card_body-header {
+  padding: 1rem 2rem;
 }
 .recipe-card_body-header h2 {
   font-size: 18px;
@@ -125,8 +126,7 @@ body {
   font-weight: 700;
 }
 .recipe-card_body-content ul {
-  margin: 0;
-  padding: 1rem;
+  margin: 1rem;
   list-style-type: none;
   font-size: 12px;
 }
@@ -135,22 +135,159 @@ body {
 }
 .recipe-card_body-content p {
   font-size: 12px;
-  width: 45%;
+  min-width: 5rem;
+  margin: 1rem;
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 6;
+  -webkit-line-clamp: 7;
   -webkit-box-orient: vertical;
 }
 
 .search {
-  border: 1px solid;
+  margin: 1rem auto;
+  position: relative;
+  width: calc(100% - 20rem);
 }
 .search-form {
-  width: 100%;
+  position: relative;
+  margin: 1rem auto;
 }
 .search-form_input {
-  width: calc(100% - 20rem);
-  margin: 2rem auto;
+  width: 100%;
   height: 7rem;
   background-color: #E7E7E7;
+  border: none;
+  padding: 1rem;
+  color: black;
+  font-size: 1.8rem;
+}
+.search-form_input::placeholder {
+  font-family: "Lato", sans-serif;
+  font-size: 1.8rem;
+  color: #C7BEBE;
+}
+.search-form_button {
+  right: 1%;
+  position: absolute;
+  font-size: 2.5rem;
+  background-color: transparent;
+  border: none;
+}
+.search-form_label, .search-form_button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.search-filter {
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 2rem 0;
+}
+.search-filter_container {
+  width: 13%;
+  margin-right: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0.5rem;
+  height: 6rem;
+  position: relative;
+  transition: all 300ms ease-in-out;
+}
+.search-filter_container-open {
+  width: 60%;
+  padding: 2rem;
+  align-items: center;
+  transition: all 300ms ease-in-out;
+}
+.search-filter_container-open input {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 1rem;
+}
+.search-filter_container-open .search-filter_list {
+  z-index: 1;
+  background-color: transparent;
+  display: flex;
+  flex-wrap: wrap;
+  white-space: nowrap;
+  width: 100%;
+  max-height: 30rem;
+  overflow-y: auto;
+  position: absolute;
+  top: 80%;
+  left: 0;
+  opacity: 1;
+  font-size: 1.6rem;
+  font-family: "Lato";
+  color: white;
+  pointer-events: all;
+  padding: 3rem;
+  border-radius: 0.5rem;
+}
+.search-filter_container-open .search-filter_list li {
+  width: 33%;
+  margin: 1rem 0;
+}
+.search-filter_container-open .search-filter_drop {
+  transform: rotate(180deg);
+  transition: transform 300ms ease-in-out;
+}
+.search-filter_container-open .search-filter_drop-hover {
+  transform: scale(1.1);
+}
+.search-filter_form {
+  position: relative;
+}
+.search-filter_form-input {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  height: 3rem;
+  color: white;
+  font-size: 1.8rem;
+  padding-left: 1rem;
+}
+.search-filter_form-input::placeholder {
+  color: white;
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+.search-filter_drop {
+  cursor: pointer;
+  color: white;
+  font-size: 2rem;
+  background-color: transparent;
+  border: none;
+  margin: 0 1rem;
+  transition: transform 300ms ease-in-out;
+}
+.search-filter_list {
+  display: none;
+}
+.search-filter #appareil, .search-filter #filter-appareils {
+  background-color: #68D9A4;
+}
+.search-filter #ingredient, .search-filter #filter-ingredient {
+  background-color: #3282F7;
+}
+.search-filter #ustensiles, .search-filter #filter-ustensiles {
+  background-color: #ED6454;
+}
+.search-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5rem;
+  background-color: rgba(104, 217, 164, 0.6);
+}
+.search-message_error {
+  background-color: rgba(255, 0, 0, 0.5);
+}
+.search-message_content {
+  font-weight: 700;
+  font-size: 2rem;
+  color: white;
 }/*# sourceMappingURL=main.css.map */
