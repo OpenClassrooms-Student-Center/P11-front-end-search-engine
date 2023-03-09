@@ -20,32 +20,29 @@
 
         <article class="search">
             <form class="search-form">
-                <label class="search-form_label" for="search">Rechercher une recette</label>
-                <input class="search-form_input" type="text" id="search" aria-label="champ de texte pour chercher une recette" />
-                <button type="submit" aria-label="rechercher une recette"></button>
+                <input placeholder="Rechercher une recette" class="search-form_input" type="text" id="search" aria-label="champ de texte pour chercher une recette" />
+                <button class="search-form_button" type="submit" aria-label="rechercher une recette"> <i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
             <section class="search-filter">
                 <div class="search-filter_container" id="ingredient">
                     <form class="search-filter_form">
-                        <input class="search-filter_form-input" type="text" aria-label="rechercher un ingrédient" />
+                        <input placeholder="Ingrédients" class="search-filter_form-input" type="text" aria-label="rechercher un ingrédient" id="input-ingredients" />
                     </form>
-                    <button class="search-filter_drop">Down</button>
+                    <button class="search-filter_drop"><i class="fa-solid fa-chevron-down"></i></button>
                     <ul class="search-filter_list" id="filter-ingredient"></ul>
                 </div>
-
                 <div class="search-filter_container" id="appareil">
                     <form class="search-filter_form">
-                        <input class="search-filter_form-input" type="text" aria-label="rechercher un ingrédient" />
+                        <input placeholder="Appareils" class="search-filter_form-input" type="text" aria-label="rechercher un ingrédient" />
                     </form>
-                    <button class="search-filter_drop">Down</button>
+                    <button class="search-filter_drop"><i class="fa-solid fa-chevron-down"></i></button>
                     <ul class="search-filter_list" id="filter-appareils"></ul>
                 </div>
-
                 <div class="search-filter_container" id="ustensiles">
                     <form class="search-filter_form">
-                        <input class="search-filter_form-input" type="text" aria-label="rechercher un ingrédient" />
+                        <input placeholder="Ustensiles" class="search-filter_form-input" type="text" aria-label="rechercher un ingrédient" />
                     </form>
-                    <button class="search-filter_drop">Down</button>
+                    <button class="search-filter_drop"><i class="fa-solid fa-chevron-down"></i></button>
                     <ul class="search-filter_list" id="filter-ustensiles"></ul>
                 </div>
             </section>
@@ -58,7 +55,11 @@
     </footer>
 
     <script src="./recipes.js"></script>
-    <script src="./DiplayRecipe.js"></script>
+    <script type="module" src="./DisplayRecipe.js"></script>
+    <script type="module" src="./DisplayListFilter.js"></script>
+    <script type="module" src="./MainSearch.js"></script>
+    <script type="module" src="./FilterSearch.js"></script>
+    <script type="module" src="./index.js"></script>
     
 </body>
 </html>
