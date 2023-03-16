@@ -23,6 +23,7 @@
                 <input placeholder="Rechercher une recette" class="search-form_input" type="text" id="search" aria-label="champ de texte pour chercher une recette" />
                 <button class="search-form_button" type="submit" aria-label="rechercher une recette"> <i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
+            <section class="search-tag"></section>
             <section class="search-filter">
                 <div class="search-filter_container" id="ingredient">
                     <form class="search-filter_form">
@@ -33,14 +34,14 @@
                 </div>
                 <div class="search-filter_container" id="appareil">
                     <form class="search-filter_form">
-                        <input placeholder="Appareils" class="search-filter_form-input" type="text" aria-label="rechercher un ingrédient" />
+                        <input placeholder="Appareils" class="search-filter_form-input" type="text" aria-label="rechercher un ingrédient" id="input-appareils" />
                     </form>
                     <button class="search-filter_drop"><i class="fa-solid fa-chevron-down"></i></button>
                     <ul class="search-filter_list" id="filter-appareils"></ul>
                 </div>
                 <div class="search-filter_container" id="ustensiles">
                     <form class="search-filter_form">
-                        <input placeholder="Ustensiles" class="search-filter_form-input" type="text" aria-label="rechercher un ingrédient" />
+                        <input placeholder="Ustensiles" class="search-filter_form-input" type="text" aria-label="rechercher un ingrédient" id="input-ustensiles" />
                     </form>
                     <button class="search-filter_drop"><i class="fa-solid fa-chevron-down"></i></button>
                     <ul class="search-filter_list" id="filter-ustensiles"></ul>
@@ -59,6 +60,7 @@
     <script type="module" src="./DisplayListFilter.js"></script>
     <script type="module" src="./MainSearch.js"></script>
     <script type="module" src="./FilterSearch.js"></script>
+    <script type="module" src="./FilterTag.js"></script>
     <script type="module" src="./index.js"></script>
     
 </body>
