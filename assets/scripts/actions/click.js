@@ -1,6 +1,56 @@
 import domElements from '../domElements.js';
 
-function clickSecondaryElementsArrow(e) {
+export const clickOnFields = (e) => {
+  const addFieldInInputSecondary = () => {
+    domElements.inputSecondaryAllItems.forEach((inputSecondaryItems) =>
+      inputSecondaryItems.childNodes.forEach((item) => {
+        if (item.textContent === e.target.parentNode.textContent) {
+          item.classList.add('show');
+        }
+      })
+    );
+  };
+
+  const deleteFieldFromFields = () => {
+    if (e.target.className === 'field-img') {
+      e.target.parentNode.remove();
+    }
+  };
+
+  addFieldInInputSecondary();
+  deleteFieldFromFields();
+};
+
+export const clickOnInputSecondary = (e) => {
+  const createField = () => {
+    const text = e.target.textContent;
+    const fieldClass = e.target.parentNode.parentNode.classList[1];
+
+    const div = document.createElement('div');
+    div.className = 'field';
+    div.classList.add(fieldClass);
+
+    const h3 = document.createElement('h3');
+    h3.textContent = text;
+    h3.className = 'field-title';
+
+    const img = document.createElement('img');
+    img.className = 'field-img';
+    img.src = '/assets/images/icons/delete.svg';
+    img.alt = 'delete';
+
+    div.appendChild(h3);
+    div.appendChild(img);
+
+    domElements.fields.appendChild(div);
+  };
+
+  e.target.classList.remove('show');
+
+  createField();
+};
+
+export const clickSecondaryElementsArrow = (e) => {
   const thisInput = e.target.previousElementSibling.classList[1];
 
   domElements.inputSecondary.forEach((input) => {
@@ -28,6 +78,4 @@ function clickSecondaryElementsArrow(e) {
       icon.style.transform = 'rotate(0deg)';
     }
   });
-}
-
-export default clickSecondaryElementsArrow;
+};

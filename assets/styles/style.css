@@ -82,7 +82,6 @@ span {
 .field {
   display: flex;
   gap: 13px;
-  background-color: #3282f7;
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 10px;
@@ -93,6 +92,10 @@ span {
   font-weight: 700;
   font-size: 14px;
   color: #ffffff;
+}
+
+.field-title {
+  display: block ruby;
 }
 
 .field-img {
@@ -198,6 +201,7 @@ input:focus {
   row-gap: 50px;
 }
 .recipe {
+  display: none;
   flex-direction: column;
   width: 30%;
   height: 365px;
@@ -227,12 +231,13 @@ input:focus {
   justify-content: space-between;
 }
 .recipe-description-head div {
+  margin-left: 20px;
   display: flex;
   gap: 7px;
 }
 .recipe-description-body {
   display: flex;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 .recipe-description-body > div,
 .recipe-description-body > span {
@@ -242,6 +247,12 @@ input:focus {
   text-overflow: ellipsis;
   overflow-y: auto;
   height: 90px;
+}
+.recipe-description-body > span {
+  -webkit-line-clamp: 6;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 .recipe-description-body > div > div {
   display: flex;

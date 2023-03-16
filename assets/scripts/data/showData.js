@@ -1,10 +1,10 @@
 import recipes from '../../data/recipes.js';
 import domElements from '../domElements.js';
-import getData from './cleanData.js';
+import { getData } from './cleanData.js';
 
 const { allIngredients, allAppliances, allUstensils } = getData();
 
-export function showInputsSecondary() {
+export const showInputsSecondary = () => {
   domElements.inputSecondary.forEach((input) => {
     const { lastElementChild: inputLEC } = input;
     const inputSecondaryName = input.classList[1];
@@ -33,9 +33,9 @@ export function showInputsSecondary() {
         }
       });
   });
-}
+};
 
-export function showRecipes() {
+export const showRecipes = () => {
   recipes.forEach((recipe) => {
     const article = document.createElement('article');
     article.className = 'recipe';
@@ -104,4 +104,4 @@ export function showRecipes() {
 
     domElements.allRecipes.appendChild(article);
   });
-}
+};
