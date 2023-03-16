@@ -1,6 +1,9 @@
 import { DisplayRecipe, recipesContainer } from "./DisplayRecipe.js";
 import { setArrayFilters } from "./DisplayListFilter.js";
+import { filterSearch } from "./FilterSearch.js";
 
+
+const inputIngredient = document.querySelector("#input-ingredients");
 
 const displayMessage = (recipesArray, value) => {
     const searchSection = document.querySelector(".search");
@@ -40,14 +43,14 @@ const displayMessage = (recipesArray, value) => {
     }
   };
 
-export const searchInRecipes = (value) => {
+export const searchInRecipes = (value, recipesArray) => {
   // Create a new array to stock filter recipes
   let filterByValueRecipes = [];
 
   if (value.length > 2) {
-    for (let i = 0; i < allRecipes.length; i++) {
+    for (let i = 0; i < recipesArray.length; i++) {
       // One recipe
-      const recipe = allRecipes[i];
+      const recipe = recipesArray[i];
 
       // format name values
       const nameOfRecipes = recipe.name.toLowerCase().trim();
@@ -88,8 +91,13 @@ export const searchInRecipes = (value) => {
       filterByValueRecipes = uniqueRecipeInArray;
     }
   } else {
-    filterByValueRecipes = allRecipes;
+    filterByValueRecipes = recipesArray;
   }
+
+
+  inputIngredient.addEventListener("input", (e) => {
+    filterSearch(e.target.value.toLowerCase().trim(), filterByValueRecipes, "ingredients", "ingredient", "filter-ingredient");
+  })
 
   DisplayRecipe(filterByValueRecipes);
   setArrayFilters(
