@@ -1,0 +1,38 @@
+import domElements from '../domElements.js';
+import { getItems } from './cleanTags.js';
+
+const { allIngredients, allAppliances, allUstensils } = getItems();
+
+export const showInputsSecondary = () => {
+  domElements.inputSecondary.forEach((input) => {
+    const { lastElementChild: inputLEC } = input;
+    const inputSecondaryName = input.classList[1];
+    let array = [];
+    if (inputSecondaryName === 'ingredients') {
+      array = allIngredients;
+    } else if (inputSecondaryName === 'appliances') {
+      array = allAppliances;
+    } else if (inputSecondaryName === 'ustensils') {
+      array = allUstensils;
+    }
+
+    inputLEC.replaceChildren();
+
+    array
+      .sort((a, b) => a.recurrence < b.recurrence)
+      .forEach((item, index) => {
+        const option = document.createElement('option');
+        option.textContent =
+          item.item.substring(0, 1).toUpperCase() + item.item.substring(1);
+        inputLEC.appendChild(option);
+        option.className = 'input-secondary-ingredient';
+        option.disabled = true;
+
+        if (index < 30) {
+          option.classList.add('show');
+        }
+      });
+  });
+};
+
+export default showInputsSecondary;

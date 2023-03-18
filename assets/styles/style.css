@@ -73,13 +73,13 @@ span {
   padding-left: 20px;
 }
 
-.fields {
+.tags {
   margin-top: 20px;
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
 }
-.field {
+.tag {
   display: flex;
   gap: 13px;
   padding-left: 20px;
@@ -94,11 +94,11 @@ span {
   color: #ffffff;
 }
 
-.field-title {
+.tag-title {
   display: block ruby;
 }
 
-.field-img {
+.tag-img {
   cursor: pointer;
 }
 
@@ -143,7 +143,7 @@ span {
 
 .input-secondary-open {
   width: 660px;
-  height: 380px;
+  height: 370px;
 }
 .input-secondary-input::placeholder {
   opacity: 1;
@@ -284,4 +284,27 @@ input:focus {
 
 .show {
   display: flex;
+}
+#browser {
+}
+
+.testdatalist {
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  padding: 20px;
+  animation: 0.3s linear;
+}
+
+datalist {
+  overflow-y: hidden;
+  display: none;
+  flex-wrap: wrap;
+}
+
+option {
+  width: 30%;
+}
+option:disabled {
+  color: #ffffff;
 }

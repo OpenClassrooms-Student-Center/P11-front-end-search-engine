@@ -1,6 +1,6 @@
 import recipes from '../../data/recipes.js';
 
-export const pushItemOrAddRecurrence = (array, itemtoFind, itemLower) => {
+const pushItemOrAddRecurrence = (array, itemtoFind, itemLower) => {
   const tempArray = array;
   if (!itemtoFind) {
     tempArray.push({ item: itemLower, recurrence: 1 });
@@ -10,7 +10,7 @@ export const pushItemOrAddRecurrence = (array, itemtoFind, itemLower) => {
   return tempArray;
 };
 
-export const getData = () => {
+export const getItems = () => {
   let allIngredients = [];
   let allAppliances = [];
   let allUstensils = [];
@@ -55,3 +55,5 @@ export const getData = () => {
   });
   return { allIngredients, allAppliances, allUstensils };
 };
+
+export default getItems;

@@ -4,7 +4,7 @@ const domElements = {
   inputSecondaryIcon: document.querySelectorAll('.input-secondary-icon'),
   inputSecondaryAllItems: document.querySelectorAll('.input-secondary-items'),
   allRecipes: document.querySelector('.recipes'),
-  fields: document.querySelector('.fields'),
+  tags: document.querySelector('.tags'),
 };
 
 export default domElements;

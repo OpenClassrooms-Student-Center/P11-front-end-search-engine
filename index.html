@@ -30,8 +30,32 @@
     </header>
     <main id="main">
       <input class="input-main" placeholder="Rechercher une recette" />
-      <section class="fields"></section>
+      <section class="tags"></section>
       <section class="inputs-secondary">
+        <div class="input-secondary ingredients">
+          <div class="input-secondary-head">
+            <input
+              list="ingredients"
+              id="browser"
+              name="browser"
+              size="50"
+              placeholder="Ingrédients"
+              class="input-secondary-input ingredients"
+            />
+            <img
+              src="/assets/images/icons/arrow.svg"
+              alt="arrow"
+              class="input-secondary-icon"
+            />
+          </div>
+
+          <datalist
+            id="ingredients"
+            class="input-secondary-items"
+            role="listbox"
+          >
+          </datalist>
+        </div>
         <div class="input-secondary ingredients">
           <div class="input-secondary-head">
             <input
