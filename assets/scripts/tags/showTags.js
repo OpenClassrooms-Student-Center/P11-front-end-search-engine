@@ -25,7 +25,7 @@ export const showInputsSecondary = () => {
         option.textContent =
           item.item.substring(0, 1).toUpperCase() + item.item.substring(1);
         inputLEC.appendChild(option);
-        option.className = 'input-secondary-ingredient';
+        option.className = 'input-secondary-item';
         option.disabled = true;
 
         if (index < 30) {

@@ -121,29 +121,18 @@ span {
 .input-secondary {
   display: flex;
   flex-direction: column;
-  width: 170px;
-  height: 25px;
+  min-width: 170px;
+  min-height: 25px;
+  max-width: 170px;
+  max-height: 25px;
   border-radius: 5px;
   padding: 20px;
-  animation: 0.3s linear;
-}
-@keyframes append-animate-inputs-secondary {
-  to {
-    width: 660px;
-    height: 380px;
-  }
-}
-
-@keyframes disappear-animate-inputs-secondary {
-  to {
-    width: 170px;
-    height: 25px;
-  }
+  transition: max-width 0.3s, max-height 0.3s;
 }
 
 .input-secondary-open {
-  width: 660px;
-  height: 370px;
+  max-width: 660px;
+  max-height: 380px;
 }
 .input-secondary-input::placeholder {
   opacity: 1;
@@ -185,9 +174,9 @@ input:focus {
   cursor: pointer;
 }
 
-.input-secondary-ingredient {
+.input-secondary-item {
   display: none;
-  width: 31%;
+  width: 190px;
   overflow: hidden;
   text-overflow: ellipsis;
   padding: 5px;
@@ -246,10 +235,10 @@ input:focus {
   width: 50%;
   text-overflow: ellipsis;
   overflow-y: auto;
-  height: 90px;
+  height: 105px;
 }
 .recipe-description-body > span {
-  -webkit-line-clamp: 6;
+  -webkit-line-clamp: 7;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -284,8 +273,6 @@ input:focus {
 
 .show {
   display: flex;
-}
-#browser {
 }
 
 .testdatalist {

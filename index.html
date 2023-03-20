@@ -36,8 +36,6 @@
           <div class="input-secondary-head">
             <input
               list="ingredients"
-              id="browser"
-              name="browser"
               size="50"
               placeholder="Ingrédients"
               class="input-secondary-input ingredients"
@@ -56,25 +54,13 @@
           >
           </datalist>
         </div>
-        <div class="input-secondary ingredients">
-          <div class="input-secondary-head">
-            <input
-              class="input-secondary-input ingredients"
-              placeholder="Ingrédients"
-            />
-            <img
-              src="/assets/images/icons/arrow.svg"
-              alt="arrow"
-              class="input-secondary-icon"
-            />
-          </div>
-          <div class="input-secondary-items"></div>
-        </div>
         <div class="input-secondary appliances">
           <div class="input-secondary-head">
             <input
-              class="input-secondary-input appliances"
+              list="appliances"
+              size="50"
               placeholder="Appareils"
+              class="input-secondary-input appliances"
             />
             <img
               src="/assets/images/icons/arrow.svg"
@@ -82,13 +68,21 @@
               class="input-secondary-icon"
             />
           </div>
-          <div class="input-secondary-items"></div>
+
+          <datalist
+            id="appliances"
+            class="input-secondary-items"
+            role="listbox"
+          >
+          </datalist>
         </div>
         <div class="input-secondary ustensils">
           <div class="input-secondary-head">
             <input
+              list="ustensils"
+              size="50"
+              placeholder="Ustensils"
               class="input-secondary-input ustensils"
-              placeholder="Ustensiles"
             />
             <img
               src="/assets/images/icons/arrow.svg"
@@ -96,7 +90,9 @@
               class="input-secondary-icon"
             />
           </div>
-          <div class="input-secondary-items"></div>
+
+          <datalist id="ustensils" class="input-secondary-items" role="listbox">
+          </datalist>
         </div>
       </section>
       <div class="no-recipes">

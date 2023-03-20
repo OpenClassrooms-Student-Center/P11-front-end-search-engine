@@ -60,25 +60,17 @@ export const clickSecondaryElementsArrow = (e) => {
     const { lastElementChild: inputLEC } = input;
     const icon = input.firstElementChild.lastElementChild;
     const inputClassList = input.classList;
-    const inputStyle = input.style;
-
     if (
       inputClassList.contains(thisInput) &&
-      !inputLEC.classList.contains('show')
+      !inputClassList.contains('input-secondary-open')
     ) {
-      inputStyle.animationName = 'append-animate-inputs-secondary';
-      setTimeout(() => {
-        inputClassList.add('input-secondary-open');
-        inputLEC.classList.add('show');
-        document.querySelector('datalist').classList.add('show');
-      }, 270);
+      inputClassList.add('input-secondary-open');
+      inputLEC.classList.add('show');
       icon.style.transform = 'rotate(180deg)';
     } else {
-      inputStyle.animationName = 'disappear-animate-inputs-secondary';
-      setTimeout(() => {
-        inputClassList.remove('input-secondary-open');
-      }, 300);
+      inputClassList.remove('input-secondary-open');
       inputLEC.classList.remove('show');
+
       icon.style.transform = 'rotate(0deg)';
     }
   });
