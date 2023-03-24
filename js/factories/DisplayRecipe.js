@@ -1,8 +1,12 @@
+import { setArrayFilters } from "../search/handleFilter.js";
 
 // Select DOM element
 export const recipesContainer = document.querySelector(".recipe-container");
 
-// Recipe Factory
+/**
+ * 
+ * @param {array} array of recipes 
+ */
 export function DisplayRecipe(recipes) {
 
     recipesContainer.innerHTML = ""
@@ -68,4 +72,70 @@ export function DisplayRecipe(recipes) {
         cardBodyContent.appendChild(recipeDescription); 
     })
     
+};
+
+
+/**
+ * 
+ * @param {array} recipesArray array of recipes
+ * @param {string} value of input search
+ */
+export const displayMessage = (recipesArray, value) => {
+
+    // select element in DOM
+      const searchSection = document.querySelector(".search");
+      let messageContainer = searchSection.querySelector(".search-message");
+  
+  
+      // create message element in DOM
+      if (value.length > 2) {
+        if (!messageContainer) {
+          messageContainer = document.createElement("div");
+          messageContainer.classList.add("search-message");
+          searchSection.appendChild(messageContainer);
+        }
+    
+        let messageContent = messageContainer.querySelector(
+          ".search-message_content"
+        );
+        if (!messageContent) {
+          messageContent = document.createElement("p");
+          messageContent.classList.add("search-message_content");
+          messageContainer.appendChild(messageContent);
+        }
+  
+        // Update element message in DOM
+        switch (true) {
+          case recipesArray.length === 1:
+            messageContent.textContent = `${recipesArray.length} recette correspond à votre recherche`;
+            messageContainer.classList.remove("search-message_error");
+            break;
+    
+          case recipesArray.length === 0:
+            messageContainer.classList.add("search-message_error");
+            messageContent.textContent = `Désolé aucune recette ne correspond à votre recherche`;
+            break;
+    
+          default:
+            messageContent.textContent = `${recipesArray.length} recettes correspondent à votre recherche`;
+            messageContainer.classList.remove("search-message_error");
+  
+        }
+      } else if (messageContainer) {
+        searchSection.removeChild(messageContainer);
+      }
+    };
+
+
+// Function to display all recipes and filters lists
+export const displayAllElements = (arrayOfRecipes) => {
+  DisplayRecipe(arrayOfRecipes);
+  setArrayFilters(
+    arrayOfRecipes,
+    "ingredients",
+    "ingredient",
+    "filter-ingredient"
+  );
+  setArrayFilters(arrayOfRecipes, "appliance", "appliance", "filter-appareils");
+  setArrayFilters(arrayOfRecipes, "ustensils", "ustensil", "filter-ustensiles");
 };

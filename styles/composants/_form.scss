@@ -3,6 +3,41 @@
     position: relative;
     width: calc(100% - 20rem);
 
+    &-tag {
+        &_btn {
+            position: relative;
+            border: none;
+            border-radius: 1rem;
+            padding: 1.2rem 1.3rem 1rem 1.3rem;
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: white;
+            cursor: pointer;
+            transition: all 300ms ease-in-out;
+            margin: 0 1rem;
+
+            &::before {
+                position: absolute;
+                top: 50%;
+                left: 12%;
+                transform: translateY(-45%);
+                border-radius: 2rem;
+                content: " ";
+                width: 0;
+                height: 0.3rem;
+                background-color: white;
+                transition: width 300ms ease-in-out;
+            }
+
+            &:hover {
+                transform: scale(1.05);
+                &::before {
+                    width: 75%;
+                }
+            }
+        }
+    }
+
     &-form {
         
         position: relative;
@@ -190,4 +225,5 @@
             color: white;
         }
     }
+
 }

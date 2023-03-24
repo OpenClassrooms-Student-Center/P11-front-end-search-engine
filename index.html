@@ -27,21 +27,21 @@
             <section class="search-filter">
                 <div class="search-filter_container" id="ingredient">
                     <form class="search-filter_form">
-                        <input placeholder="Ingrédients" class="search-filter_form-input" type="text" aria-label="rechercher un ingrédient" id="input-ingredients" />
+                        <input placeholder="Ingrédients" class="search-filter_form-input" type="text" aria-label="rechercher un ingrédient" id="input-ingredients" disabled/>
                     </form>
                     <button class="search-filter_drop"><i class="fa-solid fa-chevron-down"></i></button>
                     <ul class="search-filter_list" id="filter-ingredient"></ul>
                 </div>
                 <div class="search-filter_container" id="appareil">
                     <form class="search-filter_form">
-                        <input placeholder="Appareils" class="search-filter_form-input" type="text" aria-label="rechercher un ingrédient" id="input-appareils" />
+                        <input placeholder="Appareils" class="search-filter_form-input" type="text" aria-label="rechercher un ingrédient" id="input-appareils" disabled/>
                     </form>
                     <button class="search-filter_drop"><i class="fa-solid fa-chevron-down"></i></button>
                     <ul class="search-filter_list" id="filter-appareils"></ul>
                 </div>
                 <div class="search-filter_container" id="ustensiles">
                     <form class="search-filter_form">
-                        <input placeholder="Ustensiles" class="search-filter_form-input" type="text" aria-label="rechercher un ingrédient" id="input-ustensiles" />
+                        <input placeholder="Ustensiles" class="search-filter_form-input" type="text" aria-label="rechercher un ingrédient" id="input-ustensiles" disabled/>
                     </form>
                     <button class="search-filter_drop"><i class="fa-solid fa-chevron-down"></i></button>
                     <ul class="search-filter_list" id="filter-ustensiles"></ul>
@@ -55,13 +55,12 @@
 
     </footer>
 
-    <script src="./recipes.js"></script>
-    <script type="module" src="./DisplayRecipe.js"></script>
-    <script type="module" src="./DisplayListFilter.js"></script>
-    <script type="module" src="./MainSearch.js"></script>
-    <script type="module" src="./FilterSearch.js"></script>
-    <script type="module" src="./FilterTag.js"></script>
-    <script type="module" src="./index.js"></script>
-    
+    <script src="./js/recipes.js"></script>
+    <script type="module" src="./js/factories/DisplayRecipe.js"></script>
+    <script type="module" src="./js/factories/DisplayListFilter.js"></script>
+    <script type="module" src="./js/search/handleMainSearch.js"></script>
+    <script type="module" src="./js/search/handleFilter.js"></script>
+    <script type="module" src="./js/search/handleTag.js"></script>
+    <script type="module" src="./js/index.js"></script>
 </body>
 </html>
