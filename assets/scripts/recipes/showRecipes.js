@@ -1,7 +1,7 @@
 import recipes from '../../data/recipes.js';
 import domElements from '../domElements.js';
 
-export const showRecipes = () => {
+const showRecipes = () => {
   recipes.forEach((recipe) => {
     const article = document.createElement('article');
     article.className = 'recipe';

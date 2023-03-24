@@ -5,6 +5,7 @@ const domElements = {
   inputSecondaryAllItems: document.querySelectorAll('.input-secondary-items'),
   allRecipes: document.querySelector('.recipes'),
   tags: document.querySelector('.tags'),
+  noRecipe: document.querySelector('.no-recipes'),
 };
 
 export default domElements;

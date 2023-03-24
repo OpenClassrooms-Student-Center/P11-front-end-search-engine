@@ -10,7 +10,7 @@ const pushItemOrAddRecurrence = (array, itemtoFind, itemLower) => {
   return tempArray;
 };
 
-export const getItems = () => {
+const getItems = () => {
   let allIngredients = [];
   let allAppliances = [];
   let allUstensils = [];

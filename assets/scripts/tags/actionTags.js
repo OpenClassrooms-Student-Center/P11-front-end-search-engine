@@ -1,4 +1,5 @@
 import domElements from '../domElements.js';
+import { updateRecipes } from '../recipes/updateRecipes.js';
 
 const addTagInInputSecondary = (e) => {
   domElements.inputSecondaryAllItems.forEach((inputSecondaryItems) =>
@@ -46,11 +47,13 @@ const deleteTagFromInputSecondary = (e) => {
 export const clickOnTags = (e) => {
   addTagInInputSecondary(e);
   deleteTagFromTags(e);
+  updateRecipes();
 };
 
 export const clickOnInputSecondary = (e) => {
   deleteTagFromInputSecondary(e);
   createTaginTags(e);
+  updateRecipes();
 };
 
 export const clickSecondaryElementsArrow = (e) => {
