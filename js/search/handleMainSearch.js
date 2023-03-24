@@ -1,59 +1,28 @@
 /**
  * 
- * @param {string} value of the input search
- * @param {array} recipesArray 
+ * @param {string} searchTerm of the input search
+ * @param {array} recipes
  * @returns array of filtered recipes
  */
-export const searchInRecipes = (value, recipesArray) => {
-  // Create a new array to stock filter recipes
-  let filterByValueRecipes = [];
-
-  if (value.length > 2) {
-    for (let i = 0; i < recipesArray.length; i++) {
-      // One recipe
-      const recipe = recipesArray[i];
-
-      // format name values
-      const nameOfRecipes = recipe.name.toLowerCase().trim();
-
-      // array of ingredients
-      const ingredientsOfRecipes = recipe.ingredients;
-
-      // array of ustensils
-      const ustensilesOfRecipes = recipe.ustensils;
-
-      // Search for name
-      if (nameOfRecipes.includes(value)) {
-        filterByValueRecipes.push(recipe);
-      }
-
-      // Search for ingredient
-      for (let i = 0; i < ingredientsOfRecipes.length; i++) {
-        let ingredient = ingredientsOfRecipes[i].ingredient
-          .toLocaleLowerCase()
-          .trim();
-        ingredient.includes(value) && filterByValueRecipes.push(recipe);
-      }
-
-      // Search for ustentils
-      for (let i = 0; i < ustensilesOfRecipes.length; i++) {
-        let ustensile = ustensilesOfRecipes[i].toLocaleLowerCase().trim();
-        ustensile.includes(value) && filterByValueRecipes.push(recipe);
-      }
-
-      //Delete recipes in double
-      let uniqueRecipeInArray = [];
-      for (let i = 0; i < filterByValueRecipes.length; i++) {
-        let recipe = filterByValueRecipes[i];
-        if (!uniqueRecipeInArray.includes(recipe)) {
-          uniqueRecipeInArray.push(recipe);
-        }
-      }
-      filterByValueRecipes = uniqueRecipeInArray;
-    }
-  } else {
-    filterByValueRecipes = recipesArray;
+export const searchInRecipes = (searchTerm, recipes) => {
+  if (searchTerm.length < 3) {
+    return recipes;
   }
-  
-  return filterByValueRecipes;
+
+  const formattedSearchTerm = searchTerm.toLowerCase().trim();
+
+  return recipes.filter((recipe) => {
+
+    const allFields = [
+      recipe.name.toLowerCase(),
+      recipe.description.toLowerCase(),
+      recipe.appliance.toLowerCase(),
+      ...recipe.ingredients.map((ingredient) =>
+        ingredient.ingredient.toLowerCase()
+      ),
+      ...recipe.ustensils.map((ustensil) => ustensil.toLowerCase()),
+    ]
+    // Check if the search term is present in any of the recipe fields
+    return allFields.some((field) => field.includes(formattedSearchTerm));
+  });
 };

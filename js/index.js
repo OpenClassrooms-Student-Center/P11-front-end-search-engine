@@ -71,6 +71,7 @@ window.addEventListener("input", function (e) {
   if (e.target.matches("#search")) {
     // filtered recipes array
     allRecipesFiltered = searchInRecipes(searchValue, recipes);
+    console.log(allRecipesFiltered);
     // display new array filtered of recipes
     displayAllElements(allRecipesFiltered);
     // display message with the number of recipes find
