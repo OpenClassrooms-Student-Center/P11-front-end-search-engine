@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/c8c62b8630.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/main.css">
+    <title>Les petits plats</title>
+</head>
+<body>
+    <header class="header">
+        <img src="./assets/logo.png" alt="Logo de petits plats" />
+    </header>
+
+    <main class="main">
+
+        <article class="search">
+            <form class="search-form">
+                <input placeholder="Rechercher une recette" class="search-form_input" type="text" id="search" aria-label="champ de texte pour chercher une recette" />
+                <button class="search-form_button" type="submit" aria-label="rechercher une recette"> <i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+            <section class="search-tag"></section>
+            <section class="search-filter">
+                <div class="search-filter_container" id="ingredient">
+                    <form class="search-filter_form">
+                        <input placeholder="Ingrédients" class="search-filter_form-input" type="text" aria-label="rechercher un ingrédient" id="input-ingredients" disabled/>
+                    </form>
+                    <button class="search-filter_drop"><i class="fa-solid fa-chevron-down"></i></button>
+                    <ul class="search-filter_list" id="filter-ingredient"></ul>
+                </div>
+                <div class="search-filter_container" id="appareil">
+                    <form class="search-filter_form">
+                        <input placeholder="Appareils" class="search-filter_form-input" type="text" aria-label="rechercher un ingrédient" id="input-appareils" disabled/>
+                    </form>
+                    <button class="search-filter_drop"><i class="fa-solid fa-chevron-down"></i></button>
+                    <ul class="search-filter_list" id="filter-appareils"></ul>
+                </div>
+                <div class="search-filter_container" id="ustensiles">
+                    <form class="search-filter_form">
+                        <input placeholder="Ustensiles" class="search-filter_form-input" type="text" aria-label="rechercher un ingrédient" id="input-ustensiles" disabled/>
+                    </form>
+                    <button class="search-filter_drop"><i class="fa-solid fa-chevron-down"></i></button>
+                    <ul class="search-filter_list" id="filter-ustensiles"></ul>
+                </div>
+            </section>
+        </article>
+        <article class="recipe-container"></article>
+    </main>
+    
+    <footer>
+
+    </footer>
+
+    <script src="./js/recipes.js"></script>
+    <script type="module" src="./js/factories/DisplayRecipe.js"></script>
+    <script type="module" src="./js/factories/DisplayListFilter.js"></script>
+    <script type="module" src="./js/search/handleMainSearch.js"></script>
+    <script type="module" src="./js/search/handleFilter.js"></script>
+    <script type="module" src="./js/search/handleTag.js"></script>
+    <script type="module" src="./js/index.js"></script>
+</body>
+</html>

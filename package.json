@@ -1,0 +1,20 @@
+{
+  "name": "p7petitsplats",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antoinea95/p7petitsplats.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/antoinea95/p7petitsplats/issues"
+  },
+  "homepage": "https://github.com/antoinea95/p7petitsplats#readme"
+}
