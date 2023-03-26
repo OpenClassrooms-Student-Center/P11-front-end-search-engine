@@ -104,17 +104,11 @@ window.addEventListener("input", function (e) {
       "filter-ustensiles"
     );
   }
-
-  // when user select a tag after search on main input
-  filterByTag(allRecipesFiltered);
 });
 
 // handle tag clicked
 function filterByTag(arrayOfRecipes) {
   window.addEventListener("click", (e) => {
-    // init array to filter
-    let recipesByTag = arrayOfRecipes;
-
     // stock content of the tag
     const searchValue = e.target.innerText;
 
@@ -137,24 +131,30 @@ function filterByTag(arrayOfRecipes) {
         input.setAttribute("disabled", "");
         input.value = "";
       });
+
+       // New array filtered with tags selected
+       allRecipesFiltered = filterArrayByTag(tagClicked, recipes, arrayOfRecipes);
+       // display tag under search bar
+       displayTag(tagClicked);
+       // Update recipes card and list filter
+       displayAllElements(allRecipesFiltered);
+       // display message with number of recipes find
+       displayMessage(allRecipesFiltered, searchValue);
+
     }
 
     // when user remove a tag, filter tagClicked thanks to the value
     else if (e.target.matches(".search-tag_btn")) {
       tagClicked = tagClicked.filter((tag) => tag.name !== e.target.innerText);
+      // New array filtered with tags selected
+      allRecipesFiltered = filterArrayByTag(tagClicked, recipes, arrayOfRecipes);
+      // display tag under search bar
+      displayTag(tagClicked);
+      // Update recipes card and list filter
+      displayAllElements(allRecipesFiltered);
+      // display message with number of recipes find
+      displayMessage(allRecipesFiltered, searchValue);
     }
-
-    // New array filtered with tags selected
-    recipesByTag = filterArrayByTag(tagClicked, recipes, recipesByTag);
-
-    // display tag under search bar
-    displayTag(tagClicked);
-
-    // Update recipes card and list filter
-    displayAllElements(recipesByTag);
-
-    // display message with number of recipes find
-    displayMessage(recipesByTag, searchValue);
   });
 }
 
