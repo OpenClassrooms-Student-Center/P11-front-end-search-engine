@@ -113,7 +113,8 @@ export const displayMessage = (recipesArray, value) => {
     
           case recipesArray.length === 0:
             messageContainer.classList.add("search-message_error");
-            messageContent.textContent = `Désolé aucune recette ne correspond à votre recherche`;
+            messageContent.textContent = `« Aucune recette ne correspond à votre critère… vous pouvez
+            chercher « tarte aux pommes », « poisson »`;
             break;
     
           default:
