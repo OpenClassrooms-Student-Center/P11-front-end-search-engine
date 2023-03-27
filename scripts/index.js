@@ -1,44 +1,3 @@
-function init(){
-    const main = document.querySelector("main");
-    const section = document.createElement("section");
-    const searchInput = document.getElementById("search");
-    section.classList.add("articles");
-    const inputBg = "#E7E7E7";
-    searchInput.style.background = inputBg;
-    main.appendChild(section);
-    section.setAttribute("tabindex","0");
-    section.setAttribute("aria-label","Contenu des recettes");
-    setDOM(searchInput);
-} 
-
-function setDOM(searchInput){
-    const listOfRecipes = [];
-    const ingredientsArray = [];
-    const appliancesArray = [];
-    const ustensilsArray = [];
-    const toolsArray = [ingredientsArray,appliancesArray,ustensilsArray];
-    recipes.forEach(recipe => {
-        recipesModel = recipesFactory(recipe);
-        toolsArray.forEach(toolArray => {
-            switch(toolArray){
-                case ingredientsArray:   
-                    recipesModel.setItemsDOM(recipesModel.ingredients,toolArray);
-                    break;
-                case appliancesArray:
-                    recipesModel.setItemsDOM(recipesModel.appliance,toolArray);
-                    break;
-                case ustensilsArray:
-                    recipesModel.setItemsDOM(recipesModel.ustensils,toolArray);
-            }
-        });
-        const recipeArticle = recipesModel.getRecipesCardDOM();
-        document.querySelector(".articles").appendChild(recipeArticle);
-        listOfRecipes.push(recipe);
-    });
-    setEventsDOM(searchInput,listOfRecipes, toolsArray);
-    return {listOfRecipes, toolsArray}
-}
-
 
 
 function reloadDOM(event){
@@ -65,30 +24,6 @@ function setEventsDOM(searchInput, listOfRecipes, toolsArray){
     arrayToolsBtn.forEach((toolBtn,indexToolBtn) => {
         const inputToolsBtn = toolBtn.children[0].children[1];
         const ulToolBtn = toolBtn.children[1].children[0];
-        toolBtn.addEventListener("click", function(e){
-            toolBtn.lastElementChild.classList.remove("menu__item--hidden");
-            toolBtn.classList.add("tools__menu--active");
-            toolBtn.setAttribute("aria-expanded","true");
-            toolBtn.children[0].setAttribute("aria-expanded","true");
-            switch(inputToolsBtn.value){
-                case "Ingrédients":
-                    inputToolsBtn.setAttribute("placeholder","Rechercher un ingrédient");
-                    break;
-                case "Appareils":
-                    inputToolsBtn.setAttribute("placeholder","Rechercher un appareil");
-                    break;
-                case "Ustensiles":
-                    inputToolsBtn.setAttribute("placeholder","Rechercher un ustensile");
-            }
-            inputToolsBtn.value = "";
-            inputToolsBtn.focus();
-            inputToolsBtn.addEventListener("blur", function(e){
-                console.log(e);
-                if(e.relatedTarget !== toolBtn){
-                    eventCloseItemsBtn(e,toolBtn,inputToolsBtn);
-                }
-            });
-        });
         const liArrayBtn = Array.from(ulToolBtn.querySelectorAll("li"));
         liArrayBtn.forEach( liBtn => {
             liBtn.addEventListener("click", function(eventClickLi){
@@ -109,7 +44,7 @@ function setEventsDOM(searchInput, listOfRecipes, toolsArray){
                     case "ustensils":
                         divTag.classList.add("tag","tag3");
                 }
-                //On supprime notre target item du tableau d'outils correspondant 
+                //On supprime notre target item du tableau d'outils correspondant   
                 spliceTarget(toolsArray,eventClickLi,indexToolBtn);
                 //Ainsi que sur le DOM
                 eventClickLi.target.remove();

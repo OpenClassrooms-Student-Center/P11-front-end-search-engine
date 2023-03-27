@@ -80,13 +80,19 @@ h1{
 
 .tools__menu{
     position: relative;
-    width: 15%;
+    width: 15%; 
     height: 50px;
     margin: 20px 4% 0 0;
     margin-right: 4%;
     display: flex;
     align-items: center;
     border-radius: 5px;
+}
+
+.tools__menu--open{
+    border-radius: 5px 5px 0px 0px;
+    width: 38%;
+    justify-content: left;
 }
 
 .tools__menu::after{
@@ -102,8 +108,8 @@ h1{
 
 .tools__menu input{
     display: flex;
-    width: 100%;
-    padding-left: 5%;
+    width: auto;
+    padding-left: 5%;   
     color: white;
     font-size: 0.9em;
 }
@@ -130,7 +136,16 @@ h1{
     z-index: 1;
 }
 
-.ingredients{
+.menu__item--hidden{
+    display: none;
+}
+
+.menu__item--open{
+    width: 100%;
+    border-radius: 0px 0px 5px 5px;
+}
+
+.ingredients, .appliances, .ustensils{
     overflow-y: scroll;
 }
 
@@ -154,10 +169,6 @@ h1{
 
 .ustensils{
     background-color: #ED6454;
-}
-
-.menu__item--hidden{
-    display: none;
 }
 
 .tools__menu--active{

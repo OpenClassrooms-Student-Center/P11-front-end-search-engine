@@ -26,7 +26,7 @@
                             <label for="ingredients"></label>
                             <input id="ingredients" name="ingredients" type="text" value="Ingrédients" class="active"/>
                         </div>
-                        <div role="listbox" aria-label="liste d'ingrédients" class="menu__item menu__item--hidden ingredients">
+                        <div role="listbox" aria-label="liste d'ingrédients" class="menu__item ingredients menu__item--hidden">
                             <ul></ul>
                         </div>
                     </div>
@@ -35,7 +35,7 @@
                             <label for="devices"></label>
                             <input id="devices" name="devices" type="text" value="Appareils"/>
                         </div>
-                        <div role="listbox" aria-label="liste d'appareils" class="menu__item menu__item--hidden appliances" >
+                        <div role="listbox" aria-label="liste d'appareils" class="menu__item appliances menu__item--hidden" >
                             <ul></ul>
                         </div>
                     </div>
@@ -44,7 +44,7 @@
                             <label for="ustensils"></label>
                             <input  id="ustensils" name="ustensils" type="text" value="Ustensiles"/>
                         </div>
-                        <div role="listbox" aria-label="liste d'ustensils" class="menu__item menu__item--hidden ustensils" >
+                        <div role="listbox" aria-label="liste d'ustensils" class="menu__item ustensils menu__item--hidden" >
                             <ul></ul>
                         </div>
                     </div>
@@ -53,8 +53,27 @@
         </header>
         <main>
         </main>
+
+        <!-- API -->
         <script src="data/recipes.js"></script>
+
+        <!-- Constructor-->
+        <script src="scripts/constructor/recipe.js"></script>
         <script src="scripts/factories/recipes.js"></script>
-        <script src="scripts/index.js"></script>
+
+        <!-- Search algorithm -->
+        <script src="scripts/search/Search.js"></script>
+        <script src="scripts/update/Update.js"></script>
+        <script src="scripts/update/Subject.js"></script>
+
+        <!-- Templates -->
+        <script src="scripts/templates/RecipeCard.js"></script>
+        <script src="scripts/templates/Combobox.js"></script>
+        <script src="scripts/templates/Listbox.js"></script>
+        <script src="scripts/templates/ToolsMenu.js"></script>
+        <script src="scripts/templates/Tag.js"></script>
+
+        <!-- Application-->
+        <script src="scripts/App.js"></script>
     </body>
 </html>
