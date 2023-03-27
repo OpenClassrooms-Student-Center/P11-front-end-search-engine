@@ -1,3 +1,13 @@
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1em;
+}
+header img {
+  margin: 0 auto;
+}
+
 .results {
   display: flex;
   flex-direction: row;
@@ -12,6 +22,10 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+}
+.article-bloc p {
+  margin-bottom: 0.1rem;
+  font-weight: 300;
 }
 .article-bloc .img-bloc {
   height: 10em;
@@ -30,6 +44,7 @@
   font-size: 1em;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 1rem;
 }
 .description .description-header span {
   display: flex;
@@ -37,9 +52,16 @@
   justify-content: space-around;
   align-items: center;
   height: 20px;
+  font-weight: 900;
 }
 .description .description-header h2 {
   font-size: 1em;
+  margin-bottom: 0.1rem;
+  font-weight: 300;
+}
+.description .description-header i {
+  margin-right: 0.3em;
+  font-weight: 500;
 }
 .description .description-bottom {
   display: flex;
@@ -54,11 +76,10 @@
   flex-direction: row;
   font-size: 10px;
 }
-.description .description-bottom .ingredients-list .ingredients-line h3 {
-  font-size: 10px;
+.description .description-bottom .ingredients-list .ingredients-line .p1 {
+  font-weight: 500;
 }
 .description .description-bottom .description-text {
   width: 50%;
   background-color: 0;
-  color: red;
 }

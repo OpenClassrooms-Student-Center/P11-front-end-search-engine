@@ -1,6 +1,16 @@
 $font-background-bot:#E7E7E7;
 $font-background-top:#C7BEBE;
     
+header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding:1em;
+    img{
+        margin: 0 auto;
+    }
+}
+
 .results{
     display: flex;
     flex-direction: row;
@@ -15,6 +25,10 @@ $font-background-top:#C7BEBE;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    p{
+        margin-bottom: 0.1rem;
+        font-weight: 300;
+    }
     .img-bloc{
         height: 10em;
         background-color: $font-background-top;
@@ -32,16 +46,25 @@ $font-background-top:#C7BEBE;
         font-size: 1em;
         justify-content: space-between;
         align-items: center;
+        margin-bottom: 1rem;
         span{
             display: flex;
             flex-direction: row;
             justify-content: space-around;
             align-items: center;
             height: 20px;
+            font-weight: 900;
         }
         h2{
             font-size:1em;
+            margin-bottom: 0.1rem;
+            font-weight: 300;
         }
+        i{
+            margin-right: 0.3em;
+            font-weight: 500;
+        }
+        
     }
     .description-bottom{
         display: flex;
@@ -53,15 +76,14 @@ $font-background-top:#C7BEBE;
                 display: flex;
                 flex-direction: row;
                 font-size: 10px;
-                h3{
-                    font-size: 10px;
+                .p1{
+                    font-weight: 500;
                 }
             }
         }
        .description-text{
         width: 50%;
         background-color: red($color: #000000);
-        color: red;
         }
     }
 }
