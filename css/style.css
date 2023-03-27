@@ -1,0 +1,64 @@
+.results {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  margin: auto;
+}
+
+.article-bloc {
+  width: 33%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+.article-bloc .img-bloc {
+  height: 10em;
+  background-color: #C7BEBE;
+  border-radius: 5px 5px 0 0;
+}
+
+.description {
+  background-color: #E7E7E7;
+  padding: 1em;
+  border-radius: 0 0 5px 5px;
+}
+.description .description-header {
+  display: flex;
+  flex-direction: row;
+  font-size: 1em;
+  justify-content: space-between;
+  align-items: center;
+}
+.description .description-header span {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 20px;
+}
+.description .description-header h2 {
+  font-size: 1em;
+}
+.description .description-bottom {
+  display: flex;
+  flex-direction: row;
+  font-size: 0.7em;
+}
+.description .description-bottom .ingredients-list {
+  width: 50%;
+}
+.description .description-bottom .ingredients-list .ingredients-line {
+  display: flex;
+  flex-direction: row;
+  font-size: 10px;
+}
+.description .description-bottom .ingredients-list .ingredients-line h3 {
+  font-size: 10px;
+}
+.description .description-bottom .description-text {
+  width: 50%;
+  background-color: 0;
+  color: red;
+}
