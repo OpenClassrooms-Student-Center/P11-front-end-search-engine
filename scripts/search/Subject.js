@@ -8,7 +8,7 @@ class SearchSubject{
     }
 
     unsubscribe(_IDobserver){
-        this.IDobservers.filter(IDobserver => IDobserver !== _IDobserver)
+        this.IDobservers = this.IDobservers.filter(IDobserver => IDobserver !== _IDobserver);
     }
 
     fire(observer){

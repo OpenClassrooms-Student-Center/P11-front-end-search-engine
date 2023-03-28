@@ -1,32 +1,33 @@
 class Listbox{
-    constructor(toolsMenu,combobox, searchSubject, update){
-        this.toolsMenu = toolsMenu;
+    constructor(tool,combobox, searchSubject, update){
+        this.tool = tool;
         this.combobox = combobox;
         this._SearchSubject = searchSubject;
         this._Update = update;
-        this.$listbox = toolsMenu.$wrapper.children[1];
+        this.$listbox = tool.$wrapper.children[1];
         this.toolsList = [];
     }
 
     setToolsList(){
-        const testList = [];
+        const tamponList = [];
         recipes.map(recipe => {
             switch(this.$listbox.classList[1]){
                 case "ingredients":
                     recipe.ingredients.map(obj => {
-                        testList.push(obj.ingredient.toLowerCase());
+                        tamponList.push(obj.ingredient.toLowerCase());
                     });
                     break;
                 case "appliances":
-                    testList.push(recipe.appliance.toLowerCase());
+                    tamponList.push(recipe.appliance.toLowerCase());
                     break;
                 case "ustensils":
                     recipe.ustensils.map(ustensil => {
-                        testList.push(ustensil.toLowerCase());
+                        tamponList.push(ustensil.toLowerCase());
                     });
             }
         });
-        this.removeDuplicates(testList);
+        this.removeDuplicates(tamponList);
+        console.log(this.toolsList);
         this.setDOMList();
     }
 
@@ -36,7 +37,6 @@ class Listbox{
         this.toolsList.sort(function(a,b){
             return a.localeCompare(b);
         });
-        this.toolList = [];
         this.toolsList.map((tool,index) => {
             const newLi = document.createElement("li"); 
             newLi.textContent = tool;
@@ -47,7 +47,7 @@ class Listbox{
                 number++;
                 const newTag = new Tag(that,that._SearchSubject,that._Update);
                 newTag.create(newLi);
-                that.toolsMenu.closeHandleList(e,this);
+                that.tool.closeHandleList(e,this);
                 this.removeEventListener("ckick",e);
             });
         });    

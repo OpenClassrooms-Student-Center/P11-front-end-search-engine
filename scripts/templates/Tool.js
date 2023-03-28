@@ -1,8 +1,10 @@
-class ToolsMenu{
+class Tool{
     constructor(toolMenu,searchSubject,update){
         this.$wrapper = toolMenu;
+        this._update = update;
+        this._SearchSubject = searchSubject;
         this.combobox = new Combobox(this);
-        this.listbox = new Listbox(this,this.combobox, searchSubject, update);
+        this.listbox = new Listbox(this,this.combobox, this._SearchSubject, this._update);
         this.listbox.setToolsList();
         this.openHandleList();
     }

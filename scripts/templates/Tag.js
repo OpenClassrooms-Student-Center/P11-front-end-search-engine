@@ -6,12 +6,12 @@ class Tag{
         this.type = listbox.$listbox.classList[1];
         this.$wrapper = document.createElement('div')
         this.$tagMenu = document.querySelector(".tagMenu");
-        this.filterIDRecipes = [];
+        this.filterIDArray = [];
     }
 
     create(li){
         const that = this;
-        switch(li.parentNode.parentNode.classList[1]){
+        switch(this.type){
             case "ingredients":
                 this.$wrapper.classList.add("tag","tag1");
                 break;
@@ -25,9 +25,10 @@ class Tag{
         this.$tagMenu.appendChild(this.$wrapper);
         this._listbox.reset();
         const _TagSearch = new TagSearch(this);
-        this.filterIDRecipes.push(_TagSearch.search());
-        this._SearchSubject.subscribe(this.filterIDRecipes);
-        this._SearchSubject.fire(this._Update)
+        this.filterIDArray = _TagSearch.search();
+        this._SearchSubject.subscribe(this.filterIDArray);
+        console.log(this._SearchSubject);
+        this._SearchSubject.fire(this._Update);
         this.$wrapper.addEventListener("click", function(e){
             that._SearchSubject.unsubscribe(that.filterIDRecipes);
             that._SearchSubject.fire(that._Update);
