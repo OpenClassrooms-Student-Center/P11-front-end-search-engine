@@ -1,5 +1,3 @@
-import recipes from '../../data/recipes.js';
-
 const pushItemOrAddRecurrence = (array, itemtoFind, itemLower) => {
   const tempArray = array;
   if (!itemtoFind) {
@@ -10,7 +8,7 @@ const pushItemOrAddRecurrence = (array, itemtoFind, itemLower) => {
   return tempArray;
 };
 
-const getItems = () => {
+const cleanTagsFromRecipes = (recipes) => {
   let allIngredients = [];
   let allAppliances = [];
   let allUstensils = [];
@@ -56,4 +54,4 @@ const getItems = () => {
   return { allIngredients, allAppliances, allUstensils };
 };
 
-export default getItems;
+export default cleanTagsFromRecipes;

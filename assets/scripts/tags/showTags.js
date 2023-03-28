@@ -1,7 +1,9 @@
 import domElements from '../domElements.js';
-import getItems from './cleanTags.js';
+import cleanTagsFromRecipes from './cleanTagsFromRecipes.js';
+import recipes from '../../data/recipes.js';
 
-const { allIngredients, allAppliances, allUstensils } = getItems();
+const { allIngredients, allAppliances, allUstensils } =
+  cleanTagsFromRecipes(recipes);
 
 const showInputsSecondary = () => {
   domElements.inputSecondary.forEach((input) => {

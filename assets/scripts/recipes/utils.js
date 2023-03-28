@@ -1,22 +1,22 @@
 import getTags from '../tags/getTags.js';
 
-const isIncludesInName = (recipe, input) =>
-  recipe.name.toLowerCase().includes(input.toLowerCase());
-
 const isIncludesInAppliances = (recipe, input) =>
   recipe.appliance.toLowerCase().includes(input.toLowerCase());
+
+const isIncludesInName = (recipe, input) =>
+  recipe.name.toLowerCase().includes(input.toLowerCase());
 
 const isIncludesInDescription = (recipe, input) =>
   recipe.description.toLowerCase().includes(input.toLowerCase());
 
 const isIncludesInIngredients = (recipe, input) =>
-  recipe.ingredients.some(
-    (ingredient) => ingredient.ingredient.toLowerCase() === input.toLowerCase()
+  recipe.ingredients.some((ingredient) =>
+    ingredient.ingredient.toLowerCase().includes(input.toLowerCase())
   );
 
 const isIncludesInUstensils = (recipe, input) =>
-  recipe.ustensils.some(
-    (ustensil) => ustensil.toLowerCase() === input.toLowerCase()
+  recipe.ustensils.some((ustensil) =>
+    ustensil.toLowerCase().includes(input.toLowerCase())
   );
 
 const isTagsIncludesInRecipe = (tags, recipe) => {
@@ -49,5 +49,4 @@ const isInputMainAndTagsIncludesInRecipe = (recipe, input) => {
     isTagsIncludesInRecipe(tags, recipe)
   );
 };
-
 export default isInputMainAndTagsIncludesInRecipe;

@@ -1,6 +1,6 @@
 import recipes from '../../data/recipes.js';
 import domElements from '../domElements.js';
-import { showElement, hideElement } from '../tools/element.js';
+import { hideElement, showElement } from '../tools/element.js';
 import isInputMainAndTagsIncludesInRecipe from './utils.js';
 
 export const updateRecipes = () => {
@@ -32,16 +32,19 @@ export const updateRecipes = () => {
   hideElement(domElements.noRecipe);
 };
 
-export const updateRecipesToShowAll = () => {
-  const allDomRecipes = document.querySelectorAll('.recipe');
+export const updateRecipesWithoutInputMain = () => {
   showElement(domElements.allRecipes);
   hideElement(domElements.noRecipe);
 
-  recipes.forEach((recipe) => {
-    const thisDomRecipe = Array.from(allDomRecipes).find(
-      (domRecipe) => Number(domRecipe.dataset.id) === Number(recipe.id)
+  domElements.allRecipes.childNodes.forEach((domRecipe) => {
+    const thisRecipe = recipes.find(
+      (recipe) => recipe.id === Number(domRecipe.dataset.id)
     );
 
-    showElement(thisDomRecipe);
+    if (isInputMainAndTagsIncludesInRecipe(thisRecipe, '')) {
+      showElement(domRecipe);
+      return;
+    }
+    hideElement(domRecipe);
   });
 };

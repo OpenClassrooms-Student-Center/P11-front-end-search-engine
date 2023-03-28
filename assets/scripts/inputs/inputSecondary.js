@@ -1,4 +1,5 @@
 import domElements from '../domElements.js';
+import { isItemInTags } from '../tags/updateTags.js';
 import { hideElement, showElement } from '../tools/element.js';
 
 const openCloseInputSecondary = (inputName, inputValue) => {
@@ -22,14 +23,18 @@ const openCloseInputSecondary = (inputName, inputValue) => {
 };
 
 const showHideItemInInputSecondary = (childNodes, inputValue) => {
-  childNodes.forEach((child, index) => {
-    if (!child.value.toLowerCase().includes(inputValue.toLowerCase())) {
-      hideElement(child);
+  let numberOfElementShow = 0;
+  childNodes.forEach((child) => {
+    if (
+      isItemInTags(child) &&
+      child.value.toLowerCase().includes(inputValue.toLowerCase()) &&
+      numberOfElementShow < 30
+    ) {
+      numberOfElementShow += 1;
+      showElement(child);
       return;
     }
-    if (!child.classList.contains('show') && index < 30) {
-      showElement(child);
-    }
+    hideElement(child);
   });
 };
 

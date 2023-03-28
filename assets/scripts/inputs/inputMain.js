@@ -1,20 +1,19 @@
 import {
   updateRecipes,
-  updateRecipesToShowAll,
+  updateRecipesWithoutInputMain,
 } from '../recipes/updateRecipes.js';
-import getTags from '../tags/getTags.js';
+import { updateTags, updateTagsWithoutInputMain } from '../tags/updateTags.js';
 
 export const inputMain = (e) => {
   const input = e.target.value;
-  const tags = getTags();
 
   if (input.length >= 3) {
     updateRecipes();
+    updateTags();
     return;
   }
-  if (tags.length === 0) {
-    updateRecipesToShowAll();
-  }
+  updateTagsWithoutInputMain();
+  updateRecipesWithoutInputMain();
 };
 
 export default inputMain;

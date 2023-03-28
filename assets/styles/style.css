@@ -129,7 +129,7 @@ span {
   max-height: 25px;
   border-radius: 5px;
   padding: 20px;
-  transition: max-width 0.3s, max-height 0.3s;
+  /* transition: max-width 0.3s, max-height 0.3s; */
   z-index: 99;
 }
 
@@ -238,7 +238,7 @@ input:focus {
   width: 50%;
   text-overflow: ellipsis;
   overflow-y: auto;
-  height: 105px;
+  height: 95px;
 }
 .recipe-description-body > span {
   -webkit-line-clamp: 7;
