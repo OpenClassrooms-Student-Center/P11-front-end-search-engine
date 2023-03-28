@@ -1,11 +1,11 @@
+import recipes from '../../data/recipes.js';
 import domElements from '../domElements.js';
 import cleanTagsFromRecipes from './cleanTagsFromRecipes.js';
-import recipes from '../../data/recipes.js';
 
 const { allIngredients, allAppliances, allUstensils } =
   cleanTagsFromRecipes(recipes);
 
-const showInputsSecondary = () => {
+const createTags = () => {
   domElements.inputSecondary.forEach((input) => {
     const { lastElementChild: inputLEC } = input;
     const inputSecondaryName = input.classList[1];
@@ -41,4 +41,4 @@ const showInputsSecondary = () => {
   });
 };
 
-export default showInputsSecondary;
+export default createTags;

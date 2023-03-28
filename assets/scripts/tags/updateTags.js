@@ -4,7 +4,7 @@ import { hideElement, showElement } from '../tools/element.js';
 import cleanTagsFromRecipes from './cleanTagsFromRecipes.js';
 import getTags from './getTags.js';
 
-export const isItemInTags = (child) => {
+const isItemInTags = (child) => {
   const tags = getTags();
 
   return (

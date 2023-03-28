@@ -1,13 +1,13 @@
+import domElements from '../domElements.js';
+import { inputMain } from '../inputs/inputMain.js';
+import inputSecondary from '../inputs/inputSecondary.js';
+import createRecipes from '../recipes/createRecipes.js';
 import {
   clickOnInputSecondary,
   clickOnTags,
   clickSecondaryElementsArrow,
 } from '../tags/actionTags.js';
-import { inputMain } from '../inputs/inputMain.js';
-import showRecipes from '../recipes/showRecipes.js';
-import domElements from '../domElements.js';
-import showInputsSecondary from '../tags/showTags.js';
-import inputSecondary from '../inputs/inputSecondary.js';
+import createTags from '../tags/createTags.js';
 
 domElements.inputMain.addEventListener('input', (e) => inputMain(e));
 
@@ -24,8 +24,8 @@ domElements.inputSecondaryIcon.forEach((icon) =>
 domElements.tags.addEventListener('click', (e) => clickOnTags(e));
 
 const init = () => {
-  showInputsSecondary();
-  showRecipes();
+  createTags();
+  createRecipes();
 };
 
 init();

@@ -1,15 +1,6 @@
 import domElements from '../domElements.js';
 import { updateRecipes } from '../recipes/updateRecipes.js';
-
-const addTagInInputSecondary = (e) => {
-  domElements.inputSecondaryAllItems.forEach((inputSecondaryItems) =>
-    inputSecondaryItems.childNodes.forEach((item) => {
-      if (item.textContent === e.target.parentNode.textContent) {
-        item.classList.add('show');
-      }
-    })
-  );
-};
+import { updateTags } from './updateTags.js';
 
 const deleteTagFromTags = (e) => {
   if (e.target.className === 'tag-img') {
@@ -40,20 +31,16 @@ const createTaginTags = (e) => {
   domElements.tags.appendChild(div);
 };
 
-const deleteTagFromInputSecondary = (e) => {
-  e.target.classList.remove('show');
-};
-
 export const clickOnTags = (e) => {
-  addTagInInputSecondary(e);
   deleteTagFromTags(e);
   updateRecipes();
+  updateTags();
 };
 
 export const clickOnInputSecondary = (e) => {
-  deleteTagFromInputSecondary(e);
   createTaginTags(e);
   updateRecipes();
+  updateTags();
 };
 
 export const clickSecondaryElementsArrow = (e) => {
