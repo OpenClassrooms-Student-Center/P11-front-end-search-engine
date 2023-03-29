@@ -1,6 +1,9 @@
 class Update{
-    constructor(section){
+    constructor(section,ingredientTool,applianceTool, ustensilTool){
         this.$section = section;
+        this.IngredientTool = ingredientTool;
+        this.ApplianceTool = applianceTool;
+        this.UstensilTool = ustensilTool;
         this.updateIDArray = [];
         this.tamponIDArray = [];
     }
@@ -16,16 +19,22 @@ class Update{
                 }
             });
         });
-        if(allIDObserver.length !== 0){
-            this.updateIDArray.map(idUpdate => {
-                this.createCard(idUpdate)
-            });
-        }
-        else{
-            this.tamponIDArray.map(idTampon => {
-                this.createCard(idTampon);
-            });
-        }
+        recipes.map(recipe => {
+            const _Recipe = new Recipe(recipe);
+            if(allIDObserver.length !== 0){
+                this.updateIDArray.map(idUpdate => {
+                    this.createCard(idUpdate,_Recipe);
+                    this.updateTool(this.IngredientTool,_Recipe);
+                    this.updateTool(this.ApplianceTool,_Recipe);
+                    this.updateTool(this.UstensilTool,_Recipe);
+                });
+            }
+            else{
+                this.tamponIDArray.map(idTampon => {
+                    this.createCard(idTampon,_Recipe);
+                });
+            }
+        });
     }
 
     setup(){
@@ -38,14 +47,21 @@ class Update{
         });
     }
 
-    createCard(idUpdate){
-        recipes.map(recipe => {
-            const _Recipe = new Recipe(recipe);
-            if(idUpdate === _Recipe.id){
-                const _RecipeCard = new RecipeCard(_Recipe);
-                const $recipeArticle = _RecipeCard.getRecipesCardDOM();
-                this.$section.appendChild($recipeArticle);
-            }
+    createCard(idUpdate,Recipe){
+        if(idUpdate === Recipe.id){
+            const _RecipeCard = new RecipeCard(Recipe);
+            const $recipeArticle = _RecipeCard.getRecipesCardDOM();
+            this.$section.appendChild($recipeArticle);
+        }
+    }
+
+    updateTool(listbox,Recipe){
+        let indexDelete = 0;
+        listbox.toolsList.map((tool,index) => {
+            switch(toolsList.tool)
+            if(Recipe.) 
+            listbox.$listbox.children[0].removeChild(listbox.$listbox.children[0].children[index-indexDelete]);
+            indexDelete++;
         });
     }
 }

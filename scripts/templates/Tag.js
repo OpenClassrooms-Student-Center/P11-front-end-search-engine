@@ -10,7 +10,6 @@ class Tag{
     }
 
     create(li){
-        const that = this;
         switch(this.type){
             case "ingredients":
                 this.$wrapper.classList.add("tag","tag1");
@@ -23,14 +22,14 @@ class Tag{
         }
         this.$wrapper.textContent = li.textContent;
         this.$tagMenu.appendChild(this.$wrapper);
-        this._listbox.reset();
         const _TagSearch = new TagSearch(this);
         this.filterIDArray = _TagSearch.search();
         this._SearchSubject.subscribe(this.filterIDArray);
         console.log(this._SearchSubject);
         this._SearchSubject.fire(this._Update);
+        const that = this;
         this.$wrapper.addEventListener("click", function(e){
-            that._SearchSubject.unsubscribe(that.filterIDRecipes);
+            that._SearchSubject.unsubscribe(that.filterIDArray);
             that._SearchSubject.fire(that._Update);
             that._listbox.toolsList.push(li.textContent);
             that._listbox.$listbox.children[0].innerHTML = "";

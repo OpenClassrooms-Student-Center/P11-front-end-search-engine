@@ -6,28 +6,27 @@ class Listbox{
         this._Update = update;
         this.$listbox = tool.$wrapper.children[1];
         this.toolsList = [];
+        this.tamponList= [];
     }
 
     setToolsList(){
-        const tamponList = [];
         recipes.map(recipe => {
             switch(this.$listbox.classList[1]){
                 case "ingredients":
                     recipe.ingredients.map(obj => {
-                        tamponList.push(obj.ingredient.toLowerCase());
+                        this.tamponList.push(obj.ingredient.toLowerCase());
                     });
                     break;
                 case "appliances":
-                    tamponList.push(recipe.appliance.toLowerCase());
+                    this.tamponList.push(recipe.appliance.toLowerCase());
                     break;
                 case "ustensils":
                     recipe.ustensils.map(ustensil => {
-                        tamponList.push(ustensil.toLowerCase());
+                        this.tamponList.push(ustensil.toLowerCase());
                     });
             }
         });
-        this.removeDuplicates(tamponList);
-        console.log(this.toolsList);
+        this.removeDuplicates();
         this.setDOMList();
     }
 
@@ -46,6 +45,7 @@ class Listbox{
                 that.toolsList.splice(index-number,1)
                 number++;
                 const newTag = new Tag(that,that._SearchSubject,that._Update);
+                that.reset();
                 newTag.create(newLi);
                 that.tool.closeHandleList(e,this);
                 this.removeEventListener("ckick",e);
@@ -53,9 +53,9 @@ class Listbox{
         });    
     }
 
-    removeDuplicates(testList){
-        if(testList.length !== 0){
-            this.toolsList = Array.from(new Set(testList));
+    removeDuplicates(){
+        if(this.tamponList.length !== 0){
+            this.toolsList = Array.from(new Set(this.tamponList));
         }
     }
 
