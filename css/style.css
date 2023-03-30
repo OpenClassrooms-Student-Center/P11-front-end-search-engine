@@ -42,6 +42,16 @@ nav:hover {
   background-color: #C7BEBE;
 }
 
+.filters #ingredients-filter {
+  background-color: #3282F7;
+}
+.filters #apparels-filter {
+  background-color: #68D9A4;
+}
+.filters #ustensils-filter {
+  background-color: #ED6454;
+}
+
 .results {
   display: flex;
   flex-direction: row;
