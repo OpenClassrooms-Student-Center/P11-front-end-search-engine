@@ -8,13 +8,49 @@ header img {
   margin: 0 auto;
 }
 
+nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1em;
+  box-sizing: border-box;
+  width: 60px;
+  transition-duration: 1s;
+  background-color: #E7E7E7;
+  border: none;
+  border-radius: 5px;
+}
+nav input {
+  border: none;
+  width: 90%;
+  height: 55px;
+  padding: 6px;
+  background: none;
+}
+nav input::-moz-placeholder {
+  margin-left: 100px;
+  font-weight: 100;
+}
+nav input::placeholder {
+  margin-left: 100px;
+  font-weight: 100;
+}
+nav input i {
+  zoom: 2;
+}
+nav:hover {
+  background-color: #C7BEBE;
+}
+
 .results {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   margin: auto;
+  margin-top: 1.5em;
 }
 
 .article-bloc {
