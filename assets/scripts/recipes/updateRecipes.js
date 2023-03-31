@@ -8,7 +8,7 @@ export const updateRecipes = () => {
   const allDomRecipes = document.querySelectorAll('.recipe');
   let isRecipe = false;
 
-  // console.time('test');
+  console.time('forEach');
 
   recipes.forEach((recipe) => {
     const thisDomRecipe = Array.from(allDomRecipes).find(
@@ -24,7 +24,7 @@ export const updateRecipes = () => {
     hideElement(thisDomRecipe);
   });
 
-  // console.timeEnd('test');
+  console.timeEnd('forEach');
 
   if (!isRecipe) {
     hideElement(domElements.allRecipes);
