@@ -30,8 +30,8 @@
     </header>
     <main id="main">
       <input class="input-main" placeholder="Rechercher une recette" />
-      <section class="tags"></section>
-      <section class="inputs-secondary">
+      <div class="tags"></div>
+      <div class="inputs-secondary">
         <div class="input-secondary ingredients">
           <div class="input-secondary-head">
             <input
@@ -47,12 +47,7 @@
             />
           </div>
 
-          <datalist
-            id="ingredients"
-            class="input-secondary-items"
-            role="listbox"
-          >
-          </datalist>
+          <datalist id="ingredients" class="input-secondary-items"> </datalist>
         </div>
         <div class="input-secondary appliances">
           <div class="input-secondary-head">
@@ -69,12 +64,7 @@
             />
           </div>
 
-          <datalist
-            id="appliances"
-            class="input-secondary-items"
-            role="listbox"
-          >
-          </datalist>
+          <datalist id="appliances" class="input-secondary-items"> </datalist>
         </div>
         <div class="input-secondary ustensils">
           <div class="input-secondary-head">
@@ -91,10 +81,9 @@
             />
           </div>
 
-          <datalist id="ustensils" class="input-secondary-items" role="listbox">
-          </datalist>
+          <datalist id="ustensils" class="input-secondary-items"> </datalist>
         </div>
-      </section>
+      </div>
       <div class="no-recipes">
         <img
           src="assets/images/icons/delete.svg"
@@ -106,7 +95,7 @@
           tarte aux pommes », « poisson », etc...
         </h3>
       </div>
-      <section class="recipes"></section>
+      <div class="recipes"></div>
     </main>
   </body>
 </html>
