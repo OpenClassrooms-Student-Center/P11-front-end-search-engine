@@ -1,8 +1,8 @@
 import domElements from '../domElements.js';
 import getRecipesShow from '../recipes/getRecipes.js';
-import { hideElement, showElement } from '../tools/element.js';
 import cleanTagsFromRecipes from './cleanTagsFromRecipes.js';
 import getTags from './getTags.js';
+import { showTag, hideTag } from './tools.js';
 
 const isItemInTags = (child) => {
   const tags = getTags();
@@ -52,24 +52,28 @@ export const updateTags = () => {
         isItemInInputSecondary &&
         itemsNumber < 30
       ) {
-        showElement(child);
+        showTag(child);
         itemsNumber += 1;
         return;
       }
 
-      hideElement(child);
+      hideTag(child);
     });
   });
 };
 
 export const updateTagsWithoutInputMain = () => {
   domElements.inputSecondary.forEach((inputSec) => {
+    let itemsNumber = 0;
     inputSec.lastElementChild.childNodes.forEach((child) => {
-      if (isItemInTags(child)) {
-        showElement(child);
+      if (isItemInTags(child) && itemsNumber < 30) {
+        showTag(child);
+        itemsNumber += 1;
+
         return;
       }
-      hideElement(child);
+
+      hideTag(child);
     });
   });
 };

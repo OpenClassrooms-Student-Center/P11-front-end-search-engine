@@ -180,6 +180,7 @@ input:focus {
 .input-secondary-item {
   display: none;
   width: 190px;
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   padding: 5px;
@@ -233,15 +234,15 @@ input:focus {
 }
 .recipe-description-body > div,
 .recipe-description-body > span {
-  display: flex;
+  display: inline-block;
   flex-direction: column;
   width: 50%;
   text-overflow: ellipsis;
   overflow-y: auto;
-  height: 95px;
+  height: 90px;
 }
 .recipe-description-body > span {
-  -webkit-line-clamp: 7;
+  -webkit-line-clamp: 6;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -276,6 +277,10 @@ input:focus {
 
 .show {
   display: flex;
+}
+
+.show-tag {
+  display: inline-block;
 }
 
 datalist {

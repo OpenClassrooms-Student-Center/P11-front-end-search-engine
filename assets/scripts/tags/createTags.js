@@ -35,7 +35,7 @@ const createTags = () => {
         option.disabled = true;
 
         if (index < 30) {
-          option.classList.add('show');
+          option.classList.add('show-tag');
         }
       });
   });
