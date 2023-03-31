@@ -1,7 +1,7 @@
 import recipes from '../../data/recipes.js';
 import domElements from '../domElements.js';
 import { hideElement, showElement } from '../tools/element.js';
-import isInputMainAndTagsIncludesInRecipe from './utils.js';
+import isInputMainAndTagsIncludesInRecipe from './tools.js';
 
 export const updateRecipes = () => {
   const input = domElements.inputMain.value;
