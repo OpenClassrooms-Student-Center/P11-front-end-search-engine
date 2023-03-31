@@ -15,7 +15,6 @@ export const updateRecipes = () => {
       (domRecipe) => Number(domRecipe.dataset.id) === Number(recipes[index].id)
     );
 
-
     if (isInputMainAndTagsIncludesInRecipe(recipes[index], input)) {
       showElement(thisDomRecipe);
       isRecipe = true;
