@@ -10,19 +10,19 @@ export const updateRecipes = () => {
 
   // console.time('forEach');
 
-  recipes.forEach((recipe) => {
+  for (let index = 1; index <= recipes.length; index += 1) {
     const thisDomRecipe = Array.from(allDomRecipes).find(
-      (domRecipe) => Number(domRecipe.dataset.id) === Number(recipe.id)
+      (domRecipe) => Number(domRecipe.dataset.id) === Number(recipes[index].id)
     );
 
-    if (isInputMainAndTagsIncludesInRecipe(recipe, input)) {
+    if (isInputMainAndTagsIncludesInRecipe(recipes[index], input)) {
       showElement(thisDomRecipe);
       isRecipe = true;
       return;
     }
 
     hideElement(thisDomRecipe);
-  });
+  }
 
   // console.timeEnd('forEach');
 
