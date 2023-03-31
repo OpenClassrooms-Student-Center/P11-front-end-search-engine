@@ -10,7 +10,7 @@ export const updateRecipes = () => {
 
   // console.time('for');
 
-  for (let index = 1; index <= recipes.length; index += 1) {
+  for (let index = 1; index < recipes.length; index += 1) {
     const thisDomRecipe = Array.from(allDomRecipes).find(
       (domRecipe) => Number(domRecipe.dataset.id) === Number(recipes[index].id)
     );
@@ -18,10 +18,9 @@ export const updateRecipes = () => {
     if (isInputMainAndTagsIncludesInRecipe(recipes[index], input)) {
       showElement(thisDomRecipe);
       isRecipe = true;
-      return;
+    } else {
+      hideElement(thisDomRecipe);
     }
-
-    hideElement(thisDomRecipe);
   }
 
   // console.timeEnd('for');
