@@ -1,0 +1,4 @@
+/.vscode/settings.json
+.prettierrc
+/node_modules
+.eslintrc.js

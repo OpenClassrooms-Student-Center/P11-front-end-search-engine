@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <link href="assets/styles/style.css" rel="stylesheet" type="text/css" />
+
+    <link rel="icon" type="image/png" href="assets/images/logos/logo.svg" />
+    <link
+      href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+      rel="stylesheet"
+    />
+
+    <script type="module" src="/assets/scripts/pages/index.js"></script>
+    <title>Les petis plats</title>
+  </head>
+  <body>
+    <header class="header">
+      <a href="">
+        <img
+          src="assets/images/logos/logo.svg"
+          class="logo"
+          alt="Les petis plats icon"
+        />
+      </a>
+      <h1 class="header-title">Les petits plats</h1>
+    </header>
+    <main id="main">
+      <input class="input-main" placeholder="Rechercher une recette" />
+      <section class="tags"></section>
+      <section class="inputs-secondary">
+        <div class="input-secondary ingredients">
+          <div class="input-secondary-head">
+            <input
+              list="ingredients"
+              size="50"
+              placeholder="Ingrédients"
+              class="input-secondary-input ingredients"
+            />
+            <img
+              src="/assets/images/icons/arrow.svg"
+              alt="arrow"
+              class="input-secondary-icon"
+            />
+          </div>
+
+          <datalist
+            id="ingredients"
+            class="input-secondary-items"
+            role="listbox"
+          >
+          </datalist>
+        </div>
+        <div class="input-secondary appliances">
+          <div class="input-secondary-head">
+            <input
+              list="appliances"
+              size="50"
+              placeholder="Appareils"
+              class="input-secondary-input appliances"
+            />
+            <img
+              src="/assets/images/icons/arrow.svg"
+              alt="arrow"
+              class="input-secondary-icon"
+            />
+          </div>
+
+          <datalist
+            id="appliances"
+            class="input-secondary-items"
+            role="listbox"
+          >
+          </datalist>
+        </div>
+        <div class="input-secondary ustensils">
+          <div class="input-secondary-head">
+            <input
+              list="ustensils"
+              size="50"
+              placeholder="Ustensils"
+              class="input-secondary-input ustensils"
+            />
+            <img
+              src="/assets/images/icons/arrow.svg"
+              alt="arrow"
+              class="input-secondary-icon"
+            />
+          </div>
+
+          <datalist id="ustensils" class="input-secondary-items" role="listbox">
+          </datalist>
+        </div>
+      </section>
+      <div class="no-recipes">
+        <img
+          src="assets/images/icons/delete.svg"
+          class="no-recipes-logo"
+          alt="Les petis plats icon"
+        />
+        <h3 class="no-recipes-text">
+          Aucune recette ne correspond à votre critère... vous pouvez chercher «
+          tarte aux pommes », « poisson », etc...
+        </h3>
+      </div>
+      <section class="recipes"></section>
+    </main>
+  </body>
+</html>
