@@ -1,6 +1,6 @@
 class RecipeCard{
-    constructor(recipe){
-        this._recipe = recipe
+    constructor(Recipe){
+        this._Recipe = Recipe;
         this.$wrapper = document.createElement("article");
         this.$figure = document.createElement("figure");
         this.$figcaption = document.createElement("figcaption");
@@ -14,9 +14,9 @@ class RecipeCard{
     }
 
     getRecipesCardDOM(){
-        this.$pDescription.textContent = this._recipe.description;
+        this.$pDescription.textContent = this._Recipe.description;
         this.$pDescription.classList.add("ellipsis");
-        this._recipe.ingredients.forEach(ingredient => {
+        this._Recipe._ingredients.forEach(ingredient => {
             const li = document.createElement("li");
             if(ingredient.unit !== undefined){
                 li.innerHTML = `<p><strong>${ingredient.ingredient}:\xA0</strong>${ingredient.quantity}${getSpacing(ingredient.unit.toLowerCase())}</p>`;
@@ -31,8 +31,8 @@ class RecipeCard{
         });
         this.$divPresentation.appendChild(this.$ul);
         this.$divPresentation.appendChild(this.$pDescription);
-        this.$pTime.textContent = `${this._recipe.time} min`;
-        this.$h2.textContent = this._recipe.name;
+        this.$pTime.textContent = `${this._Recipe.time} min`;
+        this.$h2.textContent = this._Recipe.name;
         this.$strong.appendChild(this.$pTime);
         this.$headerFigcaption.appendChild(this.$h2);
         this.$headerFigcaption.appendChild(this.$strong);

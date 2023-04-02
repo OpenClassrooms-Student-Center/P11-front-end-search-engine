@@ -13,25 +13,26 @@ class App{
 
     main(){
         const that = this;
-        const IngredientsTool = new Tool(document.querySelector(".menu1"),this._SearchSubject,this._Update);
-        const AppliancesTool = new Tool(document.querySelector(".menu2"),this._SearchSubject,this._Update);
-        const UstensilsTool = new Tool(document.querySelector(".menu3"),this._SearchSubject,this._Update);
         const _SearchSubject = new SearchSubject();
+        const IngredientsTool = new Tool(document.querySelector(".menu1"),_SearchSubject);
+        const AppliancesTool = new Tool(document.querySelector(".menu2"),_SearchSubject);
+        const UstensilsTool = new Tool(document.querySelector(".menu3"),_SearchSubject);
         const _Update = new Update(this.$section,IngredientsTool,AppliancesTool,UstensilsTool);
         _Update.setup();
         this.$searchInput.addEventListener("input", function(e){
-            _SearchSubject.unsubscribe(that.IDArraySearch);
+            if(_SearchSubject.IDobservers.length !== 0){
+                _SearchSubject.unsubscribe(that.IDArraySearch);
+            }
             if(e.target.value.length >= 3){
                 that.IDArraySearch.splice(0,that.IDArraySearch.length);
                 const _GlobalSearch = new GlobalSearch(e.target.value);
                 that.IDArraySearch = _GlobalSearch.search();
-                that._SearchSubject.subscribe(that.IDArraySearch);
-                that._SearchSubject.fire(_Update);
-                console.log(_SearchSubject);
+                _SearchSubject.subscribe(that.IDArraySearch);
+                _SearchSubject.fire(_Update);
             }
             else{
-                console.log(_SearchSubject);
-                that._SearchSubject.fire(_Update);
+                that.$section.innerHTML = "";
+                _Update.setup();
             }
         });
     }

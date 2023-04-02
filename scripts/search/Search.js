@@ -56,12 +56,12 @@ class TagSearch extends Search{
                     };
                     break;
                 case "appliances":
-                    if(this.byAppliance(_recipe.appliance)){
+                    if(this.byAppliance(_recipe._appliance)){
                         this.filterIdRecipes.push(_recipe.id);
                     };
                     break;
                 case "ustensils":    
-                    if(this.byUstensils(_recipe.ustensils).length !== 0){
+                    if(this.byUstensils(_recipe._ustensils).length !== 0){
                         this.filterIdRecipes.push(_recipe.id);
                     };
             }

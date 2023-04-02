@@ -1,10 +1,10 @@
 class Listbox{
-    constructor(tool,combobox, searchSubject, update){
-        this.tool = tool;
-        this.combobox = combobox;
-        this._SearchSubject = searchSubject;
-        this._Update = update;
-        this.$listbox = tool.$wrapper.children[1];
+    constructor(Tool){
+        this._Tool = Tool;
+        this._SearchSubject = Tool._SearchSubject;
+        this._Update = Tool._Update;
+        this.$listbox = Tool.$wrapper.children[1];
+        this.$ul = Tool.$wrapper.children[1].children[0];
         this.toolsList = [];
         this.tamponList= [];
     }
@@ -39,7 +39,7 @@ class Listbox{
         this.toolsList.map((tool,index) => {
             const newLi = document.createElement("li"); 
             newLi.textContent = tool;
-            this.$listbox.children[0].appendChild(newLi);
+            this.$ul.appendChild(newLi);
             newLi.addEventListener("click", function(e){
                 e.stopPropagation();
                 that.toolsList.splice(index-number,1)
@@ -47,7 +47,7 @@ class Listbox{
                 const newTag = new Tag(that,that._SearchSubject,that._Update);
                 that.reset();
                 newTag.create(newLi);
-                that.tool.closeHandleList(e,this);
+                that.Tool.closeHandleList(e,this);
                 this.removeEventListener("ckick",e);
             });
         });    
@@ -60,7 +60,7 @@ class Listbox{
     }
 
     reset(){
-        this.$listbox.children[0].innerHTML = "";
+        this.$ul.innerHTML = "";
         this.setDOMList();
     }
 }
