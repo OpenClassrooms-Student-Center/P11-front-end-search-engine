@@ -89,7 +89,7 @@ class GlobalSearch extends Search{
     filterRecipes(){
         recipes.forEach(recipe => {
             const _recipe = new Recipe(recipe);
-            if(this.byIngredients(_recipe.ingredients).length !== 0 || 
+            if(this.byIngredients(_recipe.ingredients) || 
                 this.byTitle(_recipe.name) || this.byDescription(_recipe.description)){
                     this.filterIdRecipes.push(_recipe.id);
                 }
