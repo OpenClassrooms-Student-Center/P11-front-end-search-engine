@@ -93,7 +93,7 @@ class Update{
                 }
             });
         });
-        console.log(this.updateIDArray);
+        // console.log(this.updateIDArray);
 
         recipes.map(recipe => {
             const _Recipe = new Recipe(recipe);

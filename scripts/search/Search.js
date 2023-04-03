@@ -9,20 +9,29 @@ class Search{
     }
 
     byIngredients(ingredients){
-        return ingredients.filter(ingredient =>
-            ingredient.ingredient.toLowerCase() === this._search);
+        let findIngredient = false;
+        ingredients.forEach(Ingredient => {
+            if(Ingredient.ingredient.toLowerCase() === this._search){
+                findIngredient = true;
+            }
+        });
+        return findIngredient
     }
 
     byAppliance(appliance){
         if(appliance.toLowerCase() === this._search){
             return true
         }
-        return false
     }
 
     byUstensils(ustensils){
-        return ustensils.filter(ustensil => 
-            ustensil.toLowerCase() === this._search);
+        let findUstensil = false;
+        ustensils.forEach(ustensil => {
+            if(ustensil.toLowerCase() === this._search){
+                findUstensil = true;
+            }
+        });
+        return findUstensil
     }
 
     byTitle(title){
@@ -49,9 +58,10 @@ class TagSearch extends Search{
     filterRecipes(){
         recipes.forEach(recipe => {
             const _recipe = new Recipe(recipe);
+            // console.log(this.byIngredients(_recipe._ingredients))
             switch(this.tagType){
                 case "ingredients":
-                    if(this.byIngredients(_recipe._ingredients).length !== 0){
+                    if(this.byIngredients(_recipe._ingredients)){
                         this.filterIdRecipes.push(_recipe.id);
                     };
                     break;
@@ -61,11 +71,12 @@ class TagSearch extends Search{
                     };
                     break;
                 case "ustensils":    
-                    if(this.byUstensils(_recipe._ustensils).length !== 0){
+                    if(this.byUstensils(_recipe._ustensils)){
                         this.filterIdRecipes.push(_recipe.id);
                     };
             }
         });
+        console.log(this.filterIdRecipes);
         return this.filterIdRecipes
     }
 }
