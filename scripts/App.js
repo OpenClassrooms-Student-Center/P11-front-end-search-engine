@@ -17,9 +17,9 @@ class App{
         const that = this;
         this._Update.setup();
         this.$searchInput.addEventListener("input", function(e){
-            if(that._SearchSubject.IDobservers.length !== 0){
-                that._SearchSubject.unsubscribe(that.IDArraySearch);
-            }
+            // if(that._SearchSubject.IDobservers.length !== 0){
+            //     that._SearchSubject.unsubscribe(that.IDArraySearch);
+            // }
             if(e.target.value.length >= 3){
                 that.IDArraySearch.splice(0,that.IDArraySearch.length);
                 const _GlobalSearch = new GlobalSearch(e.target.value);

@@ -47,7 +47,7 @@ class Listbox{
                 const newTag = new Tag(that,that._SearchSubject,that._Update);
                 that.reset();
                 newTag.create(newLi);
-                that.Tool.closeHandleList(e,this);
+                that._Tool.closeHandleList(e);
                 this.removeEventListener("ckick",e);
             });
         });    

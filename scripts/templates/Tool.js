@@ -32,7 +32,7 @@ class Tool{
         });
     }
 
-    closeHandleList(e,that){
+    closeHandleList(e){
         this._Combobox.$input.removeAttribute("placeholder");
         this._Combobox.$combobox.setAttribute("aria-expanded",false);
         this.$wrapper.setAttribute("aria-expanded",false);
@@ -49,6 +49,5 @@ class Tool{
             case "ustensils":
                 this._Combobox.$input.value = "Ustensiles";
         }
-        that.removeEventListener("click",e);
     }
 }
