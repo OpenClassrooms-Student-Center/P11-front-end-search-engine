@@ -1,9 +1,9 @@
 class Tag{
-    constructor(listbox, searchSubject, update){
-        this._listbox = listbox;
-        this._SearchSubject = searchSubject;
-        this._Update = update;
-        this.type = listbox.$listbox.classList[1];
+    constructor(Listbox){
+        this._Listbox = Listbox;
+        this._SearchSubject = Listbox._SearchSubject;
+        this._Update = Listbox._Update;
+        this.type = Listbox.$listbox.classList[1];
         this.$wrapper = document.createElement('div')
         this.$tagMenu = document.querySelector(".tagMenu");
         this.filterIDArray = [];
@@ -29,10 +29,17 @@ class Tag{
         const that = this;
         this.$wrapper.addEventListener("click", function(e){
             that._SearchSubject.unsubscribe(that.filterIDArray);
-            that._SearchSubject.fire(that._Update);
-            that._listbox.toolsList.push(li.textContent);
-            that._listbox.$listbox.children[0].innerHTML = "";
-            that._listbox.setDOMList();
+            that._Listbox.toolsList.push(li.textContent);
+            that._Listbox.$ul.innerHTML = "";
+            if(that._SearchSubject.IDobservers.length !== 0){
+                that._SearchSubject.fire(that._Update);
+            }
+            else{
+                that._Update.setup();
+                that._Update.resetTool(that._Update._IngredientsTool);
+                that._Update.resetTool(that._Update._AppliancesTool);
+                that._Update.resetTool(that._Update._UstensilsTool);
+            }
             that.$tagMenu.removeChild(this);    
             this.removeEventListener("click",e);
         });

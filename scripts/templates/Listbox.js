@@ -43,7 +43,7 @@ class Listbox{
                 e.stopPropagation();
                 that.toolsList.splice(index-number,1)
                 number++;
-                const newTag = new Tag(that,that._SearchSubject,that._Update);
+                const newTag = new Tag(that);
                 that.reset();
                 newTag.create(newLi);
                 that._Tool.closeHandleList(e);

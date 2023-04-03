@@ -9,6 +9,7 @@ class Update{
     }
 
     setup(){
+        this.$section.innerHTML = "";
         recipes.map(recipe => {
             const _Recipe = new Recipe(recipe);
             this.tamponIDArray.push(_Recipe.id);
@@ -69,7 +70,7 @@ class Update{
 
     resetTool(Tool){
         Tool._Listbox.toolsList.splice(0,Tool._Listbox.toolsList.length);
-        this.tamponIDArray.splice(0,this.tamponIDArray.length);
+        // this.tamponIDArray.splice(0,this.tamponIDArray.length);
         Tool._Listbox.setToolsList();
         Tool._Listbox.reset();
     }
@@ -78,7 +79,7 @@ class Update{
         this.$section.innerHTML = "";
         //Reset and sort my Update Array
         this.updateIDArray.splice(0,this.updateIDArray.length);
-        allIDObserver.map(IDArrayObserver => {
+        allIDObserver.forEach(IDArrayObserver => {
             IDArrayObserver.map((idObserver) => {
                 if(this.updateIDArray.every(idUpdate => idObserver !== idUpdate)){ 
                     this.updateIDArray.push(idObserver);
