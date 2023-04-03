@@ -20,7 +20,7 @@ class Combobox{
             }
             if(e.target.value.length >= 3){
                 // console.log(that._Tool._Listbox.toolsList);
-                that._Tool._Listbox.toolsList.map((tool,index) => {
+                that._Tool._Listbox.toolsList.forEach((tool,index) => {
                     if(!tool.includes(e.target.value.toLowerCase())){
                         that._Tool._Listbox.$ul.removeChild(that._Tool._Listbox.$ul.children[index-indexDelete]);
                         indexDelete++;

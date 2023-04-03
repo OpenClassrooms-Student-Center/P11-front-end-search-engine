@@ -10,7 +10,7 @@ class Update{
 
     setup(){
         this.$section.innerHTML = "";
-        recipes.map(recipe => {
+        recipes.forEach(recipe => {
             const _Recipe = new Recipe(recipe);
             this.tamponIDArray.push(_Recipe.id);
             const _RecipeCard = new RecipeCard(_Recipe);
@@ -26,11 +26,11 @@ class Update{
     }
 
     findTool(Tool,Recipe,findToolIndexArray){
-        Tool._Listbox.toolsList.map((tool,index) => {
+        Tool._Listbox.toolsList.forEach((tool,index) => {
             if(findToolIndexArray.includes(index) === false){
                 switch(Tool.$wrapper.classList[1]){
                     case "menu1":
-                        Recipe._ingredients.map(Ingredient => {
+                        Recipe._ingredients.forEach(Ingredient => {
                             if(Ingredient.ingredient.toLowerCase() === tool){
                                 findToolIndexArray.push(index);
                             }
@@ -42,7 +42,7 @@ class Update{
                         }
                         break;
                     case "menu3":
-                        Recipe._ustensils.map(ustensil => {
+                        Recipe._ustensils.forEach(ustensil => {
                             if(ustensil.toLowerCase() === tool){
                                 findToolIndexArray.push(index);
                             }
@@ -76,19 +76,25 @@ class Update{
     }
     
     update(allIDObserver){
-        this.$section.innerHTML = "";
-        //Reset and sort my Update Array
-        this.updateIDArray.splice(0,this.updateIDArray.length);
-        allIDObserver.forEach(IDArrayObserver => {
-            IDArrayObserver.map((idObserver) => {
-                if(this.updateIDArray.every(idUpdate => idObserver !== idUpdate)){ 
-                    this.updateIDArray.push(idObserver);
-                }
-            });
-        });
         const findIngredientIndexArray = [];
         const findApplianceIndexArray = [];
         const findUstensilIndexArray = [];
+        this.$section.innerHTML = "";
+
+        //Reset and sort my Update Array
+        this.updateIDArray.splice(0,this.updateIDArray.length);
+        allIDObserver.forEach((IDArrayObserver,index) => {
+            IDArrayObserver.forEach((idObserver) => {
+                if(index === 0){
+                    this.updateIDArray.push(idObserver);
+                }
+                else if(this.updateIDArray.some(updateID => updateID !== idObserver)){
+                    this.updateIDArray = this.updateIDArray.filter(updateId => updateId !==idObserver);
+                }
+            });
+        });
+        console.log(this.updateIDArray);
+
         recipes.map(recipe => {
             const _Recipe = new Recipe(recipe);
             if(allIDObserver.length !== 0){
@@ -102,11 +108,12 @@ class Update{
                 });
             }
             else{
-                this.tamponIDArray.map(idTampon => {
+                this.tamponIDArray.forEach(idTampon => {
                     this.createCard(idTampon,_Recipe);
                 });
             }
         });
+
         this.updateTool(this._IngredientsTool,findIngredientIndexArray);
         this.updateTool(this._AppliancesTool,findApplianceIndexArray);
         this.updateTool(this._UstensilsTool,findUstensilIndexArray);

@@ -47,7 +47,7 @@ class TagSearch extends Search{
     }
 
     filterRecipes(){
-        recipes.map(recipe => {
+        recipes.forEach(recipe => {
             const _recipe = new Recipe(recipe);
             switch(this.tagType){
                 case "ingredients":
@@ -76,7 +76,7 @@ class GlobalSearch extends Search{
     }
 
     filterRecipes(){
-        recipes.map(recipe => {
+        recipes.forEach(recipe => {
             const _recipe = new Recipe(recipe);
             if(this.byIngredients(_recipe.ingredients).length !== 0 || 
                 this.byTitle(_recipe.name) || this.byDescription(_recipe.description)){

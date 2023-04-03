@@ -12,7 +12,7 @@ class SearchSubject{
     }
 
     fire(observer){
-        // console.log(this.IDobservers);
+        console.log(this.IDobservers);
         observer.update(this.IDobservers);
     }
 }
