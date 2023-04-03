@@ -1,48 +1,12 @@
 class Update{
-    constructor(section,ingredientTool,applianceTool, ustensilTool){
-        this.$section = section;
-        this.IngredientsTool = ingredientTool;
-        this.AppliancesTool = applianceTool;
-        this.UstensilsTool = ustensilTool;
+    constructor(App){
+        this._SearchSubject = App._SearchSubject;
+        this.$section = App.$section;
+        this._IngredientsTool = new Tool(document.querySelector(".menu1"),App._SearchSubject,this);
+        this._AppliancesTool = new Tool(document.querySelector(".menu2"),App._SearchSubject,this);
+        this._UstensilsTool = new Tool(document.querySelector(".menu3"),App._SearchSubject,this);
         this.updateIDArray = [];
         this.tamponIDArray = [];
-    }
-
-    update(allIDObserver){
-        this.$section.innerHTML = "";
-        //Reset and sort my Update Array
-        this.updateIDArray.splice(0,this.updateIDArray.length);
-        allIDObserver.map(IDArrayObserver => {
-            IDArrayObserver.map((idObserver) => {
-                if(this.updateIDArray.every(idUpdate => idObserver !== idUpdate)){ 
-                    this.updateIDArray.push(    idObserver);
-                }
-            });
-        });
-        const findIngredientIndexArray = [];
-        const findApplianceIndexArray = [];
-        const findUstensilIndexArray = [];
-        recipes.map(recipe => {
-            const _Recipe = new Recipe(recipe);
-            if(allIDObserver.length !== 0){
-                this.updateIDArray.map(idUpdate => {
-                    if(idUpdate === _Recipe._id){
-                        this.createCard(_Recipe);
-                        this.findTool(this.IngredientsTool,_Recipe,findIngredientIndexArray);
-                        this.findTool(this.AppliancesTool,_Recipe,findApplianceIndexArray);
-                        this.findTool(this.UstensilsTool,_Recipe,findUstensilIndexArray);
-                    }
-                });
-            }
-            else{
-                this.tamponIDArray.map(idTampon => {
-                    this.createCard(idTampon,_Recipe);
-                });
-            }
-        });
-        this.updateTool(this.IngredientsTool,findIngredientIndexArray);
-        this.updateTool(this.AppliancesTool,findApplianceIndexArray);
-        this.updateTool(this.UstensilsTool,findUstensilIndexArray);
     }
 
     setup(){
@@ -62,7 +26,7 @@ class Update{
     }
 
     findTool(Tool,Recipe,findToolIndexArray){
-        Tool.listbox.toolsList.map((tool,index) => {
+        Tool._Listbox.toolsList.map((tool,index) => {
             if(findToolIndexArray.includes(index) === false){
                 switch(Tool.$wrapper.classList[1]){
                     case "menu1":
@@ -92,11 +56,53 @@ class Update{
         // console.log(findToolIndexArray);
         // console.log(Tool.listbox.toolsList);
         let indexDelete = 0;
-        Tool.listbox.toolsList.map((tool,index) => {
+        Tool._Listbox.toolsList = Tool._Listbox.toolsList.filter((tool,index) => {
             if(!findToolIndexArray.includes(index)){
-                Tool.listbox.$listbox.children[0].removeChild(Tool.listbox.$listbox.children[0].children[index-indexDelete]);
+                Tool._Listbox.$ul.removeChild(Tool._Listbox.$ul.children[index-indexDelete]);
                 indexDelete++;
+                return false;
+            }
+            else{
+                return true;
             }
         }); 
+    }
+
+    
+    update(allIDObserver){
+        this.$section.innerHTML = "";
+        //Reset and sort my Update Array
+        this.updateIDArray.splice(0,this.updateIDArray.length);
+        allIDObserver.map(IDArrayObserver => {
+            IDArrayObserver.map((idObserver) => {
+                if(this.updateIDArray.every(idUpdate => idObserver !== idUpdate)){ 
+                    this.updateIDArray.push(idObserver);
+                }
+            });
+        });
+        const findIngredientIndexArray = [];
+        const findApplianceIndexArray = [];
+        const findUstensilIndexArray = [];
+        recipes.map(recipe => {
+            const _Recipe = new Recipe(recipe);
+            if(allIDObserver.length !== 0){
+                this.updateIDArray.map(idUpdate => {
+                    if(idUpdate === _Recipe._id){
+                        this.createCard(_Recipe);
+                        this.findTool(this._IngredientsTool,_Recipe,findIngredientIndexArray);
+                        this.findTool(this._AppliancesTool,_Recipe,findApplianceIndexArray);
+                        this.findTool(this._UstensilsTool,_Recipe,findUstensilIndexArray);
+                    }
+                });
+            }
+            else{
+                this.tamponIDArray.map(idTampon => {
+                    this.createCard(idTampon,_Recipe);
+                });
+            }
+        });
+        this.updateTool(this._IngredientsTool,findIngredientIndexArray);
+        this.updateTool(this._AppliancesTool,findApplianceIndexArray);
+        this.updateTool(this._UstensilsTool,findUstensilIndexArray);
     }
 }
