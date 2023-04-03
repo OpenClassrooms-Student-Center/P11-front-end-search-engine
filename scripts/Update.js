@@ -1,6 +1,5 @@
 class Update{
     constructor(App){
-        this._SearchSubject = App._SearchSubject;
         this.$section = App.$section;
         this._IngredientsTool = new Tool(document.querySelector(".menu1"),App._SearchSubject,this);
         this._AppliancesTool = new Tool(document.querySelector(".menu2"),App._SearchSubject,this);
@@ -68,6 +67,12 @@ class Update{
         }); 
     }
 
+    resetTool(Tool){
+        Tool._Listbox.toolsList.splice(0,Tool._Listbox.toolsList.length);
+        this.tamponIDArray.splice(0,this.tamponIDArray.length);
+        Tool._Listbox.setToolsList();
+        Tool._Listbox.reset();
+    }
     
     update(allIDObserver){
         this.$section.innerHTML = "";

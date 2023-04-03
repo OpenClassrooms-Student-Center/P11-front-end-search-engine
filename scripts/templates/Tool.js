@@ -1,11 +1,12 @@
 class Tool{
     constructor($tool,SearchSubject,Update){
         this.$wrapper = $tool;
-        this._Update = Update;
         this._SearchSubject = SearchSubject;
+        this._Update = Update;
         this._Combobox = new Combobox(this);
         this._Listbox = new Listbox(this);
         this._Listbox.setToolsList();
+        this._Listbox.setDOMList();
         this.openHandleList();
     }
 

@@ -27,7 +27,6 @@ class Listbox{
             }
         });
         this.removeDuplicates();
-        this.setDOMList();
     }
 
     setDOMList(){

@@ -25,7 +25,6 @@ class Tag{
         const _TagSearch = new TagSearch(this);
         this.filterIDArray = _TagSearch.search();
         this._SearchSubject.subscribe(this.filterIDArray);
-        console.log(this._SearchSubject);
         this._SearchSubject.fire(this._Update);
         const that = this;
         this.$wrapper.addEventListener("click", function(e){
