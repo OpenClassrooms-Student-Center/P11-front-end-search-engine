@@ -1,15 +1,12 @@
 class Tag{
-    constructor(Listbox){
-        this._Listbox = Listbox;
-        this._SearchSubject = Listbox._SearchSubject;
-        this._Update = Listbox._Update;
+    constructor(Listbox){;
         this.type = Listbox.$listbox.classList[1];
         this.$wrapper = document.createElement('div')
         this.$tagMenu = document.querySelector(".tagMenu");
         this.filterIDArray = [];
     }
 
-    create(li){
+    create(li,SearchEvent,SearchSubject,Update,Listbox){
         switch(this.type){
             case "ingredients":
                 this.$wrapper.classList.add("tag","tag1");
@@ -24,26 +21,12 @@ class Tag{
         this.$tagMenu.appendChild(this.$wrapper);
         const _TagSearch = new TagSearch(this);
         this.filterIDArray = _TagSearch.search();
-        this._SearchSubject.subscribe(this.filterIDArray);
-        this._SearchSubject.fire(this._Update);
+        SearchSubject.subscribe(this.filterIDArray);
+        SearchSubject.fire(Update);
 
         const that = this;
         this.$wrapper.addEventListener("click", function(e){
-            that._SearchSubject.unsubscribe(that.filterIDArray);
-            that._Listbox.toolsList.push(li.textContent);
-            that._Listbox.toolsList.sort((a,b) => a-b );
-            that._Listbox.$ul.innerHTML = "";
-            that._Update.resetTool(that._Update._IngredientsTool);
-            that._Update.resetTool(that._Update._AppliancesTool);
-            that._Update.resetTool(that._Update._UstensilsTool);
-            if(that._SearchSubject.IDobservers.length !== 0){
-                that._SearchSubject.fire(that._Update);
-            }
-            else{
-                that._Update.setup();
-            }
-            that.$tagMenu.removeChild(this);    
-            this.removeEventListener("click",e);
+            SearchEvent.tagCloseEvent(SearchSubject,Update,Listbox,that,li,this);
         });
     }
 }

@@ -9,35 +9,29 @@ class App{
         this.$section.setAttribute("tabindex","0");
         this.$section.setAttribute("aria-label","Contenu des recettes");
         this.IDArraySearch = [];
-        this._SearchSubject = new SearchSubject();
-        this._Update = new Update(this);
     }
 
     main(){
+        const _SearchSubject = new SearchSubject();
+        const _Update = new Update(this);
+        
+        const _IngredientsTool = new Tool(document.querySelector(".menu1"),_SearchSubject,_Update);
+        const _AppliancesTool = new Tool(document.querySelector(".menu2"),_SearchSubject,_Update);
+        const _UstensilsTool = new Tool(document.querySelector(".menu3"),_SearchSubject,_Update);
+
+        const _AppEvent = new AppEvent();
+
+        _Update.setup();
+        _IngredientsTool.setup(AppEvent,_SearchSubject,_Update);
+        _AppliancesTool.setup(AppEvent,_SearchSubject,_Update);
+        _UstensilsTool.setup(AppEvent,_SearchSubject,_Update);
+
         const that = this;
-        let deleteBackwardCount = 0;
-        this._Update.setup();
         this.$searchInput.addEventListener("input", function(e){
-            if(e.target.value.length >= 3){
-                that.IDArraySearch.splice(0,that.IDArraySearch.length);
-                const _GlobalSearch = new GlobalSearch(e.target.value);
-                that.IDArraySearch = _GlobalSearch.search();
-                that._SearchSubject.subscribe(that.IDArraySearch);
-                that._SearchSubject.fire(that._Update);
-                deleteBackwardCount = 0;
-            }
-            else if(e.inputType === "deleteContentBackward" && deleteBackwardCount <= 1){
-                deleteBackwardCount++;
-                that._SearchSubject.unsubscribe(that.IDArraySearch);
-                
-                that._Update.setup();
-                that._Update.resetTool(that._Update._IngredientsTool);
-                that._Update.resetTool(that._Update._AppliancesTool);
-                that._Update.resetTool(that._Update._UstensilsTool);
-            }
+            _AppEvent.globalInputEvent(e,that,_SearchSubject,_Update,_IngredientsTool,_AppliancesTool,_UstensilsTool);
         });
     }
 }
 
-const app = new App();
-app.main();
+const _App = new App();
+_App.main();

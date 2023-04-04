@@ -1,8 +1,5 @@
 class Listbox{
     constructor(Tool){
-        this._Tool = Tool;
-        this._SearchSubject = Tool._SearchSubject;
-        this._Update = Tool._Update;
         this.$listbox = Tool.$wrapper.children[1];
         this.$ul = Tool.$wrapper.children[1].children[0];
         this.toolsList = [];
@@ -29,25 +26,17 @@ class Listbox{
         this.removeDuplicates();
     }
 
-    setDOMList(){
-        let number = 0;
+    setDOMList(SearchEvent,SearchSubject,Update,Tool,Combobox){
         const that = this;
         this.toolsList.sort(function(a,b){
             return a.localeCompare(b);
         });
-        this.toolsList.map((tool,index) => {
+        this.toolsList.map((tool,indexTool) => {
             const newLi = document.createElement("li"); 
             newLi.textContent = tool;
             this.$ul.appendChild(newLi);
             newLi.addEventListener("click", function(e){
-                e.stopPropagation();
-                that.toolsList.splice(index-number,1)
-                number++;
-                const newTag = new Tag(that);
-                that.reset();
-                newTag.create(newLi);
-                that._Tool.closeHandleList(e);
-                this.removeEventListener("ckick",e);
+                SearchEvent.liEvent(e,SearchSubject,Update,Tool,Combobox,that,this,indexTool);
             });
         });    
     }
@@ -58,8 +47,8 @@ class Listbox{
         }
     }
 
-    reset(){
+    reset(SearchEvent,Tool,Combobox){
         this.$ul.innerHTML = "";
-        this.setDOMList();
+        this.setDOMList(SearchEvent,Tool,Combobox);
     }
 }

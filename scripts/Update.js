@@ -1,9 +1,6 @@
 class Update{
     constructor(App){
         this.$section = App.$section;
-        this._IngredientsTool = new Tool(document.querySelector(".menu1"),App._SearchSubject,this);
-        this._AppliancesTool = new Tool(document.querySelector(".menu2"),App._SearchSubject,this);
-        this._UstensilsTool = new Tool(document.querySelector(".menu3"),App._SearchSubject,this);
         this.updateIDArray = [];
         this.tamponIDArray = [];
     }
@@ -75,7 +72,7 @@ class Update{
         Tool._Listbox.reset();
     }
     
-    update(allIDObserver){
+    update(allIDObserver,IngredientsTool,AppliancesTool,UstensilsTool){
         const findIngredientIndexArray = [];
         const findApplianceIndexArray = [];
         const findUstensilIndexArray = [];
@@ -101,9 +98,9 @@ class Update{
                 this.updateIDArray.map(idUpdate => {
                     if(idUpdate === _Recipe._id){
                         this.createCard(_Recipe);
-                        this.findTool(this._IngredientsTool,_Recipe,findIngredientIndexArray);
-                        this.findTool(this._AppliancesTool,_Recipe,findApplianceIndexArray);
-                        this.findTool(this._UstensilsTool,_Recipe,findUstensilIndexArray);
+                        this.findTool(IngredientsTool,_Recipe,findIngredientIndexArray);
+                        this.findTool(AppliancesTool,_Recipe,findApplianceIndexArray);
+                        this.findTool(UstensilsTool,_Recipe,findUstensilIndexArray);
                     }
                 });
             }
@@ -113,8 +110,8 @@ class Update{
                 });
             }
         });
-        this.updateTool(this._IngredientsTool,findIngredientIndexArray);
-        this.updateTool(this._AppliancesTool,findApplianceIndexArray);
-        this.updateTool(this._UstensilsTool,findUstensilIndexArray);
+        this.updateTool(IngredientsTool,findIngredientIndexArray);
+        this.updateTool(AppliancesTool,findApplianceIndexArray);
+        this.updateTool(UstensilsTool,findUstensilIndexArray);
     }
 }
