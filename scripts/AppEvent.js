@@ -88,7 +88,7 @@ class AppEvent{
         }
     }
 
-    liEvent(e,SearchSubject,Update,Tool,Combobox,Listbox,$li,indexTool){
+    liClickEvent(e,SearchSubject,Update,Tool,Combobox,Listbox,$li,indexTool){
         e.stopPropagation();
         Listbox.toolsList.splice(indexTool,1)
         const newTag = new Tag(that);

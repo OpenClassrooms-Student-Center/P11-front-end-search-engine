@@ -36,7 +36,7 @@ class Listbox{
             newLi.textContent = tool;
             this.$ul.appendChild(newLi);
             newLi.addEventListener("click", function(e){
-                SearchEvent.liEvent(e,SearchSubject,Update,Tool,Combobox,that,this,indexTool);
+                SearchEvent.liClickEvent(e,SearchSubject,Update,Tool,Combobox,that,this,indexTool);
             });
         });    
     }
