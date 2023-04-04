@@ -26,11 +26,12 @@ class Tag{
         this.filterIDArray = _TagSearch.search();
         this._SearchSubject.subscribe(this.filterIDArray);
         this._SearchSubject.fire(this._Update);
+
         const that = this;
         this.$wrapper.addEventListener("click", function(e){
             that._SearchSubject.unsubscribe(that.filterIDArray);
             that._Listbox.toolsList.push(li.textContent);
-            that._Listbox.toolsList.sort(function(a,b) {return a.localCompare(b)});
+            that._Listbox.toolsList.sort((a,b) => a-b );
             that._Listbox.$ul.innerHTML = "";
             that._Update.resetTool(that._Update._IngredientsTool);
             that._Update.resetTool(that._Update._AppliancesTool);

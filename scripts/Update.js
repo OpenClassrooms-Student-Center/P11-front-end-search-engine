@@ -88,8 +88,9 @@ class Update{
                 if(index === 0){
                     this.updateIDArray.push(idObserver);
                 }
-                else if(this.updateIDArray.some(updateID => updateID !== idObserver)){
-                    this.updateIDArray = this.updateIDArray.filter(updateId => updateId !==idObserver);
+                else if(this.updateIDArray.some(updateID => updateID === idObserver)){
+                    this.updateIDArray = this.updateIDArray.filter(updateId => updateId === idObserver);
+                    console.log(this.updateIDArray);
                 }
             });
         });
