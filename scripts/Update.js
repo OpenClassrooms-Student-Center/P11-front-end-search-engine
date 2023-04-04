@@ -94,7 +94,6 @@ class Update{
             });
         });
         // console.log(this.updateIDArray);
-
         recipes.map(recipe => {
             const _Recipe = new Recipe(recipe);
             if(allIDObserver.length !== 0){
@@ -113,7 +112,6 @@ class Update{
                 });
             }
         });
-
         this.updateTool(this._IngredientsTool,findIngredientIndexArray);
         this.updateTool(this._AppliancesTool,findApplianceIndexArray);
         this.updateTool(this._UstensilsTool,findUstensilIndexArray);

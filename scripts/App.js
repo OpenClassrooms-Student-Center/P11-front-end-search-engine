@@ -29,6 +29,7 @@ class App{
             else if(e.inputType === "deleteContentBackward" && deleteBackwardCount <= 1){
                 deleteBackwardCount++;
                 that._SearchSubject.unsubscribe(that.IDArraySearch);
+                
                 that._Update.setup();
                 that._Update.resetTool(that._Update._IngredientsTool);
                 that._Update.resetTool(that._Update._AppliancesTool);

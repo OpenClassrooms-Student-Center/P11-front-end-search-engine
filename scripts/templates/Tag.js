@@ -30,15 +30,16 @@ class Tag{
         this.$wrapper.addEventListener("click", function(e){
             that._SearchSubject.unsubscribe(that.filterIDArray);
             that._Listbox.toolsList.push(li.textContent);
+            that._Listbox.toolsList.sort(function(a,b) {return a.localCompare(b)});
             that._Listbox.$ul.innerHTML = "";
+            that._Update.resetTool(that._Update._IngredientsTool);
+            that._Update.resetTool(that._Update._AppliancesTool);
+            that._Update.resetTool(that._Update._UstensilsTool);
             if(that._SearchSubject.IDobservers.length !== 0){
                 that._SearchSubject.fire(that._Update);
             }
             else{
                 that._Update.setup();
-                that._Update.resetTool(that._Update._IngredientsTool);
-                that._Update.resetTool(that._Update._AppliancesTool);
-                that._Update.resetTool(that._Update._UstensilsTool);
             }
             that.$tagMenu.removeChild(this);    
             this.removeEventListener("click",e);
