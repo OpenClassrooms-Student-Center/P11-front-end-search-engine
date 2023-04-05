@@ -13,22 +13,22 @@ class App{
 
     main(){
         const _SearchSubject = new SearchSubject();
-        const _Update = new Update(this);
         
-        const _IngredientsTool = new Tool(document.querySelector(".menu1"),_SearchSubject,_Update);
-        const _AppliancesTool = new Tool(document.querySelector(".menu2"),_SearchSubject,_Update);
-        const _UstensilsTool = new Tool(document.querySelector(".menu3"),_SearchSubject,_Update);
+        const _IngredientsTool = new Tool(document.querySelector(".menu1"));
+        const _AppliancesTool = new Tool(document.querySelector(".menu2"));
+        const _UstensilsTool = new Tool(document.querySelector(".menu3"));
 
-        const _AppEvent = new AppEvent();
+        const _Update = new Update(this,_IngredientsTool,_AppliancesTool,_UstensilsTool);
+        const _AppEvent = new AppEvent(this,_SearchSubject,_Update);
 
         _Update.setup();
-        _IngredientsTool.setup(AppEvent,_SearchSubject,_Update);
-        _AppliancesTool.setup(AppEvent,_SearchSubject,_Update);
-        _UstensilsTool.setup(AppEvent,_SearchSubject,_Update);
+        _IngredientsTool.setup(_AppEvent);
+        _AppliancesTool.setup(_AppEvent);
+        _UstensilsTool.setup(_AppEvent);
 
         const that = this;
         this.$searchInput.addEventListener("input", function(e){
-            _AppEvent.globalInputEvent(e,that,_SearchSubject,_Update,_IngredientsTool,_AppliancesTool,_UstensilsTool);
+            _AppEvent.globalInputEvent(e,that,_SearchSubject);
         });
     }
 }

@@ -4,13 +4,13 @@ class Combobox{
         this.$input = this.$combobox.children[1];
     }
 
-    eventSetup(Tool,SearchEvent,SearchSubject,Listbox){
+    eventSetup(Tool,SearchEvent){
         const that = this;
         this.$input.addEventListener("blur", function(e){
-            SearchEvent.closeHandleCombobox(e,Tool);
+            SearchEvent.closeHandleCombobox(e,that,Tool);
         });
         this.$input.addEventListener("input",function(e){
-            SearchEvent.inputComboboxEvent(e,SearchSubject,Listbox);
+            SearchEvent.inputComboboxEvent(e,Tool);
         });
     }
 }

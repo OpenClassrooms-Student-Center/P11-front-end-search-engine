@@ -11,8 +11,8 @@ class SearchSubject{
         this.IDobservers = this.IDobservers.filter(IDobserver => IDobserver !== _IDobserver);
     }
 
-    fire(observer,IngredientsTool,AppliancesTool,UstensilsTool){
+    fire(observer){
         // console.log(this.IDobservers);
-        observer.update(this.IDobservers,IngredientsTool,AppliancesTool,UstensilsTool);
+        observer.update(this.IDobservers);
     }
 }

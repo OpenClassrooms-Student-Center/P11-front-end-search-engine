@@ -26,17 +26,17 @@ class Listbox{
         this.removeDuplicates();
     }
 
-    setDOMList(SearchEvent,SearchSubject,Update,Tool,Combobox){
-        const that = this;
+    setDOMList(AppEvent,Tool,Combobox){
         this.toolsList.sort(function(a,b){
             return a.localeCompare(b);
         });
+        const that = this;
         this.toolsList.map((tool,indexTool) => {
             const newLi = document.createElement("li"); 
             newLi.textContent = tool;
             this.$ul.appendChild(newLi);
             newLi.addEventListener("click", function(e){
-                SearchEvent.liClickEvent(e,SearchSubject,Update,Tool,Combobox,that,this,indexTool);
+                AppEvent.liClickEvent(e,Tool,Combobox,newLi,indexTool);
             });
         });    
     }
@@ -47,8 +47,8 @@ class Listbox{
         }
     }
 
-    reset(SearchEvent,Tool,Combobox){
+    reset(AppEvent,Tool,Combobox){
         this.$ul.innerHTML = "";
-        this.setDOMList(SearchEvent,Tool,Combobox);
+        this.setDOMList(AppEvent,Tool,Combobox);
     }
 }

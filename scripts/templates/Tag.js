@@ -6,7 +6,7 @@ class Tag{
         this.filterIDArray = [];
     }
 
-    create(li,SearchEvent,SearchSubject,Update,Listbox){
+    create($li,SearchEvent,SearchSubject,Update,Listbox){
         switch(this.type){
             case "ingredients":
                 this.$wrapper.classList.add("tag","tag1");
@@ -17,7 +17,7 @@ class Tag{
             case "ustensils":
                 this.$wrapper.classList.add("tag","tag3");
         }
-        this.$wrapper.textContent = li.textContent;
+        this.$wrapper.textContent = $li.textContent;
         this.$tagMenu.appendChild(this.$wrapper);
         const _TagSearch = new TagSearch(this);
         this.filterIDArray = _TagSearch.search();
@@ -26,7 +26,7 @@ class Tag{
 
         const that = this;
         this.$wrapper.addEventListener("click", function(e){
-            SearchEvent.tagCloseEvent(SearchSubject,Update,Listbox,that,li,this);
+            SearchEvent.tagCloseEvent(e,Listbox,that,$li);
         });
     }
 }
