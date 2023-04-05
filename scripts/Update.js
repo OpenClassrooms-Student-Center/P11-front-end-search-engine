@@ -43,7 +43,7 @@ class Update{
                 }
             });
         });
-        this.updateIDArray.sort((a,b) => b - a);
+        this.updateIDArray.sort((a,b) => a - b);
         // console.log(this.updateIDArray);
         recipes.map(recipe => {
             const _Recipe = new Recipe(recipe);

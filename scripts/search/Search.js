@@ -76,7 +76,7 @@ class TagSearch extends Search{
                     };
             }
         });
-        console.log(this.filterIdRecipes);
+        // console.log(this.filterIdRecipes);
         return this.filterIdRecipes
     }
 }

@@ -1,23 +1,23 @@
 class AppEvent{
-    constructor(App,SearchSubject,Update){
-        this._App = App;
+    constructor(SearchSubject,Update){
         this._SearchSubject = SearchSubject;
         this._Update = Update;
     }
 
-    globalInputEvent(e,App,IngredientsTool,AppliancesTool,UstensilsTool){
+    globalInputEvent(e,App){
         let deleteBackwardCount = 0;
         if(e.target.value.length >= 3){
-            App.IDArraySearch.splice(0,App.IDArraySearch.length);
+            this._SearchSubject.unsubscribe(App.idArraySearch);
+            App.idArraySearch.splice(0,App.idArraySearch.length);
             const _GlobalSearch = new GlobalSearch(e.target.value);
-            App.IDArraySearch = _GlobalSearch.search();
-            this._SearchSubject.subscribe(App.IDArraySearch);
+            App.idArraySearch = _GlobalSearch.search();
+            this._SearchSubject.subscribe(App.idArraySearch);
             this._SearchSubject.fire(this._Update);
             deleteBackwardCount = 0;
         }
-        else if(e.inputType === "deleteContentBackward" && deleteBackwardCount <= 1){
+        else if(e.inputType === "deleteContentBackward" && deleteBackwardCount < 1){
+            this._SearchSubject.unsubscribe(App.idArraySearch);
             deleteBackwardCount++;
-            this._SearchSubject.unsubscribe(App.IDArraySearch);
             this._Update.setup();
             this._Update._IngredientsTool.resetTool(this);
             this._Update._AppliancesTool.resetTool(this);
@@ -41,7 +41,7 @@ class AppEvent{
             // console.log(Listbox.toolsList);
             Tool._Listbox.toolsList.forEach((tool,index) => {
                 if(!tool.includes(e.target.value.toLowerCase())){
-                    Listbox.$ul.removeChild(Listbox.$ul.children[index-indexDelete]);
+                    Tool._Listbox.$ul.removeChild(Tool._Listbox.$ul.children[index-indexDelete]);
                     indexDelete++;
                 }
             });
@@ -91,11 +91,13 @@ class AppEvent{
         }
     }
 
-    liClickEvent(e,Tool,Combobox,$li,indexTool){
+    liClickEvent(e,Tool,Combobox,$li,indexTool,indexToolDelete){
         e.stopPropagation();
-        Tool._Listbox.toolsList.splice(indexTool,1)
+        Tool._Listbox.toolsList.splice(indexTool-indexToolDelete,1);
+        indexToolDelete++;
+        // Tool._Listbox.reset(this,Tool,Combobox);
+        console.log(indexTool);
         const newTag = new Tag(Tool._Listbox);
-        Tool._Listbox.reset(this,Tool,Combobox);
         newTag.create($li,this,this._SearchSubject,this._Update,Tool._Listbox);
         this.closeHandleList(Tool,Combobox);
         $li.removeEventListener("ckick",e);

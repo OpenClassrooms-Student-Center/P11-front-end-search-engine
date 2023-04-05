@@ -31,12 +31,13 @@ class Listbox{
             return a.localeCompare(b);
         });
         const that = this;
-        this.toolsList.map((tool,indexTool) => {
+        let indexToolDelete = 0;
+        this.toolsList.forEach((tool,indexTool) => {
             const newLi = document.createElement("li"); 
             newLi.textContent = tool;
             this.$ul.appendChild(newLi);
             newLi.addEventListener("click", function(e){
-                AppEvent.liClickEvent(e,Tool,Combobox,newLi,indexTool);
+                AppEvent.liClickEvent(e,Tool,Combobox,newLi,indexToolDelete);
             });
         });    
     }
