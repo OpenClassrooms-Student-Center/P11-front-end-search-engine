@@ -107,9 +107,9 @@ class AppEvent{
         Listbox.toolsList.push($li.textContent);
         Listbox.toolsList.sort((a,b) => a - b );
         Listbox.$ul.innerHTML = "";
-        this._Update.resetTool(this._Update._IngredientsTool,this);
-        this._Update.resetTool(this._Update._AppliancesTool,this);
-        this._Update.resetTool(this._Update._UstensilsTool,this);
+        this._Update._IngredientsTool.resetTool(this);
+        this._Update._AppliancesTool.resetTool(this);
+        this._Update._UstensilsTool.resetTool(this);
         if(this._SearchSubject.IDobservers.length !== 0){
             this._SearchSubject.fire(this._Update);
         }
