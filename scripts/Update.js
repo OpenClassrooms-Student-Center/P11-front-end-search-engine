@@ -24,55 +24,6 @@ class Update{
         const $recipeArticle = _RecipeCard.getRecipesCardDOM();
         this._App.$section.appendChild($recipeArticle);
     }
-
-    findTool(Tool,Listbox,Recipe,findToolIndexArray){
-        Listbox.toolsList.forEach((tool,index) => {
-            if(findToolIndexArray.includes(index) === false){
-                switch(Tool.$wrapper.classList[1]){
-                    case "menu1":
-                        Recipe._ingredients.forEach(Ingredient => {
-                            if(Ingredient.ingredient.toLowerCase() === tool){
-                                findToolIndexArray.push(index);
-                            }
-                        });
-                        break;
-                    case "menu2":
-                        if(Recipe._appliance.toLowerCase() === tool){
-                            findToolIndexArray.push(index);
-                        }
-                        break;
-                    case "menu3":
-                        Recipe._ustensils.forEach(ustensil => {
-                            if(ustensil.toLowerCase() === tool){
-                                findToolIndexArray.push(index);
-                            }
-                        });
-                }
-            }            
-        });    
-    }
-
-    updateTool(Tool,findToolIndexArray){
-        // console.log(findToolIndexArray);
-        // console.log(Tool.listbox.toolsList);
-        let indexDelete = 0;
-        Tool._Listbox.toolsList = Tool._Listbox.toolsList.filter((tool,index) => {
-            if(!findToolIndexArray.includes(index)){
-                Tool._Listbox.$ul.removeChild(Tool._Listbox.$ul.children[index-indexDelete]);
-                indexDelete++;
-                return false;
-            }
-            else{
-                return true;
-            }
-        }); 
-    }
-
-    resetTool(Tool,AppEvent){
-        Tool._Listbox.toolsList.splice(0,Tool._Listbox.toolsList.length);
-        Tool._Listbox.setToolsList();
-        Tool._Listbox.reset(AppEvent,Tool,Tool._Combobox);
-    }
     
     update(allIDObserver){
         const findIngredientIndexArray = [];
@@ -89,10 +40,10 @@ class Update{
                 }
                 else if(this.updateIDArray.some(updateID => updateID === idObserver)){
                     this.updateIDArray = this.updateIDArray.filter(updateId => updateId === idObserver);
-                    console.log(this.updateIDArray);
                 }
             });
         });
+        this.updateIDArray.sort((a,b) => b - a);
         // console.log(this.updateIDArray);
         recipes.map(recipe => {
             const _Recipe = new Recipe(recipe);
@@ -100,9 +51,9 @@ class Update{
                 this.updateIDArray.map(idUpdate => {
                     if(idUpdate === _Recipe._id){
                         this.createCard(_Recipe);
-                        this.findTool(this._IngredientsTool,this._IngredientsTool._Listbox,_Recipe,findIngredientIndexArray);
-                        this.findTool(this._AppliancesTool,this._AppliancesTool._Listbox,_Recipe,findApplianceIndexArray);
-                        this.findTool(this._UstensilsTool,this._UstensilsTool._Listbox,_Recipe,findUstensilIndexArray);
+                        this._IngredientsTool.findTool(_Recipe,findIngredientIndexArray);
+                        this._AppliancesTool.findTool(_Recipe,findApplianceIndexArray);
+                        this._UstensilsTool.findTool(_Recipe,findUstensilIndexArray);
                     }
                 });
             }
@@ -112,8 +63,8 @@ class Update{
                 });
             }
         });
-        this.updateTool(this._IngredientsTool,findIngredientIndexArray);
-        this.updateTool(this._AppliancesTool,findApplianceIndexArray);
-        this.updateTool(this._UstensilsTool,findUstensilIndexArray);
+        this._IngredientsTool.updateTool(findIngredientIndexArray);
+        this._AppliancesTool.updateTool(findApplianceIndexArray);
+        this._UstensilsTool.updateTool(findUstensilIndexArray);
     }
 }

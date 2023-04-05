@@ -19,9 +19,9 @@ class AppEvent{
             deleteBackwardCount++;
             this._SearchSubject.unsubscribe(App.IDArraySearch);
             this._Update.setup();
-            this._Update.resetTool(IngredientsTool);
-            this._Update.resetTool(AppliancesTool);
-            this._Update.resetTool(UstensilsTool);
+            this._Update._IngredientsTool.resetTool(this);
+            this._Update._AppliancesTool.resetTool(this);
+            this._Update._UstensilsTool.resetTool(this);
         }
     }
 
