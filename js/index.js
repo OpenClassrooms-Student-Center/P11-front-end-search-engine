@@ -1,22 +1,22 @@
 const resultsSection = document.querySelector(".results");
 
-const recipe = recipes
+const recipesFiltre = recipes
 
-async function displayRecipes(recipe) {
+async function displayRecipes(recipesDisplay) {
     
-    console.log(recipe);
+    console.log(recipesDisplay);
 
-    recipes.forEach((recipe) => {
+    recipesDisplay.forEach((recipe) => {
         const recipeEngine = recipesFactory(recipe);
         const recipeDOM = recipeEngine.getRecipeDOM();
-        photographersSection.appendChild(recipeDOM);
+        resultsSection.appendChild(recipeDOM);
     });
 };
 
 async function init() {
     // Récupère les datas des photographes
 
-    displayRecipes(recipes)
+    displayRecipes(recipesFiltre)
 };
 
 init();

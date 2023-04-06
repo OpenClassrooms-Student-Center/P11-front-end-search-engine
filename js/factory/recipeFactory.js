@@ -3,10 +3,7 @@ function recipesFactory(dataRecipes) {
 
 
     function getRecipeDOM() {
-        ingredients.array.forEach(ingredients => {
-            ingredients[ingredient] = ingredient;
-            ingredients[quantity] = quantity;
-        });
+
         const article = document.createElement('article');
         article.classList.add('col-4');
         article.classList.add('article-bloc');
@@ -25,13 +22,13 @@ function recipesFactory(dataRecipes) {
         i.classList.add('fa-regular')
         i.classList.add('fa-clock')
         const span = document.createElement('span')
-        span.textContent = time
+        span.textContent = time + " min"
 
         const divBottom = document.createElement('div')
         divBottom.classList.add('description-bottom')
         const divIngredientsList = document.createElement('div')
         divIngredientsList.classList.add('ingredients-list')
-        divIngredientsList.textContent = ingredients
+        
 
         article.appendChild(divImg);
 
@@ -44,19 +41,19 @@ function recipesFactory(dataRecipes) {
         divDescription.appendChild(divBottom)
         divBottom.appendChild(divIngredientsList)
 
-        ingredients.array.forEach(ingredients => {
-            ingredients[ingredient] = ingredient;
-            ingredients[quantity] = quantity;
+        ingredients.forEach(ingredients => {
+            ingredient = ingredients.ingredient;
+            quantity = ingredients.quantity;
             const p = document.createElement('p');
             p.classList.add('ingredients-line')
 
             const p1 = document.createElement('span');
             p1.classList.add('p1');
-            p1.textContent = ingredient;
+            p1.textContent = ingredient + " :  ";
             
             const p2 = document.createElement('span');
             p2.classList.add('p2');
-            p2.textContent = quantity;
+            p2.textContent = " " + quantity;
             
             divIngredientsList.appendChild(p)
             p.appendChild(p1)
@@ -65,6 +62,7 @@ function recipesFactory(dataRecipes) {
 
         const descriptionText = document.createElement('span')
         descriptionText.classList.add('description-text')
+        descriptionText.textContent = description
 
         divBottom.appendChild(descriptionText)
         
