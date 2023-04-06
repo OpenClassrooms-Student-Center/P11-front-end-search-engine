@@ -48,11 +48,8 @@ nav{
 
 }
 .filters{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    flex-wrap: wrap;
-    margin:1em 2em;
+
+    margin:auto;
 
     input{
         
@@ -80,13 +77,13 @@ nav{
 }
 
 .results{
-    margin:2em;
+    margin:auto;
     padding: 0;
 }
 
 .article-bloc{
 
-    margin-bottom:2em;
+    margin: 2em 0;
     p{
         margin-bottom: 0.1rem;
         font-weight: 300;
