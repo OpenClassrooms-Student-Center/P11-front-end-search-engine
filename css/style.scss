@@ -19,25 +19,28 @@ nav{
     margin:1em 3em;
     box-sizing: border-box;
 
+    height: 55px;
+    padding:6px;
     transition-duration: 1s;
     background-color: $font-background-bot;
     border: none;
     border-radius: 5px;
     input{
         border: none;
-        width:90%;
-        height: 55px;
-        padding:6px;
         background: none;
+        width: 90%;
+        height: 40px;
         &::placeholder{
-            margin-left: 100px;
+            margin-left: 10px;
             font-weight: 100;
         }
-        i{
-           zoom: 2; 
-        }
+
 
     }
+
+    i{
+        zoom: 1.5; 
+     }
     
     &:hover{
         background-color:#C7BEBE;
@@ -45,6 +48,26 @@ nav{
 
 }
 .filters{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    margin:1em 3em;
+
+    input{
+        
+        border: none;
+        border-radius: 5px;
+        height: 55px;
+        padding:6px 16px;
+        margin: 0 0.5em ;
+        &::placeholder{
+            color: white;
+            font-weight: 100;
+        }
+    }
+
+
     #ingredients-filter{
         background-color: #3282F7;
     }
