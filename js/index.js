@@ -1,10 +1,10 @@
 const resultsSection = document.querySelector(".results");
 
-const recipes = recipe
+const recipe = recipes
 
-async function displayRecipes(recipes) {
+async function displayRecipes(recipe) {
     
-    console.log(recipes);
+    console.log(recipe);
 
     recipes.forEach((recipe) => {
         const recipeEngine = recipesFactory(recipe);
