@@ -1,6 +1,6 @@
 const resultsSection = document.querySelector(".results");
 
-const recipes = recipe[0]
+const recipes = recipe
 
 async function displayRecipes(recipes) {
     
