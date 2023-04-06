@@ -52,7 +52,7 @@ nav{
     flex-direction: row;
     align-items: center;
     flex-wrap: wrap;
-    margin:1em 3em;
+    margin:1em 2em;
 
     input{
         
@@ -80,27 +80,19 @@ nav{
 }
 
 .results{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items:flex-start;
-    margin:3em;
-    margin-top: 1.5em;
+    margin:2em;
+    padding: 0;
 }
 
 .article-bloc{
-    width: 31%;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
+
     margin-bottom:2em;
     p{
         margin-bottom: 0.1rem;
         font-weight: 300;
     }
     .img-bloc{
-        height: 10em;
+        height: 11em;
         background-color: $font-background-top;
         border-radius: 5px 5px 0 0;
     }
@@ -110,6 +102,7 @@ nav{
     background-color: $font-background-bot;
     padding:1em;
     border-radius: 0 0 5px 5px;
+    height: 11em;
     .description-header{
         display: flex;
         flex-direction: row;
@@ -117,25 +110,26 @@ nav{
         justify-content: space-between;
         align-items: center;
         margin-bottom: 1rem;
-        span{
+        i{
             display: flex;
             flex-direction: row;
             justify-content: space-around;
             align-items: center;
             height: 20px;
-            font-weight: 900;
+            font-weight: 500;
+            margin-right: 0.3em;
         }
-        h2{
+        h2, span{
             font-size:1em;
             margin-bottom: 0.1rem;
             font-weight: 300;
         }
-        i{
-            margin-right: 0.3em;
-            font-weight: 500;
+        p{
+            display: flex;
+            flex-direction: row;
         }
-        
     }
+
     .description-bottom{
         display: flex;
         flex-direction: row;

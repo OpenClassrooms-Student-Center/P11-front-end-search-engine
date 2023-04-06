@@ -1,32 +1,57 @@
-function photographerFactory(dataRecipes) {
-    const { id, name, servings, ingredients, ingredient, quantity, unit, time, description, appliance, ustensils} = dataRecipes;
+function recipesFactory(dataRecipes) {
+    const { id, name, servings, ingredients, unit, time, description, appliance, ustensils} = dataRecipes;
 
-    const picture = `assets/photographers/${portrait}`;
 
-    function getUserCardDOM() {
+    function getRecipeDOM() {
+        ingredients.array.forEach(ingredients => {
+            ingredients[ingredient] = ingredient;
+            ingredients[quantity] = quantity;
+        });
         const article = document.createElement('article');
-        const linkId = document.createElement('a');
-        linkId.title = "Page de " + name;
-        linkId.href = "photographer.html?id=" + id;
-        const img = document.createElement('img');
-        img.setAttribute("src", picture)
-        const h2 = document.createElement('h2');
-        h2.textContent = name;
+        article.classList.add('col-4');
+        article.classList.add('article-bloc');
 
-        const p1 = document.createElement('p');
-        p1.textContent = city + ', ' + country;
-        p1.classList.add('p1');
-        const p2 = document.createElement('p');
-        p2.textContent = tagline;
-        p2.classList.add('p2');
-        const p3 = document.createElement('p');
-        p3.textContent = price + "€/jour";
-        p3.classList.add('p3');
+        const divImg = document.createElement('div')
+        divImg.classList.add('img-bloc')
 
-        article.appendChild(linkId);
-        linkId.appendChild(img);
-        linkId.appendChild(h2);
-        article.appendChild(p1);
+        const divDescription = document.createElement('div')
+        divDescription.classList.add('description')
+        const divHeader = document.createElement('div')
+        divHeader.classList.add('description-header')
+        const h2 = document.createElement('h2')
+        h2.textContent = name
+        const pHeader = document.createElement('p')
+        const i = document.createElement('i')
+        i.classList.add('fa-regular')
+        i.classList.add('fa-clock')
+
+        const divBottom = document.createElement('div')
+        divBottom.classList.add('description-bottom')
+        const divIngredientsList = document.createElement('div')
+        divIngredientsList.classList.add('ingredients-list')
+        divIngredientsList.textContent = ingredients
+
+        ingredients.array.forEach(ingredients => {
+            ingredients[ingredient] = ingredient;
+            ingredients[quantity] = quantity;
+            const p = document.createElement('p');
+            p.classList.add('ingredients-line')
+            const p1 = document.createElement('span');
+            p1.classList.add('p1');
+            p1.textContent = ingredient;
+            
+            const p2 = document.createElement('span');
+            p2.classList.add('p2');
+            p2.textContent = quantity;
+            
+        });
+
+        const descriptionText = document.createElement('span')
+        descriptionText.classList.add('escription-text')
+
+        article.appendChild(divImg);
+
+        article.appendChild(divDescription);
         article.appendChild(p2);
         article.appendChild(p3);
 
@@ -35,5 +60,5 @@ function photographerFactory(dataRecipes) {
 
 
 
-    return { name, picture, id, price, getUserCardDOM, getUserBioDOM}
+    return { name, id, getRecipeDOM}
 }
