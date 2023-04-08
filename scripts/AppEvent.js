@@ -4,8 +4,7 @@ class AppEvent{
         this._Update = Update;
     }
 
-    globalInputEvent(e,App){
-        let deleteBackwardCount = 0;
+    globalInputEvent(e,App,deleteBackwardCount){
         if(e.target.value.length >= 3){
             this._SearchSubject.unsubscribe(App.idArraySearch);
             App.idArraySearch.splice(0,App.idArraySearch.length);
@@ -96,7 +95,6 @@ class AppEvent{
         Tool._Listbox.toolsList.splice(indexTool-indexToolDelete,1);
         indexToolDelete++;
         // Tool._Listbox.reset(this,Tool,Combobox);
-        console.log(indexTool);
         const newTag = new Tag(Tool._Listbox);
         newTag.create($li,this,this._SearchSubject,this._Update,Tool._Listbox);
         this.closeHandleList(Tool,Combobox);

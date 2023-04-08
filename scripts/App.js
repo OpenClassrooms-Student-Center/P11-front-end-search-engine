@@ -26,8 +26,9 @@ class App{
         _UstensilsTool.setup(_AppEvent);
 
         const that = this;
+        let deleteBackwardCount = 0;
         this.$searchInput.addEventListener("input", function(e){
-            _AppEvent.globalInputEvent(e,that);
+            _AppEvent.globalInputEvent(e,that,deleteBackwardCount);
         });
     }
 }
