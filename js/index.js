@@ -22,10 +22,13 @@ async function ingredientsData(recettes) {
   const ingredients = new Set(); // Création d'un ensemble pour stocker les ingrédients uniques
   recettes.forEach((recette) => {
     recette.ingredients.forEach((ingredient) => {
-      ingredients.add(ingredient.ingredient); // Ajout de l'ingrédient à l'ensemble
+      const ingredientNom = ingredient.ingredient.toLowerCase().replace(/s$/, '');
+      if (!ingredients.has(ingredientNom)) {
+        ingredients.add(ingredientNom);
+      }
     });
   });
-
+ 
   const unique_ingredients = Array.from(ingredients).sort(); // Conversion de l'ensemble en tableau
 
   // Création d'un élément ul pour la liste d'ingrédients
@@ -45,7 +48,7 @@ async function ingredientsData(recettes) {
 
 async function appareilsData(recettes) {
   const appareilsSection = document.querySelector(".boxAppareils");
-  const appareils = recettes.flatMap((recette) => recette.appliance);
+  const appareils = recettes.flatMap((recette) => recette.appliance.toLowerCase());
 
   const unique_appareil = Array.from(new Set(appareils)).sort(); // Conversion de l'ensemble en tableau
 
@@ -66,7 +69,7 @@ async function appareilsData(recettes) {
 
 async function ustencilesData(recettes) {
   const ustencilesSection = document.querySelector(".boxUstenciles");
-  const ustenciles = recettes.flatMap((recette) => recette.ustensils);
+  const ustenciles = recettes.flatMap((recette) => recette.ustensils.map((ustensile) => ustensile.toLowerCase()));
 
   const unique_ustencile = Array.from(new Set(ustenciles)).sort(); // Conversion de l'ensemble en tableau
 
