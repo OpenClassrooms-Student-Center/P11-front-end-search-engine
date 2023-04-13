@@ -1,6 +1,16 @@
+@font-face {
+  font-family: latoRegular400;
+  src: url(../font/Lato-Regular-400.ttf);
+}
+@font-face {
+  font-family: robotoRegular;
+  src: url(../font/Roboto-Regular.ttf);
+}
+
 body {
   max-width: 1400px;
   margin: 0 auto;
+  font-family: latoRegular400;
 }
 
 .logo {
@@ -54,6 +64,8 @@ body {
   height: 69px;
   border-radius: 5px;
   color: white;
+  font-weight: 700;
+  font-size: 18px;
 }
 
 .filtreIngredient {
@@ -83,26 +95,29 @@ body {
 
 .boxIngredients ul {
   column-count: 3;
-  line-height: 20px;
+  line-height: 22px;
   height: 300px;
   overflow: scroll;
   white-space: nowrap;
   text-overflow: ellipsis;
   color: white;
+  font-size: 18px;
 }
 
 .boxAppareils ul {
   column-count: 3;
-  line-height: 20px;
+  line-height: 22px;
   height: 300px;
   color: white;
+  font-size: 18px;
 }
 
 .boxUstenciles ul {
   column-count: 3;
-  line-height: 20px;
+  line-height: 22px;
   height: 300px;
   color: white;
+  font-size: 18px;
 }
 
 .rechercheFiltre {
@@ -116,6 +131,9 @@ body {
 .boxTags {
   margin: 20px 0;
   display: flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 14px;
 }
 
 .tag {
@@ -130,9 +148,12 @@ body {
   padding: 10px;
   color: white;
   border-radius: 0 5px 5px 0;
+  font-size: 17px;
 }
 
-.input {
+.rechercheFiltre .input {
+  font-weight: 700;
+  font-size: 18px;
   height: 60px;
   background-color: transparent;
   border-style: none;
@@ -194,6 +215,7 @@ body {
   justify-content: space-between;
   align-items: center;
   font-size: 18px;
+  font-weight: 700;
 }
 
 .iconeHorloge {
@@ -209,6 +231,7 @@ body {
 .ingredient {
   width: 171px;
   font-size: 12px;
+  font-weight: 700;
 }
 
 ul {
@@ -223,7 +246,8 @@ ul {
 }
 
 .descriptionPrepa {
-  height: 80%;
+  font-family: robotoRegular;
+  height: 75%;
   font-size: 12px;
   display: -webkit-box;
   -webkit-box-orient: vertical;
