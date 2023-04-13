@@ -1,0 +1,233 @@
+body {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.logo {
+  margin: auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.logo img {
+  display: block;
+  margin: 0 auto;
+  width: 30%;
+}
+
+.recherche {
+  width: 100%;
+  position: relative;
+  height: 69px;
+}
+
+.recherche input {
+  background-color: #e7e7e7;
+  border-style: none;
+  padding: 0 10px;
+  font-size: 18px;
+  width: 100%;
+  height: 100%;
+}
+
+.recherche i {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+}
+
+.filtres {
+  display: flex;
+  margin: 20px 0;
+}
+
+.boxFiltres {
+  margin-right: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 170px;
+  height: 69px;
+  border-radius: 5px;
+  color: white;
+}
+
+.filtreIngredient {
+  background-color: #3282f7;
+}
+
+.filtreAppareils {
+  background-color: #68d9a4;
+}
+
+.filtreUstenciles {
+  background-color: #ed6454;
+}
+
+.sectionFiltres {
+  margin-right: 20px;
+  padding: 0 20px;
+  width: 667px;
+  height: 397px;
+}
+
+.sectionIngredient {
+  background-color: #3282f7;
+  border-radius: 5px;
+  display: none;
+}
+
+.boxIngredients ul {
+  column-count: 3;
+  line-height: 20px;
+  height: 300px;
+  overflow: scroll;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: white;
+}
+
+.boxAppareils ul {
+  column-count: 3;
+  line-height: 20px;
+  height: 300px;
+  color: white;
+}
+
+.boxUstenciles ul {
+  column-count: 3;
+  line-height: 20px;
+  height: 300px;
+  color: white;
+}
+
+.rechercheFiltre {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 69px;
+}
+
+.boxTags {
+  margin: 20px 0;
+  display: flex;
+}
+
+.tag {
+  background-color: #3282f7;
+  padding: 10px;
+  color: white;
+  border-radius: 5px 0 0 5px;
+}
+
+.fermeTag {
+  background-color: #3282f7;
+  padding: 10px;
+  color: white;
+  border-radius: 0 5px 5px 0;
+}
+
+.input {
+  height: 60px;
+  background-color: transparent;
+  border-style: none;
+  width: 90%;
+}
+
+.sectionAppareils {
+  background-color: #68d9a4;
+  border-radius: 5px;
+  display: none;
+}
+
+.sectionUstenciles {
+  background-color: #ed6454;
+  border-radius: 5px;
+  display: none;
+}
+
+.boxRecettes {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.cartesRecettes {
+  width: 380px;
+  height: 364px;
+  background-color: #e7e7e7;
+  margin: 20px 0;
+  border-radius: 0 0 5px 5px;
+}
+
+.imageRecette {
+  width: 100%;
+  height: 178px;
+  background-color: #c7bebe;
+  border-radius: 5px 5px 0 0;
+}
+
+.boxTitre {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+}
+
+.titre {
+  width: 70%;
+  font-size: 18px;
+  font-weight: 400;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.temps {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+}
+
+.iconeHorloge {
+  padding-right: 5px;
+}
+
+.boxIngredientPrepa {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 15px;
+}
+
+.ingredient {
+  width: 171px;
+  font-size: 12px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.prepa {
+  width: 171px;
+  height: 109px;
+}
+
+.descriptionPrepa {
+  height: 80%;
+  font-size: 12px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6; /* Nombre de lignes souhaitées */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
