@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+  <title>Les petits plats</title>
+  </head>
+</head>
+<body class="body">
+    <header class="logo">
+        <img src="./img/logo.jpg" alt="logo Les petits Plats" aria-label="logo Les petits plats">
+    </header>
+
+    <div class="recherche">
+        <input class="rechercheInput" type="text" placeholder="Rechercher une recette" aria-label="veuillez saisir votre recherche">
+        <i class="fa-solid fa-magnifying-glass" aria-label="bouton recherche"></i>
+    </div>        
+
+    <div class="boxTags">
+      <div class="tag">bonjour</div>
+      <i class="fa-regular fa-circle-xmark fermeTag"></i>
+    </div>
+
+    <div class="filtres">
+      <div class="filtreIngredient boxFiltres">
+        <p>Ingrédients</p>
+        <i class="fa-solid fa-chevron-down"></i>
+      </div>
+
+      <div class="sectionIngredient sectionFiltres">
+        <div class="rechercheFiltre">
+          <input class="input" type="text" placeholder="Rechercher un ingrédient" aria-label="Rechercher un ingrédient">
+          <i class="fa-solid fa-chevron-down chevronIngredient chevron"></i>
+        </div>
+        <div class="boxIngredients">
+        </div>
+      </div>
+
+      <div class="filtreAppareils boxFiltres">
+        <p>Appareils</p>
+        <i class="fa-solid fa-chevron-down"></i>
+      </div>
+  
+      <div class="sectionAppareils sectionFiltres">
+        <div class="rechercheFiltre">
+          <input class="input" type="text" placeholder="Rechercher un appareil" aria-label="Rechercher un appareil">
+          <i class="fa-solid fa-chevron-down chevronAppareils"></i>
+        </div>
+        <div class="boxAppareils"></div>
+      </div>
+
+      <div class="filtreUstenciles boxFiltres">
+        <p>Ustenciles</p>
+        <i class="fa-solid fa-chevron-down"></i>
+      </div>
+
+      <div class="sectionUstenciles sectionFiltres">
+        <div class="rechercheFiltre">
+          <input class="input" type="text" placeholder="Rechercher un ustencile" aria-label="Rechercher un ustencile">
+          <i class="fa-solid fa-chevron-down chevronUstenciles"></i>
+        </div>
+        <div class="boxUstenciles">
+        </div>
+      </div>
+    </div>
+    
+    
+
+    <div class="boxRecettes"></div>
+
+    <script src="js/cartesRecettes.js"></script>
+    <script src="js/index.js"></script>
+    <script src="https://kit.fontawesome.com/ab907928cc.js" crossorigin="anonymous"></script>
+</body>
+</html>
