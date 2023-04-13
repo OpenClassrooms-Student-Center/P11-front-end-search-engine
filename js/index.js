@@ -7,7 +7,6 @@ async function recettesData(recettes) {
   const recettesSection = document.querySelector(".boxRecettes");
   recettes.sort((a, b) => a.name.localeCompare(b.name));
   const promises = recettes.map((recette) => {
-    // eslint-disable-next-line no-undef
     const userCardDOM = new Recette(recette);
     return userCardDOM.article; // on retourne l'article créé
   });
@@ -99,6 +98,7 @@ async function init() {
   const boutonIngredients = document.querySelector(".filtreIngredient");
   const filtreIngredients = document.querySelector(".sectionIngredient");
   const fermeFiltreIngredient = document.querySelector(".chevronIngredient");
+  
   boutonIngredients.addEventListener("click", (event) => {
     // Empêche la propagation de l'événement de clic vers le document
     event.stopPropagation();
