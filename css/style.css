@@ -108,6 +108,9 @@ nav:hover {
 .filters #ustensils-filter {
   background-color: #ED6454;
 }
+.filters .ustensiles_open {
+  height: auto;
+}
 
 .results {
   margin: auto;
