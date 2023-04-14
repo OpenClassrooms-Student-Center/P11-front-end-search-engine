@@ -20,7 +20,7 @@ async function dropdownUstensils(recipes){
     console.log(ustensils);
     
     ustensilsFiltre.forEach((ustensils) => {
-        ustensilsList.innerHTML += `<li class="rechercheUstensiles_open">${ustensils}</li>`;
+        ustensilsList.innerHTML += `<li class="ustensiles_open">${ustensils}</li>`;
     })
 }
 
