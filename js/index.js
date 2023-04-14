@@ -1,7 +1,6 @@
 const resultsSection = document.querySelector(".results");
-const ustensilesResults = document.querySelector(".rechercheUstensiles");
+
 const recipesFiltre = recipes
-let recipesDisplay = ""
 
 //montre les recettes en bloc
 async function displayRecipes(recipesDisplay) {
@@ -17,13 +16,14 @@ async function displayRecipes(recipesDisplay) {
 
 //Pour chaque ustensile
 
-function dropdownUstensils(ustDisplay){
-    ustDisplay.forEach((ustensile) =>{
-        const ustensileEngine = recipesFactory(recipe);
-        const ustensileDOM = ustensileEngine.getDropdown();
-        ustensilesResults.appendChild(ustensileDOM);
+function dropdownUstensils(){
+    const ustensils = recipes.ustensils;
+    console.log(ustensils);
+    console.log(ustensil);
+    let ustensilsList = document.querySelectorAll("rechercheUstensiles")
+    ustensils.forEach((ustensil) => {
+        ustensilsList.innerHTML += `<li class="rechercheUstensiles_open">${ustensil}</li>`;
     })
-
 }
 
 
