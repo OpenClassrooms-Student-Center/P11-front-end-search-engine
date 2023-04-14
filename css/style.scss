@@ -51,7 +51,7 @@ nav{
 .tags{
         border: none;
         background:none;
-        height: 55px;
+        height: 45px;
         padding:6px 16px;
         margin: 0 0.5em ;
         color: white;
@@ -63,6 +63,10 @@ nav{
         }
         .apparelsTags{
             background-color: #ED6454;
+        }
+        i{
+            color: white;
+            margin-right: 10px;
         }
 }
 
