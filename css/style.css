@@ -45,21 +45,34 @@ nav:hover {
 
 .filters {
   margin: auto;
+  display: flex;
+  flex-direction: row;
 }
-.filters input {
-  border: none;
+.filters .dropdowns {
   border-radius: 5px;
+  margin-right: 20px;
+}
+.filters .dropdowns input {
+  border: none;
+  background: none;
   height: 55px;
   padding: 6px 16px;
   margin: 0 0.5em;
 }
-.filters input::-moz-placeholder {
+.filters .dropdowns input::-moz-placeholder {
   color: white;
-  font-weight: 100;
+  font-weight: 600;
 }
-.filters input::placeholder {
+.filters .dropdowns input::placeholder {
   color: white;
-  font-weight: 100;
+  font-weight: 600;
+}
+.filters .dropdowns i {
+  color: white;
+  margin-right: 10px;
+}
+.filters .fa-chevron-up {
+  display: none;
 }
 .filters #ingredients-filter {
   background-color: #3282F7;
@@ -78,6 +91,8 @@ nav:hover {
 
 .article-bloc {
   margin: 2em 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 .article-bloc p {
   margin-bottom: 0.1rem;
@@ -102,6 +117,7 @@ nav:hover {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1rem;
+  white-space: nowrap;
 }
 .description .description-header i {
   display: flex;
@@ -127,18 +143,20 @@ nav:hover {
   font-size: 0.7em;
 }
 .description .description-bottom .ingredients-list {
-  width: 44%;
+  width: 43%;
 }
 .description .description-bottom .ingredients-list .ingredients-line {
   display: flex;
   flex-direction: row;
+  justify-content: stretch;
   font-size: 10px;
 }
 .description .description-bottom .ingredients-list .ingredients-line .p1 {
   font-weight: 500;
 }
 .description .description-bottom .description-text {
-  width: 55%;
+  width: 53%;
   background-color: 0;
   font-weight: 300;
+  margin-left: 2%;
 }

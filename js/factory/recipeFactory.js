@@ -1,5 +1,5 @@
 function recipesFactory(dataRecipes) {
-    const { id, name, servings, ingredients, unit, time, description, appliance, ustensils} = dataRecipes;
+    const { id, name, servings, ingredients, time, description, appliance, ustensils} = dataRecipes;
 
 
     function getRecipeDOM() {
@@ -44,16 +44,26 @@ function recipesFactory(dataRecipes) {
         ingredients.forEach(ingredients => {
             ingredient = ingredients.ingredient;
             quantity = ingredients.quantity;
+            unit = ingredients.unit;
+
             const p = document.createElement('p');
             p.classList.add('ingredients-line')
 
             const p1 = document.createElement('span');
             p1.classList.add('p1');
-            p1.textContent = ingredient + " :  ";
+            p1.textContent = ingredient;
             
             const p2 = document.createElement('span');
             p2.classList.add('p2');
-            p2.textContent = " " + quantity;
+
+            if (quantity === undefined) {
+                p2.textContent = "";
+            } else if (unit === undefined) {
+                p2.textContent = " :  " + quantity;
+            } else {
+                p2.textContent = " :  " + quantity + unit;
+            }
+            
             
             divIngredientsList.appendChild(p)
             p.appendChild(p1)
@@ -69,6 +79,7 @@ function recipesFactory(dataRecipes) {
         return (article);
     }
 
+    
 
 
     return { name, id, getRecipeDOM}

@@ -50,20 +50,37 @@ nav{
 .filters{
 
     margin:auto;
+    display: flex;
+    flex-direction: row;
 
-    input{
-        
-        border: none;
+    .dropdowns{
         border-radius: 5px;
-        height: 55px;
-        padding:6px 16px;
-        margin: 0 0.5em ;
-        &::placeholder{
-            color: white;
-            font-weight: 100;
-        }
+        
+        margin-right: 20px;
+
+        input{
+        
+            border: none;
+            background:none;
+            height: 55px;
+            padding:6px 16px;
+            margin: 0 0.5em ;
+            &::placeholder{
+                color: white;
+                font-weight: 600;
+            }
+
+    }
+    i{
+        color: white;
+        margin-right: 10px;
     }
 
+    }
+
+    .fa-chevron-up{
+        display: none;
+    }
 
     #ingredients-filter{
         background-color: #3282F7;
@@ -84,6 +101,9 @@ nav{
 .article-bloc{
 
     margin: 2em 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    
     p{
         margin-bottom: 0.1rem;
         font-weight: 300;
@@ -107,6 +127,7 @@ nav{
         justify-content: space-between;
         align-items: center;
         margin-bottom: 1rem;
+        white-space: nowrap;
         i{
             display: flex;
             flex-direction: row;
@@ -124,6 +145,7 @@ nav{
         p{
             display: flex;
             flex-direction: row;
+            
         }
     }
 
@@ -131,21 +153,28 @@ nav{
         display: flex;
         flex-direction: row;
         font-size: 0.7em;
+        
+        
         .ingredients-list{
-            width:44%;
+            width:43%;
             .ingredients-line{
                 display: flex;
                 flex-direction: row;
+                justify-content: stretch;
                 font-size: 10px;
+                
                 .p1{
                     font-weight: 500;
+                    
                 }
             }
         }
        .description-text{
-        width: 55%;
+        width: 53%;
         background-color: red($color: #000000);
         font-weight: 300;
+        margin-left: 2%;
+        
         }
     }
 }
