@@ -98,6 +98,12 @@ async function init() {
   const boutonIngredients = document.querySelector(".filtreIngredient");
   const filtreIngredients = document.querySelector(".sectionIngredient");
   const fermeFiltreIngredient = document.querySelector(".chevronIngredient");
+  const boutonAppareils = document.querySelector(".filtreAppareils");
+  const filtreAppareils = document.querySelector(".sectionAppareils");
+  const fermeFiltreAppareils = document.querySelector(".chevronAppareils");
+  const boutonUstenciles = document.querySelector(".filtreUstenciles");
+  const filtreUstenciles = document.querySelector(".sectionUstenciles");
+  const fermeFiltreUstenciles = document.querySelector(".chevronUstenciles");
   
   boutonIngredients.addEventListener("click", (event) => {
     // Empêche la propagation de l'événement de clic vers le document
@@ -105,10 +111,8 @@ async function init() {
 
     boutonIngredients.style.display = "none";
     filtreIngredients.style.display = "block";
-    boutonAppareils.style.display = "flex";
-    filtreAppareils.style.display = "none";
-    boutonUstenciles.style.display = "flex";
-    filtreUstenciles.style.display = "none";
+    boutonAppareils.style.display = boutonUstenciles.style.display = "flex";
+    filtreAppareils.style.display = filtreUstenciles.style.display = "none";
     filtreIngredients.querySelector(".input").focus();
   });
 
@@ -117,30 +121,14 @@ async function init() {
     filtreIngredients.style.display = "none";
   });
 
-  document.addEventListener("click", (event) => {
-    // Vérifie si l'élément cliqué est à l'intérieur de la boîte
-    const isClickInside = filtreIngredients.contains(event.target);
-    // Si l'élément cliqué est à l'extérieur de la boîte, fermez-la
-    if (!isClickInside) {
-      boutonIngredients.style.display = "flex";
-      filtreIngredients.style.display = "none";
-    }
-  });
-
-  const boutonAppareils = document.querySelector(".filtreAppareils");
-  const filtreAppareils = document.querySelector(".sectionAppareils");
-  const fermeFiltreAppareils = document.querySelector(".chevronAppareils");
-
-  boutonAppareils.addEventListener("click", (event) => {
+   boutonAppareils.addEventListener("click", (event) => {
     // Empêche la propagation de l'événement de clic vers le document
     event.stopPropagation();
 
     boutonAppareils.style.display = "none";
     filtreAppareils.style.display = "block";
-    boutonIngredients.style.display = "flex";
-    filtreIngredients.style.display = "none";
-    boutonUstenciles.style.display = "flex";
-    filtreUstenciles.style.display = "none";
+    boutonIngredients.style.display = boutonUstenciles.style.display = "flex";
+    filtreIngredients.style.display = filtreUstenciles.style.display = "none";
     filtreAppareils.querySelector(".input").focus();
   });
 
@@ -149,30 +137,14 @@ async function init() {
     filtreAppareils.style.display = "none";
   });
 
-  document.addEventListener("click", (event) => {
-    // Vérifie si l'élément cliqué est à l'intérieur de la boîte
-    const isClickInside = filtreAppareils.contains(event.target);
-    // Si l'élément cliqué est à l'extérieur de la boîte, fermez-la
-    if (!isClickInside) {
-      boutonAppareils.style.display = "flex";
-      filtreAppareils.style.display = "none";
-    }
-  });
-
-  const boutonUstenciles = document.querySelector(".filtreUstenciles");
-  const filtreUstenciles = document.querySelector(".sectionUstenciles");
-  const fermeFiltreUstenciles = document.querySelector(".chevronUstenciles");
-
   boutonUstenciles.addEventListener("click", (event) => {
     // Empêche la propagation de l'événement de clic vers le document
     event.stopPropagation();
 
     boutonUstenciles.style.display = "none";
     filtreUstenciles.style.display = "block";
-    boutonIngredients.style.display = "flex";
-    filtreIngredients.style.display = "none";
-    boutonAppareils.style.display = "flex";
-    filtreAppareils.style.display = "none";
+    boutonIngredients.style.display = boutonAppareils.style.display = "flex";
+    filtreIngredients.style.display = filtreAppareils.style.display = "none";
     filtreUstenciles.querySelector(".input").focus();
   });
 
@@ -183,11 +155,11 @@ async function init() {
 
   document.addEventListener("click", (event) => {
     // Vérifie si l'élément cliqué est à l'intérieur de la boîte
-    const isClickInside = filtreUstenciles.contains(event.target);
+    const isClickInside = filtreIngredients.contains(event.target) || filtreAppareils.contains(event.target) || filtreUstenciles.contains(event.target);
     // Si l'élément cliqué est à l'extérieur de la boîte, fermez-la
     if (!isClickInside) {
-      boutonUstenciles.style.display = "flex";
-      filtreUstenciles.style.display = "none";
+      boutonIngredients.style.display = boutonAppareils.style.display = boutonUstenciles.style.display = "flex";
+      filtreIngredients.style.display = filtreAppareils.style.display = filtreUstenciles.style.display = "none";
     }
   });
 }
