@@ -43,6 +43,24 @@ nav:hover {
   background-color: #C7BEBE;
 }
 
+.tags {
+  border: none;
+  background: none;
+  height: 55px;
+  padding: 6px 16px;
+  margin: 0 0.5em;
+  color: white;
+}
+.tags .ustensilTags {
+  background-color: #3282F7;
+}
+.tags .ingredintTags {
+  background-color: #68D9A4;
+}
+.tags .apparelsTags {
+  background-color: #ED6454;
+}
+
 .filters {
   margin: auto;
   display: flex;

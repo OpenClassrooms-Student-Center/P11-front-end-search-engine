@@ -16,13 +16,12 @@ async function displayRecipes(recipesDisplay) {
 
 //Pour chaque ustensile
 
-function dropdownUstensils(){
-    const ustensils = recipes.ustensils;
+async function dropdownUstensils(){
+    const ustensils = recipesFiltre.ustensils;
     console.log(ustensils);
-    console.log(ustensil);
     let ustensilsList = document.querySelectorAll("rechercheUstensiles")
-    ustensils.forEach((ustensil) => {
-        ustensilsList.innerHTML += `<li class="rechercheUstensiles_open">${ustensil}</li>`;
+    ustensils.forEach((ustensils) => {
+        ustensilsList.innerHTML += `<li class="rechercheUstensiles_open">${ustensils}</li>`;
     })
 }
 

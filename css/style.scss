@@ -47,6 +47,26 @@ nav{
     }
 
 }
+
+.tags{
+        border: none;
+        background:none;
+        height: 55px;
+        padding:6px 16px;
+        margin: 0 0.5em ;
+        color: white;
+        .ustensilTags{
+            background-color: #3282F7;
+        }
+        .ingredintTags{
+            background-color: #68D9A4;
+        }
+        .apparelsTags{
+            background-color: #ED6454;
+        }
+}
+
+    
 .filters{
 
     margin:auto;
