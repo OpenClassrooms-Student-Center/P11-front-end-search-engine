@@ -33,9 +33,7 @@ class AppEvent{
 
     inputComboboxEvent(e,Tool){
         let indexDelete = 0;
-        if(this._SearchSubject.SearchObservers.length === 0){
-            Tool._Listbox.reset(this,Tool,Tool._Combobox);
-        }
+        Tool._Listbox.reset(this,Tool,Tool._Combobox);
         if(e.target.value.length >= 3){
             // console.log(Listbox.toolsList);
             Tool._Listbox.toolsList.forEach((tool,index) => {
@@ -44,9 +42,6 @@ class AppEvent{
                     indexDelete++;
                 }
             });
-        }
-        else{
-            Tool._Listbox.reset(this,Tool,Tool._Combobox);
         }
     }
 
