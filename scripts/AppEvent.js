@@ -6,16 +6,16 @@ class AppEvent{
 
     globalInputEvent(e,App,deleteBackwardCount){
         if(e.target.value.length >= 3){
-            this._SearchSubject.unsubscribe(App.idArraySearch);
-            App.idArraySearch.splice(0,App.idArraySearch.length);
+            // App.GlobalSearchArray.splice(0,App.GlobalSearchArray.length);
+            this._SearchSubject.unsubscribe(App.GlobalSearchArray);
             const _GlobalSearch = new GlobalSearch(e.target.value);
-            App.idArraySearch = _GlobalSearch.search();
-            this._SearchSubject.subscribe(App.idArraySearch);
+            App.GlobalSearchArray = _GlobalSearch.search();
+            this._SearchSubject.subscribe(App.GlobalSearchArray);
             this._SearchSubject.fire(this._Update);
             deleteBackwardCount = 0;
         }
         else if(e.inputType === "deleteContentBackward" && deleteBackwardCount < 1){
-            this._SearchSubject.unsubscribe(App.idArraySearch);
+            this._SearchSubject.unsubscribe(App.GlobalSearchArray);
             deleteBackwardCount++;
             this._Update.setup();
             this._Update._IngredientsTool.resetTool(this);
@@ -33,7 +33,7 @@ class AppEvent{
 
     inputComboboxEvent(e,Tool){
         let indexDelete = 0;
-        if(this._SearchSubject.IDobservers.length === 0){
+        if(this._SearchSubject.SearchObservers.length === 0){
             Tool._Listbox.reset(this,Tool,Tool._Combobox);
         }
         if(e.target.value.length >= 3){
@@ -90,27 +90,24 @@ class AppEvent{
         }
     }
 
-    liClickEvent(e,Tool,Combobox,$li,indexTool,indexToolDelete){
+    liClickEvent(e,Tool,Combobox,$li,activeToolIndex){
         e.stopPropagation();
-        Tool._Listbox.toolsList.splice(indexTool-indexToolDelete,1);
-        indexToolDelete++;
-        // Tool._Listbox.reset(this,Tool,Combobox);
         const newTag = new Tag(Tool._Listbox);
-        newTag.create($li,this,this._SearchSubject,this._Update,Tool._Listbox);
+        newTag.create($li,this,this._SearchSubject,this._Update,Tool,activeToolIndex);
         this.closeHandleList(Tool,Combobox);
         $li.removeEventListener("ckick",e);
     }
 
     //Tag Event
-    tagCloseEvent(e,Listbox,Tag,$li){
-        this._SearchSubject.unsubscribe(Tag.filterIDArray);
+    tagCloseEvent(e,Listbox,Tag,$li,TagSearchResult){
+        this._SearchSubject.unsubscribe(TagSearchResult);
         Listbox.toolsList.push($li.textContent);
         Listbox.toolsList.sort((a,b) => a - b );
         Listbox.$ul.innerHTML = "";
         this._Update._IngredientsTool.resetTool(this);
         this._Update._AppliancesTool.resetTool(this);
         this._Update._UstensilsTool.resetTool(this);
-        if(this._SearchSubject.IDobservers.length !== 0){
+        if(this._SearchSubject.SearchObservers.length !== 0){
             this._SearchSubject.fire(this._Update);
         }
         else{

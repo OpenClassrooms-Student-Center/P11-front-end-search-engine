@@ -1,18 +1,18 @@
 class SearchSubject{
     constructor(){
-        this.IDobservers = [];
+        this.SearchObservers = [];
     }
 
-    subscribe(_IDobserver){
-        this.IDobservers.push(_IDobserver);
+    subscribe(SearchObserver){
+        this.SearchObservers.push(SearchObserver);
     }
 
-    unsubscribe(_IDobserver){
-        this.IDobservers = this.IDobservers.filter(IDobserver => IDobserver !== _IDobserver);
+    unsubscribe(SearchObserver){
+        this.SearchObservers = this.SearchObservers.filter(_SearchObserver => _SearchObserver !== SearchObserver);
     }
 
-    fire(observer){
-        // console.log(this.IDobservers);
-        observer.update(this.IDobservers);
+    fire(Observer){
+        // console.log(this.SearchObservers);
+        Observer.update(this.SearchObservers);
     }
 }

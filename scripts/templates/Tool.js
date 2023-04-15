@@ -15,30 +15,31 @@ class Tool{
         });
     }
 
-    findTool(Recipe,findToolIndexArray){
-        this._Listbox.toolsList.forEach((tool,index) => {
-            if(findToolIndexArray.includes(index) === false){
+    findTool(Recipe,findToolIndexArray,SearchObservers){
+        this._Listbox.toolsList.forEach((tool,toolIndex) => {
+            const findTagTool = SearchObservers.some(Search => Search._search === tool && Search._Tag !== undefined);
+            if(findToolIndexArray.includes(toolIndex) === false && !findTagTool){
                 switch(this.$wrapper.classList[1]){
                     case "menu1":
                         Recipe._ingredients.forEach(Ingredient => {
-                            if(Ingredient.ingredient.toLowerCase() === tool){
-                                findToolIndexArray.push(index);
+                            if(Ingredient.ingredient.toLowerCase() === tool ){
+                                findToolIndexArray.push(toolIndex);
                             }
                         });
                         break;
                     case "menu2":
                         if(Recipe._appliance.toLowerCase() === tool){
-                            findToolIndexArray.push(index);
+                            findToolIndexArray.push(toolIndex);
                         }
                         break;
                     case "menu3":
                         Recipe._ustensils.forEach(ustensil => {
                             if(ustensil.toLowerCase() === tool){
-                                findToolIndexArray.push(index);
+                                findToolIndexArray.push(toolIndex);
                             }
                         });
                 }
-            }            
+            }      
         });    
     }
 

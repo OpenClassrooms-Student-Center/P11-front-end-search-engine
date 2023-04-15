@@ -8,7 +8,7 @@ class App{
         this.$main.appendChild(this.$section);
         this.$section.setAttribute("tabindex","0");
         this.$section.setAttribute("aria-label","Contenu des recettes");
-        this.idArraySearch = [];
+        this.GlobalSearchArray = [];
     }
 
     main(){

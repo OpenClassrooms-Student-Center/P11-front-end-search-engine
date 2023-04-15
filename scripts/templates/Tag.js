@@ -3,10 +3,9 @@ class Tag{
         this.type = Listbox.$listbox.classList[1];
         this.$wrapper = document.createElement('div')
         this.$tagMenu = document.querySelector(".tagMenu");
-        this.filterIDArray = [];
     }
 
-    create($li,SearchEvent,SearchSubject,Update,Listbox){
+    create($li,SearchEvent,SearchSubject,Update,Tool,activeToolIndex){
         switch(this.type){
             case "ingredients":
                 this.$wrapper.classList.add("tag","tag1");
@@ -20,13 +19,12 @@ class Tag{
         this.$wrapper.textContent = $li.textContent;
         this.$tagMenu.appendChild(this.$wrapper);
         const _TagSearch = new TagSearch(this);
-        this.filterIDArray = _TagSearch.search();
-        SearchSubject.subscribe(this.filterIDArray);
+        const TagSearchResult = _TagSearch.search()
+        SearchSubject.subscribe(TagSearchResult);
         SearchSubject.fire(Update);
-
         const that = this;
         this.$wrapper.addEventListener("click", function(e){
-            SearchEvent.tagCloseEvent(e,Listbox,that,$li);
+            SearchEvent.tagCloseEvent(e,Tool._Listbox,that,$li,TagSearchResult);
         });
     }
 }

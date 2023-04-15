@@ -52,14 +52,13 @@ class Search{
 class TagSearch extends Search{
     constructor(Tag){
         super(Tag.$wrapper.innerHTML);
-        this.tagType = Tag.type;
+        this._Tag = Tag;
     }
 
     filterRecipes(){
         recipes.forEach(recipe => {
             const _recipe = new Recipe(recipe);
-            // console.log(this.byIngredients(_recipe._ingredients))
-            switch(this.tagType){
+            switch(this._Tag.type){
                 case "ingredients":
                     if(this.byIngredients(_recipe._ingredients)){
                         this.filterIdRecipes.push(_recipe.id);
@@ -77,7 +76,7 @@ class TagSearch extends Search{
             }
         });
         // console.log(this.filterIdRecipes);
-        return this.filterIdRecipes
+        return this
     }
 }
 
@@ -94,7 +93,7 @@ class GlobalSearch extends Search{
                     this.filterIdRecipes.push(_recipe.id);
                 }
         });
-        return this.filterIdRecipes
+        return this
     }
 }
 
