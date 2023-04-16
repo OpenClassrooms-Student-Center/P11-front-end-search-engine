@@ -27,6 +27,7 @@ class Listbox{
     }
 
     resetDOMList(AppEvent,Tool,Combobox){
+        this.$ul.innerHTML = "";
         this.toolsList.sort(function(a,b){
             return a.localeCompare(b);
         });
@@ -37,7 +38,7 @@ class Listbox{
             this.$ul.appendChild(newLi);
             newLi.addEventListener("click", function(e){
                 if(Tool._Combobox.$input.value.length >= 3){
-                    that.resetDOMList(AppEvent,Tool)
+                    that.resetDOMList(AppEvent,Tool,Combobox);
                 }
                 AppEvent.liClickEvent(e,Tool,Combobox,newLi,indexTool);
             });
