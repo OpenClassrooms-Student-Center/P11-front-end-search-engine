@@ -43,13 +43,13 @@ class Tool{
         });    
     }
 
-    updateTool(findToolIndexArray){
+    updateTool(findToolIndexArray,Tool){
         // console.log(findToolIndexArray);
         // console.log(this._Listbox.toolsList);
         let indexDelete = 0;
-        this._Listbox.toolsList = this._Listbox.toolsList.filter((tool,index) => {
+        Tool._Listbox.toolsList = Tool._Listbox.toolsList.filter((tool,index) => {
             if(!findToolIndexArray.includes(index)){
-                this._Listbox.$ul.removeChild(this._Listbox.$ul.children[index-indexDelete]);
+                Tool._Listbox.$ul.removeChild(Tool._Listbox.$ul.children[index-indexDelete]);
                 indexDelete++;
                 return false;
             }

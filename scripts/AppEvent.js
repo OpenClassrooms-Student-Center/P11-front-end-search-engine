@@ -15,12 +15,19 @@ class AppEvent{
             deleteBackwardCount = 0;
         }
         else if(e.inputType === "deleteContentBackward" && deleteBackwardCount < 1){
-            this._SearchSubject.unsubscribe(App.GlobalSearchArray);
             deleteBackwardCount++;
-            this._Update.setup();
+            this._SearchSubject.unsubscribe(App.GlobalSearchArray);
             this._Update._IngredientsTool.resetTool(this);
             this._Update._AppliancesTool.resetTool(this);
             this._Update._UstensilsTool.resetTool(this);
+            if(this._SearchSubject.SearchObservers.length !== 0){
+                this._SearchSubject.fire(this._Update);
+                this._Update._IngredientsTool._Listbox.reset(this,this._Update._IngredientsTool,this._Update._IngredientsTool._Combobox);
+                this._Update._AppliancesTool._Listbox.reset(this,this._Update._AppliancesTool,this._Update._AppliancesTool._Combobox);
+                this._Update._UstensilsTool._Listbox.reset(this,this._Update._UstensilsTool,this._Update._UstensilsTool._Combobox);
+            }else{
+                this._Update.setup();
+            }
         }
     }
 
@@ -28,6 +35,7 @@ class AppEvent{
     closeHandleCombobox(e,Combobox,Tool){
         if(e.relatedTarget !== Tool.$wrapper){
             this.closeHandleList(Tool,Combobox);
+            Tool.resetTool(this);
         }
     }
 
@@ -35,7 +43,6 @@ class AppEvent{
         let indexDelete = 0;
         Tool._Listbox.reset(this,Tool,Tool._Combobox);
         if(e.target.value.length >= 3){
-            // console.log(Listbox.toolsList);
             Tool._Listbox.toolsList.forEach((tool,index) => {
                 if(!tool.includes(e.target.value.toLowerCase())){
                     Tool._Listbox.$ul.removeChild(Tool._Listbox.$ul.children[index-indexDelete]);
@@ -86,7 +93,10 @@ class AppEvent{
     }
 
     liClickEvent(e,Tool,Combobox,$li,activeToolIndex){
-        e.stopPropagation();
+        console.log([Tool._Combobox.$input.value]);
+        if(Tool._Combobox.$input.value.length >= 3){
+            Tool._Listbox.reset(this,Tool,Tool._Combobox);
+        }
         const newTag = new Tag(Tool._Listbox);
         newTag.create($li,this,this._SearchSubject,this._Update,Tool,activeToolIndex);
         this.closeHandleList(Tool,Combobox);

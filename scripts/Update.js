@@ -61,8 +61,8 @@ class Update{
                 });
             }
         });
-        this._IngredientsTool.updateTool(findIngredientIndexArray);
-        this._AppliancesTool.updateTool(findApplianceIndexArray);
-        this._UstensilsTool.updateTool(findUstensilIndexArray);
+        this._IngredientsTool.updateTool(findIngredientIndexArray,this._IngredientsTool);
+        this._AppliancesTool.updateTool(findApplianceIndexArray,this._AppliancesTool);
+        this._UstensilsTool.updateTool(findUstensilIndexArray,this._UstensilsTool);
     }
 }

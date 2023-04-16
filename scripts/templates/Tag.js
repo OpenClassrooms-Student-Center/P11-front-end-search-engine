@@ -22,6 +22,7 @@ class Tag{
         const TagSearchResult = _TagSearch.search()
         SearchSubject.subscribe(TagSearchResult);
         SearchSubject.fire(Update);
+        Tool._Listbox.toolsList.splice(activeToolIndex,1);
         const that = this;
         this.$wrapper.addEventListener("click", function(e){
             SearchEvent.tagCloseEvent(e,Tool._Listbox,that,$li,TagSearchResult);

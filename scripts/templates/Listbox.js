@@ -36,9 +36,10 @@ class Listbox{
             newLi.textContent = tool;
             this.$ul.appendChild(newLi);
             newLi.addEventListener("click", function(e){
+                
                 AppEvent.liClickEvent(e,Tool,Combobox,newLi,indexTool);
             });
-        });    
+        });
     }
 
     removeDuplicates(){
