@@ -35,7 +35,6 @@ class AppEvent{
     closeHandleCombobox(e,Combobox,Tool){
         if(e.relatedTarget !== Tool.$wrapper){
             this.closeHandleList(Tool,Combobox);
-            Tool.resetTool(this);
         }
     }
 
@@ -93,10 +92,9 @@ class AppEvent{
     }
 
     liClickEvent(e,Tool,Combobox,$li,activeToolIndex){
-        console.log([Tool._Combobox.$input.value]);
-        if(Tool._Combobox.$input.value.length >= 3){
-            Tool._Listbox.reset(this,Tool,Tool._Combobox);
-        }
+        // if(Tool._Combobox.$input.value.length >= 3){
+        //     Tool.reset(this,Tool,Tool._Combobox);
+        // }
         const newTag = new Tag(Tool._Listbox);
         newTag.create($li,this,this._SearchSubject,this._Update,Tool,activeToolIndex);
         this.closeHandleList(Tool,Combobox);

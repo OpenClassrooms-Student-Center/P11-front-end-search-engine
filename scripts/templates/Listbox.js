@@ -36,7 +36,10 @@ class Listbox{
             newLi.textContent = tool;
             this.$ul.appendChild(newLi);
             newLi.addEventListener("click", function(e){
-                
+                console.log([Tool._Combobox.$combobox]);
+                if(Tool._Combobox.$input.value.length >= 3){
+                    that.reset(AppEvent,Tool,)
+                }
                 AppEvent.liClickEvent(e,Tool,Combobox,newLi,indexTool);
             });
         });
