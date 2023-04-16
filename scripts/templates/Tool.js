@@ -9,7 +9,7 @@ class Tool{
         const that = this;
         this._Combobox.eventSetup(this,AppEvent,this._Listbox);
         this._Listbox.setToolsList();
-        this._Listbox.setDOMList(AppEvent,this,this._Combobox);
+        this._Listbox.resetDOMList(AppEvent,this,this._Combobox);
         this.$wrapper.addEventListener("click",function(e){
             AppEvent.openHandleList(that);
         });
@@ -62,6 +62,6 @@ class Tool{
     resetTool(AppEvent){
         this._Listbox.toolsList.splice(0,this._Listbox.toolsList.length);
         this._Listbox.setToolsList();
-        this._Listbox.reset(AppEvent,this,this._Combobox);
+        this._Listbox.resetDOMList(AppEvent,this,this._Combobox);
     }
 }

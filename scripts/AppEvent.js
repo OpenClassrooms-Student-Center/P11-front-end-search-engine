@@ -27,9 +27,9 @@ class AppEvent{
             this._Update._UstensilsTool.resetTool(this);
             if(this._SearchSubject.SearchObservers.length !== 0){
                 this._SearchSubject.fire(this._Update);
-                this._Update._IngredientsTool._Listbox.reset(this,this._Update._IngredientsTool,this._Update._IngredientsTool._Combobox);
-                this._Update._AppliancesTool._Listbox.reset(this,this._Update._AppliancesTool,this._Update._AppliancesTool._Combobox);
-                this._Update._UstensilsTool._Listbox.reset(this,this._Update._UstensilsTool,this._Update._UstensilsTool._Combobox);
+                this._Update._IngredientsTool._Listbox.resetDOMList(this,this._Update._IngredientsTool,this._Update._IngredientsTool._Combobox);
+                this._Update._AppliancesTool._Listbox.resetDOMList(this,this._Update._AppliancesTool,this._Update._AppliancesTool._Combobox);
+                this._Update._UstensilsTool._Listbox.resetDOMList(this,this._Update._UstensilsTool,this._Update._UstensilsTool._Combobox);
             }else{
                 this._Update.setup();
             }
@@ -46,7 +46,7 @@ class AppEvent{
 
     inputComboboxEvent(e,Tool){
         let indexDelete = 0;
-        Tool._Listbox.reset(this,Tool,Tool._Combobox);
+        Tool._Listbox.resetDOMList(this,Tool,Tool._Combobox);
         if(e.target.value.length >= 3){
             Tool._Listbox.toolsList.forEach((tool,index) => {
                 if(!tool.includes(e.target.value.toLowerCase())){
@@ -98,9 +98,6 @@ class AppEvent{
     }
 
     liClickEvent(e,Tool,Combobox,$li,activeToolIndex){
-        // if(Tool._Combobox.$input.value.length >= 3){
-        //     Tool.reset(this,Tool,Tool._Combobox);
-        // }
         const newTag = new Tag(Tool._Listbox);
         newTag.create($li,this,this._SearchSubject,this._Update,Tool,activeToolIndex);
         this.closeHandleList(Tool,Combobox);

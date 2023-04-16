@@ -26,7 +26,7 @@ class Listbox{
         this.removeDuplicates();
     }
 
-    setDOMList(AppEvent,Tool,Combobox){
+    resetDOMList(AppEvent,Tool,Combobox){
         this.toolsList.sort(function(a,b){
             return a.localeCompare(b);
         });
@@ -37,7 +37,7 @@ class Listbox{
             this.$ul.appendChild(newLi);
             newLi.addEventListener("click", function(e){
                 if(Tool._Combobox.$input.value.length >= 3){
-                    that.reset(AppEvent,Tool,)
+                    that.resetDOMList(AppEvent,Tool)
                 }
                 AppEvent.liClickEvent(e,Tool,Combobox,newLi,indexTool);
             });
@@ -48,10 +48,5 @@ class Listbox{
         if(this.tamponList.length !== 0){
             this.toolsList = Array.from(new Set(this.tamponList));
         }
-    }
-
-    reset(AppEvent,Tool,Combobox){
-        this.$ul.innerHTML = "";
-        this.setDOMList(AppEvent,Tool,Combobox);
     }
 }
