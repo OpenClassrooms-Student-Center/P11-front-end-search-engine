@@ -443,3 +443,7 @@ input{
     outline: none;
     border: none;
 }
+
+.selector-for-some-widget {
+  box-sizing: content-box;
+}
