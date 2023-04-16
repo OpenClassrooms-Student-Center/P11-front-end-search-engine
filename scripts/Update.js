@@ -11,14 +11,14 @@ class Update{
     setup(){
         this._App.$section.innerHTML = "";
         this._App.$globalSearchInput.setAttribute("placeholder","Rechercher une recette");
-        this._App.$globalSearchInput.value = "";
+        this._App.$globalSearchInput.value = ""
         recipes.forEach(recipe => {
             const _Recipe = new Recipe(recipe);
             this.tamponIDArray.push(_Recipe.id);
             const _RecipeCard = new RecipeCard(_Recipe);
             const $recipeArticle = _RecipeCard.getRecipesCardDOM();
             this._App.$section.appendChild($recipeArticle);
-        });
+        });;
     }
 
     createCard(Recipe){
