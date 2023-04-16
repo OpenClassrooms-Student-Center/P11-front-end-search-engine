@@ -6,10 +6,13 @@ class AppEvent{
 
     globalInputEvent(e,App,deleteBackwardCount){
         if(e.target.value.length >= 3){
-            // App.GlobalSearchArray.splice(0,App.GlobalSearchArray.length);
             this._SearchSubject.unsubscribe(App.GlobalSearchArray);
             const _GlobalSearch = new GlobalSearch(e.target.value);
             App.GlobalSearchArray = _GlobalSearch.search();
+            if(App.GlobalSearchArray.filterIdRecipes.length === 0){
+                App.$globalSearchInput.setAttribute("placeholder","Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson», etc.");
+                App.$globalSearchInput.value = "";
+            }
             this._SearchSubject.subscribe(App.GlobalSearchArray);
             this._SearchSubject.fire(this._Update);
             deleteBackwardCount = 0;
@@ -29,6 +32,7 @@ class AppEvent{
                 this._Update.setup();
             }
         }
+
     }
 
     //Combobox Event

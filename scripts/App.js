@@ -3,8 +3,8 @@ class App{
         this.$main = document.querySelector("main");
         this.$section = document.createElement("section");
         this.$section.classList.add("articles");
-        this.$searchInput = document.getElementById("search");
-        this.$searchInput.style.background = "#E7E7E7";
+        this.$globalSearchInput = document.getElementById("search");
+        this.$globalSearchInput.style.background = "#E7E7E7";
         this.$main.appendChild(this.$section);
         this.$section.setAttribute("tabindex","0");
         this.$section.setAttribute("aria-label","Contenu des recettes");
@@ -27,7 +27,7 @@ class App{
 
         const that = this;
         let deleteBackwardCount = 0;
-        this.$searchInput.addEventListener("input", function(e){
+        this.$globalSearchInput.addEventListener("input", function(e){
             _AppEvent.globalInputEvent(e,that,deleteBackwardCount);
         });
     }

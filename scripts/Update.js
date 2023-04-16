@@ -10,6 +10,8 @@ class Update{
 
     setup(){
         this._App.$section.innerHTML = "";
+        this._App.$globalSearchInput.setAttribute("placeholder","Rechercher une recette");
+        this._App.$globalSearchInput.value = "";
         recipes.forEach(recipe => {
             const _Recipe = new Recipe(recipe);
             this.tamponIDArray.push(_Recipe.id);
@@ -30,7 +32,6 @@ class Update{
         const findApplianceIndexArray = [];
         const findUstensilIndexArray = [];
         this._App.$section.innerHTML = "";
-
         this.updateIDArray.splice(0,this.updateIDArray.length);
         SearchObservers.forEach((Search,SearchArrayIndex) => {
             if(SearchArrayIndex === 0){
