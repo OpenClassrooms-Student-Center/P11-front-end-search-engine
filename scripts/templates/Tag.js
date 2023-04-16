@@ -16,6 +16,7 @@ class Tag{
             case "ustensils":
                 this.$wrapper.classList.add("tag","tag3");
         }
+        this.$wrapper.classList.add("tag--cLick");
         this.$wrapper.textContent = $li.textContent;
         this.$tagMenu.appendChild(this.$wrapper);
         const _TagSearch = new TagSearch(this);

@@ -74,20 +74,20 @@ class AppEvent{
 
     closeHandleList(Tool,Combobox){
         Tool.$wrapper.removeAttribute("placeholder");
-        Combobox.$combobox.setAttribute("aria-expanded",false);
+        Tool._Combobox.$combobox.setAttribute("aria-expanded",false);
         Tool.$wrapper.setAttribute("aria-expanded",false);
         Tool._Listbox.$listbox.classList.remove("menu__item--open");
         Tool._Listbox.$listbox.classList.add("menu__item--hidden");
         Tool._Listbox.$listbox.parentNode.classList.remove("tools__menu--open");
         switch(Tool._Listbox.$listbox.classList[1]){
             case "ingredients":
-                Combobox.$input.value = "Ingrédients";
+                Tool._Combobox.$input.value = "Ingrédients";
                 break;
             case "appliances":
-                Combobox.$input.value = "Appareils";
+                Tool._Combobox.$input.value = "Appareils";
                 break;
             case "ustensils":
-                Combobox.$input.value = "Ustensiles";
+                Tool._Combobox.$input.value = "Ustensiles";
         }
     }
 
