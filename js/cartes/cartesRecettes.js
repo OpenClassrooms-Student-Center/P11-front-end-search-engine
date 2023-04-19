@@ -10,6 +10,7 @@ class Recette {
     this.ustensils = data.ustensils;
     this.article = this.create();
   }
+  
 
   create() {
     const recettes = document.createElement("article");

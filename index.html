@@ -18,60 +18,45 @@
         <i class="fa-solid fa-magnifying-glass" aria-label="bouton recherche"></i>
     </div>        
 
-    <div class="boxTags">
-      <div class="tag">bonjour</div>
-      <i class="fa-regular fa-circle-xmark fermeTag"></i>
-    </div>
+    <div class="boxTags"></div>
 
     <div class="filtres">
-      <div class="filtreIngredient boxFiltres">
-        <p>Ingrédients</p>
-        <i class="fa-solid fa-chevron-down"></i>
-      </div>
-
-      <div class="sectionIngredient sectionFiltres">
+      
+      <div class="sectionIngredient sectionFiltres tailleMini">
         <div class="rechercheFiltre">
-          <input class="input" type="text" placeholder="Rechercher un ingrédient" aria-label="Rechercher un ingrédient">
-          <i class="fa-solid fa-chevron-down chevronIngredient chevron"></i>
+          <input class="tagInput rechercheIngredients" type="text" value="Ingrédients" placeholder="Rechercher un ingrédient" aria-label="Rechercher un ingrédient">
+          <i class="fa-solid fa-chevron-down"></i>
         </div>
-        <div class="boxIngredients">
+        <div class="boxIngredients displayNone">
         </div>
       </div>
 
-      <div class="filtreAppareils boxFiltres">
-        <p>Appareils</p>
-        <i class="fa-solid fa-chevron-down"></i>
-      </div>
-  
-      <div class="sectionAppareils sectionFiltres">
+      <div class="sectionAppareils sectionFiltres tailleMini">
         <div class="rechercheFiltre">
-          <input class="input" type="text" placeholder="Rechercher un appareil" aria-label="Rechercher un appareil">
-          <i class="fa-solid fa-chevron-down chevronAppareils"></i>
+          <input class="tagInput" type="text" value="Appareils" placeholder="Rechercher un appareil" aria-label="Rechercher un appareil">
+          <i class="fa-solid fa-chevron-down"></i>
         </div>
-        <div class="boxAppareils"></div>
+        <div class="boxAppareils displayNone"></div>
       </div>
 
-      <div class="filtreUstenciles boxFiltres">
-        <p>Ustenciles</p>
-        <i class="fa-solid fa-chevron-down"></i>
-      </div>
-
-      <div class="sectionUstenciles sectionFiltres">
+      <div class="sectionUstenciles sectionFiltres tailleMini">
         <div class="rechercheFiltre">
-          <input class="input" type="text" placeholder="Rechercher un ustencile" aria-label="Rechercher un ustencile">
-          <i class="fa-solid fa-chevron-down chevronUstenciles"></i>
+          <input class="tagInput" type="text" value="Ustenciles" placeholder="Rechercher un ustencile" aria-label="Rechercher un ustencile">
+          <i class="fa-solid fa-chevron-down"></i>
         </div>
-        <div class="boxUstenciles">
+        <div class="boxUstenciles displayNone">
         </div>
       </div>
     </div>
     
-    
-
     <div class="boxRecettes"></div>
 
-    <script src="js/cartesRecettes.js"></script>
-    <!-- <script src="js/recherche.js"></script> -->
+    <script src="js/cartes/cartesRecettes.js"></script>
+    <script src="js/cartes/cartesIngredients.js"></script>
+    <script src="js/cartes/cartesUstenciles.js"></script>
+    <script src="js/cartes/cartesAppareils.js"></script>
+    <script src="js/recherche.js"></script>
+    <script src="js/eventFiltres.js"></script>
     <script src="js/index.js"></script>
     <script src="https://kit.fontawesome.com/ab907928cc.js" crossorigin="anonymous"></script>
 </body>
