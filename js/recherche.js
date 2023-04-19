@@ -55,15 +55,24 @@ function rechercheIngredients(recettes) {
     // Afficher toutes les recettes si la recherche est vide ou trop courte
     for (let i = 0; i < recettes.length; i++) {
       ingredientsFiltrees.push(recettes[i]);
-      console.log(ingredientsFiltrees)
     }
   } else {
     // Filtrer les recettes qui correspondent à la recherche
     for (let i = 0; i < recettes.length; i++) {
       const recette = recettes[i];
-      if (recette.ingredients.some((ingredient) => ingredient.ingredient.toLowerCase().includes(rechercheIngredients))
-      ) {
-        ingredientsFiltrees.push(recette);
+      const ingredientsFiltresRecette = []; // tableau des ingrédients de la recette correspondant à la recherche
+      for (let j = 0; j < recette.ingredients.length; j++) {
+        const ingredient = recette.ingredients[j].ingredient.toLowerCase();
+        if (ingredient.includes(rechercheIngredients)) {
+          ingredientsFiltresRecette.push(recette.ingredients[j]);
+        }
+      }
+      if (ingredientsFiltresRecette.length > 0) {
+        // ajouter la recette avec les ingrédients filtrés correspondant à la recherche
+        const recetteFiltree = {
+          ingredients: ingredientsFiltresRecette
+        };
+        ingredientsFiltrees.push(recetteFiltree);
       }
     }
   }
