@@ -1,7 +1,13 @@
-function recettesData(recettes) {
+// recuperation de la data
+async function getRecettes() {
+  return fetch("data/recettes.json").then((response) => response.json()); // récupère les données depuis le fichier json
+}
+
+async function recettesData(recettes) {
   const recettesSection = document.querySelector(".boxRecettes");
   recettesSection.innerHTML = ""; // On vide la section des recettes
   recettes.sort((a, b) => a.name.localeCompare(b.name));
+  
   const promises = recettes.map((recette) => {
     const userCardDOM = new Recette(recette);
     return userCardDOM.article; // on retourne l'article créé
@@ -14,7 +20,7 @@ function recettesData(recettes) {
   });
 }
 
-function ingredientsData(recettes) {
+async function ingredientsData(recettes) {
   const ingredientsSection = document.querySelector(".boxIngredients");
   ingredientsSection.innerHTML = ""; // On vide la section des ingrédients
 
@@ -31,7 +37,7 @@ function ingredientsData(recettes) {
   ingredientsSection.appendChild(allIngredients.article);
 }
 
-function appareilsData(recettes) {
+async function appareilsData(recettes) {
   const appareilsSection = document.querySelector(".boxAppareils");
   appareilsSection.innerHTML = ""; // On vide la section des appareils
 
@@ -47,7 +53,7 @@ function appareilsData(recettes) {
   });
 }
 
-function ustencilesData(recettes) {
+async function ustencilesData(recettes) {
   const ustensilesSection = document.querySelector(".boxUstenciles");
   ustensilesSection.innerHTML = ""; // On vide la section des ustensiles
 
@@ -63,3 +69,19 @@ function ustencilesData(recettes) {
     });
   });
 }
+
+// init
+async function init() {
+  const { recettes } = await getRecettes(); // récupère les datas des photographes
+  recettesData(recettes);
+  ingredientsData(recettes);
+  appareilsData(recettes);
+  ustencilesData(recettes);
+
+  document.querySelector(".rechercheInput").addEventListener("input", () => {
+    rechercheRecettes(recettes);
+  });
+
+}
+
+init();
