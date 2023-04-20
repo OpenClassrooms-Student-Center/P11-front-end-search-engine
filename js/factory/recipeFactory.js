@@ -28,7 +28,6 @@ function recipesFactory(dataRecipes) {
         divBottom.classList.add('description-bottom')
         const divIngredientsList = document.createElement('div')
         divIngredientsList.classList.add('ingredients-list')
-        
 
         article.appendChild(divImg);
 
@@ -49,10 +48,8 @@ function recipesFactory(dataRecipes) {
             const p = document.createElement('p');
             p.classList.add('ingredients-line')
 
-
             p.textContent = ingredient;
             
-
             if (quantity === undefined) {
                 p.textContent = ingredient;
             } else if (unit === undefined) {
@@ -72,9 +69,6 @@ function recipesFactory(dataRecipes) {
         
         return (article);
     }
-
-    
-
 
     return { name, id, getRecipeDOM}
 }
