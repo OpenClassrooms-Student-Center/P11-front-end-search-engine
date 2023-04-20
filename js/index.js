@@ -66,7 +66,7 @@ async function dropdown(nom) {
     
 
     eleAffiche.forEach((e) => {
-        ustensilsList.innerHTML += `<li class="${nom}>${e}</li>`;
+        ustensilsList.innerHTML += `<li class="${nom}_nom>${e}</li>`;
     })
 }
 
