@@ -9,7 +9,7 @@ console.log(dropdownsEl)
 
 
 //recolte les recettes
-function RecipesCall() {
+function recipesCall() {
     recipesFiltre.forEach(recipes => {
         const id = recipes.id
         const nameRecipe = recipes.name
@@ -27,22 +27,25 @@ function RecipesCall() {
         const dataRecipes  =  { id, nameRecipe, servings, ingredients, time, description, appliance, ustensils};
         //console.log(time);
         //console.log(unit);
+        console.log(ustensils);
     })
 
     
 }
 
+
+//Ecoute du click pour liste déroulante
 dropdownsEl.addEventListener("click", (e) => {
     console.log("event ecouté");
-    console.log(e.srcElement)
-    switch(e.srcElement.className){
-        case 'dd-ustentils' :
+    console.log(e.srcElement.classList)
+    switch(e.srcElement.classList){
+        case '.dd-ustentils' :
             dropdownUstensils();
             break;
-        case 'dd-apparels' : 
+        case '.dd-apparels' : 
             dropdownApparels()
             break;
-        case 'dd-ingredients' : 
+        case '.dd-ingredients' : 
             dropdownIngredients();
             break;
         default :
@@ -51,21 +54,22 @@ dropdownsEl.addEventListener("click", (e) => {
 
 })
 
-async function dropdownUstensils(recipes){
-    console.log(recipes);
+//fonction ustentiles
+async function dropdownUstensils(recipesCall){
+    console.log(recipesCall);
     console.log(ustensils);
     
-    ustensilsFiltre.forEach((ustensils) => {
+    dataRecipes.forEach((ustensils) => {
         ustensilsList.innerHTML += `<li class="ustensiles_open">${ustensils}</li>`;
     })
 }
 
 
-/* ustensilsDd.addEventListener("click", () => {
+ ustensilsDd.addEventListener("click", () => {
     console.log("event écouté");
     dropdownUstensils(recipes);
 })
- */
+
 
 
 //montre les recettes en bloc
@@ -84,7 +88,7 @@ async function displayRecipes(recipesDisplay) {
 
 
 async function init() {
-    RecipesCall()
+    recipesCall()
     displayRecipes(recipesFiltre)
 };
 
