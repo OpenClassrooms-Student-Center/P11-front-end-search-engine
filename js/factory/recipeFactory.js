@@ -49,25 +49,19 @@ function recipesFactory(dataRecipes) {
             const p = document.createElement('p');
             p.classList.add('ingredients-line')
 
-            const p1 = document.createElement('span');
-            p1.classList.add('p1');
-            p1.textContent = ingredient;
+
+            p.textContent = ingredient;
             
-            const p2 = document.createElement('span');
-            p2.classList.add('p2');
 
             if (quantity === undefined) {
-                p2.textContent = "";
+                p.textContent = ingredient;
             } else if (unit === undefined) {
-                p2.textContent = " :  " + quantity;
+                p.textContent = ingredient + " :  " + quantity;
             } else {
-                p2.textContent = " :  " + quantity + unit;
+                p.textContent = ingredient + " :  " + quantity + unit;
             }
             
-            
             divIngredientsList.appendChild(p)
-            p.appendChild(p1)
-            p.appendChild(p2)
         });
 
         const descriptionText = document.createElement('span')

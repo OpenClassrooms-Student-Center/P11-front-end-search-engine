@@ -99,7 +99,6 @@ nav{
     }
     i{
         color: white;
-        margin-right: 10px;
     }
 
     }
@@ -126,6 +125,7 @@ nav{
 .results{
     margin:auto;
     padding: 0;
+    justify-content: flex-start;
 }
 
 .article-bloc{
@@ -167,6 +167,13 @@ nav{
             font-weight: 500;
             margin-right: 0.3em;
         }
+        h2{
+            width: 75%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
         h2, span{
             font-size:1em;
             margin-bottom: 0.1rem;
@@ -183,7 +190,11 @@ nav{
         display: flex;
         flex-direction: row;
         font-size: 0.7em;
-        
+        height: 70%;
+        -o-text-overflow: clip;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
         
         .ingredients-list{
             width:43%;

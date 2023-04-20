@@ -94,7 +94,6 @@ nav:hover {
 }
 .filters .dropdowns i {
   color: white;
-  margin-right: 10px;
 }
 .filters .fa-chevron-up {
   display: none;
@@ -115,6 +114,7 @@ nav:hover {
 .results {
   margin: auto;
   padding: 0;
+  justify-content: flex-start;
 }
 
 .article-bloc {
@@ -156,6 +156,12 @@ nav:hover {
   font-weight: 500;
   margin-right: 0.3em;
 }
+.description .description-header h2 {
+  width: 75%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .description .description-header h2, .description .description-header span {
   font-size: 1em;
   margin-bottom: 0.1rem;
@@ -169,6 +175,10 @@ nav:hover {
   display: flex;
   flex-direction: row;
   font-size: 0.7em;
+  height: 70%;
+  -o-text-overflow: clip;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .description .description-bottom .ingredients-list {
   width: 43%;
