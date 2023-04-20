@@ -3,7 +3,7 @@ let ustensilsList = document.querySelectorAll("rechercheUstensiles")
 const ddInputs = document.querySelectorAll("dd-input")
 const ustensilsDd = document.querySelector(".dd-ustentils")
 const recipesFiltre = recipes
-const dropdownsEl = document.querySelector(".fa-chevron-down");
+const dropdownsEl = Array.from(document.querySelector(".fa-chevron-down"));
 console.log(dropdownsEl)
 let tags = []
 
@@ -86,8 +86,13 @@ async function displayRecipes(recipesDisplay) {
         const recipeDOM = recipeEngine.getRecipeDOM();
         resultsSection.appendChild(recipeDOM);
         appliances = [...recipe.appliance]
-        ustentils = [...recipe.ustentil]
-        ingredients = [...recipe.ingredients.ingredient]
+        ustentils = [...[recipe.ustentils]]
+
+
+        recipe.ingredients.forEach(ingredient => {
+            ingredients = [...[ingredient.ingredient]]
+        })
+        
     });
 
     tags['ustentils'] = ustentils;
@@ -99,7 +104,7 @@ async function displayRecipes(recipesDisplay) {
 
 
 async function init() {
-    recipesCall()
+    
     displayRecipes(recipesFiltre)
 };
 
