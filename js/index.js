@@ -27,7 +27,7 @@ function recipesCall() {
         const dataRecipes  =  { id, nameRecipe, servings, ingredients, time, description, appliance, ustensils};
         //console.log(time);
         //console.log(unit);
-        console.log(ustensils);
+        //console.log(ustensils);
     })
 
     
