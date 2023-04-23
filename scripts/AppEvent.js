@@ -72,17 +72,19 @@ class AppEvent{
         }
         Tool._Combobox.$input.focus();
         Tool.$wrapper.classList.add("tools__menu--open");
+        Tool.findInactiveTools(Tool,"inactive");
         Tool._Listbox.$listbox.classList.add("menu__item--open");
         Tool._Listbox.$listbox.classList.remove("menu__item--hidden");
         Tool._Combobox.$combobox.setAttribute("aria-expanded",true);
         Tool.$wrapper.setAttribute("aria-expanded",true);
     }
 
-    closeHandleList(Tool,Combobox){
+    closeHandleList(Tool){
         Tool.$wrapper.removeAttribute("placeholder");
         Tool._Combobox.$combobox.setAttribute("aria-expanded",false);
         Tool.$wrapper.setAttribute("aria-expanded",false);
         Tool._Listbox.$listbox.classList.remove("menu__item--open");
+        Tool.findInactiveTools(Tool,"active");
         Tool._Listbox.$listbox.classList.add("menu__item--hidden");
         Tool._Listbox.$listbox.parentNode.classList.remove("tools__menu--open");
         switch(Tool._Listbox.$listbox.classList[1]){
@@ -97,10 +99,10 @@ class AppEvent{
         }
     }
 
-    liClickEvent(e,Tool,Combobox,$li,activeToolIndex){
+    liClickEvent(e,Tool,$li,activeToolIndex){
         const newTag = new Tag(Tool._Listbox);
         newTag.create($li,this,this._SearchSubject,this._Update,Tool,activeToolIndex);
-        this.closeHandleList(Tool,Combobox);
+        this.closeHandleList(Tool);
         $li.removeEventListener("ckick",e);
     }
 

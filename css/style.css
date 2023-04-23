@@ -113,9 +113,8 @@ h1{
 
 .tools__menu--open{
     border-radius: 5px 5px 0px 0px;
-    width: 38%;
+    width: 100%;
     justify-content: left;
-    
 }
 
 
@@ -152,6 +151,10 @@ h1{
     background-color: #ED6454;
 }
 
+.tools__menu--inactive{
+    display: none;
+}
+
 .menu__item{
     position: absolute;
     width: 100%;
@@ -181,7 +184,7 @@ h1{
 
 .menu__item ul{
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     color: white;
     font-size: 0.75em;
     row-gap: 0.2em;
@@ -216,7 +219,7 @@ main section{
     row-gap: 1%;
     column-gap: 2%; */
     width: 80%;
-    margin: 10px auto;
+    margin: 25px auto;
 }
 
 article figure{
@@ -236,7 +239,7 @@ article figcaption{
     background-color: #E7E7E7;
     border-radius: 0 0 5px 5px;
     padding: 0 4%;
-    display: block;
+    display: inline-block;
 }
 
 figcaption header{
@@ -244,7 +247,7 @@ figcaption header{
     justify-content: space-between;
     align-items: center;
     height: 25px;
-    margin-top: 4%;
+    margin-top: 0.65em;
     margin-bottom: 1%;
 }
 

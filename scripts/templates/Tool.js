@@ -43,6 +43,21 @@ class Tool{
         });    
     }
 
+    findInactiveTools(Tool, state){
+        const $tools = document.querySelectorAll("div.tools__menu");
+        $tools.forEach($tool => {
+            if($tool !== Tool.$wrapper){
+                switch(state){
+                    case "active":
+                        $tool.classList.remove("tools__menu--inactive");
+                        break;
+                    case "inactive":
+                        $tool.classList.add("tools__menu--inactive");
+                }
+            }
+        });
+    }
+
     updateTool(findToolIndexArray,Tool){
         // console.log(findToolIndexArray);
         // console.log(this._Listbox.toolsList);

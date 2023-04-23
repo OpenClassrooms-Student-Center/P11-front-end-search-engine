@@ -8,7 +8,7 @@ class Listbox{
 
     setToolsList(){
         recipes.map(recipe => {
-            switch(this.$listbox.classList[0]){
+            switch(this.$listbox.classList[1]){
                 case "ingredients":
                     recipe.ingredients.map(obj => {
                         this.tamponList.push(obj.ingredient.toLowerCase());
@@ -26,7 +26,7 @@ class Listbox{
         this.removeDuplicates();
     }
 
-    resetDOMList(AppEvent,Tool,Combobox){
+    resetDOMList(AppEvent,Tool){
         this.$ul.innerHTML = "";
         this.toolsList.sort(function(a,b){
             return a.localeCompare(b);
@@ -38,9 +38,9 @@ class Listbox{
             this.$ul.appendChild(newLi);
             newLi.addEventListener("click", function(e){
                 if(Tool._Combobox.$input.value.length >= 3){
-                    that.resetDOMList(AppEvent,Tool,Combobox);
+                    that.resetDOMList(AppEvent,Tool);
                 }
-                AppEvent.liClickEvent(e,Tool,Combobox,newLi,indexTool);
+                AppEvent.liClickEvent(e,Tool,newLi,indexTool);
             });
         });
     }

@@ -24,14 +24,14 @@ class Update{
     createCard(Recipe){
         const _RecipeCard = new RecipeCard(Recipe);
         const $recipeArticle = _RecipeCard.getRecipesCardDOM();
-        this._App.$sectionSearchResult.appendChild($recipeArticle);
+        this._App.$section.appendChild($recipeArticle);
     }
     
     update(SearchObservers){
         const findIngredientIndexArray = [];
         const findApplianceIndexArray = [];
         const findUstensilIndexArray = [];
-        this._App.$sectionSearchResult.innerHTML = "";
+        this._App.$section.innerHTML = "";
         this.updateIDArray.splice(0,this.updateIDArray.length);
         SearchObservers.forEach((Search,SearchArrayIndex) => {
             if(SearchArrayIndex === 0){
