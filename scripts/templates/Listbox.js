@@ -8,7 +8,7 @@ class Listbox{
 
     setToolsList(){
         recipes.map(recipe => {
-            switch(this.$listbox.classList[1]){
+            switch(this.$listbox.classList[0]){
                 case "ingredients":
                     recipe.ingredients.map(obj => {
                         this.tamponList.push(obj.ingredient.toLowerCase());

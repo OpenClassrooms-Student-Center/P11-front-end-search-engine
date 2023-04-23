@@ -12,7 +12,7 @@ class Update{
         this._App.$section.innerHTML = "";
         this._App.$globalSearchInput.setAttribute("placeholder","Rechercher une recette");
         this._App.$globalSearchInput.value = ""
-        recipes.forEach(recipe => {
+        recipes.forEach((recipe,index) => {
             const _Recipe = new Recipe(recipe);
             this.tamponIDArray.push(_Recipe.id);
             const _RecipeCard = new RecipeCard(_Recipe);
@@ -24,14 +24,14 @@ class Update{
     createCard(Recipe){
         const _RecipeCard = new RecipeCard(Recipe);
         const $recipeArticle = _RecipeCard.getRecipesCardDOM();
-        this._App.$section.appendChild($recipeArticle);
+        this._App.$sectionSearchResult.appendChild($recipeArticle);
     }
     
     update(SearchObservers){
         const findIngredientIndexArray = [];
         const findApplianceIndexArray = [];
         const findUstensilIndexArray = [];
-        this._App.$section.innerHTML = "";
+        this._App.$sectionSearchResult.innerHTML = "";
         this.updateIDArray.splice(0,this.updateIDArray.length);
         SearchObservers.forEach((Search,SearchArrayIndex) => {
             if(SearchArrayIndex === 0){

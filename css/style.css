@@ -5,6 +5,7 @@
 
 header > section{
     display: flex;
+    width: 100%;
     flex-direction: column;
     color: #D04F4F;
 }
@@ -26,13 +27,14 @@ h1{
     margin: auto;
     margin-top: 15px;
     width: 80%;
-    height: 50px;
+    height: 40px;
     display: flex;
+    font-size: 0.75em;
 }
 
 .nav::after{
     content: "";
-    width: 4%;
+    width: 10%;
     height: 100%;
     top: 0;
     right: 0;
@@ -48,7 +50,7 @@ h1{
     width: 100%;
     border: none;
     border-radius: 5px;
-    padding-left: 1%;
+    padding-left: 3%;
     background-color: #E7E7E7;
     font-size: 1.1em;
 }
@@ -61,13 +63,13 @@ h1{
 
 .tag{
     display: flex;
-    width: 10%;
+    width: 25%;
     border-radius: 5px;
-    height: 30px;
+    height: 25px;
     font-size: 0.6em;
     align-items: center;
     justify-content: center;
-    margin: 10px 20px 0 0;
+    margin: 10px 10px 0 0;
     color: white;
     opacity: 1;
 }
@@ -83,17 +85,18 @@ h1{
 
 .tools{
     display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     width: 80%;
+    height: 32px;
     margin: auto;
+    margin-top: 4%;
     position: relative;
 }
 
 .tools__menu{
     position: relative;
-    width: 15%; 
-    height: 50px;
-    margin: 20px 4% 0 0;
-    margin-right: 4%;
+    width: 30%;
     display: flex;
     align-items: center;
     border-radius: 5px;
@@ -101,42 +104,40 @@ h1{
 }
 
 .tools__menu input{
+    width: 100%;
+    padding-left: 5%;   
+    color: white;
     cursor:pointer;
+    font-size: 0.65em;
 }
 
 .tools__menu--open{
     border-radius: 5px 5px 0px 0px;
     width: 38%;
     justify-content: left;
+    
 }
+
 
 .tools__menu--open, .tools__menu--open input{
     cursor:text;
 }
 
-.tools__menu--open::before{
-    transform: rotate(180deg);
-}
-
-.tools__menu::before{
+.tools__menu::after{
     position: absolute;
     content: "";
-    background-image: url("../assets/arrow.svg");
+    background-image: url("../assets/arrow_xsmall.svg");
     background-repeat: no-repeat;
-    top: 40%;
-    right: 15px;
-    width: 20px;
-    height: 10px;
-    /* z-index: 1;
-    cursor: pointer; */
+    top: 42%;
+    right: 5%;
+    width: 13px;
+    height: 7px;
+    z-index: 1;
+    cursor: pointer;
 }
 
-.tools__menu input{
-    display: flex;
-    width: auto;
-    padding-left: 5%;   
-    color: white;
-    font-size: 0.9em;
+.tools__menu--open::after{
+    transform: rotate(180deg);
 }
 
 .menu1, .tag1, .menu1 input{
@@ -154,7 +155,7 @@ h1{
 .menu__item{
     position: absolute;
     width: 100%;
-    height : 250px;
+    height : 130px;
     top: 100%;
     border-radius: 0 0 5px 5px;
     overflow: hidden;
@@ -180,12 +181,18 @@ h1{
 
 .menu__item ul{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
     color: white;
+    font-size: 0.75em;
+    row-gap: 0.2em;
 }
 
 .menu__item ul li{
-    margin: 2.5px 20px;
+    margin: 2px 20px;
+}
+
+.menu__item ul li{
+    margin: 2px 20px;
 }
 
 .ingredients{
@@ -200,22 +207,16 @@ h1{
     background-color: #ED6454;
 }
 
-.tools__menu--active{
-    border-radius: 5px 5px 0 0;
-    width: 50%;
-}
-
-.tools__menu--active input{
-    width: 200%;
-}
 
 main section{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    display: flex;
+    flex-direction: column;
+    /* display: grid;
+    grid-template-columns: 1fr;
     row-gap: 1%;
-    column-gap: 2%;
+    column-gap: 2%; */
     width: 80%;
-    margin: 40px auto;
+    margin: 10px auto;
 }
 
 article figure{
@@ -223,8 +224,9 @@ article figure{
     flex-direction: column;
     justify-content: end;
     margin: 0;
-    height: 330px;
+    height: 215px;
     width: 100%;
+    margin-bottom: 20px;
     background-color: #C7BEBE;
     border-radius: 5px;
 }
@@ -233,7 +235,7 @@ article figcaption{
     height: 50%;
     background-color: #E7E7E7;
     border-radius: 0 0 5px 5px;
-    padding: 0 5%;
+    padding: 0 4%;
     display: block;
 }
 
@@ -241,12 +243,13 @@ figcaption header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 40px;
-    margin: 3% 0;
+    height: 25px;
+    margin-top: 4%;
+    margin-bottom: 1%;
 }
 
 figcaption header h2{
-    font-size: 1.1em;
+    font-size: 0.8em;
     width: 70%;
     overflow: hidden;
     white-space: nowrap;
@@ -256,7 +259,7 @@ figcaption header h2{
 
 figcaption header p{
     position: relative;
-    font-size: 1em;
+    font-size: 0.75em;
     margin: 0;
 }
 
@@ -273,8 +276,7 @@ figcaption header p::before{
 
 figcaption > div{
     display: flex;
-    font-size: 0.65em;
-    height: 200px;
+    font-size: 0.5em;
 }
 
 figcaption > div ul{
@@ -302,7 +304,7 @@ h3{
 
 .ellipsis{
     width: 50%;
-    height: 60px;
+    height: 46px;
     margin: 0;
     display: -webkit-box;
     -webkit-line-clamp: 5;
@@ -323,3 +325,7 @@ h3{
         transform: scale(0);
     }
 } */
+
+@media screen and (min-width: 576px){
+    
+}
