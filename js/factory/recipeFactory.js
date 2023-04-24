@@ -70,5 +70,5 @@ function recipesFactory(dataRecipes) {
         return (article);
     }
 
-    return { name, id, getRecipeDOM}
+    return {getRecipeDOM}
 }

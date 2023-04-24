@@ -1,9 +1,9 @@
 const resultsSection = document.querySelector(".results");
-let ustensilsList = document.querySelectorAll("rechercheUstensiles")
+let filterList = document.querySelectorAll("dropdownUl")
 const ddInputs = document.querySelectorAll("dd-input")
-const ustensilsDd = document.querySelector(".dd-ustentils")
+const ustensilsDd = document.querySelector(".dd-ustensils")
 const recipesFiltre = recipes
-const dropdownsEl = Array.from(document.querySelector(".fa-chevron-down"));
+const dropdownsEl = Array.from(document.querySelectorAll(".fa-chevron-down"));
 console.log(dropdownsEl)
 let tags = []
 
@@ -54,19 +54,20 @@ let tags = []
 
 dropdownsEl.forEach(dd =>
     dd.addEventListener("click" , (e) => {
-        console.log("event ecouté");
-        console.log(e.srcElement.classList)
-        dropdownUstensils(e.srcElement.id);
+        console.log(e.srcElement.id)
+        dropdown(e.srcElement.id);
 
     }))
 
-//fonction ustentiles
+//fonction dropdown
 async function dropdown(nom) {
-    let eleAffiche = tags[nom]
     
-
+    let eleAffiche = tags[nom]
+    console.log(eleAffiche);
+    //sort les listes deroulantes
     eleAffiche.forEach((e) => {
-        ustensilsList.innerHTML += `<li class="${nom}_nom>${e}</li>`;
+        filterList.innerHTML += `<li class="${nom}_>${e}</li>`;
+        
     })
 }
 
@@ -77,27 +78,35 @@ async function dropdown(nom) {
 
 //montre les recettes en bloc
 async function displayRecipes(recipesDisplay) {
+    //tableaux vides
     let appliances = [];
-    let ustentils = []
+    let ustensils = []
     let ingredients = [];
 
+
+    //apparition de la factory des blocs
     recipesDisplay.forEach((recipe) => {
         const recipeEngine = recipesFactory(recipe);
         const recipeDOM = recipeEngine.getRecipeDOM();
         resultsSection.appendChild(recipeDOM);
-        appliances = [...recipe.appliance]
-        ustentils = [...[recipe.ustentils]]
 
-
+    //remplissage des tableaux
+        console.log(recipe);
+        recipeArray = [...new Set(recipes)]
+        appliances = [...new Set(recipe.appliance)]
+        
+        ustensils = [...[recipe.ustensils]]
         recipe.ingredients.forEach(ingredient => {
             ingredients = [...[ingredient.ingredient]]
         })
+        console.log(ingredients)
         
     });
 
-    tags['ustentils'] = ustentils;
-    tags['apparels'] = appliances;
-    tags['ingredients'] = ingredients
+    tags['ustensils'] = ustensils;
+    console.log(tags['ustensils']);
+    tags['appareils'] = appliances;
+    tags['ingredients'] = ingredients;
 };
 
 //Pour chaque ustensile
