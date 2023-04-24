@@ -80,13 +80,14 @@ class AppEvent{
     }
 
     closeHandleList(Tool){
+        Tool.$wrapper.classList.remove("tools__menu--open");
         Tool.$wrapper.removeAttribute("placeholder");
         Tool._Combobox.$combobox.setAttribute("aria-expanded",false);
         Tool.$wrapper.setAttribute("aria-expanded",false);
         Tool._Listbox.$listbox.classList.remove("menu__item--open");
-        Tool.findInactiveTools(Tool,"active");
         Tool._Listbox.$listbox.classList.add("menu__item--hidden");
-        Tool._Listbox.$listbox.parentNode.classList.remove("tools__menu--open");
+        Tool.findInactiveTools(Tool,"active");
+        // Tool._Listbox.$listbox.classList.remove("menu__item--open");
         switch(Tool._Listbox.$listbox.classList[1]){
             case "ingredients":
                 Tool._Combobox.$input.value = "Ingrédients";
@@ -103,6 +104,7 @@ class AppEvent{
         const newTag = new Tag(Tool._Listbox);
         newTag.create($li,this,this._SearchSubject,this._Update,Tool,activeToolIndex);
         this.closeHandleList(Tool);
+        e.stopPropagation();
         $li.removeEventListener("ckick",e);
     }
 

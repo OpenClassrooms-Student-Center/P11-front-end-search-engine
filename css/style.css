@@ -29,6 +29,7 @@ h1{
     width: 80%;
     height: 40px;
     display: flex;
+    flex-direction: row;
     font-size: 0.75em;
 }
 
@@ -59,6 +60,7 @@ h1{
     display: flex;
     width: 80%;
     margin: auto;
+    flex-wrap: wrap;
 }
 
 .tag{
@@ -90,7 +92,7 @@ h1{
     width: 80%;
     height: 32px;
     margin: auto;
-    margin-top: 4%;
+    margin-top: 0.75em;
     position: relative;
 }
 
@@ -247,8 +249,8 @@ figcaption header{
     justify-content: space-between;
     align-items: center;
     height: 25px;
-    margin-top: 0.65em;
-    margin-bottom: 1%;
+    margin-top: 0.4em;
+    margin-bottom: 0.1em;
 }
 
 figcaption header h2{
@@ -261,8 +263,8 @@ figcaption header h2{
 }
 
 figcaption header p{
+    font-size: 0.8em;
     position: relative;
-    font-size: 0.75em;
     margin: 0;
 }
 
@@ -329,6 +331,136 @@ h3{
     }
 } */
 
-@media screen and (min-width: 576px){
+@media screen and (min-width: 425px){
+    .nav{
+        width: 70%;
+    }
+
+    .nav input{
+        font-size: 1.2em;
+    }
+
+    .tools{
+        width: 70%;
+    }    
     
+    .tools__menu input{
+        font-size: 0.75em;
+    }
+
+    .menu__item ul{
+        font-size: 0.8em;
+    }
+
+    main section{
+        width: 70%;
+        margin: 25px auto;
+    }
+
+    article figure{
+        height: 250px;
+    }
+
+    article figcaption{
+        padding: 0 6%;
+    }
+
+    figcaption header{
+        height: 25px;
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+
+    figcaption header h2{
+        width: 70%;
+        font-size: 0.85em;
+    }
+    
+    figcaption header p{
+        font-size: 0.9em;
+    }
+
+    figcaption > div{
+        font-size: 0.58em;
+    }
+
+    .ellipsis{
+        height: 53px;
+    }
+}
+
+@media screen and (min-width: 768px){
+    .nav{
+        width: 80%;
+    }
+
+    .nav input{
+        font-size: 1.2em;
+        padding-left: 2%;
+    }
+
+    .tools{
+        width: 80%;
+        justify-content: flex-start;
+    }
+
+    .tools__menu{
+        width: 25%;
+        margin-right: 4%;
+    }
+    
+    .tools__menu--open{
+        border-radius: 5px 5px 0px 0px;
+        width: 40%;
+        justify-content: left;
+    }
+    
+    .tools__menu input{
+        font-size: 0.8em;
+    }
+
+    .menu__item ul{
+        font-size: 0.8em;
+    }
+
+    main section{
+        display: grid;
+        flex-direction:inherit;
+        grid-template-columns: 48% 48%;
+        row-gap: 1em;
+        column-gap: 4%;
+        margin: 30px auto;
+        width: 80%;
+    }
+
+    article figure{
+        height: 250px;
+    }
+
+    article figcaption{
+        padding: 0 6%;
+    }
+
+    figcaption header{
+        height: 25px;
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+    }
+
+    figcaption header h2{
+        width: 80%;
+        font-size: 0.95em;
+    }
+    
+    figcaption header p{
+        font-size: 0.95em;
+    }
+
+    figcaption > div{
+        font-size: 0.6em;
+    }
+
+    .ellipsis{
+        height: 53px;
+    }
 }
