@@ -340,6 +340,10 @@ h3{
         font-size: 1.2em;
     }
 
+    .tagMenu{
+        width: 70%;
+    }
+
     .tools{
         width: 70%;
     }    
@@ -398,9 +402,14 @@ h3{
         padding-left: 2%;
     }
 
+    .tagMenu{
+        width: 80%;
+    }
+
     .tools{
         width: 80%;
         justify-content: flex-start;
+        margin-top: 0.9em;
     }
 
     .tools__menu{
