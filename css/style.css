@@ -39,7 +39,7 @@ h1{
     height: 100%;
     top: 0;
     right: 0;
-    background-image: url("../assets/search.svg");
+    background-image: url("../assets/mobile_search.svg");
     background-repeat: no-repeat;
     background-position: center;
     position: absolute;
@@ -413,7 +413,7 @@ h3{
     }
 
     .tools__menu{
-        width: 25%;
+        width: 20%;
         margin-right: 4%;
     }
     
@@ -451,6 +451,137 @@ h3{
     }
 }
 
-@media screen and(min-width:1440px){
+@media screen and (min-width:1024px){
+
+    .logo{
+        height: 2.3em;
+    }
+
+    h1{
+        font-size: 1.7em;
+    }
+
+    .nav{
+        width: 90%;
+        height: 45px;
+    }
+
+    .nav::after{
+        width: 5%;
+        background-image: url("../assets/desktop_search.svg");
+    }
+
+    .nav input{
+        font-size: 1.3em;
+    }
+
+    .tools{
+        height: 46px;
+        width: 90%;
+    }
+
+    .tools__menu{
+        width: 16%;
+        margin-right: 4%;
+    }
+
+    .tools__menu::after{
+        background-image: url("../assets/arrow.svg");
+        top: 40%;
+        right: 6%;
+        width: 20px;
+        height: 10px;
+    }
+
+    .tools__menu input{
+        width: 100%;
+        padding-left: 11%;   
+        color: white;
+        cursor:pointer;
+        font-size: 0.9em;
+    }
+
+    main section{
+        grid-template-columns: 31% 31% 31%;
+        row-gap: 0.8em;
+        column-gap: 3.5%;
+        width: 90%;
+    }
+
+    article figure{
+        height: 285px;
+    }
+
+    figcaption header{
+        margin-top: 0.6em;
+        margin-bottom: 0.6em;
+    }
+}
+
+@media screen and (min-width:1440px){
+
+    .logo{
+        height: 2.5em;
+    }
+
+    h1{
+        font-size: 2em;
+    }
+
+    .nav{
+        height: 50px;
+    }
+
+    .nav input{
+        padding-left: 2%;
+        font-size: 1.4em;
+    }
+
+    .tools{
+        height: 48px;
+    }
+
+    .tools__menu{
+        width: 14%;
+        margin-right: 2%;
+    }
+
+    .tools__menu input{
+        font-size: 1em;
+    }
+
+    article figure{
+        height: 320px;
+    }
+
+    figcaption header{
+        margin-top: 0.8em;
+        margin-bottom: 1em;
+    }
+
+    figcaption header h2{
+        font-size: 1.1em;
+    }
+
+    figcaption header p{
+        font-size: 1em;
+    }
+
+    figcaption header p::before{
+        right: 115%;
+        height: 19px;
+        width: 18px;
+    }
+
+    figcaption > div{
+        font-size: 0.73em;
+    }
+
+    .ellipsis{
+        height: 65px;
+    }
+}
+
+@media screen and (min-width:2560px){
     
 }
