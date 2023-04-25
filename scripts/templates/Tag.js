@@ -5,7 +5,8 @@ class Tag{
         this.$tagMenu = document.querySelector(".tagMenu");
     }
 
-    create($li,SearchEvent,SearchSubject,Update,Tool,activeToolIndex){
+    create($li,SearchEvent,SearchSubject,Update,Tool){
+        this.$wrapper.setAttribute("alt","tag");
         switch(this.type){
             case "ingredients":
                 this.$wrapper.classList.add("tag","tag1");
@@ -16,7 +17,6 @@ class Tag{
             case "ustensils":
                 this.$wrapper.classList.add("tag","tag3");
         }
-        this.$wrapper.classList.add("tag--cLick");
         this.$wrapper.textContent = $li.textContent;
         this.$tagMenu.appendChild(this.$wrapper);
         const _TagSearch = new TagSearch(this);

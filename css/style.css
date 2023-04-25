@@ -65,15 +65,24 @@ h1{
 
 .tag{
     display: flex;
-    width: 25%;
+    width: 28%;
     border-radius: 5px;
     height: 25px;
-    font-size: 0.55em;
-    align-items: center;
-    justify-content: center;
+    font-size: 0.5em;
     margin: 10px 10px 0 0;
     color: white;
     opacity: 1;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.tag::after{
+    content: "";
+    background-image: url("../assets/mobile_Vector.svg");
+    background-repeat: no-repeat;
+    height: 12px;
+    width: 12px;
 }
 
 .tag:hover{
@@ -110,13 +119,14 @@ h1{
     padding-left: 8%;   
     color: white;
     cursor:pointer;
-    font-size: 0.6em;
+    font-size: 0.65em;
 }
 
 .tools__menu--open{
     border-radius: 5px 5px 0px 0px;
     width: 100%;
     justify-content: left;
+    font-size: 1.1em;
 }
 
 
@@ -340,6 +350,10 @@ h3{
         width: 70%;
     }
 
+    .tag{
+        font-size: 0.6em;
+    }
+
     .tools{
         width: 70%;
         height: 36px;
@@ -409,7 +423,6 @@ h3{
 
     .tag{
         width: 14%;
-        font-size: 0.6em;
     }
 
     .tools{
@@ -425,8 +438,8 @@ h3{
     }
     
     .tools__menu--open{
-        width: 35%;
-        font-size: 1em;
+        width: 50%;
+        font-size: 1.1em;
     }
     
     .tools__menu input{
@@ -434,8 +447,12 @@ h3{
         padding-left: 6%;
     }
 
+    .menu__item{
+        height : 150px;
+    }
+
     .menu__item ul{
-        font-size: 0.6em;
+        font-size: 0.7em;
     }
 
     main section{
@@ -493,7 +510,16 @@ h3{
 
     .tag{
         width: 10%;
-        font-size: 0.65em;
+        font-size: 0.75em;
+        height: 28px;
+    }
+
+    .tag::after{
+        content: "";
+        background-image: url("../assets/desktop_Vector.svg");
+        background-repeat: no-repeat;
+        height: 14px;
+        width: 14px;
     }
 
     .tools{
@@ -507,7 +533,7 @@ h3{
     }
 
     .tools__menu--open{
-        width: 30%;
+        width: 50%;
     }
 
     .tools__menu::after{
@@ -526,8 +552,12 @@ h3{
         padding-left: 8%;
     }
 
+    .menu__item{
+        height: 170px;
+    }
+
     .menu__item ul{
-        font-size: 0.75em;
+        font-size: 0.9em;
     }
 
     .menu__item ul li{
@@ -571,9 +601,9 @@ h3{
     }
 
     .tag{
-        width: 9%;
+        width: 8%;
         height: 32px;
-        font-size: 0.75em;
+        font-size: 0.85em;
     }
 
     .tools{
@@ -586,11 +616,16 @@ h3{
     }
 
     .tools__menu--open{
-        width: 26%;
+        width: 50%;
+        font-size: 1.2em;
     }
 
     .tools__menu input{
-        font-size: 1em;
+        font-size: 0.9em;
+    }
+
+    .menu__item{
+        height: 230px;
     }
 
     main section{
