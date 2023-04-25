@@ -21,20 +21,20 @@ class Tool{
             if(findToolIndexArray.includes(toolIndex) === false && !findTagTool){
                 switch(this.$wrapper.classList[1]){
                     case "menu1":
-                        Recipe._ingredients.forEach(Ingredient => {
-                            if(Ingredient.ingredient.toLowerCase() === tool ){
+                        Recipe._ingredients.forEach(obj => {
+                            if(obj.ingredient[0].toUpperCase() + obj.ingredient.substring(1) === tool){
                                 findToolIndexArray.push(toolIndex);
                             }
                         });
                         break;
                     case "menu2":
-                        if(Recipe._appliance.toLowerCase() === tool){
+                        if(Recipe.appliance[0].toUpperCase() + Recipe.appliance.substring(1) === tool){
                             findToolIndexArray.push(toolIndex);
                         }
                         break;
                     case "menu3":
                         Recipe._ustensils.forEach(ustensil => {
-                            if(ustensil.toLowerCase() === tool){
+                            if(ustensil[0].toUpperCase() + ustensil.substring(1) === tool){
                                 findToolIndexArray.push(toolIndex);
                             }
                         });

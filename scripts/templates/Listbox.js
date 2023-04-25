@@ -10,16 +10,16 @@ class Listbox{
         recipes.map(recipe => {
             switch(this.$listbox.classList[1]){
                 case "ingredients":
-                    recipe.ingredients.map(obj => {
-                        this.tamponList.push(obj.ingredient.toLowerCase());
+                    recipe.ingredients.forEach(obj => {
+                        this.tamponList.push(obj.ingredient[0].toUpperCase() + obj.ingredient.substring(1));
                     });
                     break;
                 case "appliances":
-                    this.tamponList.push(recipe.appliance.toLowerCase());
+                    this.tamponList.push(recipe.appliance[0].toUpperCase() + recipe.appliance.substring(1));
                     break;
                 case "ustensils":
-                    recipe.ustensils.map(ustensil => {
-                        this.tamponList.push(ustensil.toLowerCase());
+                    recipe.ustensils.forEach(ustensil => {
+                        this.tamponList.push(ustensil[0].toUpperCase() + ustensil.substring(1));
                     });
             }
         });
