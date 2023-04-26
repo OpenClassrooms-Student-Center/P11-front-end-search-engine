@@ -40,17 +40,17 @@ class AppEvent{
     //Combobox Event
     closeHandleCombobox(e,Combobox,Tool){
         if(e.relatedTarget !== Tool.$wrapper){
-            this.closeHandleList(Tool,Combobox);
+            this.closeHandleList(Tool);
         }
     }
 
     inputComboboxEvent(e,Tool){
         let indexDelete = 0;
-        Tool._Listbox.resetDOMList(this,Tool,Tool._Combobox);
+        Tool._Combobox._Listbox.resetDOMList(this,Tool,Tool._Combobox);
         if(e.target.value.length >= 3){
-            Tool._Listbox.toolsList.forEach((tool,index) => {
+            Tool._Combobox._Listbox.toolsList.forEach((tool,index) => {
                 if(!tool.includes(e.target.value.toLowerCase())){
-                    Tool._Listbox.$ul.removeChild(Tool._Listbox.$ul.children[index-indexDelete]);
+                    Tool._Combobox._Listbox.$wrapper.removeChild(Tool._Combobox._Listbox.$wrapper.children[index-indexDelete]);
                     indexDelete++;
                 }
             });
@@ -58,37 +58,37 @@ class AppEvent{
     }
 
     //Tool Event
-    openHandleList(Tool){
-        Tool._Combobox.$input.value = "";
-        switch(Tool._Listbox.$listbox.classList[1]){
+    openHandleList(Tool,Combobox){
+        Combobox.$input.value = "";
+        switch(Combobox._Listbox.$wrapper.classList[1]){
             case "ingredients":
-                Tool._Combobox.$input.setAttribute("placeholder","Rechercher un ingrédient");
+                Combobox.$input.setAttribute("placeholder","Rechercher un ingrédient");
                 break;
             case "appliances":
-                Tool._Combobox.$input.setAttribute("placeholder","Rechercher un appareil");
+                Combobox.$input.setAttribute("placeholder","Rechercher un appareil");
                 break;
             case "ustensils":
-                Tool._Combobox.$input.setAttribute("placeholder","Rechercher un ustensile");
+                Combobox.$input.setAttribute("placeholder","Rechercher un ustensile");
         }
-        Tool._Combobox.$input.focus();
+        Combobox.$input.focus();
         Tool.$wrapper.classList.add("tools__menu--open");
         Tool.findInactiveTools(Tool,"inactive");
-        Tool._Listbox.$listbox.classList.add("menu__item--open");
-        Tool._Listbox.$listbox.classList.remove("menu__item--hidden");
-        Tool._Combobox.$combobox.setAttribute("aria-expanded",true);
+        Combobox._Listbox.$wrapper.classList.add("menu__item--open");
+        Combobox._Listbox.$wrapper.classList.remove("menu__item--hidden");
+        Combobox.$wrapper.setAttribute("aria-expanded",true);
         Tool.$wrapper.setAttribute("aria-expanded",true);
     }
 
     closeHandleList(Tool){
         Tool.$wrapper.classList.remove("tools__menu--open");
         Tool.$wrapper.removeAttribute("placeholder");
-        Tool._Combobox.$combobox.setAttribute("aria-expanded",false);
-        Tool.$wrapper.setAttribute("aria-expanded",false);
-        Tool._Listbox.$listbox.classList.remove("menu__item--open");
-        Tool._Listbox.$listbox.classList.add("menu__item--hidden");
+        Tool._Combobox.$wrapper.setAttribute("aria-expanded",false);
+        Tool._Combobox.$wrapper.setAttribute("aria-expanded",false);
+        Tool._Combobox._Listbox.$wrapper.classList.remove("menu__item--open");
+        Tool._Combobox._Listbox.$wrapper.classList.add("menu__item--hidden");
         Tool.findInactiveTools(Tool,"active");
-        // Tool._Listbox.$listbox.classList.remove("menu__item--open");
-        switch(Tool._Listbox.$listbox.classList[1]){
+        // Tool._Listbox.$wrapper.classList.remove("menu__item--open");
+        switch(Tool._Combobox._Listbox.$wrapper.classList[1]){
             case "ingredients":
                 Tool._Combobox.$input.value = "Ingrédients";
                 break;
@@ -101,7 +101,7 @@ class AppEvent{
     }
 
     liClickEvent(e,Tool,$li,activeToolIndex){
-        const newTag = new Tag(Tool._Listbox);
+        const newTag = new Tag(Tool._Combobox._Listbox);
         newTag.create($li,this,this._SearchSubject,this._Update,Tool,activeToolIndex);
         this.closeHandleList(Tool);
         e.stopPropagation();
@@ -113,7 +113,7 @@ class AppEvent{
         this._SearchSubject.unsubscribe(TagSearchResult);
         Listbox.toolsList.push($li.textContent);
         Listbox.toolsList.sort((a,b) => a - b );
-        Listbox.$ul.innerHTML = "";
+        Listbox.$wrapper.innerHTML = "";
         this._Update._IngredientsTool.resetTool(this);
         this._Update._AppliancesTool.resetTool(this);
         this._Update._UstensilsTool.resetTool(this);

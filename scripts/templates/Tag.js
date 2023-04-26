@@ -1,6 +1,6 @@
 class Tag{
     constructor(Listbox){;
-        this.type = Listbox.$listbox.classList[1];
+        this.type = Listbox.$wrapper.classList[1];
         this.$wrapper = document.createElement('div')
         this.$tagMenu = document.querySelector(".tagMenu");
     }
@@ -25,7 +25,7 @@ class Tag{
         SearchSubject.fire(Update);
         const that = this;
         this.$wrapper.addEventListener("click", function(e){
-            SearchEvent.tagCloseEvent(e,Tool._Listbox,that,$li,TagSearchResult);
+            SearchEvent.tagCloseEvent(e,Tool._Combobox._Listbox,that,$li,TagSearchResult);
         });
     }
 }

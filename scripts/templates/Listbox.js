@@ -1,14 +1,13 @@
 class Listbox{
-    constructor(Tool){
-        this.$listbox = Tool.$wrapper.children[1];
-        this.$ul = Tool.$wrapper.children[1].children[0];
+    constructor(Combobox){
+        this.$wrapper = Combobox.$wrapper.children[2];
         this.toolsList = [];
         this.tamponList= [];
     }
 
     setToolsList(){
         recipes.map(recipe => {
-            switch(this.$listbox.classList[1]){
+            switch(this.$wrapper.classList[1]){
                 case "ingredients":
                     recipe.ingredients.forEach(obj => {
                         this.tamponList.push(obj.ingredient[0].toUpperCase() + obj.ingredient.substring(1));
@@ -27,7 +26,7 @@ class Listbox{
     }
 
     resetDOMList(AppEvent,Tool){
-        this.$ul.innerHTML = "";
+        this.$wrapper.innerHTML = "";
         this.toolsList.sort(function(a,b){
             return a.localeCompare(b);
         });
@@ -35,7 +34,7 @@ class Listbox{
         this.toolsList.forEach((tool,indexTool) => {
             const newLi = document.createElement("li"); 
             newLi.textContent = tool;
-            this.$ul.appendChild(newLi);
+            this.$wrapper.appendChild(newLi);
             newLi.addEventListener("click", function(e){
                 if(Tool._Combobox.$input.value.length >= 3){
                     that.resetDOMList(AppEvent,Tool);

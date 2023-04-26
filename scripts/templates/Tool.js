@@ -2,21 +2,20 @@ class Tool{
     constructor($tool){
         this.$wrapper = $tool;
         this._Combobox = new Combobox(this);
-        this._Listbox = new Listbox(this);
     }
 
     setup(AppEvent){
         const that = this;
-        this._Combobox.eventSetup(this,AppEvent,this._Listbox);
-        this._Listbox.setToolsList();
-        this._Listbox.resetDOMList(AppEvent,this,this._Combobox);
+        this._Combobox.eventSetup(this,AppEvent);
+        this._Combobox._Listbox.setToolsList();
+        this._Combobox._Listbox.resetDOMList(AppEvent,this,this._Combobox);
         this.$wrapper.addEventListener("click",function(e){
-            AppEvent.openHandleList(that);
+            AppEvent.openHandleList(that,that._Combobox);
         });
     }
 
     findTool(Recipe,findToolIndexArray,SearchObservers){
-        this._Listbox.toolsList.forEach((tool,toolIndex) => {
+        this._Combobox._Listbox.toolsList.forEach((tool,toolIndex) => {
             const findTagTool = SearchObservers.some(Search => Search._search === tool && Search._Tag !== undefined);
             if(findToolIndexArray.includes(toolIndex) === false && !findTagTool){
                 switch(this.$wrapper.classList[1]){
@@ -64,9 +63,9 @@ class Tool{
         // console.log(findToolIndexArray);
         // console.log(this._Listbox.toolsList);
         let indexDelete = 0;
-        Tool._Listbox.toolsList = Tool._Listbox.toolsList.filter((tool,index) => {
+        Tool._Combobox._Listbox.toolsList = Tool._Combobox._Listbox.toolsList.filter((tool,index) => {
             if(!findToolIndexArray.includes(index)){
-                Tool._Listbox.$ul.removeChild(Tool._Listbox.$ul.children[index-indexDelete]);
+                Tool._Combobox._Listbox.$wrapper.removeChild(Tool._Combobox._Listbox.$wrapper.children[index-indexDelete]);
                 indexDelete++;
                 return false;
             }
@@ -77,8 +76,8 @@ class Tool{
     }
 
     resetTool(AppEvent){
-        this._Listbox.toolsList.splice(0,this._Listbox.toolsList.length);
-        this._Listbox.setToolsList();
-        this._Listbox.resetDOMList(AppEvent,this,this._Combobox);
+        this._Combobox._Listbox.toolsList.splice(0,this._Combobox._Listbox.toolsList.length);
+        this._Combobox._Listbox.setToolsList();
+        this._Combobox._Listbox.resetDOMList(AppEvent,this,this._Combobox);
     }
 }

@@ -1,7 +1,8 @@
 class Combobox{
     constructor(Tool){
-        this.$combobox = Tool.$wrapper.children[0];
-        this.$input = this.$combobox.children[1];
+        this.$wrapper = Tool.$wrapper.children[0];
+        this.$input = Tool.$wrapper.children[0].children[1];
+        this._Listbox = new Listbox(this);
     }
 
     eventSetup(Tool,AppEvent){
