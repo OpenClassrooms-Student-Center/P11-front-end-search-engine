@@ -127,26 +127,30 @@ function creaTagsUstensile(ustensil, recettes) {
 
 function rechercheTags(recettes) {
   const listeTags = document.querySelectorAll(".tag");
-  const tagsTitles = [...listeTags].map(tag => tag.title.toLowerCase());
-  console.log(tagsTitles)
+  
+  if (listeTags.length === 0) {
+    rechercheRecettes(recettes);
+    return;
+  }
+
+  const dernierTag = listeTags[listeTags.length - 1];
+  const dernierTitre = dernierTag.title.toLowerCase();
 
   let recettesFiltrees = recettes;
 
-  listeTags.forEach((tag) => {
-    if (tag.classList.contains("tagIngredient")) {
-      recettesFiltrees = recettesFiltrees.filter((recette) =>
-        tagsTitles.every((title) => recette.ingredients.some(ingredient => ingredient.ingredient.toLowerCase() === title))
-      );
-    } else if (tag.classList.contains("tagAppareil")){
-      recettesFiltrees = recettesFiltrees.filter((recette) =>
-        tagsTitles.every((title) => recette.appliance.toLowerCase().includes(title))
-      );
-    } else {
-      recettesFiltrees = recettesFiltrees.filter((recette) =>
-      tagsTitles.every((title) => recette.ustensils.includes(title))
-      );
-    }
-  });
+  if (dernierTag.classList.contains("tagIngredient")) {
+    recettesFiltrees = recettesFiltrees.filter((recette) =>
+      recette.ingredients.some(ingredient => ingredient.ingredient.toLowerCase() === dernierTitre)
+    );
+  } else if (dernierTag.classList.contains("tagAppareil")){
+    recettesFiltrees = recettesFiltrees.filter((recette) =>
+      recette.appliance.toLowerCase().includes(dernierTitre)
+    );
+  } else {
+    recettesFiltrees = recettesFiltrees.filter((recette) =>
+      recette.ustensils.includes(dernierTitre)
+    );
+  }
 
   rechercheRecettes(recettesFiltrees);
 }

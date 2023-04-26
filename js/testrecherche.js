@@ -109,3 +109,27 @@ async function rechercheRecettes2(recettes) {
   //     });
   //   });
   // }
+
+  function rechercheTags(recettes) {
+    const listeTags = document.querySelectorAll(".tag");
+    const dernierTag = listeTags[listeTags.length - 1];
+    const dernierTitre = dernierTag.title.toLowerCase();
+  
+    let recettesFiltrees = recettes;
+  
+    if (dernierTag.classList.contains("tagIngredient")) {
+      recettesFiltrees = recettesFiltrees.filter((recette) =>
+        dernierTitre === '' || recette.ingredients.some(ingredient => ingredient.ingredient.toLowerCase() === dernierTitre)
+      );
+    } else if (dernierTag.classList.contains("tagAppareil")){
+      recettesFiltrees = recettesFiltrees.filter((recette) =>
+        dernierTitre === '' || recette.appliance.toLowerCase().includes(dernierTitre)
+      );
+    } else {
+      recettesFiltrees = recettesFiltrees.filter((recette) =>
+        dernierTitre === '' || recette.ustensils.includes(dernierTitre)
+      );
+    }
+  
+    rechercheRecettes(recettesFiltrees);
+  }
