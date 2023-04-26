@@ -65,7 +65,7 @@ h1{
 
 .tag{
     display: flex;
-    width: 28%;
+    width: 40%;
     border-radius: 5px;
     height: 25px;
     font-size: 0.5em;
@@ -352,6 +352,7 @@ h3{
 
     .tag{
         font-size: 0.6em;
+        width: 40%;
     }
 
     .tools{
@@ -422,7 +423,7 @@ h3{
     }
 
     .tag{
-        width: 11%;
+        width: 20%;
     }
 
     .tools{
@@ -509,7 +510,7 @@ h3{
     }
 
     .tag{
-        width: 9%;
+        width: 16%;
         font-size: 0.75em;
         height: 28px;
     }
@@ -601,7 +602,7 @@ h3{
     }
 
     .tag{
-        width: 7%;
+        width: 12%;
         height: 32px;
         font-size: 0.85em;
     }
