@@ -37,119 +37,119 @@ function rechercheRecettes(recettes) {
     }
 }
 
-// function creaTagsIngredient(ingredient, recettes) {
-//   const boxTags = document.querySelector(".boxTags");
-//   const tagText = ingredient;
-//   // Vérifier si le tag existe déjà
-//   if (boxTags.querySelector(`span.tag[title="${tagText}"]`)) {
-//     return;
-//   }
-//   const tag = document.createElement("span");
-//   tag.textContent = tagText;
-//   tag.setAttribute("title", tagText); // Ajouter un titre pour faciliter la recherche
-//   tag.classList.add("tag", "tagIngredient");
-//   tag.style.backgroundColor = "#3282f7";
+function creaTagsIngredient(ingredient, recettes) {
+  const boxTags = document.querySelector(".boxTags");
+  const tagText = ingredient;
+  // Vérifier si le tag existe déjà
+  if (boxTags.querySelector(`span.tag[title="${tagText}"]`)) {
+    return;
+  }
+  const tag = document.createElement("span");
+  tag.textContent = tagText;
+  tag.setAttribute("title", tagText); // Ajouter un titre pour faciliter la recherche
+  tag.classList.add("tag", "tagIngredient");
+  tag.style.backgroundColor = "#3282f7";
 
-//   const closeIcon = document.createElement("i");
-//   closeIcon.classList.add("fa-regular", "fa-circle-xmark", "fermeTag");
-//   closeIcon.style.backgroundColor = "#3282f7";
+  const closeIcon = document.createElement("i");
+  closeIcon.classList.add("fa-regular", "fa-circle-xmark", "fermeTag");
+  closeIcon.style.backgroundColor = "#3282f7";
 
-//   closeIcon.addEventListener("click", () => {
-//     tag.remove();
-//     closeIcon.remove();
-//     rechercheTags(recettes);
-//   });
+  closeIcon.addEventListener("click", () => {
+    tag.remove();
+    closeIcon.remove();
+    rechercheTags(recettes);
+  });
 
-//   boxTags.appendChild(tag);
-//   boxTags.appendChild(closeIcon);
+  boxTags.appendChild(tag);
+  boxTags.appendChild(closeIcon);
 
-//   rechercheTags(recettes)
-// }
+  rechercheTags(recettes)
+}
 
-// function creaTagsAppareil(appareil, recettes) {
-//   const boxTags = document.querySelector(".boxTags");
-//   const tagText = appareil;
-//   // Vérifier si le tag existe déjà
-//   if (boxTags.querySelector(`span.tag[title="${tagText}"]`)) {
-//     return;
-//   }
+function creaTagsAppareil(appareil, recettes) {
+  const boxTags = document.querySelector(".boxTags");
+  const tagText = appareil;
+  // Vérifier si le tag existe déjà
+  if (boxTags.querySelector(`span.tag[title="${tagText}"]`)) {
+    return;
+  }
 
-//   const tag = document.createElement("span");
-//   tag.textContent = tagText;
-//   tag.setAttribute("title", tagText); // Ajouter un titre pour faciliter la recherche
-//   tag.classList.add("tag", "tagAppareil");
-//   tag.style.backgroundColor = "#68d9a4";
+  const tag = document.createElement("span");
+  tag.textContent = tagText;
+  tag.setAttribute("title", tagText); // Ajouter un titre pour faciliter la recherche
+  tag.classList.add("tag", "tagAppareil");
+  tag.style.backgroundColor = "#68d9a4";
 
-//   const closeIcon = document.createElement("i");
-//   closeIcon.classList.add("fa-regular", "fa-circle-xmark", "fermeTag");
-//   closeIcon.style.backgroundColor = "#68d9a4";
+  const closeIcon = document.createElement("i");
+  closeIcon.classList.add("fa-regular", "fa-circle-xmark", "fermeTag");
+  closeIcon.style.backgroundColor = "#68d9a4";
 
-//   closeIcon.addEventListener("click", () => {
-//     tag.remove();
-//     closeIcon.remove();
-//     rechercheTags(recettes);
-//   });
+  closeIcon.addEventListener("click", () => {
+    tag.remove();
+    closeIcon.remove();
+    rechercheTags(recettes);
+  });
 
-//   boxTags.appendChild(tag);
-//   boxTags.appendChild(closeIcon);
+  boxTags.appendChild(tag);
+  boxTags.appendChild(closeIcon);
 
-//   rechercheTags(recettes)
-// }
+  rechercheTags(recettes)
+}
 
-// function creaTagsUstensile(ustensil, recettes) {
-//   const boxTags = document.querySelector(".boxTags");
-//   const tagText = ustensil;
-//   // Vérifier si le tag existe déjà
-//   if (boxTags.querySelector(`span.tag[title="${tagText}"]`)) {
-//     return;
-//   }
-//   const tag = document.createElement("span");
-//   tag.textContent = tagText;
-//   tag.setAttribute("title", tagText); // Ajouter un titre pour faciliter la recherche
-//   tag.classList.add("tag", "tagUstensile");
-//   tag.style.backgroundColor = "#ed6454";
+function creaTagsUstensile(ustensil, recettes) {
+  const boxTags = document.querySelector(".boxTags");
+  const tagText = ustensil;
+  // Vérifier si le tag existe déjà
+  if (boxTags.querySelector(`span.tag[title="${tagText}"]`)) {
+    return;
+  }
+  const tag = document.createElement("span");
+  tag.textContent = tagText;
+  tag.setAttribute("title", tagText); // Ajouter un titre pour faciliter la recherche
+  tag.classList.add("tag", "tagUstensile");
+  tag.style.backgroundColor = "#ed6454";
 
-//   const closeIcon = document.createElement("i");
-//   closeIcon.classList.add("fa-regular", "fa-circle-xmark", "fermeTag");
-//   closeIcon.style.backgroundColor = "#ed6454";
+  const closeIcon = document.createElement("i");
+  closeIcon.classList.add("fa-regular", "fa-circle-xmark", "fermeTag");
+  closeIcon.style.backgroundColor = "#ed6454";
 
-//   closeIcon.addEventListener("click", () => {
-//     tag.remove();
-//     closeIcon.remove();
-//     rechercheTags(recettes)
-//   });
+  closeIcon.addEventListener("click", () => {
+    tag.remove();
+    closeIcon.remove();
+    rechercheTags(recettes)
+  });
 
-//   boxTags.appendChild(tag);
-//   boxTags.appendChild(closeIcon);
+  boxTags.appendChild(tag);
+  boxTags.appendChild(closeIcon);
 
-//   rechercheTags(recettes)
-// }
+  rechercheTags(recettes)
+}
 
-// function rechercheTags(recettes) {
-//   const listeTags = document.querySelectorAll(".tag");
-//   const tagsTitles = [...listeTags].map(tag => tag.title.toLowerCase());
-//   console.log(tagsTitles)
+function rechercheTags(recettes) {
+  const listeTags = document.querySelectorAll(".tag");
+  const tagsTitles = [...listeTags].map(tag => tag.title.toLowerCase());
+  console.log(tagsTitles)
 
-//   let recettesFiltrees = recettes;
+  let recettesFiltrees = recettes;
 
-//   listeTags.forEach((tag) => {
-//     if (tag.classList.contains("tagIngredient")) {
-//       recettesFiltrees = recettesFiltrees.filter((recette) =>
-//         tagsTitles.every((title) => recette.ingredients.some(ingredient => ingredient.ingredient.toLowerCase() === title))
-//       );
-//     } else if (tag.classList.contains("tagAppareil")){
-//       recettesFiltrees = recettesFiltrees.filter((recette) =>
-//         tagsTitles.every((title) => recette.appliance.toLowerCase().includes(title))
-//       );
-//     } else {
-//       recettesFiltrees = recettesFiltrees.filter((recette) =>
-//       tagsTitles.every((title) => recette.ustensils.includes(title))
-//       );
-//     }
-//   });
+  listeTags.forEach((tag) => {
+    if (tag.classList.contains("tagIngredient")) {
+      recettesFiltrees = recettesFiltrees.filter((recette) =>
+        tagsTitles.every((title) => recette.ingredients.some(ingredient => ingredient.ingredient.toLowerCase() === title))
+      );
+    } else if (tag.classList.contains("tagAppareil")){
+      recettesFiltrees = recettesFiltrees.filter((recette) =>
+        tagsTitles.every((title) => recette.appliance.toLowerCase().includes(title))
+      );
+    } else {
+      recettesFiltrees = recettesFiltrees.filter((recette) =>
+      tagsTitles.every((title) => recette.ustensils.includes(title))
+      );
+    }
+  });
 
-//   rechercheRecettes(recettesFiltrees);
-// }
+  rechercheRecettes(recettesFiltrees);
+}
 
 function rechercheIngredients(ingredients, onclicked) {
   const rechercheIngredientsInput = document.querySelector(".rechercheIngredients").value.trim().toLowerCase();
