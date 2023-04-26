@@ -1,7 +1,8 @@
-class Ingredient {
-  constructor(data) {
+class ListeIngredients {
+  constructor(data, onclicked) {
     this.id = data.id;
     this.ingredients = data.ingredients;
+    this.onclicked = onclicked;
     this.article = this.create();
   }
 
@@ -21,6 +22,12 @@ class Ingredient {
       li.setAttribute("class", "choixIngredients");
       li.textContent = ingredient;
       ul.appendChild(li);
+
+      // Ajout de l'événement clic pour ajouter un tag
+      li.addEventListener("click", () => {
+        this.onclicked(ingredient);
+        
+      });
     });
 
     // Retourne la liste des ingrédients triés

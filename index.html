@@ -20,44 +20,46 @@
 
     <div class="boxTags"></div>
 
-    <div class="filtres">
-      
-      <div class="sectionIngredient sectionFiltres tailleMini">
-        <div class="rechercheFiltre">
-          <input class="tagInput rechercheIngredients" type="text" value="Ingrédients" placeholder="Rechercher un ingrédient" aria-label="Rechercher un ingrédient">
-          <i class="fa-solid fa-chevron-down"></i>
+    <div class="boxFiltres">
+      <div class="filtres">
+        <div class="sectionIngredient sectionFiltres tailleMini">
+          <div class="rechercheFiltre">
+            <input class="tagInput rechercheIngredients" type="text" value="Ingrédients" placeholder="Rechercher un ingrédient" aria-label="Rechercher un ingrédient">
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="boxIngredients displayNone">
+          </div>
         </div>
-        <div class="boxIngredients displayNone">
+  
+        <div class="sectionAppareils sectionFiltres tailleMini">
+          <div class="rechercheFiltre">
+            <input class="tagInput rechercheAppareils" type="text" value="Appareils" placeholder="Rechercher un appareil" aria-label="Rechercher un appareil">
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="boxAppareils displayNone"></div>
+        </div>
+  
+        <div class="sectionUstensiles sectionFiltres tailleMini">
+          <div class="rechercheFiltre">
+            <input class="tagInput rechercheUstensiles" type="text" value="Ustensiles" placeholder="Rechercher un ustensile" aria-label="Rechercher un ustensile">
+            <i class="fa-solid fa-chevron-down"></i>
+          </div>
+          <div class="boxUstensiles displayNone">
+          </div>
         </div>
       </div>
 
-      <div class="sectionAppareils sectionFiltres tailleMini">
-        <div class="rechercheFiltre">
-          <input class="tagInput rechercheAppareils" type="text" value="Appareils" placeholder="Rechercher un appareil" aria-label="Rechercher un appareil">
-          <i class="fa-solid fa-chevron-down"></i>
-        </div>
-        <div class="boxAppareils displayNone"></div>
-      </div>
-
-      <div class="sectionUstenciles sectionFiltres tailleMini">
-        <div class="rechercheFiltre">
-          <input class="tagInput" type="text" value="Ustenciles" placeholder="Rechercher un ustencile" aria-label="Rechercher un ustencile">
-          <i class="fa-solid fa-chevron-down"></i>
-        </div>
-        <div class="boxUstenciles displayNone">
-        </div>
-      </div>
     </div>
     
     <div class="boxRecettes"></div>
 
     <script src="js/cartes/cartesRecettes.js"></script>
     <script src="js/cartes/cartesIngredients.js"></script>
-    <script src="js/cartes/cartesUstenciles.js"></script>
+    <script src="js/cartes/cartesUstensiles.js"></script>
     <script src="js/cartes/cartesAppareils.js"></script>
+    <script src="js/index.js"></script>
     <script src="js/recherche.js"></script>
     <script src="js/eventFiltres.js"></script>
-    <script src="js/index.js"></script>
     <script src="https://kit.fontawesome.com/ab907928cc.js" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -1,7 +1,8 @@
-class Appareil {
-  constructor(data) {
+class ListeAppareils {
+  constructor(data, onclicked) {
     this.id = data.id;
     this.appliance = data.appliance;
+    this.onclicked = onclicked;
     this.article = this.create();
   }
 
@@ -21,6 +22,11 @@ class Appareil {
       li.setAttribute("class", "choixAppareils");
       li.textContent = appareil;
       ul.appendChild(li);
+
+      // Ajout de l'événement clic pour ajouter un tag
+      li.addEventListener("click", () => {
+        this.onclicked(appareil);
+      });
     });
 
     // Retourne la liste des appareils triés

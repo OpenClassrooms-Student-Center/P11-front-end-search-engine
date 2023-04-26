@@ -75,37 +75,37 @@ async function rechercheRecettes2(recettes) {
       ustencilesData(recettesFiltrees);
     }
   }
-  function ajouterTags(selecteur, liste) {
-    const elements = document.querySelectorAll(selecteur);
-    elements.forEach((element, index) => {
-      element.addEventListener("click", () => {
-        const elementNom = liste[index];
-        const boxTags = document.querySelector(".boxTags");
-        const tag = document.createElement("div");
-        tag.classList.add("tag");
-        tag.textContent = elementNom;
+  // function ajouterTags(selecteur, liste) {
+  //   const elements = document.querySelectorAll(selecteur);
+  //   elements.forEach((element, index) => {
+  //     element.addEventListener("click", () => {
+  //       const elementNom = liste[index];
+  //       const boxTags = document.querySelector(".boxTags");
+  //       const tag = document.createElement("div");
+  //       tag.classList.add("tag");
+  //       tag.textContent = elementNom;
   
-        const closeIcon = document.createElement("i");
-        closeIcon.classList.add("fa-regular", "fa-circle-xmark", "fermeTag");
+  //       const closeIcon = document.createElement("i");
+  //       closeIcon.classList.add("fa-regular", "fa-circle-xmark", "fermeTag");
   
-        closeIcon.addEventListener("click", () => {
-          tag.remove();
-          closeIcon.remove();
-        });
+  //       closeIcon.addEventListener("click", () => {
+  //         tag.remove();
+  //         closeIcon.remove();
+  //       });
   
-        if (selecteur === ".choixAppareils") {
-          tag.style.backgroundColor = "#68d9a4";
-          closeIcon.style.backgroundColor = "#68d9a4";
-        } else if (selecteur === ".choixUstenciles") {
-          tag.style.backgroundColor = "#ed6454";
-          closeIcon.style.backgroundColor = "#ed6454";
-        } else {
-          tag.style.backgroundColor = "#3282f7";
-          closeIcon.style.backgroundColor = "#3282f7";
-        }
+  //       if (selecteur === ".choixAppareils") {
+  //         tag.style.backgroundColor = "#68d9a4";
+  //         closeIcon.style.backgroundColor = "#68d9a4";
+  //       } else if (selecteur === ".choixUstenciles") {
+  //         tag.style.backgroundColor = "#ed6454";
+  //         closeIcon.style.backgroundColor = "#ed6454";
+  //       } else {
+  //         tag.style.backgroundColor = "#3282f7";
+  //         closeIcon.style.backgroundColor = "#3282f7";
+  //       }
   
-        boxTags.appendChild(tag);
-        boxTags.appendChild(closeIcon);
-      });
-    });
-  }
+  //       boxTags.appendChild(tag);
+  //       boxTags.appendChild(closeIcon);
+  //     });
+  //   });
+  // }

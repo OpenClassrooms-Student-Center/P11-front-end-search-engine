@@ -14,6 +14,7 @@ class Recette {
 
   create() {
     const recettes = document.createElement("article");
+    recettes.id = this.id;
 
     let ingredientsList = "";
     for (const ingredient of this.ingredients) {
