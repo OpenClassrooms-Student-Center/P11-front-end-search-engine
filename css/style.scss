@@ -11,6 +11,10 @@ header{
     }
 }
 
+ul{
+    list-style-type: none;
+}
+
 nav{
     display: flex;
     flex-direction: row;
@@ -79,24 +83,42 @@ nav{
 
     .dropdowns{
         border-radius: 5px;
-        display: flex;
+        display: column;
         flex-direction: row;
+        flex-wrap: nowrap;
         align-items: center;
         margin-right: 20px;
 
-        input{
-        
-            border: none;
-            background:none;
-            height: 55px;
-            padding:6px 16px;
-            margin: 0 0.5em ;
-            &::placeholder{
-                color: white;
-                font-weight: 600;
+        .input_section{
+            display: flex;
+            flex-direction: column;
+
+            input{
+                border: none;
+                background:none;
+                height: 55px;
+                width: 100%;
+                padding:6px 16px;
+                margin: 0 0.5em ;
+                &::placeholder{
+                    color: white;
+                    font-weight: 600;
+                    opacity: 1;
+                }
             }
 
+
     }
+
+    .dropdownUl{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        color: white;
+        
+        
+    }
+
     i{
         color: white;
     }
@@ -117,9 +139,12 @@ nav{
         background-color: #ED6454;
     }
 
-    .ustensils_open{
+    .ustensils_open, .appareils_open, .ingredients_open{
         height: auto;
+        color: white;
+        text-decoration: none;
     }
+
 }
 
 .results{
