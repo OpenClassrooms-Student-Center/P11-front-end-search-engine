@@ -71,7 +71,12 @@ async function dropdown(nom) {
 
 }
 
+async function recipeUnique(recipes){
+    console.log(recipes);
+    const uniqueRecipe = [...new Set(recipes)]
+    console.log(uniqueRecipe);
 
+}
 
 //montre les recettes en bloc
 async function displayRecipes(recipesDisplay) {
@@ -87,13 +92,8 @@ async function displayRecipes(recipesDisplay) {
     
     tags['ingredients'] = []; 
 
-    async function recipeUnique(recipes){
-        console.log(recipes);
-        const uniqueRecipe = [...new Set(recipes)]
-        console.log(uniqueRecipe);
 
-    }
-    recipeUnique(recipes)
+    
     recipesDisplay.forEach((recipe) => {
 
             //remplissage des tableaux
@@ -134,7 +134,7 @@ async function displayRecipes(recipesDisplay) {
 
 
 async function init() {
-    
+    recipeUnique(recipes)
     displayRecipes(recipesFiltre)
 };
 
