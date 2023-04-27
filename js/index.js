@@ -84,7 +84,7 @@ async function displayRecipes(recipesDisplay) {
     //console.log(recipesFiltre);
     let appliances = [];
     let ustensils = []
-    let ingredientsArray = [];
+    let ingredients = [];
 
     tags['ustensils'] = [];
     //console.log(tags['ustensils']);
@@ -97,24 +97,16 @@ async function displayRecipes(recipesDisplay) {
     recipesDisplay.forEach((recipe) => {
 
             //remplissage des tableaux
-            
-            recipeArray = [recipes]
 
-            appliances = [recipe.appliance]
+            appliances.push(recipe.appliance)
+            //tags['appareils'] = [...[recipe.appliance]];
                     
-            ustensils = [recipe.ustensils]
+            ustensils.push(recipe.ustensils)
 
             recipe.ingredients.forEach(ingredient => {
-                ingredientsArray = [...[ingredient.ingredient]]
+                ingredients.push(ingredient.ingredient)
 
             })
-            //remplissage des tableaux
-            totalIngredients = tags['ingredients'].push(ingredientsArray);
-            totalAppareils = tags['appareils'].push(appliances);
-            totalustensils = tags['ustensils'].push(ustensils);
-
-
-
 
             //factory d'affichages des blocs
         const recipeEngine = recipesFactory(recipe);
@@ -123,9 +115,13 @@ async function displayRecipes(recipesDisplay) {
         
         
     });
-    tags['ingredients'] = [...new Set(tags['ingredients'])];
-    tags['appareils'] = [...new Set(tags['appareils'])];
-    tags['ustensils'] = [...new Set(tags['ustensils'])];
+    tags['ingredients'] = [...new Set(ingredients)];
+    tags['appareils'] = [...new Set(appliances)];
+    tags['ustensils'] = [...new Set(ustensils)];
+
+    tags['ingredients'].sort()
+    tags['appareils'].sort()
+    tags['ustensils'].sort()
     console.log(tags);
     
 };
