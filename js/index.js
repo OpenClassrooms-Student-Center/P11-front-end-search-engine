@@ -16,54 +16,41 @@ let tags = []
 
 dropdownsEl.forEach(dd =>
     dd.addEventListener("click" , (e) => {
-        dropdown(e.srcElement.id);
-        console.log(e.srcElement.id);
-        chevronUp[0].style.display = "flex";
-        dropdownsEl[0].style.display = "none"
-        ingredientsFilter.style.width ="600px"
+        
+        console.log(e.target.id);
+        document.getElementById("chev-up-" + e.target.id).style.display = "flex";
+        e.target.style.display = "none"
+        document.getElementById("ul-" + e.target.id).style.width ="400px"
+        
+        document.getElementById("ul-" + e.target.id).style.display = "flex"
     }))
 
 chevronUp.forEach(dd =>
     dd.addEventListener("click" , (e) => {
-        chevronUp[0].style.display = "none";
-        dropdownsEl[0].style.display = "flex"
+        console.log(e.target.id);
+        document.getElementById(e.target.id.split('-')[2]).style.display = "flex";
+        e.target.style.display = "none";
+        console.log(e.target.id.split('-'));
+        document.getElementById("ul-" + e.target.id.split('-')[2]).style.width ="auto"
+        document.getElementById("ul-" + e.target.id.split('-')[2]).style.display = "none"
     }))
-
-
 
 
 //fonction dropdown
 async function dropdown(nom) {
     let filterList = document.getElementById("ul-" + nom)
 
-
         let eleAffiche = tags[nom]
 
-        let uniqueArray = [...new Set(eleAffiche)];
-        console.log(uniqueArray);
-        
-    
-                //sort les listes deroulantes
-        uniqueArray.forEach((e) => {
-            if(chevronUp[0] != undefined){
+            //sort les listes deroulantes
+        eleAffiche.forEach((e) => {
 
-            let filterList = document.getElementById("ul-" + nom)
-            //console.log(filterList);
-            filterList.innerHTML += '<li class="${nom}_open">' + e + '</li>';
-            
-           /* const li = document.createElement('li')
+            const li = document.createElement('li')
             li.classList.add(nom + '_open')
             li.textContent = e
-            console.log(li);
-    
-            filterList.appendChild('li')  
-             */
-        } else {
-            console.log("dropdown vidé");
-            li = document.getElementsByTagName("li")
-            filterList.removeChild(li);
-            filterList.innerHTML = ""
-        } 
+               
+            filterList.appendChild(li)  
+            
         })
         
         console.log("dropdown effectué");
@@ -71,12 +58,7 @@ async function dropdown(nom) {
 
 }
 
-async function recipeUnique(recipes){
-    console.log(recipes);
-    const uniqueRecipe = [...new Set(recipes)]
-    console.log(uniqueRecipe);
 
-}
 
 //montre les recettes en bloc
 async function displayRecipes(recipesDisplay) {
@@ -97,11 +79,11 @@ async function displayRecipes(recipesDisplay) {
     recipesDisplay.forEach((recipe) => {
 
             //remplissage des tableaux
-
-            appliances.push(recipe.appliance)
+            //console.log(recipe.appliance)
+            appliances = appliances.concat(recipe.appliance)
             //tags['appareils'] = [...[recipe.appliance]];
                     
-            ustensils.push(recipe.ustensils)
+            ustensils = ustensils.concat(recipe.ustensils)
 
             recipe.ingredients.forEach(ingredient => {
                 ingredients.push(ingredient.ingredient)
@@ -120,7 +102,9 @@ async function displayRecipes(recipesDisplay) {
     tags['ustensils'] = [...new Set(ustensils)];
 
     tags['ingredients'].sort()
+    
     tags['appareils'].sort()
+    console.log(tags['appareils']);
     tags['ustensils'].sort()
     console.log(tags);
     
@@ -130,8 +114,10 @@ async function displayRecipes(recipesDisplay) {
 
 
 async function init() {
-    recipeUnique(recipes)
     displayRecipes(recipesFiltre)
+    dropdown("ingredients")
+    dropdown("ustensils")
+    dropdown("ingredients")
 };
 
 init();

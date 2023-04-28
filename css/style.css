@@ -85,6 +85,8 @@ nav:hover {
 .filters .dropdowns .input_section {
   display: flex;
   flex-direction: column;
+  background-color: green;
+  width: 95%;
 }
 .filters .dropdowns .input_section input {
   border: none;
@@ -105,7 +107,7 @@ nav:hover {
   opacity: 1;
 }
 .filters .dropdowns .dropdownUl {
-  display: flex;
+  display: none;
   flex-wrap: wrap;
   flex-direction: row;
   color: white;
