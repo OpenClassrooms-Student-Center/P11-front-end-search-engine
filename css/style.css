@@ -439,7 +439,7 @@ h3{
     }
 
     .tools__menu{
-        width: 20%;
+        min-width: 20%;
         margin-right: 4%;
         justify-content: flex-start;
     }
@@ -451,18 +451,22 @@ h3{
     .tools__menu--open{
         font-size: 1.1em;
         margin-right: 4%;
-        width: auto;
-        max-width: 100%;
+        min-width: 50%;
+        width: fit-content;
     }
     
     .tools__menu input{
         font-size: 0.8em;
         padding-left: 6%;
+        width: 100%;
     }
 
     .menu__item{
+        width: auto;
         font-size: 0.50em;
         padding-left: 4%;
+        max-width: 450px;
+        min-width: 50%;
     }
 
     main section{
