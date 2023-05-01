@@ -59,19 +59,24 @@ class Tool{
         }
     }
 
-    updateTool(findToolIndexArray,Tool){
+    updateTool(findToolIndexArray,Tool,SearchObservers){
         // console.log(findToolIndexArray);
         // console.log(this._Listbox.toolsList);
         let indexDelete = 0;
+        const ActiveTagArray = [];
+        SearchObservers.forEach(Search => {
+            if(Search._Tag.type !== undefined){
+                ActiveTagArray.push(Search._Tag);
+            }
+        });
         Tool._Combobox._Listbox.toolsList = Tool._Combobox._Listbox.toolsList.filter((tool,index) => {
-            if(!findToolIndexArray.includes(index)){
+            const findTag = ActiveTagArray.some(ActiveTag => ActiveTag.$wrapper.textContent === tool);
+            if(!findToolIndexArray.includes(index) || findToolIndexArray.includes(index) && findTag){
                 Tool._Combobox._Listbox.$wrapper.removeChild(Tool._Combobox._Listbox.$wrapper.children[index-indexDelete]);
                 indexDelete++;
                 return false;
             }
-            else{
-                return true;
-            }
+            return true;
         }); 
     }
 
