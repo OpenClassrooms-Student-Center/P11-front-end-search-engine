@@ -1,3 +1,10 @@
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
 header {
   display: flex;
   flex-direction: row;
@@ -81,20 +88,27 @@ nav:hover {
   flex-wrap: nowrap;
   align-items: center;
   margin-right: 20px;
+  transition-duration: 1s;
 }
 .filters .dropdowns .input_section {
   display: flex;
-  flex-direction: column;
-  background-color: green;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
   width: 95%;
+  padding: 20px 16px;
+  transition-duration: 1s;
 }
 .filters .dropdowns .input_section input {
   border: none;
   background: none;
-  height: 55px;
+  height: 35px;
   width: 100%;
-  padding: 6px 16px;
   margin: 0 0.5em;
+  color: white;
+}
+.filters .dropdowns .input_section input:hover {
+  border: none;
 }
 .filters .dropdowns .input_section input::-moz-placeholder {
   color: white;
@@ -117,20 +131,24 @@ nav:hover {
 }
 .filters .fa-chevron-up {
   display: none;
+  transition-duration: 1s;
+}
+.filters #ingredients-filter, .filters #appareils-filter, .filters #ustensils-filter {
+  height: 75px;
 }
 .filters #ingredients-filter {
   background-color: #3282F7;
 }
-.filters #apparels-filter {
+.filters #appareils-filter {
   background-color: #68D9A4;
 }
 .filters #ustensils-filter {
   background-color: #ED6454;
 }
 .filters .ustensils_open, .filters .appareils_open, .filters .ingredients_open {
-  height: auto;
   color: white;
   text-decoration: none;
+  transition-duration: 1s;
 }
 
 .results {

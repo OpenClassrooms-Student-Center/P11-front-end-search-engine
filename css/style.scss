@@ -1,6 +1,13 @@
 $font-background-bot:#E7E7E7;
 $font-background-top:#C7BEBE;
-    
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
 header{
     display: flex;
     flex-direction: row;
@@ -88,20 +95,32 @@ nav{
         flex-wrap: nowrap;
         align-items: center;
         margin-right: 20px;
+        transition-duration: 1s;
+        
 
         .input_section{
             display: flex;
-            flex-direction: column;
-            background-color: green;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
             width: 95%;
+            padding:20px 16px;
+            
+            transition-duration: 1s;
 
             input{
                 border: none;
                 background:none;
-                height: 55px;
+                height: 35px;
                 width: 100%;
-                padding:6px 16px;
                 margin: 0 0.5em ;
+                
+               
+                color: white;
+
+                &:hover{
+                    border: none;
+                }
                 &::placeholder{
                     color: white;
                     font-weight: 600;
@@ -129,12 +148,17 @@ nav{
 
     .fa-chevron-up{
         display: none;
+        transition-duration: 1s;
+    }
+
+    #ingredients-filter, #appareils-filter, #ustensils-filter{
+        height: 75px;
     }
 
     #ingredients-filter{
         background-color: #3282F7;
     }
-    #apparels-filter{
+    #appareils-filter{
         background-color: #68D9A4;
     }
     #ustensils-filter{
@@ -142,9 +166,9 @@ nav{
     }
 
     .ustensils_open, .appareils_open, .ingredients_open{
-        height: auto;
         color: white;
         text-decoration: none;
+        transition-duration: 1s;
     }
 
 }

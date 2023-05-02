@@ -6,7 +6,7 @@ const ddInputs = document.querySelectorAll("dd-input")
 const recipesFiltre = recipes
 const chevronUp = Array.from(document.querySelectorAll(".fa-chevron-up"))
 const dropdownsEl = Array.from(document.querySelectorAll(".fa-chevron-down"));
-const ingredientsFilter = document.getElementById("ingredients-filter")
+
 
 //console.log(dropdownsEl);
 
@@ -19,6 +19,7 @@ dropdownsEl.forEach(dd =>
         
         console.log(e.target.id);
         document.getElementById("chev-up-" + e.target.id).style.display = "flex";
+        document.getElementById(e.target.id + "-filter").style.height = "auto"
         e.target.style.display = "none"
         document.getElementById("ul-" + e.target.id).style.width ="400px"
         
@@ -44,16 +45,22 @@ async function dropdown(nom) {
 
             //sort les listes deroulantes
         eleAffiche.forEach((e) => {
-
+            
             const li = document.createElement('li')
             li.classList.add(nom + '_open')
             li.textContent = e
                
             filterList.appendChild(li)  
             
+/*             li.addEventListener("click", (e) => {
+                console.log(recipesFiltre)
+                let nameTarget = e.target.textContent;
+                console.log(nom);
+                
+            }) */
         })
         
-        console.log("dropdown effectué");
+        
 
 
 }
@@ -117,7 +124,7 @@ async function init() {
     displayRecipes(recipesFiltre)
     dropdown("ingredients")
     dropdown("ustensils")
-    dropdown("ingredients")
+    dropdown("appareils")
 };
 
 init();
