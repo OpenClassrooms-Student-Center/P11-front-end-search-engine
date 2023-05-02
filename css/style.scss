@@ -1,6 +1,8 @@
 $font-background-bot:#E7E7E7;
 $font-background-top:#C7BEBE;
-
+body{
+    scroll-behavior: smooth;
+}
 input:focus,
 select:focus,
 textarea:focus,
@@ -32,7 +34,7 @@ nav{
 
     height: 55px;
     padding:6px;
-    transition-duration: 1s;
+    transition-duration: 0.5s;
     background-color: $font-background-bot;
     border: none;
     border-radius: 5px;
@@ -87,6 +89,7 @@ nav{
     margin:auto;
     display: flex;
     flex-direction: row;
+    
 
     .dropdowns{
         border-radius: 5px;
@@ -95,7 +98,7 @@ nav{
         flex-wrap: nowrap;
         align-items: center;
         margin-right: 20px;
-        transition-duration: 1s;
+        transition-duration: 0.5s;
         
 
         .input_section{
@@ -106,7 +109,7 @@ nav{
             width: 95%;
             padding:20px 16px;
             
-            transition-duration: 1s;
+            transition-duration: 0.5s;
 
             input{
                 border: none;
@@ -136,8 +139,13 @@ nav{
         flex-wrap: wrap;
         flex-direction: row;
         color: white;
+        justify-content: left;
+        overflow: hidden;
         
         
+        li{
+            margin: 10px;
+        }
     }
 
     i{
@@ -148,11 +156,12 @@ nav{
 
     .fa-chevron-up{
         display: none;
-        transition-duration: 1s;
+        transition-duration: 1.5s;
     }
 
     #ingredients-filter, #appareils-filter, #ustensils-filter{
-        height: 75px;
+        max-height: 75px;
+        transition-duration: 0.7s;
     }
 
     #ingredients-filter{
@@ -168,7 +177,7 @@ nav{
     .ustensils_open, .appareils_open, .ingredients_open{
         color: white;
         text-decoration: none;
-        transition-duration: 1s;
+        transition-duration: 0.5s;
     }
 
 }
@@ -177,6 +186,7 @@ nav{
     margin:auto;
     padding: 0;
     justify-content: flex-start;
+    transition-duration: 0.5s;
 }
 
 .article-bloc{

@@ -2,7 +2,7 @@ const resultsSection = document.querySelector(".results");
 
 let filterList
 
-const ddInputs = document.querySelectorAll("dd-input")
+const ddInputs = Array.from(document.querySelectorAll("dd-input"))
 const recipesFiltre = recipes
 const chevronUp = Array.from(document.querySelectorAll(".fa-chevron-up"))
 const dropdownsEl = Array.from(document.querySelectorAll(".fa-chevron-down"));
@@ -17,25 +17,32 @@ let tags = []
 dropdownsEl.forEach(dd =>
     dd.addEventListener("click" , (e) => {
         
-        console.log(e.target.id);
+        //console.log(e.target.id);
         document.getElementById("chev-up-" + e.target.id).style.display = "flex";
-        document.getElementById(e.target.id + "-filter").style.height = "auto"
+        document.getElementById(e.target.id + "-filter").style.maxHeight = "450px"
         e.target.style.display = "none"
-        document.getElementById("ul-" + e.target.id).style.width ="400px"
+        document.getElementById(e.target.id + "-filter").style.width = "600px"
         
         document.getElementById("ul-" + e.target.id).style.display = "flex"
     }))
 
 chevronUp.forEach(dd =>
     dd.addEventListener("click" , (e) => {
-        console.log(e.target.id);
+        //console.log(e.target.id);
         document.getElementById(e.target.id.split('-')[2]).style.display = "flex";
+        document.getElementById(e.target.id.split('-')[2] + "-filter").style.maxHeight = "75px"
         e.target.style.display = "none";
-        console.log(e.target.id.split('-'));
-        document.getElementById("ul-" + e.target.id.split('-')[2]).style.width ="auto"
+        document.getElementById(e.target.id.split('-')[2] + "-filter").style.width ="auto"
         document.getElementById("ul-" + e.target.id.split('-')[2]).style.display = "none"
     }))
 
+ddInputs.forEach((i) => 
+    i.addEventListener("click", (e) => {
+        console.log(recipesFiltre)
+        console.log(e);
+        
+
+    }))
 
 //fonction dropdown
 async function dropdown(nom) {
@@ -58,11 +65,9 @@ async function dropdown(nom) {
                 console.log(nom);
                 
             }) */
+            
         })
         
-        
-
-
 }
 
 
@@ -111,9 +116,8 @@ async function displayRecipes(recipesDisplay) {
     tags['ingredients'].sort()
     
     tags['appareils'].sort()
-    console.log(tags['appareils']);
     tags['ustensils'].sort()
-    console.log(tags);
+    //console.log(tags);
     
 };
 

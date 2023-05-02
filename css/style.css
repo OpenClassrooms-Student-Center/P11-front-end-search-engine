@@ -1,3 +1,7 @@
+body {
+  scroll-behavior: smooth;
+}
+
 input:focus,
 select:focus,
 textarea:focus,
@@ -28,7 +32,7 @@ nav {
   box-sizing: border-box;
   height: 55px;
   padding: 6px;
-  transition-duration: 1s;
+  transition-duration: 0.5s;
   background-color: #E7E7E7;
   border: none;
   border-radius: 5px;
@@ -88,7 +92,7 @@ nav:hover {
   flex-wrap: nowrap;
   align-items: center;
   margin-right: 20px;
-  transition-duration: 1s;
+  transition-duration: 0.5s;
 }
 .filters .dropdowns .input_section {
   display: flex;
@@ -97,7 +101,7 @@ nav:hover {
   align-items: center;
   width: 95%;
   padding: 20px 16px;
-  transition-duration: 1s;
+  transition-duration: 0.5s;
 }
 .filters .dropdowns .input_section input {
   border: none;
@@ -125,16 +129,22 @@ nav:hover {
   flex-wrap: wrap;
   flex-direction: row;
   color: white;
+  justify-content: left;
+  overflow: hidden;
+}
+.filters .dropdowns .dropdownUl li {
+  margin: 10px;
 }
 .filters .dropdowns i {
   color: white;
 }
 .filters .fa-chevron-up {
   display: none;
-  transition-duration: 1s;
+  transition-duration: 1.5s;
 }
 .filters #ingredients-filter, .filters #appareils-filter, .filters #ustensils-filter {
-  height: 75px;
+  max-height: 75px;
+  transition-duration: 0.7s;
 }
 .filters #ingredients-filter {
   background-color: #3282F7;
@@ -148,13 +158,14 @@ nav:hover {
 .filters .ustensils_open, .filters .appareils_open, .filters .ingredients_open {
   color: white;
   text-decoration: none;
-  transition-duration: 1s;
+  transition-duration: 0.5s;
 }
 
 .results {
   margin: auto;
   padding: 0;
   justify-content: flex-start;
+  transition-duration: 0.5s;
 }
 
 .article-bloc {
