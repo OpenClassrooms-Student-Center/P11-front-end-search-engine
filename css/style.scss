@@ -65,7 +65,7 @@ nav{
 .tags-filtres{
     
     justify-content: left;
-    padding:0 6em 1em 6em;
+    padding:0 6em em 6em;
 }
 .tags{  display: flex;
         align-items: center;
@@ -86,13 +86,15 @@ nav{
         }
 }
 .ustensilsTags{
-    background-color: #3282F7;
+    background-color: #ED6454;
 }
 .ingredientsTags{
-    background-color: #68D9A4;
+    background-color: #3282F7;
+    
 }
 .appareilsTags{
-    background-color: #ED6454;
+    background-color: #68D9A4;
+    
 }
 
     
