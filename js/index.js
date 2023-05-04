@@ -56,7 +56,7 @@ async function dropdown(nom) {
             li.textContent = e
                
             filterList.appendChild(li)  
-            
+
 
             //rapporte le listener aux tags
             li.addEventListener("click", (el) => {
@@ -79,7 +79,7 @@ async function dropdown(nom) {
                 //console.log(eleAffiche);
                 
                 function filtreTexte(eleAffiche, requete) {
-                    eleAffiche.filter(function (el) {
+                    return eleAffiche.filter(function (el) {
                         //console.log(inputValue);
                         //console.log(li.textContent);
                         return el.toLowerCase().indexOf(requete.toLowerCase()) !== -1;
