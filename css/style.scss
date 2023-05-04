@@ -61,26 +61,38 @@ nav{
 
 }
 
-.tags{
+
+.tags-filtres{
+    
+    justify-content: left;
+    padding:0 6em 1em 6em;
+}
+.tags{  display: flex;
+        align-items: center;
+        justify-content: space-between;
         border: none;
+        border-radius: 5px;
         background:none;
         height: 45px;
         padding:6px 16px;
-        margin: 0 0.5em ;
+        width: auto;
+        margin: 0 0.5em;
         color: white;
-        .ustensilTags{
-            background-color: #3282F7;
-        }
-        .ingredintTags{
-            background-color: #68D9A4;
-        }
-        .apparelsTags{
-            background-color: #ED6454;
-        }
+
         i{
             color: white;
-            margin-right: 10px;
+            margin:0 5px 0 10px;
+            padding : 5px;
         }
+}
+.ustensilsTags{
+    background-color: #3282F7;
+}
+.ingredientsTags{
+    background-color: #68D9A4;
+}
+.appareilsTags{
+    background-color: #ED6454;
 }
 
     
@@ -99,7 +111,9 @@ nav{
         align-items: center;
         margin-right: 20px;
         transition-duration: 0.5s;
-        
+        &:target{
+            opacity: 0.8;
+        }
 
         .input_section{
             display: flex;
@@ -129,6 +143,7 @@ nav{
                     font-weight: 600;
                     opacity: 1;
                 }
+
             }
 
 

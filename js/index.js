@@ -2,7 +2,7 @@ const resultsSection = document.querySelector(".results");
 
 let filterList
 
-const ddInputs = Array.from(document.querySelectorAll("dd-input"))
+const ddInputs = Array.from(document.querySelectorAll(".dd-input"))
 const recipesFiltre = recipes
 const chevronUp = Array.from(document.querySelectorAll(".fa-chevron-up"))
 const dropdownsEl = Array.from(document.querySelectorAll(".fa-chevron-down"));
@@ -36,13 +36,11 @@ chevronUp.forEach(dd =>
         document.getElementById("ul-" + e.target.id.split('-')[2]).style.display = "none"
     }))
 
-ddInputs.forEach((i) => 
-    i.addEventListener("click", (e) => {
-        console.log(recipesFiltre)
-        console.log(e);
-        
 
-    }))
+console.log(ddInputs);
+    
+    
+
 
 //fonction dropdown
 async function dropdown(nom) {
@@ -59,15 +57,44 @@ async function dropdown(nom) {
                
             filterList.appendChild(li)  
             
-/*             li.addEventListener("click", (e) => {
-                console.log(recipesFiltre)
-                let nameTarget = e.target.textContent;
-                console.log(nom);
+
+            //rapporte le listener aux tags
+            li.addEventListener("click", (el) => {
                 
-            }) */
+                let nameTarget = el.target.textContent;
+                console.log(nameTarget);
+                
+            })
+
+            //filtre dans l'input
+            ddInputs.forEach((dd) => 
+            dd.addEventListener("input", (e) => {
+                const inputSelector = e
+                const inputValue = e.target.value
+                //const liSearch = li.textContent.search(inputvalue)
+
+                //console.log(li.textContent);
+                //console.log(e.target.id);
+                //console.log(inputValue);
+                //console.log(eleAffiche);
+                
+                function filtreTexte(eleAffiche, requete) {
+                    eleAffiche.filter(function (el) {
+                        //console.log(inputValue);
+                        //console.log(li.textContent);
+                        return el.toLowerCase().indexOf(requete.toLowerCase()) !== -1;
+                        //li.textContent === inputValue
+                        //const liResults = li.textContent.search(inputValue)
+                    })
+                  }
+
+                filtreTexte(e);
+            }))
+
             
-        })
-        
+        }) //fin du Foreach
+
+
 }
 
 
