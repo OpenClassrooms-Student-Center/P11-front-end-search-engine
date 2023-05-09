@@ -116,13 +116,20 @@ h1{
     z-index: 1;
 }
 
+div[role="combobox"]{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
 .tools__menu input{
     width: 100%;
     padding-left: 6%;   
     color: white;
     font-size: 0.65em;
-    height: 30px;
+    height: 100%;
     z-index: 1;
+    border-radius: 5px;
 }
 
 .tools__menu--open input{
@@ -173,11 +180,7 @@ h1{
     display: none;
 }
 
-/*rajouter avec ul -> grid */
 .menu__item{
-    position: absolute;
-    top: 100%;
-    left: 0%;
     border-radius: 0 0 5px 5px;
     z-index: 1;
     display: grid;
@@ -186,12 +189,16 @@ h1{
     color: white;
     font-size: 0.47em;
     white-space: nowrap;
-    gap: 1%;
     height : auto;
     max-height: 150px;
     min-height: 80%;
-    padding-left: 3%;
-    padding-bottom: 3%;
+    width: 100%;
+    padding: 2% 0 3% 3%;
+    overflow: auto;
+}
+
+.menu__item::-webkit-scrollbar{
+    width: 0;
 }
 
 .menu__item--hidden{
@@ -443,16 +450,17 @@ h3{
         margin-right: 4%;
         justify-content: flex-start;
     }
-
-    [role="combobox"]{
-        width: 100%;
-    }
     
     .tools__menu--open{
         font-size: 1.1em;
         margin-right: 4%;
-        min-width: 50%;
-        width: fit-content;
+        width: auto;
+        min-width: fit-content;
+        max-width: max-content;
+    }
+
+    .tools__menu--open div[role="combobox"]{
+        width: 100%;
     }
     
     .tools__menu input{
@@ -465,8 +473,7 @@ h3{
         width: auto;
         font-size: 0.50em;
         padding-left: 4%;
-        max-width: 450px;
-        min-width: 50%;
+        min-width: 210px;
     }
 
     main section{
@@ -546,7 +553,7 @@ h3{
     }
 
     .tools__menu--open{
-        width: 50%;
+        min-width: 50%;
     }
 
     .tools__menu::after{
@@ -562,19 +569,16 @@ h3{
         color: white;
         cursor:pointer;
         font-size: 0.9em;
-        padding-left: 8%;
+        padding-left: 5%;
     }
 
     .menu__item{
         height: 170px;
-    }
-
-    .menu__item ul{
-        font-size: 0.9em;
-    }
-
-    .menu__item ul li{
-        margin: 2px 15px;
+        width: auto;
+        grid-template-columns: repeat(3,1fr);
+        column-gap: 3%;
+        row-gap: 1%;
+        font-size: 0.6em;
     }
 
     main section{
@@ -585,7 +589,7 @@ h3{
     }
 
     article figure{
-        height: 285px;
+        height: 265px;
     }
 
     figcaption header{
@@ -606,6 +610,7 @@ h3{
 
     .nav{
         height: 50px;
+        width: 85%;
     }
 
     .nav input{
@@ -619,7 +624,7 @@ h3{
     }
 
     .tools{
-        height: 48px;
+        width: 85%;
     }
 
     .tools__menu{
@@ -637,15 +642,20 @@ h3{
     }
 
     .menu__item{
-        height: 230px;
+        min-height: 250px;
+    }
+
+    .menu__item {
+
     }
 
     main section{
         column-gap:5%;
+        width: 85%;
     }
 
     article figure{
-        height: 410px;
+        height: 400px;
         border-radius: 8px;
     }
 
