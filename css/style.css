@@ -618,6 +618,10 @@ h3{
         font-size: 1.4em;
     }
 
+    .tagMenu{
+        width: 85%;
+    }
+
     .tag{
         height: 32px;
         font-size: 0.85em;
