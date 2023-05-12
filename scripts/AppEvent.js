@@ -48,8 +48,8 @@ class AppEvent{
         let indexDelete = 0;
         Tool._Combobox._Listbox.resetDOMList(this,Tool,Tool._Combobox);
         if(e.target.value.length >= 3){
-            Tool._Combobox._Listbox.toolsList.forEach((tool,index) => {
-                if(!tool.includes(e.target.value.toLowerCase())){
+            Tool._Combobox._Listbox.toolsList.map((tool,index) => {
+                if(!tool.toLowerCase().includes(e.target.value.toLowerCase())){
                     Tool._Combobox._Listbox.$wrapper.removeChild(Tool._Combobox._Listbox.$wrapper.children[index-indexDelete]);
                     indexDelete++;
                 }
