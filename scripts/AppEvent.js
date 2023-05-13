@@ -42,7 +42,7 @@ class AppEvent{
         if(e.relatedTarget !== Tool.$wrapper){
             this.closeHandleList(Tool);
         }
-        if(!this._SearchSubject.SearchObservers.length === 0){
+        if(this._SearchSubject.SearchObservers.length === 0){
             Tool.resetTool(this);
         }
     }
