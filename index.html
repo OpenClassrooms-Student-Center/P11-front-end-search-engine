@@ -17,11 +17,11 @@
                 <h1>Les petits plats</h1>
             </section>
             <nav>
-                <section class="nav" role="search">
+                <div class="nav" role="search">
                     <input type="text" name="search" id="search" class="nav__search" placeholder="Rechercher une recette"/>
-                </section>
-                <section class="tagMenu"></section>
-                <section aria-label="outils de recherche" class="tools" tabindex="0">
+                </div>
+                <div role="contentinfo" class="tagMenu"></div>
+                <div role="menubar" aria-label="outils de recherche" class="tools" tabindex="0">
                     <div role="menu" class="tools__menu menu1" aria-expanded="false" aria-haspopup="menu" tabindex="0">
                         <div role="combobox" aria-labelledby="ingredients" aria-expanded="false">
                             <label for="ingredients"></label>
@@ -49,7 +49,7 @@
                             </div>
                         </div>
                     </div>
-                </section>
+                </div>
             </nav>
         </header>
         <main>
