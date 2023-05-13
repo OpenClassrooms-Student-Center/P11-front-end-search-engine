@@ -133,6 +133,7 @@ div[role="combobox"]{
 }
 
 .tools__menu--open input{
+    padding-left: 4%;   
     cursor: pointer;
 }
 
@@ -465,7 +466,6 @@ h3{
     
     .tools__menu input{
         font-size: 0.8em;
-        padding-left: 6%;
         width: 100%;
     }
 
@@ -565,7 +565,6 @@ h3{
         color: white;
         cursor:pointer;
         font-size: 0.9em;
-        padding-left: 4%;
     }
 
     .menu__item{
