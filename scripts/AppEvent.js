@@ -72,6 +72,7 @@ class AppEvent{
         }
         Combobox.$input.focus();
         Tool.$wrapper.classList.add("tools__menu--open");
+        //Remove tools elements when not enabled for mobiles and tablets
         Tool.findInactiveTools(Tool,"inactive");
         Combobox._Listbox.$wrapper.classList.add("menu__item--open");
         Combobox._Listbox.$wrapper.classList.remove("menu__item--hidden");
@@ -87,6 +88,7 @@ class AppEvent{
         Tool._Combobox._Listbox.$wrapper.classList.remove("menu__item--open");
         Tool._Combobox._Listbox.$wrapper.classList.add("menu__item--hidden");
         Tool.findInactiveTools(Tool,"active");
+        Tool.resetTool(this);
         // Tool._Listbox.$wrapper.classList.remove("menu__item--open");
         switch(Tool._Combobox._Listbox.$wrapper.classList[1]){
             case "ingredients":
