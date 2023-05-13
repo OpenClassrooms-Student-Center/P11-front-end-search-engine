@@ -65,7 +65,7 @@ class Tool{
         let indexDelete = 0;
         const ActiveTagArray = [];
         SearchObservers.forEach(Search => {
-            if(Search._Tag.type !== undefined){
+            if(Search._Tag !== undefined){
                 ActiveTagArray.push(Search._Tag);
             }
         });
