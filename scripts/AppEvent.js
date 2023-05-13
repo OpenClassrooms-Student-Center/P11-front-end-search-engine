@@ -42,6 +42,9 @@ class AppEvent{
         if(e.relatedTarget !== Tool.$wrapper){
             this.closeHandleList(Tool);
         }
+        if(!this._SearchSubject.SearchObservers.length === 0){
+            Tool.resetTool(this);
+        }
     }
 
     inputComboboxEvent(e,Tool){
@@ -88,7 +91,6 @@ class AppEvent{
         Tool._Combobox._Listbox.$wrapper.classList.remove("menu__item--open");
         Tool._Combobox._Listbox.$wrapper.classList.add("menu__item--hidden");
         Tool.findInactiveTools(Tool,"active");
-        Tool.resetTool(this);
         // Tool._Listbox.$wrapper.classList.remove("menu__item--open");
         switch(Tool._Combobox._Listbox.$wrapper.classList[1]){
             case "ingredients":
