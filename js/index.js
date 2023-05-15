@@ -1,14 +1,16 @@
 const resultsSection = document.querySelector(".results");
 const tagsSection = document.querySelector(".tags-filtres")
 
-const getTags = Array.of(document.getElementsByClassName("tags"))
+
+
+
 
 const ddInputs = Array.from(document.querySelectorAll(".dd-input"))
-const recipesFiltre = recipes
+let recipesFiltre = recipes
 const chevronUp = Array.from(document.querySelectorAll(".fa-chevron-up"))
 const dropdownsEl = Array.from(document.querySelectorAll(".fa-chevron-down"));
 const articleBloc = Array.from(document.getElementsByClassName("article-bloc"))
-let filterList = [];
+
 
 //console.log(dropdownsEl);
 
@@ -24,7 +26,19 @@ dropdownsEl.forEach(dd =>
     }))
 
 
+
+
 function ouvreListe(e) {
+    //fermer toutes les listes
+    chevronUp.forEach(dd => {
+        console.log();
+        document.getElementById(dd.id.split('-')[2]).style.display = "flex";
+        document.getElementById(dd.id.split('-')[2] + "-filter").style.maxHeight = "75px"
+        dd.style.display = "none";
+        document.getElementById(dd.id.split('-')[2] + "-filter").style.width = "auto"
+        document.getElementById("ul-" + dd.id.split('-')[2]).style.display = "none"
+    })
+    //ouvrir la liste cliquée
     document.getElementById("chev-up-" + e.id).style.display = "flex";
     document.getElementById(e.id + "-filter").style.maxHeight = "450px"
     e.style.display = "none"
@@ -32,6 +46,8 @@ function ouvreListe(e) {
 
     document.getElementById("ul-" + e.id).style.display = "flex"
 }
+
+
 chevronUp.forEach(dd =>
     dd.addEventListener("click", (e) => {
         //console.log(e.target.id);
@@ -95,12 +111,14 @@ async function afficheList(nom, eleAffiche) {
             i.addEventListener("click", (clic) => {
                 div.remove();
                 //todo : appeler les fonctions de recherche par tags et dans la barre
-
+                recipesFiltre = recipes
+                rechercheParTags();
+                displayRecipes(recipesFiltre)
             })
             div.appendChild(i)
             tagsSection.appendChild(div)
-            RechercheParTags();
-
+            rechercheParTags();
+            displayRecipes(recipesFiltre)
         })
 
     }) //fin du Foreach
@@ -108,21 +126,27 @@ async function afficheList(nom, eleAffiche) {
 
 let tagSearch
 
-async function RechercheParTags() {
+async function rechercheParTags() {
     //recuperer les trois listes de tags
-    console.log(filterList);
-    console.log(getTags[0]);
-    let tagsInsider = Array.from(getTags[0])
-    
+    const ingredientsTags = Array.from(document.getElementsByClassName("ingredientsTags")).map(el => el.textContent)
+    const appareilsTags = Array.from(document.getElementsByClassName("appareilsTags")).map(el => el.textContent)
+    const ustensilsTags = Array.from(document.getElementsByClassName("ustensilsTags")).map(el => el.textContent)
+    console.log(ingredientsTags);
+    console.log(ustensilsTags);
+    console.log(appareilsTags);
+
+    //let tagsInsider 
+    recipesFiltre = recipesFiltre.filter(recette => recette.ingredients.some(ingredient => ingredient.ingredient.toLowerCase().includes(ingredientsTags)))
 
     //filtrer la liste des recettes par rapport aux trois listes de tags
-    tagsInsider.forEach((tag =>
-        tagSearch = tags.filter(tag => tag.includes(tag.textContent))))
 
-    console.log(tagSearch);
+
+    console.log(recipesFiltre);
 
     //bien afficher DisplayRecipes puis Affichelist 
-    displayRecipes(tagSearch)
+    
+
+
 
 }
 
@@ -131,6 +155,7 @@ async function RechercheParTags() {
 async function displayRecipes(recipesDisplay) {
     //tableaux vides
     //console.log(recipesFiltre);
+    resultsSection.innerText = ''
     let appliances = [];
     let ustensils = []
     let ingredients = [];
@@ -144,6 +169,7 @@ async function displayRecipes(recipesDisplay) {
 
 
     recipesDisplay.forEach((recipe) => {
+        
 
         //remplissage des tableaux
         //console.log(recipe.appliance)
@@ -173,6 +199,9 @@ async function displayRecipes(recipesDisplay) {
     tags['appareils'].sort()
     tags['ustensils'].sort()
 
+    afficheList('ingredients', tags['ingredients'])
+    afficheList('ustensils', tags['ustensils'])
+    afficheList('appareils', tags['appareils'])
 };
 
 //Pour chaque ustensile
