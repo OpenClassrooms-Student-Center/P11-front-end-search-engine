@@ -51,9 +51,7 @@ nav{
 
     }
 
-    i{
-        zoom: 1.5; 
-     }
+
     
     &:hover{
         background-color:#C7BEBE;
@@ -103,6 +101,7 @@ nav{
     margin:auto;
     display: flex;
     flex-direction: row;
+    z-index: 5;
     
 
     .dropdowns{
@@ -253,7 +252,7 @@ nav{
             text-overflow: ellipsis;
         }
 
-        h2, span{
+        h2, p{
             font-size:1em;
             margin-bottom: 0.1rem;
             font-weight: 300;
@@ -261,7 +260,7 @@ nav{
         p{
             display: flex;
             flex-direction: row;
-            
+            align-items: center;
         }
     }
 

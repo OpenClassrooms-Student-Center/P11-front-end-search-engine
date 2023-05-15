@@ -51,9 +51,6 @@ nav input::placeholder {
   margin-left: 10px;
   font-weight: 100;
 }
-nav i {
-  zoom: 1.5;
-}
 nav:hover {
   background-color: #C7BEBE;
 }
@@ -98,6 +95,7 @@ nav:hover {
   margin: auto;
   display: flex;
   flex-direction: row;
+  z-index: 5;
 }
 .filters .dropdowns {
   border-radius: 5px;
@@ -232,7 +230,7 @@ nav:hover {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.description .description-header h2, .description .description-header span {
+.description .description-header h2, .description .description-header p {
   font-size: 1em;
   margin-bottom: 0.1rem;
   font-weight: 300;
@@ -240,6 +238,7 @@ nav:hover {
 .description .description-header p {
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 .description .description-bottom {
   display: flex;
