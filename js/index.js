@@ -39,6 +39,7 @@ chevronUp.forEach(dd =>
         e.target.style.display = "none";
         document.getElementById(e.target.id.split('-')[2] + "-filter").style.width ="auto"
         document.getElementById("ul-" + e.target.id.split('-')[2]).style.display = "none"
+
     }))
 
 
@@ -96,6 +97,7 @@ async function afficheList(nom, eleAffiche){
             
             const li = document.createElement('li')
             li.classList.add(nom + '_open')
+            li.classList.add("col-md-3")
             li.textContent = e
                
             filterList.appendChild(li)  
@@ -128,8 +130,14 @@ async function afficheList(nom, eleAffiche){
 
  function RechercheParTags() {
     //recuperer les trois listes de tags
+
+
     //filtrer la liste des recettes par rapport aux trois listes de tags
+
+
     //bien afficher DisplayRecipes puis Affichlist 
+
+
  }
     
 
