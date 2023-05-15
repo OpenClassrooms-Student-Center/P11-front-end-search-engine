@@ -158,10 +158,10 @@ nav{
         color: white;
         justify-content: left;
         overflow: hidden;
-        
+        z-index: 5;
         
         li{
-            margin: 10px;
+            margin: 4px 12px;
         }
     }
 
@@ -179,6 +179,7 @@ nav{
     #ingredients-filter, #appareils-filter, #ustensils-filter{
         max-height: 75px;
         transition-duration: 0.7s;
+        box-sizing: content-box;
     }
 
     #ingredients-filter{

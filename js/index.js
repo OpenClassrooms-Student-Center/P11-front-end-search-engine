@@ -1,12 +1,14 @@
 const resultsSection = document.querySelector(".results");
 const tagsSection = document.querySelector(".tags-filtres")
 
+const getTags = Array.of(document.getElementsByClassName("tags"))
 
 const ddInputs = Array.from(document.querySelectorAll(".dd-input"))
 const recipesFiltre = recipes
 const chevronUp = Array.from(document.querySelectorAll(".fa-chevron-up"))
 const dropdownsEl = Array.from(document.querySelectorAll(".fa-chevron-down"));
-
+const articleBloc = Array.from(document.getElementsByClassName("article-bloc"))
+let filterList = [];
 
 //console.log(dropdownsEl);
 
@@ -23,7 +25,6 @@ dropdownsEl.forEach(dd =>
 
 
     function ouvreListe(e){
-        console.log(e);
         document.getElementById("chev-up-" + e.id).style.display = "flex";
         document.getElementById(e.id + "-filter").style.maxHeight = "450px"
         e.style.display = "none"
@@ -43,11 +44,6 @@ chevronUp.forEach(dd =>
     }))
 
 
-console.log(ddInputs);
-    
-    
-
-
 //fonction dropdown
 async function dropdown(nom) {
 
@@ -56,33 +52,15 @@ async function dropdown(nom) {
         let filterList = document.getElementById(nom)
         const inputValue = e.target.value
         if(inputValue.length > 1){
-            console.log(inputValue);
-            console.log(tags[nom]); 
+
             let tagsResults = tags[nom].filter(el => el.includes(inputValue.toLowerCase()))
-            console.log(tagsResults);
+
             afficheList(nom, tagsResults)
             ouvreListe(filterList)
-        } else if(true) { //TODO : verifier backspace
+        } else if(true) { //TODO : verifier backspace // DONE 
             afficheList(nom, tags[nom])
         } 
 
-
-
-
-        //console.log(e.target.id);
-        //console.log(eleAffiche);
-
-
-/*         const filtreTexte = (arr, requete) => {
-            console.log(inputValue);
-            return arr.filter(liText =>  liText.toLowerCase().indexOf(requete.toLowerCase()) !== -1);
-            
-            //console.log(li.textContent);
-            //li.textContent === inputValue
-            //const liResults = li.textContent.search(inputValue)
-        }
-
-        filtreTexte(eleAffiche, inputValue); */
     })
     afficheList(nom, tags[nom]);
 }
@@ -107,8 +85,6 @@ async function afficheList(nom, eleAffiche){
             li.addEventListener("click", (el) => {
                 
                 let nameTarget = el.target.textContent;
-                console.log(nameTarget);
-                console.log(tagsSection);
                 let div = document.createElement("div")
                 div.classList.add('tags')
                 div.classList.add(nom + 'Tags')
@@ -119,24 +95,35 @@ async function afficheList(nom, eleAffiche){
                 i.addEventListener("click", (clic) =>{
                     div.remove();
                     //todo : appeler les fonctions de recherche par tags et dans la barre
+                    
                 })
                 div.appendChild(i)
                 tagsSection.appendChild(div)
+                RechercheParTags();
                 
             })
             
         }) //fin du Foreach
 }
 
- function RechercheParTags() {
-    //recuperer les trois listes de tags
+let tagSearch
 
+async function RechercheParTags() {
+    //recuperer les trois listes de tags
+    
+    console.log(getTags);
+    let tagsInsider = Array.from(getTags[0])
+    console.log(tagsInsider)
+    console.log(tags['ingredients']);
 
     //filtrer la liste des recettes par rapport aux trois listes de tags
+    tagsInsider.forEach((tag =>
+    tagSearch = tags.filter(tag => tag.includes(tag.textContent))))
+    
+    console.log(tagSearch);
 
-
-    //bien afficher DisplayRecipes puis Affichlist 
-
+    //bien afficher DisplayRecipes puis Affichelist 
+        displayRecipes(tagSearch)
 
  }
     
@@ -191,7 +178,6 @@ async function displayRecipes(recipesDisplay) {
     
     tags['appareils'].sort()
     tags['ustensils'].sort()
-    //console.log(tags);
     
 };
 

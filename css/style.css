@@ -148,9 +148,10 @@ nav:hover {
   color: white;
   justify-content: left;
   overflow: hidden;
+  z-index: 5;
 }
 .filters .dropdowns .dropdownUl li {
-  margin: 10px;
+  margin: 4px 12px;
 }
 .filters .dropdowns i {
   color: white;
@@ -162,6 +163,7 @@ nav:hover {
 .filters #ingredients-filter, .filters #appareils-filter, .filters #ustensils-filter {
   max-height: 75px;
   transition-duration: 0.7s;
+  box-sizing: content-box;
 }
 .filters #ingredients-filter {
   background-color: #3282F7;
