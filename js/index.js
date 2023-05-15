@@ -110,10 +110,10 @@ let tagSearch
 
 async function RechercheParTags() {
     //recuperer les trois listes de tags
-    console.log(nom);
+    console.log(filterList);
     console.log(getTags[0]);
     let tagsInsider = Array.from(getTags[0])
-    console.log(tags[nom]);
+    
 
     //filtrer la liste des recettes par rapport aux trois listes de tags
     tagsInsider.forEach((tag =>
