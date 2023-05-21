@@ -99,7 +99,7 @@ async function afficheList(nom, eleAffiche) {
 
         //rapporte le listener aux tags
         li.addEventListener("click", (el) => {
-
+            // créer chaue éléments de la liste
             let nameTarget = el.target.textContent;
             let div = document.createElement("div")
             div.classList.add('tags')
@@ -110,7 +110,7 @@ async function afficheList(nom, eleAffiche) {
             i.classList.add("fa-xmark")
             i.addEventListener("click", (clic) => {
                 div.remove();
-                //todo : appeler les fonctions de recherche par tags et dans la barre
+                //appele les fonctions de recherche par tags et dans la barre
                 recipesFiltre = recipes
                 rechercheParTags();
                 displayRecipes(recipesFiltre)
@@ -134,20 +134,16 @@ async function rechercheParTags() {
     console.log(ingredientsTags);
     console.log(ustensilsTags);
     console.log(appareilsTags);
-
-    //let tagsInsider 
-    recipesFiltre = recipesFiltre.filter(recette => recette.ingredients.some(ingredient => ingredient.ingredient.toLowerCase().includes(ingredientsTags)))
-
+    
     //filtrer la liste des recettes par rapport aux trois listes de tags
-
-
+    recipesFiltre = recipesFiltre.filter(recette => recette.ingredients.some(ingredient => ingredient.ingredient.toLowerCase().includes(ingredientsTags)))
+    recipesFiltre = recipesFiltre.filter(recette => recette.ustensils.some(ustensils => ustensils.toLowerCase().includes(ustensilsTags)))
+    recipesFiltre = recipesFiltre.filter(recette => recette.appliance.toLowerCase().includes(appareilsTags))
+    
     console.log(recipesFiltre);
 
     //bien afficher DisplayRecipes puis Affichelist 
     
-
-
-
 }
 
 
