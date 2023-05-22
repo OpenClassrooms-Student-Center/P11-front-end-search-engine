@@ -2,14 +2,15 @@ const resultsSection = document.querySelector(".results");
 const tagsSection = document.querySelector(".tags-filtres")
 
 
-
-
-
 const ddInputs = Array.from(document.querySelectorAll(".dd-input"))
 let recipesFiltre = recipes
 const chevronUp = Array.from(document.querySelectorAll(".fa-chevron-up"))
 const dropdownsEl = Array.from(document.querySelectorAll(".fa-chevron-down"));
 const articleBloc = Array.from(document.getElementsByClassName("article-bloc"))
+
+let ingredientsTags = []
+let appareilsTags = []
+let ustensilsTags = []
 
 
 //console.log(dropdownsEl);
@@ -99,48 +100,60 @@ async function afficheList(nom, eleAffiche) {
 
         //rapporte le listener aux tags
         li.addEventListener("click", (el) => {
-            // créer chaue éléments de la liste
+            //TODO if/else vérifier si l'lélment créé n'est pas dans la catégorie
+                //recuperer les trois listes de tags
+            ingredientsTags = Array.from(document.getElementsByClassName("ingredientsTags")).map(el => el.textContent)
+            appareilsTags = Array.from(document.getElementsByClassName("appareilsTags")).map(el => el.textContent)
+            ustensilsTags = Array.from(document.getElementsByClassName("ustensilsTags")).map(el => el.textContent)
+
             let nameTarget = el.target.textContent;
-            let div = document.createElement("div")
-            div.classList.add('tags')
-            div.classList.add(nom + 'Tags')
-            div.innerText = nameTarget
-            let i = document.createElement("i")
-            i.classList.add("fa-solid")
-            i.classList.add("fa-xmark")
-            i.addEventListener("click", (clic) => {
-                div.remove();
-                //appele les fonctions de recherche par tags et dans la barre
-                recipesFiltre = recipes
+            //verifier si l'element existe
+            
+            if(!(ingredientsTags.includes(nameTarget) || appareilsTags.includes(nameTarget) || ustensilsTags.includes(nameTarget))){
+                let div = document.createElement("div")
+                div.classList.add('tags')
+                div.classList.add(nom + 'Tags')
+                div.innerText = nameTarget
+                let i = document.createElement("i")
+                i.classList.add("fa-solid")
+                i.classList.add("fa-xmark")
+                i.addEventListener("click", (clic) => {
+                    div.remove();
+                    //appele les fonctions de recherche par tags et dans la barre
+                    recipesFiltre = recipes
+                    rechercheParTags();
+                    displayRecipes(recipesFiltre)
+                })
+                div.appendChild(i)
+                tagsSection.appendChild(div)
                 rechercheParTags();
                 displayRecipes(recipesFiltre)
-            })
-            div.appendChild(i)
-            tagsSection.appendChild(div)
-            rechercheParTags();
-            displayRecipes(recipesFiltre)
+            }
+            // créer chaue éléments de la liste
+            
+
         })
 
     }) //fin du Foreach
 }
 
+//async function searchBar
+
 let tagSearch
 
 async function rechercheParTags() {
-    //recuperer les trois listes de tags
-    const ingredientsTags = Array.from(document.getElementsByClassName("ingredientsTags")).map(el => el.textContent)
-    const appareilsTags = Array.from(document.getElementsByClassName("appareilsTags")).map(el => el.textContent)
-    const ustensilsTags = Array.from(document.getElementsByClassName("ustensilsTags")).map(el => el.textContent)
-    console.log(ingredientsTags);
-    console.log(ustensilsTags);
-    console.log(appareilsTags);
+    ingredientsTags = Array.from(document.getElementsByClassName("ingredientsTags")).map(el => el.textContent)
+    appareilsTags = Array.from(document.getElementsByClassName("appareilsTags")).map(el => el.textContent)
+    ustensilsTags = Array.from(document.getElementsByClassName("ustensilsTags")).map(el => el.textContent)
     
     //filtrer la liste des recettes par rapport aux trois listes de tags
-    recipesFiltre = recipesFiltre.filter(recette => recette.ingredients.some(ingredient => ingredient.ingredient.toLowerCase().includes(ingredientsTags)))
-    recipesFiltre = recipesFiltre.filter(recette => recette.ustensils.some(ustensils => ustensils.toLowerCase().includes(ustensilsTags)))
-    recipesFiltre = recipesFiltre.filter(recette => recette.appliance.toLowerCase().includes(appareilsTags))
-    
-    console.log(recipesFiltre);
+
+    recipesFiltre = recipesFiltre.filter(recette => 
+        ingredientsTags.every(tagIng => recette.ingredients.some(ingredient => ingredient.ingredient.toLowerCase().includes(tagIng))) && 
+        ustensilsTags.every(tagUst => recette.ustensils.some(ustensils => ustensils.toLowerCase().includes(tagUst))) &&
+
+        appareilsTags.every(tagApp => recette.appliance.toLowerCase().includes(tagApp)))
+
 
     //bien afficher DisplayRecipes puis Affichelist 
     
