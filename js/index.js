@@ -36,14 +36,12 @@ function ouvreListe(e) {
         document.getElementById(dd.id.split('-')[2]).style.display = "flex";
         document.getElementById(dd.id.split('-')[2] + "-filter").style.maxHeight = "75px"
         dd.style.display = "none";
-        document.getElementById(dd.id.split('-')[2] + "-filter").style.width = "auto"
         document.getElementById("ul-" + dd.id.split('-')[2]).style.display = "none"
     })
     //ouvrir la liste cliquée
     document.getElementById("chev-up-" + e.id).style.display = "flex";
     document.getElementById(e.id + "-filter").style.maxHeight = "450px"
     e.style.display = "none"
-    document.getElementById(e.id + "-filter").style.width = "600px"
 
     document.getElementById("ul-" + e.id).style.display = "flex"
 }
@@ -92,7 +90,7 @@ async function afficheList(nom, eleAffiche) {
 
         const li = document.createElement('li')
         li.classList.add(nom + '_open')
-        li.classList.add("col-md-3")
+        li.classList.add("col-xl-3")
         li.textContent = e
 
         filterList.appendChild(li)

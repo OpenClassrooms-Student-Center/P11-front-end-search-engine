@@ -95,19 +95,25 @@ nav:hover {
 
 .filters {
   margin: auto;
-  display: flex;
+  display: block;
   flex-direction: row;
   z-index: 5;
 }
 .filters .dropdowns {
+  position: absolute;
+  float: left;
   border-radius: 5px;
-  display: column;
+  display: block;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;
   margin-right: 20px;
   transition-duration: 0.5s;
   z-index: 5;
+  overflow: hidden;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -webkit-scrollbar: none;
 }
 .filters .dropdowns:target {
   opacity: 0.8;
@@ -118,7 +124,7 @@ nav:hover {
   flex-wrap: nowrap;
   align-items: center;
   width: 95%;
-  padding: 20px 16px;
+  padding: 20px 10px;
   transition-duration: 0.5s;
 }
 .filters .dropdowns .input_section input {
@@ -150,6 +156,7 @@ nav:hover {
   justify-content: left;
   overflow: hidden;
   z-index: 5;
+  width: 700px;
 }
 .filters .dropdowns .dropdownUl li {
   margin: 4px 12px;
@@ -171,9 +178,11 @@ nav:hover {
 }
 .filters #appareils-filter {
   background-color: #68D9A4;
+  margin-left: 720px;
 }
 .filters #ustensils-filter {
   background-color: #ED6454;
+  margin-left: 800px;
 }
 .filters .ustensils_open, .filters .appareils_open, .filters .ingredients_open {
   color: white;
@@ -184,18 +193,20 @@ nav:hover {
 .results {
   margin: auto;
   padding: 0;
+  padding-top: 60px;
   justify-content: flex-start;
   transition-duration: 0.5s;
 }
 
 .article-bloc {
   margin: 2em 0;
-  text-overflow: ellipsis;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 .article-bloc p {
   margin-bottom: 0.1rem;
   font-weight: 300;
+  text-overflow: ellipsis;
 }
 .article-bloc .img-bloc {
   height: 11em;
@@ -208,6 +219,7 @@ nav:hover {
   padding: 1em;
   border-radius: 0 0 5px 5px;
   height: 11em;
+  text-overflow: ellipsis;
 }
 .description .description-header {
   display: flex;
@@ -254,6 +266,7 @@ nav:hover {
 }
 .description .description-bottom .ingredients-list {
   width: 43%;
+  text-overflow: ellipsis;
 }
 .description .description-bottom .ingredients-list .ingredients-line {
   display: flex;
@@ -269,4 +282,5 @@ nav:hover {
   background-color: 0;
   font-weight: 300;
   margin-left: 2%;
+  text-overflow: ellipsis;
 }
