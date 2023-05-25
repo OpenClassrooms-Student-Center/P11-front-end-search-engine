@@ -33,13 +33,13 @@ function ouvreListe(e) {
     //fermer toutes les listes
     chevronUp.forEach(dd => {
         console.log();
-        document.getElementById(dd.id.split('-')[2]).style.display = "flex";
+        document.getElementById(dd.id.split('-')[2]).style.display = "block";
         document.getElementById(dd.id.split('-')[2] + "-filter").style.maxHeight = "75px"
         dd.style.display = "none";
         document.getElementById("ul-" + dd.id.split('-')[2]).style.display = "none"
     })
     //ouvrir la liste cliquée
-    document.getElementById("chev-up-" + e.id).style.display = "flex";
+    document.getElementById("chev-up-" + e.id).style.display = "block";
     document.getElementById(e.id + "-filter").style.maxHeight = "450px"
     e.style.display = "none"
 
