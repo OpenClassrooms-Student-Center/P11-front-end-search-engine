@@ -61,9 +61,11 @@ nav{
 
 
 .tags-filtres{
-    
+    display: flex;
+    padding: 0 0 1em 0em;
     justify-content: left;
-    padding:0 6em 1em 6em;
+    margin: auto;
+
 }
 .tags{  display: flex;
         align-items: center;
@@ -112,6 +114,7 @@ nav{
         align-items: center;
         margin-right: 20px;
         transition-duration: 0.5s;
+        z-index: 5;
         &:target{
             opacity: 0.8;
         }
