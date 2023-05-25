@@ -137,30 +137,7 @@ async function afficheList(nom, eleAffiche) {
     }) //fin du Foreach
 }
 
-  
-  // fonction de la barre de recherche 
-  function handleSearch() {
-    // Récupérer l'entrée de la searchBar
-    const searchInput = document.getElementById('searchInput');
-    const query = searchInput.value.toLowerCase();
-  
-    // Filtrer les recettes matchées
-    const matchedRecipes = recipesFiltre.filter((recipe) => {
-      const recipeName = recipe.name.toLowerCase();
-      const recipeIngredients = recipe.ingredients.map(ingredient => ingredient.ingredient.toLowerCase());
-      const recipeDescription = recipe.description.toLowerCase();
-      // Check si le terme existe dans la recherche
-      return recipeName.includes(query) || recipeIngredients.includes(query) || recipeDescription.includes(query);
-    });
-  
-    // Affiche la recherche
-    console.log(matchedRecipes);
-    displayRecipes(matchedRecipes)
-  }
-  
-  // la reception de l'entrée
-  const searchInput = document.getElementById('searchInput');
-  searchInput.addEventListener('input', handleSearch);
+
 
 let tagSearch
 
