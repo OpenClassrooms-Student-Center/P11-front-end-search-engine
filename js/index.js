@@ -159,7 +159,7 @@ async function rechercheParTags() {
     
 }
 
-
+  
 
 //montre les recettes en bloc
 async function displayRecipes(recipesDisplay) {
