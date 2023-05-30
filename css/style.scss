@@ -101,14 +101,16 @@ nav{
 .filters{
 
     margin:auto;
-    display: block;
+    display: flex;
     flex-direction: row;
     z-index: 5;
-    
+    position:absolute;
+    margin: auto;
+    left: 2vw;
+
 
     .dropdowns{
-        position:absolute;
-        float: left;
+
         border-radius: 5px;
         display: block;
         flex-direction: row;
@@ -197,17 +199,14 @@ nav{
     }
     #appareils-filter{
         background-color: #68D9A4;
-        margin-left: 720px;
     }
     #ustensils-filter{
         background-color: #ED6454;
-        margin-left:800px
     }
 
     .ustensils_open, .appareils_open, .ingredients_open{
         color: white;
         text-decoration: none;
-        transition-duration: 0.5s;
     }
 
 }
