@@ -99,15 +99,15 @@ async function afficheList(nom, eleAffiche) {
         //rapporte le listener aux tags
         li.addEventListener("click", (el) => {
             //TODO if/else vérifier si l'lélment créé n'est pas dans la catégorie
-                //recuperer les trois listes de tags
+            //recuperer les trois listes de tags
             ingredientsTags = Array.from(document.getElementsByClassName("ingredientsTags")).map(el => el.textContent)
             appareilsTags = Array.from(document.getElementsByClassName("appareilsTags")).map(el => el.textContent)
             ustensilsTags = Array.from(document.getElementsByClassName("ustensilsTags")).map(el => el.textContent)
 
             let nameTarget = el.target.textContent;
             //verifier si l'element existe
-            
-            if(!(ingredientsTags.includes(nameTarget) || appareilsTags.includes(nameTarget) || ustensilsTags.includes(nameTarget))){
+
+            if (!(ingredientsTags.includes(nameTarget) || appareilsTags.includes(nameTarget) || ustensilsTags.includes(nameTarget))) {
                 let div = document.createElement("div")
                 div.classList.add('tags')
                 div.classList.add(nom + 'Tags')
@@ -128,7 +128,7 @@ async function afficheList(nom, eleAffiche) {
                 displayRecipes(recipesFiltre)
             }
             // créer chaue éléments de la liste
-            
+
 
         })
 
@@ -143,18 +143,18 @@ async function rechercheParTags() {
     ingredientsTags = Array.from(document.getElementsByClassName("ingredientsTags")).map(el => el.textContent)
     appareilsTags = Array.from(document.getElementsByClassName("appareilsTags")).map(el => el.textContent)
     ustensilsTags = Array.from(document.getElementsByClassName("ustensilsTags")).map(el => el.textContent)
-    
+
     //filtrer la liste des recettes par rapport aux trois listes de tags
 
-    recipesFiltre = recipesFiltre.filter(recette => 
-        ingredientsTags.every(tagIng => recette.ingredients.some(ingredient => ingredient.ingredient.toLowerCase().includes(tagIng))) && 
+    recipesFiltre = recipesFiltre.filter(recette =>
+        ingredientsTags.every(tagIng => recette.ingredients.some(ingredient => ingredient.ingredient.toLowerCase().includes(tagIng))) &&
         ustensilsTags.every(tagUst => recette.ustensils.some(ustensils => ustensils.toLowerCase().includes(tagUst))) &&
 
         appareilsTags.every(tagApp => recette.appliance.toLowerCase().includes(tagApp)))
 
 
     //bien afficher DisplayRecipes puis Affichelist 
-    
+
 }
 
 
@@ -177,7 +177,7 @@ async function displayRecipes(recipesDisplay) {
 
 
     recipesDisplay.forEach((recipe) => {
-        
+
 
         //remplissage des tableaux
         //console.log(recipe.appliance)
