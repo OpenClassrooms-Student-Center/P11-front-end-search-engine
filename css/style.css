@@ -197,17 +197,14 @@ nav:hover {
   margin: auto;
   padding: 0;
   padding-top: 90px;
-  justify-content: space-between;
+  justify-content: flex-start;
   transition-duration: 0.5s;
-}
-.results:last-child {
-  justify-self: flex-start;
 }
 
 .article-bloc {
   width: 31%;
   padding: 0;
-  margin: 1em 0;
+  margin: 20px 20px 0 0;
   overflow: hidden;
   text-overflow: ellipsis;
 }
