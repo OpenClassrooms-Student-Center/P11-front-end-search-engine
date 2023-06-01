@@ -2,14 +2,15 @@ const resultsSection = document.querySelector(".results");
 const tagsSection = document.querySelector(".tags-filtres")
 
 
-
-
-
 const ddInputs = Array.from(document.querySelectorAll(".dd-input"))
 let recipesFiltre = recipes
 const chevronUp = Array.from(document.querySelectorAll(".fa-chevron-up"))
 const dropdownsEl = Array.from(document.querySelectorAll(".fa-chevron-down"));
 const articleBloc = Array.from(document.getElementsByClassName("article-bloc"))
+
+let ingredientsTags = []
+let appareilsTags = []
+let ustensilsTags = []
 
 
 //console.log(dropdownsEl);
@@ -32,17 +33,15 @@ function ouvreListe(e) {
     //fermer toutes les listes
     chevronUp.forEach(dd => {
         console.log();
-        document.getElementById(dd.id.split('-')[2]).style.display = "flex";
+        document.getElementById(dd.id.split('-')[2]).style.display = "block";
         document.getElementById(dd.id.split('-')[2] + "-filter").style.maxHeight = "75px"
         dd.style.display = "none";
-        document.getElementById(dd.id.split('-')[2] + "-filter").style.width = "auto"
         document.getElementById("ul-" + dd.id.split('-')[2]).style.display = "none"
     })
     //ouvrir la liste cliquée
-    document.getElementById("chev-up-" + e.id).style.display = "flex";
+    document.getElementById("chev-up-" + e.id).style.display = "block";
     document.getElementById(e.id + "-filter").style.maxHeight = "450px"
     e.style.display = "none"
-    document.getElementById(e.id + "-filter").style.width = "600px"
 
     document.getElementById("ul-" + e.id).style.display = "flex"
 }
@@ -91,7 +90,7 @@ async function afficheList(nom, eleAffiche) {
 
         const li = document.createElement('li')
         li.classList.add(nom + '_open')
-        li.classList.add("col-md-3")
+        li.classList.add("col-xl-3")
         li.textContent = e
 
         filterList.appendChild(li)
@@ -99,55 +98,67 @@ async function afficheList(nom, eleAffiche) {
 
         //rapporte le listener aux tags
         li.addEventListener("click", (el) => {
-            // créer chaue éléments de la liste
+            //TODO if/else vérifier si l'lélment créé n'est pas dans la catégorie
+            //recuperer les trois listes de tags
+            ingredientsTags = Array.from(document.getElementsByClassName("ingredientsTags")).map(el => el.textContent)
+            appareilsTags = Array.from(document.getElementsByClassName("appareilsTags")).map(el => el.textContent)
+            ustensilsTags = Array.from(document.getElementsByClassName("ustensilsTags")).map(el => el.textContent)
+
             let nameTarget = el.target.textContent;
-            let div = document.createElement("div")
-            div.classList.add('tags')
-            div.classList.add(nom + 'Tags')
-            div.innerText = nameTarget
-            let i = document.createElement("i")
-            i.classList.add("fa-solid")
-            i.classList.add("fa-xmark")
-            i.addEventListener("click", (clic) => {
-                div.remove();
-                //appele les fonctions de recherche par tags et dans la barre
-                recipesFiltre = recipes
+            //verifier si l'element existe
+
+            if (!(ingredientsTags.includes(nameTarget) || appareilsTags.includes(nameTarget) || ustensilsTags.includes(nameTarget))) {
+                let div = document.createElement("div")
+                div.classList.add('tags')
+                div.classList.add(nom + 'Tags')
+                div.innerText = nameTarget
+                let i = document.createElement("i")
+                i.classList.add("fa-solid")
+                i.classList.add("fa-xmark")
+                i.addEventListener("click", (clic) => {
+                    div.remove();
+                    //appele les fonctions de recherche par tags et dans la barre
+                    recipesFiltre = recipes
+                    rechercheParTags();
+                    displayRecipes(recipesFiltre)
+                })
+                div.appendChild(i)
+                tagsSection.appendChild(div)
                 rechercheParTags();
                 displayRecipes(recipesFiltre)
-            })
-            div.appendChild(i)
-            tagsSection.appendChild(div)
-            rechercheParTags();
-            displayRecipes(recipesFiltre)
+            }
+            // créer chaue éléments de la liste
+
+
         })
 
     }) //fin du Foreach
 }
 
+
+
 let tagSearch
 
 async function rechercheParTags() {
-    //recuperer les trois listes de tags
-    const ingredientsTags = Array.from(document.getElementsByClassName("ingredientsTags")).map(el => el.textContent)
-    const appareilsTags = Array.from(document.getElementsByClassName("appareilsTags")).map(el => el.textContent)
-    const ustensilsTags = Array.from(document.getElementsByClassName("ustensilsTags")).map(el => el.textContent)
-    console.log(ingredientsTags);
-    console.log(ustensilsTags);
-    console.log(appareilsTags);
-    
+    ingredientsTags = Array.from(document.getElementsByClassName("ingredientsTags")).map(el => el.textContent)
+    appareilsTags = Array.from(document.getElementsByClassName("appareilsTags")).map(el => el.textContent)
+    ustensilsTags = Array.from(document.getElementsByClassName("ustensilsTags")).map(el => el.textContent)
+
     //filtrer la liste des recettes par rapport aux trois listes de tags
-    recipesFiltre = recipesFiltre.filter(recette => recette.ingredients.some(ingredient => ingredient.ingredient.toLowerCase().includes(ingredientsTags)))
-    recipesFiltre = recipesFiltre.filter(recette => recette.ustensils.some(ustensils => ustensils.toLowerCase().includes(ustensilsTags)))
-    recipesFiltre = recipesFiltre.filter(recette => recette.appliance.toLowerCase().includes(appareilsTags))
-    
-    console.log(recipesFiltre);
+
+    recipesFiltre = recipesFiltre.filter(recette =>
+        ingredientsTags.every(tagIng => recette.ingredients.some(ingredient => ingredient.ingredient.toLowerCase().includes(tagIng))) &&
+        ustensilsTags.every(tagUst => recette.ustensils.some(ustensils => ustensils.toLowerCase().includes(tagUst))) &&
+
+        appareilsTags.every(tagApp => recette.appliance.toLowerCase().includes(tagApp)))
+
 
     //bien afficher DisplayRecipes puis Affichelist 
-    
+
 }
 
 // fonction de la barre de recherche 
-async function handleSearch() {
+async function handleSearch(recipesDisplay) {
 
     resultsSection.innerText = ''
     let appliances = [];
@@ -200,7 +211,9 @@ async function handleSearch() {
   
   // Example usage: Attach the handleSearch function to the input field's "input" event
   const searchInput = document.getElementById('searchInput');
-  searchInput.addEventListener('input', handleSearch)
+  searchInput.addEventListener('input', handleSearch);
+
+
 
 
 
@@ -222,7 +235,7 @@ async function displayRecipes(recipesDisplay) {
 
 
     recipesDisplay.forEach((recipe) => {
-        
+
 
         //remplissage des tableaux
         //console.log(recipe.appliance)
