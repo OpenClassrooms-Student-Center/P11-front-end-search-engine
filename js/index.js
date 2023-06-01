@@ -146,6 +146,63 @@ async function rechercheParTags() {
     
 }
 
+// fonction de la barre de recherche 
+async function handleSearch() {
+
+    resultsSection.innerText = ''
+    let appliances = [];
+    let ustensils = []
+    let ingredients = [];
+
+    tags['ustensils'] = [];
+    //console.log(tags['ustensils']);
+    tags['appareils'] = [];
+
+    tags['ingredients'] = [];
+    // Récupérer l'entrée de la searchBar
+    const searchInput = document.getElementById('searchInput');
+    const query = searchInput.value.toLowerCase();
+  
+    // Tableau pour les recettes 
+    const matchedRecipes = [];
+  
+    // Boucle sur chaque recette
+    for (let i = 0; i < recipesFiltre.length; i++) {
+      const recipe = recipesFiltre[i];
+      const recipeName = recipe.name.toLowerCase();
+      const recipeIngredients = recipe.ingredients.map(ingredient => ingredient.ingredient.toLowerCase());
+      const recipeDescription = recipe.description.toLowerCase();
+      
+      // Check si le terme existe dans la recherche
+      if (recipeName.includes(query) || recipeIngredients.includes(query) || recipeDescription.includes(query)) {
+        matchedRecipes.push(recipe);
+	    const recipeEngine = recipesFactory(recipe);
+        const recipeDOM = recipeEngine.getRecipeDOM();
+        resultsSection.appendChild(recipeDOM);
+
+      } 
+    }
+  
+    // affiche les recettes
+    tags['ingredients'] = [...new Set(ingredients)];
+    tags['appareils'] = [...new Set(appliances)];
+    tags['ustensils'] = [...new Set(ustensils)];
+
+    tags['ingredients'].sort()
+
+    tags['appareils'].sort()
+    tags['ustensils'].sort()
+
+    afficheList('ingredients', tags['ingredients'])
+    afficheList('ustensils', tags['ustensils'])
+    afficheList('appareils', tags['appareils'])
+  }
+  
+  // Example usage: Attach the handleSearch function to the input field's "input" event
+  const searchInput = document.getElementById('searchInput');
+  searchInput.addEventListener('input', handleSearch)
+
+
 
 //montre les recettes en bloc
 async function displayRecipes(recipesDisplay) {

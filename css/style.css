@@ -181,12 +181,23 @@ nav:hover {
 .results {
   margin: auto;
   padding: 0;
+<<<<<<< Updated upstream
+=======
+  padding-top: 90px;
+>>>>>>> Stashed changes
   justify-content: flex-start;
   transition-duration: 0.5s;
 }
 
 .article-bloc {
+<<<<<<< Updated upstream
   margin: 2em 0;
+=======
+  width: 31%;
+  padding: 0;
+  margin: 20px 20px 0 0;
+  overflow: hidden;
+>>>>>>> Stashed changes
   text-overflow: ellipsis;
   overflow: hidden;
 }

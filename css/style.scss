@@ -202,6 +202,7 @@ nav{
 .results{
     margin:auto;
     padding: 0;
+<<<<<<< Updated upstream
     justify-content: flex-start;
     transition-duration: 0.5s;
 }
@@ -209,6 +210,20 @@ nav{
 .article-bloc{
 
     margin: 2em 0;
+=======
+    padding-top: 90px;
+    justify-content: flex-start;
+    transition-duration: 0.5s;
+
+}
+
+.article-bloc {
+    width: 31%;
+    padding: 0;
+    margin: 20px 20px 0 0;
+
+    overflow: hidden;
+>>>>>>> Stashed changes
     text-overflow: ellipsis;
     overflow: hidden;
     
