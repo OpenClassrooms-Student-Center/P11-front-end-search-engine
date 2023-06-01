@@ -76,7 +76,7 @@ nav{
         height: 45px;
         padding:6px 16px;
         width: auto;
-        margin: 0 0.5em;
+        margin: 0 1em 0 0;
         color: white;
 
         i{
@@ -99,14 +99,18 @@ nav{
 
     
 .filters{
-
-    margin:auto;
     display: flex;
     flex-direction: row;
     z-index: 5;
     position:absolute;
-    margin: auto;
-    left: 2vw;
+    left: -25px;
+    right:0;
+
+  
+    margin-left: auto;
+    margin-right: auto;
+  
+
 
 
     .dropdowns{
@@ -214,14 +218,18 @@ nav{
 .results{
     margin:auto;
     padding: 0;
-    padding-top: 60px;
-    justify-content: flex-start;
+    padding-top: 90px;
+    justify-content: space-between;
     transition-duration: 0.5s;
+    &:last-child{
+        justify-self: flex-start;
+    }
 }
 
 .article-bloc{
-
-    margin: 2em 0;
+    width: 31%;
+    padding: 0;
+    margin: 1em 0;
     overflow: hidden;
     text-overflow: ellipsis;
 
