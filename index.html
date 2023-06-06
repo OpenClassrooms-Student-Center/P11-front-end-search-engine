@@ -17,56 +17,61 @@
     </header>
 
     <nav class="container-xl justify-content-between">
-        <input type="searchbar" id="searchInput" placeholder="Rechercher une recette">
-        
+        <input type="searchbar" placeholder="Rechercher une recette" id="searchInput">
+
         </input>
         <i class="fa-sharp fa-solid fa-magnifying-glass"></i>
     </nav>
-    <section class="conatiner-xl row tags-filtres"></section>
+    <section class="container-xl tags-filtres">
+
+    </section>
 
     <section class="container-xl filters">
         <div class="dropdowns" id="ingredients-filter">
             <div class="input_section">
-               
-                <input class="dd-input" id="in-ingredients" type="text" placeholder="Ingredients"></input><i class="fa-solid fa-chevron-down" id="ingredients"></i><i class="fa-solid fa-chevron-up" id="chev-up-ingredients"></i>
+
+                <input class="dd-input" id="in-ingredients" type="text" placeholder="Ingredients"></input><i
+                    class="fa-solid fa-chevron-down" id="ingredients"></i><i class="fa-solid fa-chevron-up"
+                    id="chev-up-ingredients"></i>
             </div>
 
             <ul class="dropdownUl" id="ul-ingredients">
-                
+
             </ul>
         </div>
         <div class="dropdowns" id="appareils-filter">
             <div class="input_section">
-                <input class="dd-input" id="in-appareils" placeholder="Appareils"><i class="fa-solid fa-chevron-down" id="appareils"></i><i class="fa-solid fa-chevron-up" id="chev-up-appareils"></i></input>
+                <input class="dd-input" id="in-appareils" placeholder="Appareils"><i class="fa-solid fa-chevron-down"
+                    id="appareils"></i><i class="fa-solid fa-chevron-up" id="chev-up-appareils"></i></input>
             </div>
 
             <ul class="dropdownUl" id="ul-appareils">
-                
+
             </ul>
         </div>
         <div class="dropdowns" id="ustensils-filter">
             <div class="input_section">
-                <input class="dd-input" id="in-ustensils" placeholder="Ustentiles"><i class="fa-solid fa-chevron-down" id="ustensils"></i><i class="fa-solid fa-chevron-up" id="chev-up-ustensils"></i></input>
+                <input class="dd-input" id="in-ustensils" placeholder="Ustentiles"><i class="fa-solid fa-chevron-down"
+                    id="ustensils"></i><i class="fa-solid fa-chevron-up" id="chev-up-ustensils"></i></input>
             </div>
 
             <ul class="dropdownUl" id="ul-ustensils">
 
             </ul>
         </div>
-        
+
     </section>
     <section class="container-xl row flex-wrap results">
-        
+
     </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous">
-    </script>
-   <script src="./recipes.js"></script>
-   <script src="./js/factory/recipeFactory.js"></script>
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+        </script>
+    <script src="./recipes.js"></script>
+    <script src="./js/factory/recipeFactory.js"></script>
     <script src="js/index.js"></script>
 
-        
+
 
 </body>
 

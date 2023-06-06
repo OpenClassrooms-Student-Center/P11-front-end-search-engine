@@ -56,8 +56,10 @@ nav:hover {
 }
 
 .tags-filtres {
+  display: flex;
+  padding: 0 0 1em 0em;
   justify-content: left;
-  padding: 0 6em 1em 6em;
+  margin: auto;
 }
 
 .tags {
@@ -70,7 +72,7 @@ nav:hover {
   height: 45px;
   padding: 6px 16px;
   width: auto;
-  margin: 0 0.5em;
+  margin: 0 1em 0 0;
   color: white;
 }
 .tags i {
@@ -92,19 +94,28 @@ nav:hover {
 }
 
 .filters {
-  margin: auto;
   display: flex;
   flex-direction: row;
   z-index: 5;
+  position: absolute;
+  left: -25px;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 .filters .dropdowns {
   border-radius: 5px;
-  display: column;
+  display: block;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;
   margin-right: 20px;
   transition-duration: 0.5s;
+  z-index: 5;
+  overflow: hidden;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -webkit-scrollbar: none;
 }
 .filters .dropdowns:target {
   opacity: 0.8;
@@ -115,7 +126,7 @@ nav:hover {
   flex-wrap: nowrap;
   align-items: center;
   width: 95%;
-  padding: 20px 16px;
+  padding: 20px 10px;
   transition-duration: 0.5s;
 }
 .filters .dropdowns .input_section input {
@@ -147,6 +158,7 @@ nav:hover {
   justify-content: left;
   overflow: hidden;
   z-index: 5;
+  width: 700px;
 }
 .filters .dropdowns .dropdownUl li {
   margin: 4px 12px;
@@ -158,7 +170,9 @@ nav:hover {
   display: none;
   transition-duration: 1.5s;
 }
-.filters #ingredients-filter, .filters #appareils-filter, .filters #ustensils-filter {
+.filters #ingredients-filter,
+.filters #appareils-filter,
+.filters #ustensils-filter {
   max-height: 75px;
   transition-duration: 0.7s;
   box-sizing: content-box;
@@ -172,10 +186,11 @@ nav:hover {
 .filters #ustensils-filter {
   background-color: #ED6454;
 }
-.filters .ustensils_open, .filters .appareils_open, .filters .ingredients_open {
+.filters .ustensils_open,
+.filters .appareils_open,
+.filters .ingredients_open {
   color: white;
   text-decoration: none;
-  transition-duration: 0.5s;
 }
 
 .results {
@@ -192,11 +207,11 @@ nav:hover {
   margin: 20px 20px 0 0;
   overflow: hidden;
   text-overflow: ellipsis;
-  overflow: hidden;
 }
 .article-bloc p {
   margin-bottom: 0.1rem;
   font-weight: 300;
+  text-overflow: ellipsis;
 }
 .article-bloc .img-bloc {
   height: 11em;
@@ -209,6 +224,7 @@ nav:hover {
   padding: 1em;
   border-radius: 0 0 5px 5px;
   height: 11em;
+  text-overflow: ellipsis;
 }
 .description .description-header {
   display: flex;
@@ -234,7 +250,8 @@ nav:hover {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.description .description-header h2, .description .description-header p {
+.description .description-header h2,
+.description .description-header p {
   font-size: 1em;
   margin-bottom: 0.1rem;
   font-weight: 300;
@@ -255,6 +272,7 @@ nav:hover {
 }
 .description .description-bottom .ingredients-list {
   width: 43%;
+  text-overflow: ellipsis;
 }
 .description .description-bottom .ingredients-list .ingredients-line {
   display: flex;
@@ -270,4 +288,5 @@ nav:hover {
   background-color: 0;
   font-weight: 300;
   margin-left: 2%;
+  text-overflow: ellipsis;
 }

@@ -217,6 +217,7 @@ async function handleSearch(recipesDisplay) {
 
 
 
+
 //montre les recettes en bloc
 async function displayRecipes(recipesDisplay) {
     //tableaux vides
