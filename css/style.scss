@@ -1,0 +1,345 @@
+$font-background-bot: #E7E7E7;
+$font-background-top: #C7BEBE;
+
+body {
+    scroll-behavior: smooth;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 2em 1em 1em 1em;
+
+    img {
+        margin: 0 auto;
+    }
+}
+
+ul {
+    list-style-type: none;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1em 3em;
+    box-sizing: border-box;
+
+    height: 55px;
+    padding: 6px;
+    transition-duration: 0.5s;
+    background-color: $font-background-bot;
+    border: none;
+    border-radius: 5px;
+
+    input {
+        border: none;
+        background: none;
+        width: 90%;
+        height: 40px;
+
+        &::placeholder {
+            margin-left: 10px;
+            font-weight: 100;
+        }
+
+
+    }
+
+
+
+    &:hover {
+        background-color: #C7BEBE;
+    }
+
+}
+
+
+.tags-filtres {
+    display: flex;
+    padding: 0 0 1em 0em;
+    justify-content: left;
+    margin: auto;
+
+}
+
+.tags {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+    border-radius: 5px;
+    background: none;
+    height: 45px;
+    padding: 6px 16px;
+    width: auto;
+    margin: 0 1em 0 0;
+    color: white;
+
+    i {
+        color: white;
+        margin: 0 5px 0 10px;
+        padding: 5px;
+    }
+}
+
+.ustensilsTags {
+    background-color: #ED6454;
+}
+
+.ingredientsTags {
+    background-color: #3282F7;
+
+}
+
+.appareilsTags {
+    background-color: #68D9A4;
+
+}
+
+
+.filters {
+    display: flex;
+    flex-direction: row;
+    z-index: 5;
+    position: absolute;
+    left: -25px;
+    right: 0;
+
+
+    margin-left: auto;
+    margin-right: auto;
+
+    .dropdowns {
+
+        border-radius: 5px;
+        display: block;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        margin-right: 20px;
+        transition-duration: 0.5s;
+        z-index: 5;
+        overflow: hidden;
+        overflow-y: auto;
+        scrollbar-width: none;
+        -webkit-scrollbar: none;
+
+        &:target {
+            opacity: 0.8;
+        }
+
+        .input_section {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            align-items: center;
+            width: 95%;
+            padding: 20px 10px;
+
+            transition-duration: 0.5s;
+
+            input {
+                border: none;
+                background: none;
+                height: 35px;
+                width: 100%;
+                margin: 0 0.5em;
+
+
+                color: white;
+
+                &:hover {
+                    border: none;
+                }
+
+                &::placeholder {
+                    color: white;
+                    font-weight: 600;
+                    opacity: 1;
+                }
+
+            }
+
+
+        }
+
+        .dropdownUl {
+            display: none;
+            flex-wrap: wrap;
+            flex-direction: row;
+            color: white;
+            justify-content: left;
+            overflow: hidden;
+            z-index: 5;
+            width: 700px;
+
+            li {
+                margin: 4px 12px;
+            }
+        }
+
+        i {
+            color: white;
+        }
+
+    }
+
+    .fa-chevron-up {
+        display: none;
+        transition-duration: 1.5s;
+    }
+
+    #ingredients-filter,
+    #appareils-filter,
+    #ustensils-filter {
+        max-height: 75px;
+        transition-duration: 0.7s;
+        box-sizing: content-box;
+    }
+
+    #ingredients-filter {
+        background-color: #3282F7;
+    }
+
+    #appareils-filter {
+        background-color: #68D9A4;
+    }
+
+    #ustensils-filter {
+        background-color: #ED6454;
+    }
+
+    .ustensils_open,
+    .appareils_open,
+    .ingredients_open {
+        color: white;
+        text-decoration: none;
+    }
+
+}
+
+.results {
+    margin: auto;
+    padding: 0;
+    padding-top: 90px;
+    justify-content: flex-start;
+    transition-duration: 0.5s;
+
+}
+
+.article-bloc {
+    width: 31%;
+    padding: 0;
+    margin: 20px 20px 0 0;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+
+    p {
+        margin-bottom: 0.1rem;
+        font-weight: 300;
+        text-overflow: ellipsis;
+    }
+
+    .img-bloc {
+        height: 11em;
+        background-color: $font-background-top;
+        border-radius: 5px 5px 0 0;
+    }
+}
+
+.description {
+    background-color: $font-background-bot;
+    padding: 1em;
+    border-radius: 0 0 5px 5px;
+    height: 11em;
+    text-overflow: ellipsis;
+
+    .description-header {
+        display: flex;
+        flex-direction: row;
+        font-size: 1em;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+        white-space: nowrap;
+
+        i {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            height: 20px;
+            font-weight: 500;
+            margin-right: 0.3em;
+        }
+
+        h2 {
+            width: 75%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        h2,
+        p {
+            font-size: 1em;
+            margin-bottom: 0.1rem;
+            font-weight: 300;
+        }
+
+        p {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+    }
+
+    .description-bottom {
+        display: flex;
+        flex-direction: row;
+        font-size: 0.7em;
+        height: 70%;
+        -o-text-overflow: clip;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+
+        .ingredients-list {
+            width: 43%;
+            text-overflow: ellipsis;
+
+            .ingredients-line {
+                display: flex;
+                flex-direction: row;
+                justify-content: stretch;
+                font-size: 10px;
+
+                .p1 {
+                    font-weight: 500;
+
+                }
+            }
+        }
+
+        .description-text {
+            width: 53%;
+            background-color: red($color: #000000);
+            font-weight: 300;
+            margin-left: 2%;
+            text-overflow: ellipsis;
+        }
+    }
+}
